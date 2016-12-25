@@ -2,16 +2,48 @@ package com.beanbook.model;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "knjiga")
 public class Book {
+
+	@Id
+	@Column(name = "ISBN")
 	private Long isbn;
+
+	@Column(name = "Naziv", length = 100, nullable = false)
 	private String title;
+
+	@Column(name = "Opis", columnDefinition = "TEXT")
 	private String description;
+
+	@Column(name = "Dostupno_komada", nullable = false)
 	private Integer booksInStock;
+
+	@Column(name = "Format", length = 15, nullable = false)
 	private String format;
+
+	@Column(name = "Broj_strana", nullable = false)
 	private Integer numberOfPages;
+
+	@Column(name = "Godina_izdanja", nullable = false)
 	private Date publicationYear;
+
+	@Column(name = "Cena", nullable = false)
 	private Double price;
+
+	@Column(name = "Na_popustu")
 	private Integer discount;
+
+	@ManyToOne
+	@JoinColumn(name = "Izdavac_ID_izdavaca")
 	private Publisher publisher;
 
 	public Long getIsbn() {

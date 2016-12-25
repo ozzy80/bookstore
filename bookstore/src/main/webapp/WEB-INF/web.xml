@@ -3,6 +3,18 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+	<context-param>
+	    <param-name>contextConfigLocation</param-name>
+	    <param-value>/WEB-INF/dispatcher-servlet.xml,
+	    			/WEB-INF/applicationContext.xml
+	    </param-value>
+	</context-param>
+	
+	
 	<!-- Processes application requests -->
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
