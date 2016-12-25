@@ -5,7 +5,7 @@
 <head>
 	<title>CSS Free Templates with jQuery Slider</title>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="css/images/favicon.ico" />
+	<link rel="shortcut icon" href="<c:url value="css/images/favicon.ico" />" />
 	<link rel="stylesheet" href="<c:url value="resources/css/style.css" />" type="text/css" media="all" />
 	<script type="text/javascript" src="<c:url value="resources/js/jquery-1.6.2.min.js" />"></script>
 	<script type="text/javascript" src="<c:url value="resources/js/jquery.jcarousel.min.js" />"></script>
@@ -34,7 +34,7 @@
 		<div class="cl">&nbsp;</div>
 		<!-- Login-details -->
 		<div id="login-details">
-			<p>Welcome, <a href="#" id="user">Guest</a> .</p><p><a href="#" class="cart" ><img src="css/images/cart-icon.png" alt="" /></a>Shopping Cart (0) <a href="#" class="sum">$0.00</a></p>
+			<p>Welcome, <a href="#" id="user">Guest</a> .</p><p><a href="#" class="cart" ><img src="resources/css/images/cart-icon.png" alt="" /></a>Shopping Cart (0) <a href="#" class="sum">$0.00</a></p>
 		</div>
 		<!-- End Login-details -->
 	</div>
