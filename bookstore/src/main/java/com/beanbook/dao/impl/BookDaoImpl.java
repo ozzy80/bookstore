@@ -47,9 +47,9 @@ public class BookDaoImpl implements BookDao{
 	}
 
 	@Override
-	public void deleteBook(Long ISBN) {
+	public void deleteBook(Book book) {
 		Session session = sessionFactory.getCurrentSession();
-		session.delete(getBookByISBN(ISBN));
+		session.delete(book);
 		session.flush();
 	}
 

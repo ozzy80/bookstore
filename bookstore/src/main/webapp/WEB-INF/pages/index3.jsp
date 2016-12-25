@@ -6,8 +6,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="<c:url value="resources/css/bootstrap.min.css" />" >
-<script type="text/javascript" src="<c:url value="resources/js/bootstrap.min.js" />"></script>
+<link rel="stylesheet" type="text/css" href="<c:url value="../resources/css/bootstrap.min.css" />" >
+<script type="text/javascript" src="<c:url value="../resources/js/bootstrap.min.js" />"></script>
 
 <title>Insert title here</title>
 </head>
@@ -24,10 +24,8 @@
 	           <th>Cena</th>
 	           <th>Izdavac</th>
 	           <th>Slika</th>
-	           <th>Info</th>
 	        </tr>    
 		</thead>
-		<c:forEach items="${books}" var="book">
 			<tr>
 				<td>${book.isbn}</td>
 				<td>${book.title}</td>
@@ -38,9 +36,7 @@
 				<td>${book.price}</td>
 				<td>${book.publisher.name}</td>
 				<td><img alt="slika" src=""></td>
-				<td><a href='<c:out value="books/${book.isbn}" />'><span class="glyphicon glyphicon-info-sign"></span></a></td>
 			</tr>
-		</c:forEach>
 	</table>
 </body>
 </html>

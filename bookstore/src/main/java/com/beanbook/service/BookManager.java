@@ -1,10 +1,10 @@
-package com.beanbook.dao;
+package com.beanbook.service;
 
 import java.util.List;
 
 import com.beanbook.model.Book;
 
-public interface BookDao {
+public interface BookManager {
 	
 	void addBook(Book book);
 	
@@ -12,5 +12,5 @@ public interface BookDao {
 	
 	Book getBookByISBN(Long ISBN);
 	
-	void deleteBook(Book book);
+	void deleteBook(Long ISBN);
 }
