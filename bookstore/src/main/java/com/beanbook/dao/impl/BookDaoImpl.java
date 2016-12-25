@@ -15,19 +15,19 @@ import com.beanbook.model.Book;
 
 @Repository
 @Transactional
-public class BookDaoImpl implements BookDao{
+public class BookDaoImpl implements BookDao {
 
 	@Autowired
 	public SessionFactory sessionFactory;
-	
+
 	@Override
 	public List<Book> getAllBooks() {
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("from Book");
 		List<Book> bookList = query.list();
 		session.flush();
-		
-		return bookList;	
+
+		return bookList;
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class BookDaoImpl implements BookDao{
 		Session session = sessionFactory.getCurrentSession();
 		Book book = (Book) session.get(Book.class, ISBN);
 		session.flush();
-		
+
 		return book;
 	}
 
@@ -53,5 +53,4 @@ public class BookDaoImpl implements BookDao{
 		session.flush();
 	}
 
-	
 }

@@ -16,28 +16,26 @@ public class Hello {
 
 	@Autowired
 	private BookDao bookDao;
-	
-	@RequestMapping(value="/")
-	public String home(){
+
+	@RequestMapping(value = "/")
+	public String home() {
 		return "index";
 	}
-	
-	@RequestMapping(value="/books")
-	public String getAllBooks(Model model){
+
+	@RequestMapping(value = "/books")
+	public String getAllBooks(Model model) {
 		List<Book> bookList = bookDao.getAllBooks();
 		model.addAttribute("books", bookList);
-		
+
 		return "index2";
 	}
-	
-	@RequestMapping(value="/books/{isbn}")
-	public String getBookByISBN(Model model, @PathVariable("isbn") Long isbn){
+
+	@RequestMapping(value = "/books/{isbn}")
+	public String getBookByISBN(Model model, @PathVariable("isbn") Long isbn) {
 		Book book = bookDao.getBookByISBN(isbn);
 		model.addAttribute("book", book);
-		
+
 		return "index3";
 	}
-		
-	
-	
+
 }

@@ -10,11 +10,11 @@ import com.beanbook.model.Book;
 import com.beanbook.service.BookManager;
 
 @Service
-public class BookManagerImpl implements BookManager{
+public class BookManagerImpl implements BookManager {
 
 	@Autowired
 	private BookDao bookDao;
-	
+
 	@Override
 	public void addBook(Book book) {
 		bookDao.addBook(book);
@@ -33,7 +33,7 @@ public class BookManagerImpl implements BookManager{
 	@Override
 	public void deleteBook(Long ISBN) {
 		bookDao.deleteBook(bookDao.getBookByISBN(ISBN));
-		
+
 	}
 
 }
