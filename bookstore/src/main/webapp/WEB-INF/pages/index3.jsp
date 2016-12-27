@@ -22,6 +22,7 @@
 	           <th>Strana</th>
 	           <th>Godina izdanja</th>
 	           <th>Cena</th>
+	           <th>popustu</th>
 	           <th>Izdavac</th>
 	           <th>Slika</th>
 	        </tr>    
@@ -34,9 +35,11 @@
 				<td>${book.numberOfPages}</td>
 				<td>${book.publicationYear}</td>
 				<td>${book.price}</td>
+				<td>${book.discount}</td>
 				<td>${book.publisher.name}</td>
 				<td><img alt="slika" src=""></td>
 			</tr>
 	</table>
+	<pre>${book.description}</pre>
 </body>
 </html>
