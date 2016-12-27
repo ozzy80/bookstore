@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
+import com.beanbook.model.Author;
 import com.beanbook.model.Book;
 import com.beanbook.service.BookManager;
 import com.beanbook.service.PublisherManager;
+import com.beanbook.service.AuthorManager;
 
 @Controller
 public class Hello {
@@ -23,6 +24,9 @@ public class Hello {
 
 	@Autowired
 	private PublisherManager publisherManager;
+	
+	@Autowired
+	private AuthorManager authorManager;
 
 	@RequestMapping(value = "/")
 	public String home() {
@@ -48,7 +52,7 @@ public class Hello {
 	@RequestMapping(value = "/books/add")
 	public String addBook(Model model) {
 		model.addAttribute("book", new Book());
-		return "add";
+		return "add_book";
 	}
 
 	@RequestMapping(value = "/books/add/new", method = RequestMethod.POST)
@@ -57,12 +61,42 @@ public class Hello {
 		bookManager.addBook(book);
 		return "redirect:/books";
 	}
+	
+	@RequestMapping(value="/authors/add")
+	public String addAuthor(Model model)
+	{
+		model.addAttribute("author",new Author());
+		return "add_author";
+	}
+	
+	@RequestMapping(value = "/authors/add/new" , method=RequestMethod.POST)
+	public String addAuthor(@ModelAttribute("author") Author author)
+	{
+		authorManager.addAuthor(author);
+		return "redirect:/authors/1";
+	}
 
 	@RequestMapping(value = "/books/del/{isbn}")
-	public String addBook(@PathVariable("isbn") Long isbn) {
+	public String deleteBook(@PathVariable("isbn") Long isbn) {
 		bookManager.deleteBook(isbn);
 		;
 		return "redirect:/books";
 	}
 
+	@RequestMapping(value = "/authors/del/{idAutora}")
+	public String deleteAuthor(@PathVariable("idAutora") Integer id_autora)
+	{
+		authorManager.deleteAuthor(id_autora);
+		return "redirect:/books";
+	}
+	
+	@RequestMapping(value = "/authors/{idAutora}")
+	public String getAuthorByID(Model model, @PathVariable("idAutora") Integer id_autora)
+	{
+		Author author = authorManager.getAuthorByID(id_autora);
+		model.addAttribute("author",author);
+		return "index4";
+		
+	}
+	
 }
