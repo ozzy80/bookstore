@@ -8,6 +8,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "knjiga")
@@ -44,6 +47,17 @@ public class Book {
 	@ManyToOne
 	@JoinColumn(name = "Izdavac_ID_izdavaca")
 	private Publisher publisher;
+
+	@Transient
+	private MultipartFile bookImage;
+	
+	public MultipartFile getBookImage() {
+		return bookImage;
+	}
+
+	public void setBookImage(MultipartFile bookImage) {
+		this.bookImage = bookImage;
+	}
 
 	public Long getIsbn() {
 		return isbn;

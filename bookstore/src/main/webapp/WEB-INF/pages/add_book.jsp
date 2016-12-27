@@ -9,7 +9,7 @@
 <title>Dodavanje knjige</title>
 </head>
 <body>
-	<form:form action="add/new" method="post" commandName="book">
+	<form:form action="add/new" method="post" commandName="book" enctype="multipart/form-data">
 		<div class="form-group">
 			<label for="isbn">ISBN</label>
 			<form:input path="isbn" id="isbn" class="form-Controlor"/>
@@ -45,6 +45,10 @@
 		<div class="form-group">
 			<label for="discount">Discount</label>
 			<form:input path="discount" id="discount" class="form-Controlor"/>
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="bookImage">Upload picture</label>
+			<form:input path="bookImage" id="bookImage" type="file" class="form:input-large"/>
 		</div>
 		<input type="submit" value="submit" class="btn btn-default">
 	</form:form>

@@ -37,7 +37,7 @@
 				<td>${book.publicationYear}</td>
 				<td>${book.price}</td>
 				<td>${book.publisher.name}</td>
-				<td><img alt="slika" src=""></td>
+				<td><img alt="slika" src='<c:url value="resources/images/${book.publisher.name}/${book.title}-${book.isbn}.jpg" />'></td>
 				<td>
 					<a href='<c:out value="books/${book.isbn}" />'><span class="glyphicon glyphicon-info-sign"></span></a>
 					<a href='<c:out value="books/del/${book.isbn}" />'><span class="glyphicon glyphicon-remove"></span></a>	
