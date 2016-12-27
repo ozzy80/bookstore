@@ -10,12 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.beanbook.dao.BookDao;
 import com.beanbook.model.Book;
+import com.beanbook.service.BookManager;
 
 @Controller
 public class Hello {
 
 	@Autowired
-	private BookDao bookDao;
+	private BookManager bookDao;
 
 	@RequestMapping(value = "/")
 	public String home() {
