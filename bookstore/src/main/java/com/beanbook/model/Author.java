@@ -1,11 +1,15 @@
 package com.beanbook.model;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "autor")
@@ -25,6 +29,10 @@ public class Author {
 	@Column(name = "Opis", columnDefinition = "TEXT")
 	private String description;
 
+	@Transient
+	private MultipartFile authorImage;
+	
+	
 	public Integer getAuthorId() {
 		return authorId;
 	}
@@ -51,6 +59,14 @@ public class Author {
 
 	public String getDescription() {
 		return description;
+	}
+
+	public MultipartFile getAuthorImage() {
+		return authorImage;
+	}
+
+	public void setAuthorImage(MultipartFile authorImage) {
+		this.authorImage = authorImage;
 	}
 
 	public void setDescription(String description) {

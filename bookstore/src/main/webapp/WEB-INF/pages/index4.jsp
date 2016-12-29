@@ -19,6 +19,7 @@
 	           <th>Ime</th>
 	           <th>Prezime</th>
 	           <th>Opis</th>
+	           <th>Slika</th>
 	        </tr>    
 		</thead>
 			<tr>
@@ -26,10 +27,14 @@
 				<td>${author.firstName}</td>
 				<td>${author.lastName}</td>
 				<td>${author.description}</td>
-				
+				<td><img alt="slika" src='<c:url value="resources/images/${author.firstName}_${author.lastName}_${author.authorId}.jpg" />'></td>
+				<td>
+					<a href='<c:out value="del/${author.authorId}" />'><span class="glyphicon glyphicon-remove"></span></a>	
+				</td>
 			</tr>
 	</table>
-
+		<a href='<c:out value="add" />' class="btn btn-primary">Add author</a>
+	
 
 </body>
 </html>

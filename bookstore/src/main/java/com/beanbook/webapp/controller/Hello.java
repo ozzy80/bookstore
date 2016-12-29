@@ -28,8 +28,10 @@ import com.beanbook.service.AuthorManager;
 @Controller
 public class Hello {
 
-	private Path path;
+	private Path path_book;
 
+	private Path path_author;
+	
 	@Autowired
 	private BookManager bookManager;
 
@@ -65,21 +67,26 @@ public class Hello {
 		model.addAttribute("book", new Book());
 		return "add_book";
 	}
+	
+	@RequestMapping(value="/authors/add")
+	public String addAuthor(Model model)
+	{
+		model.addAttribute("author",new Author());
+		return "add_author";
+	}
 
 	@RequestMapping(value = "/books/add/new", method = RequestMethod.POST)
 	public String addBook(@ModelAttribute("book") Book book, HttpServletRequest request) {
 		book.setPublisher(publisherManager.getPublisherByID(1));
 		bookManager.addBook(book);
-
 		MultipartFile bookImage = book.getBookImage();
 		// String rootDirectory =
 		// request.getSession().getServletContext().getRealPath("/");
-		/*
-		 * TODO Dodaj dinamicki
-		 */
+		// * TODO Dodaj dinamicki
+		// */
 		String realPathtoUploads = "C:\\dev\\bookstore\\bookstore\\src\\main\\webapp\\WEB-INF\\resources\\images\\"
 				+ book.getPublisher().getName();
-		path = Paths.get(realPathtoUploads + "\\" + book.getTitle() + "-" + book.getIsbn() + ".jpg");
+		path_book = Paths.get(realPathtoUploads + "\\" + book.getTitle() + "-" + book.getIsbn() + ".jpg");
 
 		if (!new File(realPathtoUploads).exists()) {
 			new File(realPathtoUploads).mkdir();
@@ -88,26 +95,37 @@ public class Hello {
 		if (bookImage != null && !bookImage.isEmpty()) {
 			try {
 				System.out.println("usaoooo");
-				bookImage.transferTo(new File(path.toString()));
+				bookImage.transferTo(new File(path_book.toString()));
 			} catch (IllegalStateException | IOException e) {
 				throw new RuntimeException("Book image saving failed", e);
 			}
 		}
-
 		return "redirect:/books";
 	}
-	
-	@RequestMapping(value="/authors/add")
-	public String addAuthor(Model model)
-	{
-		model.addAttribute("author",new Author());
-		return "add_author";
-	}
-	
 	@RequestMapping(value = "/authors/add/new" , method=RequestMethod.POST)
-	public String addAuthor(@ModelAttribute("author") Author author)
+	public String addAuthor(@ModelAttribute("author") Author author,HttpServletRequest request)
 	{
 		authorManager.addAuthor(author);
+		MultipartFile authorImage = author.getAuthorImage();
+		String realPathToUpload = "C:\\dev\\bookstore\\bookstore\\src\\main\\webapp\\WEB-INF\\resources\\images\\authors";
+		path_author = Paths.get(realPathToUpload + "\\" + author.getFirstName() + "_" + author.getLastName() + "_"+ author.getAuthorId() + ".jpg");
+		if(!new File(realPathToUpload).exists())
+		{
+			new File(realPathToUpload).mkdir();
+		}
+		
+		if(authorImage != null && !authorImage.isEmpty())
+		{
+			try
+			{
+				System.out.println("usao");
+				authorImage.transferTo(new File(path_author.toString()));
+			}
+			catch(IllegalStateException | IOException e) {
+				throw new RuntimeException("Author image saving failed",e);
+			}
+		}
+			
 		return "redirect:/authors/1";
 	}
 
@@ -118,11 +136,11 @@ public class Hello {
 
 		String realPathtoUploads = "C:\\dev\\bookstore\\bookstore\\src\\main\\webapp\\WEB-INF\\resources\\images\\"
 				+ book.getPublisher().getName();
-		path = Paths.get(realPathtoUploads + "\\" + book.getTitle() + "-" + book.getIsbn() + ".jpg");
+		path_book = Paths.get(realPathtoUploads + "\\" + book.getTitle() + "-" + book.getIsbn() + ".jpg");
 
-		if (Files.exists(path)) {
+		if (Files.exists(path_book)) {
 			try {
-				Files.delete(path);
+				Files.delete(path_book);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -134,8 +152,22 @@ public class Hello {
 	@RequestMapping(value = "/authors/del/{idAutora}")
 	public String deleteAuthor(@PathVariable("idAutora") Integer id_autora)
 	{
+		Author author = authorManager.getAuthorByID(id_autora);
 		authorManager.deleteAuthor(id_autora);
-		return "redirect:/books";
+		
+		String realPathToUpload = "C:\\dev\\bookstore\\bookstore\\src\\main\\webapp\\WEB-INF\\resources\\images\\authors";
+		path_author = Paths.get(realPathToUpload + "\\" + author.getFirstName() + "_" + author.getLastName() + "_" + author.getAuthorId() + ".jpg");
+		if(Files.exists(path_author))
+		{
+			try{
+				Files.delete(path_author);
+			}
+			catch(IOException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		return "redirect:/authors/1";
 	}
 	
 	@RequestMapping(value = "/authors/{idAutora}")

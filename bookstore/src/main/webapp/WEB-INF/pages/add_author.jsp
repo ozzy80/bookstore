@@ -9,7 +9,7 @@
 <title>Dodavanje autora</title>
 </head>
 <body>
-	<form:form action="add/new" method="post" commandName="author">
+	<form:form action="add/new" method="post" commandName="author" enctype="multipart/form-data">
 		<div class="form-group">
 			<label for="ime_autora">Ime: </label>
 			<form:input path="firstName" id="ime_autora" class="form-Controlor"/>
@@ -21,6 +21,10 @@
 		<div class="form-group">
 			<label for="opis_autora">Opis: </label>
 			<form:textarea path="description" id="opis_autora" class="form-Controlor"/>
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="authorImage">Upload picture</label>
+			<form:input path="authorImage" id="authorImage" type="file" class="form:input-large"/>
 		</div>
 		<input type="submit" value="submit" class="btn btn-default">
 	</form:form>
