@@ -6,14 +6,8 @@
 	<title>CSS Free Templates with jQuery Slider</title>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<link rel="shortcut icon" href="<c:url value="css/images/favicon.ico" />" />
-	<link rel="stylesheet" href="<c:url value="resources/css/style.css" />" type="text/css" media="all" />
-	<script type="text/javascript" src="<c:url value="resources/js/jquery-1.6.2.min.js" />"></script>
-	<script type="text/javascript" src="<c:url value="resources/js/jquery.jcarousel.min.js" />"></script>
-	<!--[if IE 6]>
-		<script type="text/javascript" src="<c:url value="resources/js/png-fix.js" />"></script>
-	<![endif]-->
-	<script type="text/javascript" src="<c:url value="resources/js/functions.js" />"></script>
-	
+	<link rel="stylesheet" href="<c:url value="resources/css/bootstrap.min.css" />" type="text/css" />	
+	<link rel="stylesheet" href="<c:url value="resources/css/style.css" />" type="text/css" media="all" />	
 </head>
 <body>
 	<!-- Header -->
@@ -34,114 +28,116 @@
 		<div class="cl">&nbsp;</div>
 		<!-- Login-details -->
 		<div id="login-details">
-			<p>Welcome, <a href="#" id="user">Guest</a> .</p><p><a href="#" class="cart" ><img src="resources/css/images/cart-icon.png" alt="" /></a>Shopping Cart (0) <a href="#" class="sum">$0.00</a></p>
+			<p>Welcome, <a href="#" id="user">Guest</a> .</p><p><a href="#" class="cart" ><img src="css/images/cart-icon.png" alt="" /></a>Shopping Cart (0) <a href="#" class="sum">$0.00</a></p>
 		</div>
 		<!-- End Login-details -->
 	</div>
 	<!-- End Header -->
-	<!-- Slider -->
-	<div id="slider">
-		<div class="shell">
-			<ul>
-				<li>
-					<div class="image">
-						<img src="resources/css/images/books.png" alt="" />
-					</div>
-					<div class="details">
-						<h2>Bestsellers</h2>
-						<h3>Special Offers</h3>
-						<p class="title">Pellentesque congue lorem quis massa blandit non pretium nisi pharetra</p>
-						<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id odio in tortor scelerisque dictum. Phasellus varius sem sit amet metus volutpat vel vehicula nunc lacinia.</p>
-						<a href="#" class="read-more-btn">Read More</a>
-					</div>
-				</li>
-				<li>
-					<div class="image">
-						<img src="resources/css/images/books.png" alt="" />
-					</div>
-					<div class="details">
-						<h2>Bestsellers</h2>
-						<h3>Special Offers</h3>
-						<p class="title">Pellentesque congue lorem quis massa blandit non pretium nisi pharetra</p>
-						<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id odio in tortor scelerisque dictum. Phasellus varius sem sit amet metus volutpat vel vehicula nunc lacinia.</p>
-						<a href="#" class="read-more-btn">Read More</a>
-					</div>
-				</li>
-				<li>
-					<div class="image">
-						<img src="resources/css/images/books.png" alt="" />
-					</div>
-					<div class="details">
-						<h2>Bestsellers</h2>
-						<h3>Special Offers</h3>
-						<p class="title">Pellentesque congue lorem quis massa blandit non pretium nisi pharetra</p>
-						<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id odio in tortor scelerisque dictum. Phasellus varius sem sit amet metus volutpat vel vehicula nunc lacinia.</p>
-						<a href="#" class="read-more-btn">Read More</a>
-					</div>
-				</li>
-				<li>
-					<div class="image">
-						<img src="resources/css/images/books.png" alt="" />
-					</div>
-					<div class="details">
-						<h2>Bestsellers</h2>
-						<h3>Special Offers</h3>
-						<p class="title">Pellentesque congue lorem quis massa blandit non pretium nisi pharetra</p>
-						<p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent id odio in tortor scelerisque dictum. Phasellus varius sem sit amet metus volutpat vel vehicula nunc lacinia.</p>
-						<a href="#" class="read-more-btn">Read More</a>
-					</div>
-				</li>
-			</ul>
-			<div class="nav">
-				<a href="#">1</a>
-				<a href="#">2</a>
-				<a href="#">3</a>
-				<a href="#">4</a>
-			</div>
-		</div>
-	</div>
-	<!-- End Slider -->
-	<!-- Main -->
+	
+	
+	
+	
+	
+	
+		<!-- Main -->
 	<div id="main" class="shell">
+		
 		<!-- Sidebar -->
-		<div id="sidebar">
-			<ul class="categories">
-				<li>
-					<h4>Categories</h4>
-					<ul>
-						<li><a href="#">Lorem ipsum dolor</a></li>
-						<li><a href="#">Morbi eget</a></li>
-						<li><a href="#">Nulla egestas</a></li>
-						<li><a href="#">Curabitur venenatis</a></li>
-						<li><a href="#">Ut dictum purus</a></li>
-						<li><a href="#">Curabitur imperdiet</a></li>
-						<li><a href="#">Aliquam elementum</a></li>
-					</ul>
+		<div id="top-ten-book-list" class="col-lg-3">
+			<h4 id="top-ten-book-title">Knjige TOP 10</h4>
+			<ul>
+				<li class="top-ten-book row">
+						<h3 class="col-lg-2">1</h3>
+						<a href="#"><img src="resources/css/images/image01.jpg" alt=""  class="col-lg-6  "/></a>
+						<div class="col-lg-4">
+							<a href="#" class="book-name">NASLOV</a><br />
+							<a href="#" class="author">AUTOR</a>
+						</div>
 				</li>
-				<li>
-					<h4>Authors</h4>
-					<ul>
-						<li><a href="#">Lorem ipsum dolor</a></li>
-						<li><a href="#">Morbi eget</a></li>
-						<li><a href="#">Nulla egestas</a></li>
-						<li><a href="#">Curabitur venenatis</a></li>
-						<li><a href="#">Ut dictum purus</a></li>
-						<li><a href="#">Curabitur imperdiet</a></li>
-						<li><a href="#">Lorem ipsum dolor</a></li>
-						<li><a href="#">Morbi eget</a></li>
-						<li><a href="#">Nulla egestas</a></li>
-						<li><a href="#">Curabitur venenatis</a></li>
-						<li><a href="#">Ut dictum purus</a></li>
-						<li><a href="#">Curabitur imperdiet</a></li>
-					</ul>
+				<li class="top-ten-book row">
+						<h3 class="col-lg-2">2</h3>
+						<a href="#"><img src="resources/css/images/image02.jpg" alt=""  class="col-lg-6  "/></a>
+						<div class="col-lg-4">
+							<a href="#" class="book-name">NASLOV</a><br />
+							<a href="#" class="author">AUTOR</a>
+						</div>
 				</li>
+				<li class="top-ten-book row">
+						<h3 class="col-lg-2">3</h3>
+						<a href="#"><img src="resources/css/images/image03.jpg" alt=""  class="col-lg-6  "/></a>
+						<div class="col-lg-4">
+							<a href="#" class="book-name">NASLOV</a><br />
+							<a href="#" class="author">AUTOR</a>
+						</div>
+				</li>
+				<li class="top-ten-book row">
+						<h3 class="col-lg-2">4</h3>
+						<a href="#"><img src="resources/css/images/image04.jpg" alt=""  class="col-lg-6  "/></a>
+						<div class="col-lg-4">
+							<a href="#" class="book-name">NASLOV</a><br />
+							<a href="#" class="author">AUTOR</a>
+						</div>
+				</li>
+				<li class="top-ten-book row">
+						<h3 class="col-lg-2">5</h3>
+						<a href="#"><img src="resources/css/images/image05.jpg" alt=""  class="col-lg-6  "/></a>
+						<div class="col-lg-4">
+							<a href="#" class="book-name">NASLOV</a><br />
+							<a href="#" class="author">AUTOR</a>
+						</div>
+				</li>
+				<li class="top-ten-book row">
+						<h3 class="col-lg-2">6</h3>
+						<a href="#"><img src="resources/css/images/image06.jpg" alt=""  class="col-lg-6  "/></a>
+						<div class="col-lg-4">
+							<a href="#" class="book-name">NASLOV</a><br />
+							<a href="#" class="author">AUTOR</a>
+						</div>
+				</li>
+				<li class="top-ten-book row">
+						<h3 class="col-lg-2">7</h3>
+						<a href="#"><img src="resources/css/images/image07.jpg" alt=""  class="col-lg-6  "/></a>
+						<div class="col-lg-4">
+							<a href="#" class="book-name">NASLOV</a><br />
+							<a href="#" class="author">AUTOR</a>
+						</div>
+				</li>
+				<li class="top-ten-book row">
+						<h3 class="col-lg-2">8</h3>
+						<a href="#"><img src="resources/css/images/image08.jpg" alt=""  class="col-lg-6  "/></a>
+						<div class="col-lg-4">
+							<a href="#" class="book-name">NASLOV</a><br />
+							<a href="#" class="author">AUTOR</a>
+						</div>
+				</li>
+				<li class="top-ten-book row">
+						<h3 class="col-lg-2">9</h3>
+						<a href="#"><img src="resources/css/images/image01.jpg" alt=""  class="col-lg-6  "/></a>
+						<div class="col-lg-4">
+							<a href="#" class="book-name">NASLOV</a><br />
+							<a href="#" class="author">AUTOR</a>
+						</div>
+				</li>
+				<li class="top-ten-book row">
+					<h3 class="col-lg-2">10</h3>
+					<a href="#"><img src="resources/css/images/image02.jpg" alt=""  class="col-lg-6  "/></a>
+					<div class="col-lg-4">
+						<a href="#" class="book-name">NASLOV</a><br />
+						<a href="#" class="author">AUTOR</a>
+					</div>
+				</li>								
 			</ul>
 		</div>
 		<!-- End Sidebar -->
+		
+		
+		
+		
+		
 		<!-- Content -->
-		<div id="content">
+		<div id="content" class="col-lg-6">
 			<!-- Products -->
-			<div class="products">
+			<div>
 				<h3>Featured Products</h3>
 				<ul>
 					<li>
@@ -344,6 +340,12 @@
 		<div class="cl">&nbsp;</div>
 	</div>
 	<!-- End Main -->
+	
+	
+	
+	
+	
+	
 	<!-- Footer -->
 	<div id="footer" class="shell">
 		<div class="top">
@@ -380,5 +382,8 @@
 		</div>
 	</div>
 	<!-- End Footer -->
+	
+	<script type="text/javascript" src="<c:url value="resources/js/jquery-3.1.1.min.js" />"></script> 
+  	<script type="text/javascript" src="<c:url value="resources/js/bootstrap.min.js" />"></script> 
 </body>
 </html>
