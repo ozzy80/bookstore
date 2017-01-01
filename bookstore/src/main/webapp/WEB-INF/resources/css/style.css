@@ -120,11 +120,10 @@ textarea { overflow: auto; }
 #content h3 { padding: 0 0 7px 3px; border-bottom: solid 4px #eaeaea; margin-bottom: 12px; }
 
 .product {
-	height: 350px;
+	height: 300px;
 }
-.products ul { list-style: none; position: relative; width: 660px; margin-left: -7px; width: 660px; }
-.products ul li { float: left; display: inline; width: 150px; height: 343px; margin: 0 15px 14px 0; }
-.products ul li a.info { display: block; padding: 7px; width: 136px; height: 329px; }
+.products ul { list-style: none; }
+.products ul li a.info { display: block; padding: 7px;}
 .products ul li a.info:hover { background: url(images/product-hover.png) no-repeat 0 0; text-decoration: none; }
 .products ul li a.info .holder { padding: 14px 9px; border: solid 1px #dcdcdc; display: block; }
 .products .product { width: 134px; position: relative; }
@@ -159,7 +158,7 @@ textarea { overflow: auto; }
 .author { color: #3d3d3d; }
 
 #footer { width: 998px; padding: 0; color: #c7e6f2; background: url(images/footer.png) repeat-y 0 0; }
-#footer .top { background: url(images/footer-top.png) no-repeat 0 0; padding: 0 43px 0 39px; width: 996px; }
+#footer .top { background: url(images/footer-top.png) no-repeat 0 0; padding: 0 43px 0 54px; width: 996px; }
 #footer .cnt { background: #44acd5 url(images/footer-bg.png) repeat-x 0 0; padding: 21px 44px 0 36px; width: 837px; overflow: hidden;}
 #footer h4 { font-size: 16px; line-height: 18px; color: #fff; border-bottom: solid 4px #57b4d9; margin-bottom: 3px; padding-bottom: 6px; }
 #footer .copy { color: #78b8d2; background: #3d9abf; font-size: 12px; line-height: 16px; padding: 7px 34px 8px; position: relative; width: 848px; margin: 20px 0 2px -36px; }

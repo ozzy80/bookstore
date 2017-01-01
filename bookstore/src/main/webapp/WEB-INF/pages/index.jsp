@@ -136,7 +136,7 @@
 		<!-- Content -->
 		<div id="content" class="col-lg-6">
 			<!-- Products -->
-			<div>
+			<div class="products">
 				<h3>Novi naslovi</h3>
 				<ul class="row">
 					<li class="col-lg-4">
@@ -146,7 +146,6 @@
 									<img src="resources/css/images/image01.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
-									<span class="description">Maecenas vehicula ante eu enim pharetra<br />scelerisque dignissim <br />sollicitudin nisi</span>
 								</span>
 							</a>
 							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
@@ -159,7 +158,6 @@
 									<img src="resources/css/images/image02.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
-									<span class="description">Maecenas vehicula ante eu enim pharetra<br />scelerisque dignissim <br />sollicitudin nisi</span>
 								</span>
 							</a>
 							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
@@ -172,7 +170,6 @@
 									<img src="resources/css/images/image03.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
-									<span class="description">Maecenas vehicula ante eu enim pharetra<br />scelerisque dignissim <br />sollicitudin nisi</span>
 								</span>
 							</a>
 							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
@@ -185,7 +182,6 @@
 									<img src="resources/css/images/image04.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
-									<span class="description">Maecenas vehicula ante eu enim pharetra<br />scelerisque dignissim <br />sollicitudin nisi</span>
 								</span>
 							</a>
 							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
@@ -198,7 +194,6 @@
 									<img src="resources/css/images/image05.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
-									<span class="description">Maecenas vehicula ante eu enim pharetra<br />scelerisque dignissim <br />sollicitudin nisi</span>
 								</span>
 							</a>
 							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
@@ -211,7 +206,6 @@
 									<img src="resources/css/images/image06.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
-									<span class="description">Maecenas vehicula ante eu enim pharetra<br />scelerisque dignissim <br />sollicitudin nisi</span>
 								</span>
 							</a>
 							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
@@ -224,7 +218,6 @@
 									<img src="resources/css/images/image07.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
-									<span class="description">Maecenas vehicula ante eu enim pharetra<br />scelerisque dignissim <br />sollicitudin nisi</span>
 								</span>
 							</a>
 							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
@@ -237,7 +230,6 @@
 									<img src="resources/css/images/image08.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
-									<span class="description">Maecenas vehicula ante eu enim pharetra<br />scelerisque dignissim <br />sollicitudin nisi</span>
 								</span>
 							</a>
 							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
@@ -254,7 +246,7 @@
 			
 			<div class="cl">&nbsp;</div>
 					<!-- Products -->
-			<div>
+			<div class="products">
 				<h3>Nagradjeni naslovi</h3>
 				<ul class="row">
 					<li class="col-lg-4">
@@ -264,7 +256,6 @@
 									<img src="resources/css/images/image01.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
-									<span class="description">Maecenas vehicula ante eu enim pharetra<br />scelerisque dignissim <br />sollicitudin nisi</span>
 								</span>
 							</a>
 							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
@@ -277,7 +268,6 @@
 									<img src="resources/css/images/image02.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
-									<span class="description">Maecenas vehicula ante eu enim pharetra<br />scelerisque dignissim <br />sollicitudin nisi</span>
 								</span>
 							</a>
 							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
@@ -290,7 +280,6 @@
 									<img src="resources/css/images/image03.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
-									<span class="description">Maecenas vehicula ante eu enim pharetra<br />scelerisque dignissim <br />sollicitudin nisi</span>
 								</span>
 							</a>
 							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
@@ -303,7 +292,6 @@
 									<img src="resources/css/images/image04.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
-									<span class="description">Maecenas vehicula ante eu enim pharetra<br />scelerisque dignissim <br />sollicitudin nisi</span>
 								</span>
 							</a>
 							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
@@ -316,7 +304,6 @@
 									<img src="resources/css/images/image05.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
-									<span class="description">Maecenas vehicula ante eu enim pharetra<br />scelerisque dignissim <br />sollicitudin nisi</span>
 								</span>
 							</a>
 							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
@@ -329,7 +316,6 @@
 									<img src="resources/css/images/image06.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
-									<span class="description">Maecenas vehicula ante eu enim pharetra<br />scelerisque dignissim <br />sollicitudin nisi</span>
 								</span>
 							</a>
 							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
@@ -351,12 +337,12 @@
 	<!-- Footer -->
 	<div id="footer" class="shell">
 		<div class="top">
-			<div class="cnt">
-				<div class="col about">
+			<div class="cnt row">
+				<div class="col-lg-5">
 					<h4>About BestSellers</h4>
 					<p>Nulla porttitor pretium mattis. Mauris lorem massa, ultricies non mattis bibendum, semper ut erat. Morbi vulputate placerat ligula. Fusce <br />convallis, nisl a pellentesque viverra, ipsum leo sodales sapien, vitae egestas dolor nisl eu tortor. Etiam ut elit vitae nisl tempor tincidunt. Nunc sed elementum est. Phasellus sodales viverra mauris nec dictum. Fusce a leo libero. Cras accumsan enim nec massa semper eu hendrerit nisl faucibus. Sed lectus ligula, consequat eget bibendum eu, consequat nec nisl. In sed consequat elit. Praesent nec iaculis sapien. <br />Curabitur gravida pretium tincidunt.  </p>
 				</div>
-				<div class="col store">
+				<div class="store col-lg-3">
 					<h4>Store</h4>
 					<ul>
 						<li><a href="#">Home</a></li>
@@ -367,7 +353,7 @@
 						<li><a href="#">Checkout</a></li>
 					</ul>
 				</div>
-				<div class="col" id="newsletter">
+				<div class="col-lg-4" id="newsletter">
 					<h4>Newsletter</h4>
 					<p>Lorem ipsum dolor sit amet  consectetur. </p>
 					<form action="" method="post">
