@@ -119,6 +119,9 @@ textarea { overflow: auto; }
 #content { float: right; display: inline; width: 635px; }
 #content h3 { padding: 0 0 7px 3px; border-bottom: solid 4px #eaeaea; margin-bottom: 12px; }
 
+.product {
+	height: 350px;
+}
 .products ul { list-style: none; position: relative; width: 660px; margin-left: -7px; width: 660px; }
 .products ul li { float: left; display: inline; width: 150px; height: 343px; margin: 0 15px 14px 0; }
 .products ul li a.info { display: block; padding: 7px; width: 136px; height: 329px; }
@@ -126,7 +129,7 @@ textarea { overflow: auto; }
 .products ul li a.info .holder { padding: 14px 9px; border: solid 1px #dcdcdc; display: block; }
 .products .product { width: 134px; position: relative; }
 .products img { padding: 0 7px 4px; width: 102px; height: 160px; }
-.product .buy-btn { position: absolute; bottom: 8px; left: 7px; background: url(images/buy-btn.png) repeat-x 0 0; width: 126px; height: 31px; color: #fff; font-size: 12px; line-height: 31px; text-transform: uppercase; font-weight: bold; z-index: 10; padding-left: 10px; white-space: nowrap;}
+.product .buy-btn { position: absolute; left: 7px; background: url(images/buy-btn.png) repeat-x 0 0; width: 126px; height: 31px; color: #fff; font-size: 12px; line-height: 31px; text-transform: uppercase; font-weight: bold; z-index: 10; padding-left: 10px; white-space: nowrap;}
 .product .buy-btn:hover { text-decoration: none; }
 .product .buy-btn .price { padding: 0 7px; background: url(images/price.png) repeat-x 0 0; font-size: 22px; line-height: 29px; position: absolute; top: 0; right: 0; height: 31px; }
 .product .buy-btn .price .low { font-size: 14px; vertical-align: baseline; }
