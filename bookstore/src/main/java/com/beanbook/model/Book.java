@@ -1,11 +1,15 @@
 package com.beanbook.model;
 
 import java.sql.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -50,7 +54,12 @@ public class Book {
 
 	@Transient
 	private MultipartFile bookImage;
-	
+
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "knjiga_ima_autor", joinColumns = {
+			@JoinColumn(name = "ISBN") }, inverseJoinColumns = @JoinColumn(name = "ID_autora"))
+	private Set<Author> authorList;
+
 	public MultipartFile getBookImage() {
 		return bookImage;
 	}
@@ -115,6 +124,14 @@ public class Book {
 		this.publicationYear = publicationYear;
 	}
 
+	public Set<Author> getAuthorList() {
+		return authorList;
+	}
+
+	public void setAuthorList(Set<Author> authorList) {
+		this.authorList = authorList;
+	}
+
 	public Double getPrice() {
 		return price;
 	}
@@ -139,4 +156,6 @@ public class Book {
 		this.publisher = publisher;
 	}
 
+	
+	
 }

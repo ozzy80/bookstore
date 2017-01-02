@@ -43,6 +43,7 @@ public class Hello {
 
 	@RequestMapping(value = "/")
 	public String home() {
+		
 		return "index";
 	}
 

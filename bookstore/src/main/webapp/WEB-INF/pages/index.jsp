@@ -34,14 +34,19 @@
 	</div>
 	<!-- End Header -->
 	
-	
-	
-	
+
+		<div class="shell">
+			<fieldset class="search-field">
+			  <input class="search-input" type="text" id="name">
+			  <label class="search-label" for="name">Pretrazi knjige</label>
+			</fieldset>
+		</div>
+		
 	
 	
 		<!-- Main -->
 	<div id="main" class="shell row">
-		<!-- Sidebar -->
+		<!-- Top ten -->
 		<div id="top-ten-book-list" class="col-lg-3">
 			<h4 id="top-ten-book-title">Knjige TOP 10</h4>
 			<ul>
@@ -127,11 +132,12 @@
 				</li>								
 			</ul>
 		</div>
-		<!-- End Sidebar -->
+		<!-- End Top ten -->
 		
 		
 		
 		
+
 		
 		<!-- Content -->
 		<div id="content" class="col-lg-6">
@@ -146,9 +152,10 @@
 									<img src="resources/css/images/image01.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
+									<span style="text-decoration: line-through;">Cena: 990.00 din</span><br/>
+									<span>841.50 din</span>
 								</span>
 							</a>
-							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
 						</div>
 					</li>
 					<li class="col-lg-4">
@@ -158,9 +165,10 @@
 									<img src="resources/css/images/image02.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
+									<span style="text-decoration: line-through;">Cena: 990.00 din</span><br/>
+									<span>841.50 din</span>
 								</span>
-							</a>
-							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
+							</a>							
 						</div>
 					</li>
 					<li class="col-lg-4">
@@ -170,9 +178,10 @@
 									<img src="resources/css/images/image03.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
+									<span style="text-decoration: line-through;">Cena: 990.00 din</span><br/>
+									<span>841.50 din</span>									
 								</span>
-							</a>
-							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
+							</a>							
 						</div>
 					</li>
 					<li class="col-lg-4">
@@ -182,9 +191,10 @@
 									<img src="resources/css/images/image04.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
+									<span style="text-decoration: line-through;">Cena: 990.00 din</span><br/>
+									<span>841.50 din</span>									
 								</span>
-							</a>
-							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
+							</a>							
 						</div>
 					</li>
 					<li class="col-lg-4">
@@ -194,9 +204,10 @@
 									<img src="resources/css/images/image05.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
+									<span style="text-decoration: line-through;">Cena: 990.00 din</span><br/>
+									<span>841.50 din</span>									
 								</span>
-							</a>
-							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
+							</a>							
 						</div>
 					</li>
 					<li class="col-lg-4">
@@ -206,33 +217,10 @@
 									<img src="resources/css/images/image06.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
+									<span style="text-decoration: line-through;">Cena: 990.00 din</span><br/>
+									<span>841.50 din</span>									
 								</span>
-							</a>
-							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
-						</div>
-					</li>
-					<li class="col-lg-4">
-						<div class="product">
-							<a href="#" class="info">
-								<span class="holder">
-									<img src="resources/css/images/image07.jpg" alt="" />
-									<span class="book-name">Book Name</span>
-									<span class="author">by John Smith</span>
-								</span>
-							</a>
-							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
-						</div>
-					</li>
-					<li class="col-lg-4">
-						<div class="product">
-							<a href="#" class="info">
-								<span class="holder">
-									<img src="resources/css/images/image08.jpg" alt="" />
-									<span class="book-name">Book Name</span>
-									<span class="author">by John Smith</span>
-								</span>
-							</a>
-							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
+							</a>							
 						</div>
 					</li>
 				</ul>
@@ -256,9 +244,10 @@
 									<img src="resources/css/images/image01.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
+									<span style="text-decoration: line-through;">Cena: 990.00 din</span><br/>
+									<span>841.50 din</span>									
 								</span>
-							</a>
-							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
+							</a>							
 						</div>
 					</li>
 					<li class="col-lg-4">
@@ -268,9 +257,10 @@
 									<img src="resources/css/images/image02.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
+									<span style="text-decoration: line-through;">Cena: 990.00 din</span><br/>
+									<span>841.50 din</span>									
 								</span>
-							</a>
-							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
+							</a>							
 						</div>
 					</li>
 					<li class="col-lg-4">
@@ -280,9 +270,10 @@
 									<img src="resources/css/images/image03.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
+									<span style="text-decoration: line-through;">Cena: 990.00 din</span><br/>
+									<span>841.50 din</span>									
 								</span>
-							</a>
-							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
+							</a>							
 						</div>
 					</li>
 					<li class="col-lg-4">
@@ -292,9 +283,10 @@
 									<img src="resources/css/images/image04.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
+									<span style="text-decoration: line-through;">Cena: 990.00 din</span><br/>
+									<span>841.50 din</span>									
 								</span>
-							</a>
-							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
+							</a>							
 						</div>
 					</li>
 					<li class="col-lg-4">
@@ -304,9 +296,10 @@
 									<img src="resources/css/images/image05.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
+									<span style="text-decoration: line-through;">Cena: 990.00 din</span><br/>
+									<span>841.50 din</span>									
 								</span>
 							</a>
-							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
 						</div>
 					</li>
 					<li class="col-lg-4">
@@ -316,9 +309,10 @@
 									<img src="resources/css/images/image06.jpg" alt="" />
 									<span class="book-name">Book Name</span>
 									<span class="author">by John Smith</span>
+									<span style="text-decoration: line-through;">Cena: 990.00 din</span><br/>
+									<span>841.50 din</span>									
 								</span>
 							</a>
-							<a href="#" class="buy-btn">BUY NOW <span class="price"><span class="low">$</span>22<span class="high">00</span></span></a>
 						</div>
 					</li>
 				</ul>

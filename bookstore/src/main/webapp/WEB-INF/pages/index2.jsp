@@ -25,6 +25,7 @@
 	           <th>Izdavac</th>
 	           <th>Slika</th>
 	           <th>Info</th>
+	           <th>Autori</th>
 	        </tr>    
 		</thead>
 		<c:forEach items="${books}" var="book">
@@ -41,6 +42,13 @@
 				<td>
 					<a href='<c:out value="books/${book.isbn}" />'><span class="glyphicon glyphicon-info-sign"></span></a>
 					<a href='<c:out value="books/del/${book.isbn}" />'><span class="glyphicon glyphicon-remove"></span></a>	
+				</td>
+				<td>
+					<ol>
+						<c:forEach items="${book.authorList}" var="author">
+							<li>${author.firstName} ${author.lastName}</li>
+						</c:forEach>
+					</ol>
 				</td>
 			</tr>
 		</c:forEach>

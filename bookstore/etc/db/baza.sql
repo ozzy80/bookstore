@@ -80,23 +80,24 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `knjizara`.`knjiga_ima_autor` ;
 
 CREATE TABLE IF NOT EXISTS `knjizara`.`knjiga_ima_autor` (
-  `knjiga_ISBN` BIGINT(13) NOT NULL,
-  `Autor_ID_autora` INT(11) NOT NULL,
-  PRIMARY KEY (`knjiga_ISBN`, `Autor_ID_autora`),
-  INDEX `fk_Knjiga_ima_Autor_Autor1_idx` (`Autor_ID_autora` ASC),
-  INDEX `fk_knjiga_ima_autor_knjiga1_idx` (`knjiga_ISBN` ASC),
+  `ISBN` BIGINT(13) NOT NULL,
+  `ID_autora` INT(11) NOT NULL,
+  PRIMARY KEY (`ISBN`, `ID_autora`),
+  INDEX `fk_Knjiga_ima_Autor_Autor1_idx` (`ID_autora` ASC),
+  INDEX `fk_knjiga_ima_autor_knjiga1_idx` (`ISBN` ASC),
   CONSTRAINT `fk_Knjiga_ima_Autor_Autor1`
-    FOREIGN KEY (`Autor_ID_autora`)
+    FOREIGN KEY (`ID_autora`)
     REFERENCES `knjizara`.`autor` (`ID_autora`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_knjiga_ima_autor_knjiga1`
-    FOREIGN KEY (`knjiga_ISBN`)
+    FOREIGN KEY (`ISBN`)
     REFERENCES `knjizara`.`knjiga` (`ISBN`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
+
 
 
 -- -----------------------------------------------------
