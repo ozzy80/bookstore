@@ -2,123 +2,109 @@
 -- Table `knjizara`.`autor`
 -- -----------------------------------------------------
 INSERT INTO autor (`Ime`, `Prezime`, `Opis`)
-		VALUES ("Bil", "Brajson", "Bil Brajson roƒëen je 1951. godine u De Moinu u Ajovi. Na svom prvom putovanju po Evropi, s rancem na leƒëima 1973, dospeo je i u Englesku, gde je upoznao ≈æenu koja ƒáe mu postati supruga i re≈°io da se skrasi. Pi≈°e putopisne ƒçlanke za Tajms i Indipendent. Do 1995. ≈æiveo je sa ≈æenom i ƒçetvoro dece u Severnom Jork≈°iru, a potom odluƒçio da se vrati u Sjedinjene Dr≈æave i preselio se s porodicom u Hanover u Nju Hemp≈°iru. Osam godina kasnije re≈°io se na jo≈° jedan povratak, i Brajsonovi od 2003. ponovo ≈æive u Engleskoj.
+  VALUES ("Bil", "Brajson", "Bil Brajson roen je 1951. godine u De Moinu u Ajovi. Na svom prvom putovanju po Evropi, s rancem na leima 1973, dospeo je i u Englesku, gde je upoznao ûenu koja Êe mu postati supruga i reöio da se skrasi. Piöe putopisne Ëlanke za Tajms i Indipendent. Do 1995. ûiveo je sa ûenom i Ëetvoro dece u Severnom Jorköiru, a potom odluËio da se vrati u Sjedinjene Drûave i preselio se s porodicom u Hanover u Nju Hempöiru. Osam godina kasnije reöio se na joö jedan povratak, i Brajsonovi od 2003. ponovo ûive u Engleskoj.
 
-				Prva Brajsonova knjiga bio je urnebesni putopis The Lost Continent (Izgubljeni kontinent), u kome je opisao putovanja po malim ameriƒçkim gradovima u starom ≈°evroletu svoje majke. Od tada je objavio, izmeƒëu ostalog, A Walk in the Woods (≈†etnja po ≈°umi), I`m a Stranger Here Myself (I ja sam ovde stranac), The Mother Tongue (Maternji jezik) i Bill Bryson`s African Diary (Afriƒçki dnevnik Bila Brajsona). Pored duhovitog putopisa Ni ovde ni tamo: pute≈°estvija po Evropi, Laguna je objavila i A short History of Nearly Everything (Kratka istorija bezmalo svaƒçega).
+    Prva Brajsonova knjiga bio je urnebesni putopis The Lost Continent (Izgubljeni kontinent), u kome je opisao putovanja po malim ameriËkim gradovima u starom öevroletu svoje majke. Od tada je objavio, izmeu ostalog, A Walk in the Woods (äetnja po öumi), I`m a Stranger Here Myself (I ja sam ovde stranac), The Mother Tongue (Maternji jezik) i Bill Bryson`s African Diary (AfriËki dnevnik Bila Brajsona). Pored duhovitog putopisa Ni ovde ni tamo: puteöestvija po Evropi, Laguna je objavila i A short History of Nearly Everything (Kratka istorija bezmalo svaËega).
 
-				Bil Brajson je za Kratku istoriju bezmalo svaƒçega dobio 2005. Dekartovu nagradu koju EU dodeljuje za izuzetna meƒëunarodna ostvarenja u oblasti nauke. Kratka istorija bezmalo svaƒçega je takoƒëe dobila nagradu Aventis u kategoriji nauƒçnih knjiga 2004.
-				"
-				);
-
+    Bil Brajson je za Kratku istoriju bezmalo svaËega dobio 2005. Dekartovu nagradu koju EU dodeljuje za izuzetna meunarodna ostvarenja u oblasti nauke. Kratka istorija bezmalo svaËega je takoe dobila nagradu Aventis u kategoriji nauËnih knjiga 2004.
+    "
+    );
 INSERT INTO autor (`Ime`, `Prezime`)
-		VALUES ("Simonida", "Milojkoviƒá"),
-			   ("Danjan", "ƒåen"),
-			   ("Bob", "Dilan"),
-			   ("Dejan", "Stojiljkoviƒá"),
-			   ("Vladimir", "Kecmanoviƒá");
-			   
+  VALUES ("Simonida", "MilojkoviÊ"),
+      ("Danjan", "»en"),
+      ("Bob", "Dilan"),
+      ("Dejan", "StojiljkoviÊ"),
+      ("Vladimir", "KecmanoviÊ");
 -- -----------------------------------------------------
 -- Table `knjizara`.`izdavac`
 -- -----------------------------------------------------
 INSERT INTO izdavac (`Naziv`, `Adresa`, `Grad`, `Drzava`)
-		VALUES ("Laguna", "Resavska 33", "Beograd", "Srbija"),
-			   ("Geopoetika", "Gospodar Jovanova 65", "Beograd", "Srbija");
-		
-		
+  VALUES ("Laguna", "Resavska 33", "Beograd", "Srbija"),
+      ("Geopoetika", "Gospodar Jovanova 65", "Beograd", "Srbija");
 -- -----------------------------------------------------
 -- Table `knjizara`.`knjiga`
--- -----------------------------------------------------	
-INSERT INTO knjiga (`ISBN`, `Naziv`, `Opis`, `Dostupno_komada`, `Format`, `Broj_strana`, `Godina_izdanja`, `Cena`, `Izdavac_ID_izdavaca`)
-		VALUES (9788661452475, "Hronike", "Prvi deo
+-- ----------------------------------------------------- 
+INSERT INTO knjiga (`ISBN`, `Naziv`, `Opis`, `Dostupno_komada`, `Format`, `Broj_strana`, `Godina_izdanja`, `Cena`, `Izdavac_ID_izdavaca`,`pismo_ID_pisma`)
+  VALUES (9788661452475, "Hronike", "Prvi deo
 
-				Dogodilo se. Ipak i najzad: Bob Dilan je svoj ≈æivot i pero uzeo u svoje ruke i dao nam na uvid fragmente svog bogatog stvarala≈°tva. Posle stotina knjiga i hiljada tekstova koje su o njemu objavili drugi, evo ga u ulozi sopstvenog tumaƒça. Hronike nisu standardna autobiografija niti samo ispovest; veƒá vrlo va≈æan dokument o vremenu i ≈æivotima nekoliko poslednjih generacija druge polovine 20. veka koje su verujuƒái u utopiju menjale sve(s)t.
+    Dogodilo se. Ipak i najzad: Bob Dilan je svoj ûivot i pero uzeo u svoje ruke i dao nam na uvid fragmente svog bogatog stvaralaötva. Posle stotina knjiga i hiljada tekstova koje su o njemu objavili drugi, evo ga u ulozi sopstvenog tumaËa. Hronike nisu standardna autobiografija niti samo ispovest; veÊ vrlo vaûan dokument o vremenu i ûivotima nekoliko poslednjih generacija druge polovine 20. veka koje su verujuÊi u utopiju menjale sve(s)t.
 
-				Dilan nam Hronikama pokazuje kako se istovremeno biva uƒçesnik i svedok. Koliko je (bio) va≈æan i jedinstven uƒçesnik, svi smo znali. Sada vidimo koliko je i va≈æan hroniƒçar; briljantnog pamƒáenja, istanƒçanog zapa≈æanja, knji≈æevno originalnog jezika, nepatetiƒçne iskrenosti, zdravog humora i umerenog cinizma.
+    Dilan nam Hronikama pokazuje kako se istovremeno biva uËesnik i svedok. Koliko je (bio) vaûan i jedinstven uËesnik, svi smo znali. Sada vidimo koliko je i vaûan hroniËar; briljantnog pamÊenja, istanËanog zapaûanja, knjiûevno originalnog jezika, nepatetiËne iskrenosti, zdravog humora i umerenog cinizma.
 
-				Dilan je pisac koji je nauƒçio kako da isku≈°ava ƒçitalaƒçko nestrpljenje: Hronike se ƒçitaju kao najzanimljiviji roman u kojem ni redosled pisanja ni sled dogaƒëaja nisu hronolo≈°ki poreƒëani. Kao da je za≈æeleo da nam ka≈æe kako je njegov ≈æivot niz hronika, ali ne i hronologija. Da li je zato najavio Drugi i Treƒái deo ove knjige?
+    Dilan je pisac koji je nauËio kako da iskuöava ËitalaËko nestrpljenje: Hronike se Ëitaju kao najzanimljiviji roman u kojem ni redosled pisanja ni sled dogaaja nisu hronoloöki poreani. Kao da je zaûeleo da nam kaûe kako je njegov ûivot niz hronika, ali ne i hronologija. Da li je zato najavio Drugi i TreÊi deo ove knjige?
 
-				Vladislav Bajac
+    Vladislav Bajac
 
-				Ova knjiga ni u kom pogledu ne predstavlja standardnu ili sveobuhvatnu autobiografiju. Hronike su pre epizodno, uz pomoƒá ve≈°tih rezova montirano dokumentarno svedoƒçanstvo o putovanju kroz seƒáanja najveƒáeg ameriƒçkog ≈æivog pesnika, ispriƒçano bogatim i sonornim jezikom, glasom koji je nepogre≈°ivo Dilanov i niƒçiji drugi.
+    Ova knjiga ni u kom pogledu ne predstavlja standardnu ili sveobuhvatnu autobiografiju. Hronike su pre epizodno, uz pomoÊ veötih rezova montirano dokumentarno svedoËanstvo o putovanju kroz seÊanja najveÊeg ameriËkog ûivog pesnika, ispriËano bogatim i sonornim jezikom, glasom koji je nepogreöivo Dilanov i niËiji drugi.
 
-				Hronike zapravo nisu nalik nijednoj odreƒëenoj vrsti knjige. Jedino s ƒçim ih mo≈æemo uporediti jeste neka Dilanova pesma ‚Äì one evociraju prizore i lica i mesta ‚Äì na rubu izmeƒëu dokumentarnog i nadrealnog, stvarajuƒái slojeve znaƒçenja putem preciznih detalja, ba≈° kao i njegovi najbolji stihovi.
+    Hronike zapravo nisu nalik nijednoj odreenoj vrsti knjige. Jedino s Ëim ih moûemo uporediti jeste neka Dilanova pesma ñ one evociraju prizore i lica i mesta ñ na rubu izmeu dokumentarnog i nadrealnog, stvarajuÊi slojeve znaËenja putem preciznih detalja, baö kao i njegovi najbolji stihovi.
 
-				Dejan D. Markoviƒá
-				", 15, "22 cm", 242, "2016-10-01", 841.50, 2);
-				
-INSERT INTO knjiga (`ISBN`, `Naziv`, `Dostupno_komada`, `Format`, `Broj_strana`, `Godina_izdanja`, `Cena`, `Izdavac_ID_izdavaca`)
-		VALUES (9788652124169, "≈†angajska princeza", 5, "13x20 cm", 407, "2016-10-22", 899.00, 1),
-			   (9788652124237, "Nemanjiƒái ‚Äì Dva orla", 51, "19x19 cm", 72, "2016-10-19", 599, 1),
-			   (9788652123896, "Putovanje u Mali Dribling", 11, "13x20 cm", 448, "2016-09-10", 719.28, 1),
-			   (9788652113972, "Tamo dole", 0, "13x20 cm", 429, "2014-01-31", 999, 1);
-		
-		
--- -----------------------------------------------------
--- Table `knjizara`.`knjiga_ima_autor`
--- -----------------------------------------------------
-INSERT INTO knjiga_ima_autor (`Knjiga_ISBN`, `Autor_ID_autora`)
-		VALUES (9788661452475, 4),
-			   (9788652124169, 3),
-			   (9788652124237, 5),
-			   (9788652124237, 6),
-			   (9788652123896, 1),
-			   (9788652113972, 1);
-			   
-		
--- -----------------------------------------------------
--- Table `knjizara`.`pismo`
--- -----------------------------------------------------
-INSERT INTO pismo (`Vrsta`)
-		VALUES ("Latinica"),
-			   ("Cirilica");
-			   
-			   
-		
--- -----------------------------------------------------
--- Table `knjizara`.`knjiga_ima_pismo`
--- -----------------------------------------------------
-INSERT INTO knjiga_ima_pismo (`Knjiga_ISBN`, `Pismo_ID_pisma`)
-		VALUES (9788661452475, 1),
-			   (9788652124169, 2),
-			   (9788652124237, 1),
-			   (9788652123896, 1),
-			   (9788652113972, 1),
-			   (9788652113972, 2);
-			   
-			   
--- -----------------------------------------------------
--- Table `knjizara`.`zanr`
--- -----------------------------------------------------
-INSERT INTO zanr (`Naziv`)
-		VALUES ("Autobiografije i biografije"),
-			   ("Istorijski"),
-			   ("Domaƒái pisci"),
-			   ("Drama"),
-			   ("Putopisi"),			   
-			   ("Komedije");
-			   
-			   
--- -----------------------------------------------------
--- Table `knjizara`.`knjiga_ima_zanr`
--- -----------------------------------------------------
-INSERT INTO knjiga_ima_zanr (`Knjiga_ISBN`, `Zanr_ID_zanra`)
-		VALUES (9788661452475, 1),
-			   (9788652124169, 1),
-			   (9788652124237, 2),
-			   (9788652124237, 3),
-			   (9788652124237, 4),
-			   (9788652123896, 5),
-			   (9788652123896, 6),
-			   (9788652113972, 5),
-			   (9788652113972, 6);
-
-			   
+    Dejan D. MarkoviÊ
+    ", 15, "22 cm", 242, "2016-10-01", 841.50, 2,1);
+    
+INSERT INTO knjiga (`ISBN`, `Naziv`, `Dostupno_komada`, `Format`, `Broj_strana`, `Godina_izdanja`, `Cena`, `Izdavac_ID_izdavaca`,
+`pismo_ID_pisma`)
+  VALUES (9788652124169, "äangajska princeza", 5, "13x20 cm", 407, "2016-10-22", 899.00, 1,2),
+      (9788652124237, "NemanjiÊi ñ Dva orla", 51, "19x19 cm", 72, "2016-10-19", 599, 1,1),
+      (9788652123896, "Putovanje u Mali Dribling", 11, "13x20 cm", 448, "2016-09-10", 719.28, 1),
+      (9788652113972, "Tamo dole", 0, "13x20 cm", 429, "2014-01-31", 999, 1,1),
+      (9788652113972, "Tamo dole", 0, "13x20 cm", 429, "2014-01-31", 999, 1,2),
 
 -- -----------------------------------------------------
 -- Table `knjizara`.`potpisane_knjige`
 -- -----------------------------------------------------
-INSERT INTO potpisane_knjige (`knjiga_ISBN`, `Komada`)
-		VALUES (9788661452475, 2),
-			   (9788652124237, 3);
-			   
-			   
+INSERT INTO potpisane_knjige (`ISBN`, `Komada`)
+  VALUES (9788661452475, 2),
+      (9788652124237, 3);      
+      
+-- -----------------------------------------------------
+-- Table `knjizara`.`knjiga_ima_pismo`
+-- -----------------------------------------------------
+--INSERT INTO knjiga_ima_pismo (`ISBN`, `Pismo_ID_pisma`)
+--  VALUES (9788661452475, 1),
+--      (9788652124169, 2),
+--      (9788652124237, 1),
+--      (9788652123896, 1),
+--      (9788652113972, 1),
+--      (9788652113972, 2);
+-- -----------------------------------------------------
+-- Table `knjizara`.`knjiga_ima_zanr`
+-- -----------------------------------------------------
+INSERT INTO knjiga_ima_zanr (`ISBN`, `Zanr_ID_zanra`)
+  VALUES (9788661452475, 1),
+      (9788652124169, 1),
+      (9788652124237, 2),
+      (9788652124237, 3),
+      (9788652124237, 4),
+      (9788652123896, 5),
+      (9788652123896, 6),
+      (9788652113972, 5),
+      (9788652113972, 6);
+-- -----------------------------------------------------
+-- Table `knjizara`.`knjiga_ima_autor`
+-- -----------------------------------------------------
+INSERT INTO knjiga_ima_autor (`ISBN`, `ID_autora`)
+  VALUES (9788661452475, 4),
+      (9788652124169, 3),
+      (9788652124237, 5),
+      (9788652124237, 6),
+      (9788652123896, 1),
+      (9788652113972, 1);
+-- -----------------------------------------------------
+-- Table `knjizara`.`pismo`
+-- -----------------------------------------------------
+INSERT INTO pismo (`Vrsta`)
+  VALUES ("Latinica"),
+      ("Cirilica");
+            
+-- -----------------------------------------------------
+-- Table `knjizara`.`zanr`
+-- -----------------------------------------------------
+INSERT INTO zanr (`Naziv`)
+  VALUES ("Autobiografije i biografije"),
+      ("Istorijski"),
+      ("DomaÊi pisci"),
+      ("Drama"),
+      ("Putopisi"),      
+      ("Komedije");
+      
