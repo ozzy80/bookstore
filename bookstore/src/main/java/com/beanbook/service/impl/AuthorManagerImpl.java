@@ -31,8 +31,5 @@ public class AuthorManagerImpl implements AuthorManager{
 		return authorDao.getAuthorByID(id);
 	}
 	
-	
-	
-	
-	
+
 }

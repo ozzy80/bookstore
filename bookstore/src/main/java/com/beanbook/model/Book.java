@@ -52,6 +52,18 @@ public class Book {
 	@JoinColumn(name = "Izdavac_ID_izdavaca")
 	private Publisher publisher;
 
+	@ManyToOne
+	@JoinColumn(name = "pismo_ID_pisma")
+	private Letter letter;
+	
+	public Letter getLetter() {
+		return letter;
+	}
+
+	public void setLetter(Letter letter) {
+		this.letter = letter;
+	}
+
 	@Transient
 	private MultipartFile bookImage;
 

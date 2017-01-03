@@ -18,12 +18,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
-
 import com.beanbook.model.Author;
 import com.beanbook.model.Book;
-import com.beanbook.service.BookManager;
-import com.beanbook.service.PublisherManager;
+import com.beanbook.model.Letter;
 import com.beanbook.service.AuthorManager;
+import com.beanbook.service.BookManager;
+import com.beanbook.service.LetterManager;
+import com.beanbook.service.PublisherManager;
 
 @Controller
 public class Hello {
@@ -40,6 +41,9 @@ public class Hello {
 	
 	@Autowired
 	private AuthorManager authorManager;
+	
+	@Autowired 
+	private LetterManager letterManager;
 
 	@RequestMapping(value = "/")
 	public String home() {
@@ -54,6 +58,16 @@ public class Hello {
 
 		return "index2";
 	}
+	
+	
+	
+	@RequestMapping(value = "/letters")
+	public String getAllLetters(Model model)
+	{
+		List<Letter> letterList = letterManager.getAllLetters();
+		model.addAttribute("letters",letterList);
+		return "all_letters";
+	}
 
 	@RequestMapping(value = "/books/{isbn}")
 	public String getBookByISBN(Model model, @PathVariable("isbn") Long isbn) {
@@ -63,6 +77,23 @@ public class Hello {
 		return "index3";
 	}
 
+	@RequestMapping(value="/letters/update/{letterID}")
+	public String updateLetter(Model model, @PathVariable("letterID") Integer letterID)
+	{
+		Letter letter = letterManager.getLetterByID(letterID);
+		model.addAttribute("letter", letter);
+		return "update_letter";
+	}
+	
+	@RequestMapping(value="/letters/update")
+	public String updateLetter(@ModelAttribute("letter") Letter letter)
+	{
+		letterManager.updateLetter(letter);
+		return "redirect:/letters";
+	}
+	
+	
+	
 	@RequestMapping(value = "/books/add")
 	public String addBook(Model model) {
 		model.addAttribute("book", new Book());
@@ -75,7 +106,12 @@ public class Hello {
 		model.addAttribute("author",new Author());
 		return "add_author";
 	}
+	
+	
 
+	
+	
+	
 	@RequestMapping(value = "/books/add/new", method = RequestMethod.POST)
 	public String addBook(@ModelAttribute("book") Book book, HttpServletRequest request) {
 		book.setPublisher(publisherManager.getPublisherByID(1));
@@ -103,6 +139,17 @@ public class Hello {
 		}
 		return "redirect:/books";
 	}
+	
+	@RequestMapping(value="/letters/add/new",method = RequestMethod.POST)
+	public String addLetter(@ModelAttribute("letter") Letter letter,HttpServletRequest request)
+	{
+		letterManager.addLetter(letter);
+		return "redirect:/letters";
+ 
+	}
+	
+	
+	
 	@RequestMapping(value = "/authors/add/new" , method=RequestMethod.POST)
 	public String addAuthor(@ModelAttribute("author") Author author,HttpServletRequest request)
 	{
@@ -150,6 +197,14 @@ public class Hello {
 		return "redirect:/books";
 	}
 
+	@RequestMapping(value = "/letters/del/{idPisma}")
+	public String deleteLetter(@PathVariable("idPisma") Integer id_pisma)
+	{
+		letterManager.deleteLetter(id_pisma);
+		return "redirect:/letters";
+
+	}
+	
 	@RequestMapping(value = "/authors/del/{idAutora}")
 	public String deleteAuthor(@PathVariable("idAutora") Integer id_autora)
 	{
@@ -177,6 +232,15 @@ public class Hello {
 		Author author = authorManager.getAuthorByID(id_autora);
 		model.addAttribute("author",author);
 		return "index4";
+		
+	}
+	
+	@RequestMapping(value = "/letters/{idPisma}")
+	public String getLetterByID(Model model, @PathVariable("idPisma") Integer id_letter)
+	{
+		Letter letter = letterManager.getLetterByID(id_letter);
+		model.addAttribute("letter",letter);
+		return "index5";
 		
 	}
 	
