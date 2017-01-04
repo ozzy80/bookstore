@@ -23,6 +23,7 @@
 	           <th>Godina izdanja</th>
 	           <th>Cena</th>
 	           <th>Izdavac</th>
+	           <th>Pismo</th>
 	           <th>Slika</th>
 	           <th>Info</th>
 	           <th>Autori</th>
@@ -38,6 +39,7 @@
 				<td>${book.publicationYear}</td>
 				<td>${book.price}</td>
 				<td>${book.publisher.name}</td>
+				<td>${book.letter.letterType}</td>
 				<td><img alt="slika" src='<c:url value="resources/images/${book.publisher.name}/${book.title}-${book.isbn}.jpg" />'></td>
 				<td>
 					<a href='<c:out value="books/${book.isbn}" />'><span class="glyphicon glyphicon-info-sign"></span></a>

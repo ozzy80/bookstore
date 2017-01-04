@@ -33,7 +33,13 @@ public class BookManagerImpl implements BookManager {
 	@Override
 	public void deleteBook(Long ISBN) {
 		bookDao.deleteBook(bookDao.getBookByISBN(ISBN));
-
 	}
+	
+	@Override 
+	public void updateBook(Book book)
+	{
+		bookDao.updateBook(book);
+	}
+	
 
 }

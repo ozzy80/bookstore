@@ -129,8 +129,8 @@ INSERT INTO users (`username`, `password`, `enabled`)
 -- -----------------------------------------------------
 -- Table `knjizara`.`zanr`
 -- -----------------------------------------------------
-INSERT INTO authoritys (`username`, `authority`)
-  VALUES ("admin", "ROLE_USER",);
+INSERT INTO authorities (`username`, `authority`)
+  VALUES ("admin", "ROLE_USER");
       
       
 

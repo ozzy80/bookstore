@@ -75,6 +75,14 @@ public class Hello {
 		return "index3";
 	}
 
+	@RequestMapping(value="/books/update/{isbn}")
+	public String updateBook(Model model,@PathVariable("isbn") Long isbn)
+	{
+		Book book = bookManager.getBookByISBN(isbn);
+		model.addAttribute("book", book);
+		return "update_book";
+	}
+	
 	@RequestMapping(value="/letters/update/{letterID}")
 	public String updateLetter(Model model, @PathVariable("letterID") Integer letterID)
 	{
@@ -83,6 +91,16 @@ public class Hello {
 		return "update_letter";
 	}
 	
+	@RequestMapping(value = "/books/update/new")
+	public String updateBook(@ModelAttribute("book") Book book)
+	{
+		
+		book.setPublisher(publisherManager.getPublisherByID(1));
+		book.setLetter(letterManager.getLetterByID(1));
+		bookManager.updateBook(book);
+		return "redirect:/books";
+	}
+	    		
 	@RequestMapping(value="/letters/update/new")
 	public String updateLetter(@ModelAttribute("letter") Letter letter)
 	{
@@ -103,14 +121,19 @@ public class Hello {
 		return "add_author";
 	}
 	
-	
-
-	
-	
+	@RequestMapping(value="/letters/add")
+	public String addLetter(Model model)
+	{
+		model.addAttribute("letter",new Letter());
+		return "add_letter";
+	}
 	
 	@RequestMapping(value = "/books/add/new", method = RequestMethod.POST)
 	public String addBook(@ModelAttribute("book") Book book, HttpServletRequest request) {
 		book.setPublisher(publisherManager.getPublisherByID(1));
+		book.setLetter(letterManager.getLetterByID(1));
+		//aha a u pogledu polja za pismo nema prilikom dodavanja
+		//nove knjige 
 		bookManager.addBook(book);
 		MultipartFile bookImage = book.getBookImage();
 		// String rootDirectory =
@@ -139,6 +162,7 @@ public class Hello {
 	@RequestMapping(value="/letters/add/new",method = RequestMethod.POST)
 	public String addLetter(@ModelAttribute("letter") Letter letter)
 	{
+		
 		letterManager.addLetter(letter);
 		return "redirect:/letters";
  

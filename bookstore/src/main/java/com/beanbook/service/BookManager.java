@@ -13,4 +13,6 @@ public interface BookManager {
 	Book getBookByISBN(Long ISBN);
 
 	void deleteBook(Long ISBN);
+	
+	void updateBook(Book book);
 }

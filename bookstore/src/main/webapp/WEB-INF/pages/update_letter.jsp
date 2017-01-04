@@ -8,9 +8,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Dodavanje pisma</title>
+<title>Promena pisma</title>
 </head>
-<body>
+<body> 
 	<form:form action='new' method="post" commandName="letter">
 		<div class="form-group">
 			<label for="vrsta_pisma">Vrsta: </label>
@@ -19,7 +19,6 @@
 		<form:input type="hidden" path="letterID" value="${letter.letterID}" />
 		<input type="submit" value="submit" class="btn btn-default" />
 	</form:form>
-
 
 </body>
 </html>

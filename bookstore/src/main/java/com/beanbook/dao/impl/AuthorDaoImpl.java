@@ -17,6 +17,7 @@ public class AuthorDaoImpl implements AuthorDao{
 	@Autowired
 	public SessionFactory sessionFactory;
 	
+	
 	@Override
 	public void addAuthor(Author author) {
 		Session session = sessionFactory.getCurrentSession();
