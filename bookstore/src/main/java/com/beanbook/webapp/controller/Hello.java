@@ -59,8 +59,6 @@ public class Hello {
 		return "index2";
 	}
 	
-	
-	
 	@RequestMapping(value = "/letters")
 	public String getAllLetters(Model model)
 	{
@@ -85,14 +83,12 @@ public class Hello {
 		return "update_letter";
 	}
 	
-	@RequestMapping(value="/letters/update")
+	@RequestMapping(value="/letters/update/new")
 	public String updateLetter(@ModelAttribute("letter") Letter letter)
 	{
 		letterManager.updateLetter(letter);
 		return "redirect:/letters";
 	}
-	
-	
 	
 	@RequestMapping(value = "/books/add")
 	public String addBook(Model model) {
@@ -141,7 +137,7 @@ public class Hello {
 	}
 	
 	@RequestMapping(value="/letters/add/new",method = RequestMethod.POST)
-	public String addLetter(@ModelAttribute("letter") Letter letter,HttpServletRequest request)
+	public String addLetter(@ModelAttribute("letter") Letter letter)
 	{
 		letterManager.addLetter(letter);
 		return "redirect:/letters";

@@ -11,15 +11,14 @@
 <title>Dodavanje pisma</title>
 </head>
 <body>
-	<form c:url="/letters/update" method="post" commandName="letter">
+	<form:form action='new' method="post" commandName="letter">
 		<div class="form-group">
 			<label for="vrsta_pisma">Vrsta: </label>
-			<input type="hidden" value="${letter.letterID}" >
-			<input path="letterType" id="vrsta_pisma" class="form-Controlor" value="${letter.letterType}"/> 
+			<form:input path="letterType" id="vrsta_pisma" class="form-Controlor" value="${letter.letterType}"/> 
 		</div>
-	
-		<input type="submit" value="submit" class="btn btn-default">
-	</form>
+		<form:input type="hidden" path="letterID" value="${letter.letterID}" />
+		<input type="submit" value="submit" class="btn btn-default" />
+	</form:form>
 
 
 </body>

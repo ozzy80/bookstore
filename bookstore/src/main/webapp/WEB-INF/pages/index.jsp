@@ -1,13 +1,15 @@
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr" ng-app="myApp">
 <head>
 	<title>CSS Free Templates with jQuery Slider</title>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<link rel="shortcut icon" href="<c:url value="css/images/favicon.ico" />" />
 	<link rel="stylesheet" href="<c:url value="resources/css/bootstrap.min.css" />" type="text/css" />	
 	<link rel="stylesheet" href="<c:url value="resources/css/style.css" />" type="text/css" media="all" />	
+  	<script type="text/javascript" src="<c:url value="resources/js/lib/angular.min.js" />"></script> 
+  	<script type="text/javascript" src="<c:url value="resources/js/app.js" />"></script>
 </head>
 <body>
 	<!-- Header -->
@@ -27,8 +29,14 @@
 		<!-- End Navigation -->
 		<div class="cl">&nbsp;</div>
 		<!-- Login-details -->
-		<div id="login-details">
-			<p>Welcome, <a href="#" id="user">Guest</a> .</p><p><a href="#" class="cart" ><img src="css/images/cart-icon.png" alt="" /></a>Shopping Cart (0) <a href="#" class="sum">$0.00</a></p>
+		<div id="login-details" ng-controller="mainController">
+			<p>Welcome, <a href="#" id="user">${pageContext.request.userPrincipal.name}</a> .
+			 <c:url var="logoutUrl" value="/j_spring_security_logout"/>
+			<form action="${logoutUrl}" method="post">
+			    <input type="submit" value="Logout"/>
+			    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+			</form>
+			</p><p><a href="#" class="cart" ><img src="resources/css/images/cart-icon.png" alt="" /></a>Shopping Cart (0) <a href="#" class="sum">$0.00</a></p>
 		</div>
 		<!-- End Login-details -->
 	</div>
@@ -40,6 +48,7 @@
 			  <input class="search-input" type="text" id="name">
 			  <label class="search-label" for="name">Pretrazi knjige</label>
 			</fieldset>
+			
 		</div>
 		
 	
@@ -365,7 +374,7 @@
 	</div>
 	<!-- End Footer -->
 	
-	<script type="text/javascript" src="<c:url value="resources/js/jquery-3.1.1.min.js" />"></script> 
-  	<script type="text/javascript" src="<c:url value="resources/js/bootstrap.min.js" />"></script> 
+	<script type="text/javascript" src="<c:url value="resources/js/lib/jquery-3.1.1.min.js" />"></script> 
+  	<script type="text/javascript" src="<c:url value="resources/js/lib/bootstrap.min.js" />"></script> 
 </body>
 </html>
