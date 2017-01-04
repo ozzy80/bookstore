@@ -76,10 +76,10 @@ public class Hello {
 	}
 
 	@RequestMapping(value="/books/update/{isbn}")
-	public String updateBook(Model model,@PathVariable("isbn") Long isbn)
-	{
+	public String updateBook(Model model, @PathVariable("isbn") Long isbn){
 		Book book = bookManager.getBookByISBN(isbn);
 		model.addAttribute("book", book);
+		
 		return "update_book";
 	}
 	

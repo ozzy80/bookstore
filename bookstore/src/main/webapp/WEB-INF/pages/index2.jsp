@@ -55,6 +55,6 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<a href='<c:out value="books/add" />' class="btn btn-primary">Add book</a>
+	<a href='<c:out value="add" />' class="btn btn-primary">Add book</a>
 </body>
 </html>

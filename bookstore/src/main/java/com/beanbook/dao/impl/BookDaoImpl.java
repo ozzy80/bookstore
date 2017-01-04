@@ -57,7 +57,7 @@ public class BookDaoImpl implements BookDao {
 	public void updateBook(Book book)
 	{
 		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(session);
+		session.saveOrUpdate(book);
 		session.flush();
 	}
 	
