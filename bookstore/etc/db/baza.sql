@@ -5,9 +5,6 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema mydb
--- -----------------------------------------------------
--- -----------------------------------------------------
 -- Schema knjizara
 -- -----------------------------------------------------
 DROP SCHEMA IF EXISTS `knjizara` ;
@@ -174,6 +171,32 @@ CREATE TABLE IF NOT EXISTS `knjizara`.`Potpisane_knjige` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `knjizara`.`users`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `knjizara`.`users` ;
+
+CREATE TABLE IF NOT EXISTS `knjizara`.`users`(
+      username varchar(50) not null primary key,
+      password varchar(50) not null,
+      enabled boolean not null
+ )ENGINE = InnoDB;
+
+      
+-- -----------------------------------------------------
+-- Table `knjizara`.`authorities`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `knjizara`.`authorities`;
+
+CREATE TABLE IF NOT EXISTS `knjizara`.`authorities`(
+      username varchar(50) not null,
+      authority varchar(50) not null,
+      constraint fk_authorities_users foreign key(username) references users(username)
+)ENGINE = InnoDB;
+create unique index ix_auth_username on authorities (username,authority);
+
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

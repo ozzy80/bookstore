@@ -80,7 +80,17 @@ INSERT INTO knjiga_ima_zanr (`ISBN`, `Zanr_ID_zanra`)
       (9788652123896, 6),
       (9788652113972, 5),
       (9788652113972, 6);
+
 -- -----------------------------------------------------
+-- Table `knjizara`.`potpisane_knjige`
+-- -----------------------------------------------------
+
+INSERT INTO potpisane_knjige (`ISBN`, `Komada`)
+  VALUES (9788661452475, 2),
+      (9788652124237, 3);      
+      
+
+--------------------------------------------------------
 -- Table `knjizara`.`knjiga_ima_autor`
 -- -----------------------------------------------------
 INSERT INTO knjiga_ima_autor (`ISBN`, `ID_autora`)
@@ -108,3 +118,19 @@ INSERT INTO zanr (`Naziv`)
       ("Putopisi"),      
       ("Komedije");
       
+      
+-- -----------------------------------------------------
+-- Table `knjizara`.`users`
+-- -----------------------------------------------------
+INSERT INTO users (`username`, `password`, `enabled`)
+  VALUES ("admin", "admin", 1);
+      
+      
+-- -----------------------------------------------------
+-- Table `knjizara`.`zanr`
+-- -----------------------------------------------------
+INSERT INTO authoritys (`username`, `authority`)
+  VALUES ("admin", "ROLE_USER",);
+      
+      
+

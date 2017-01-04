@@ -56,14 +56,6 @@ public class Book {
 	@JoinColumn(name = "pismo_ID_pisma")
 	private Letter letter;
 	
-	public Letter getLetter() {
-		return letter;
-	}
-
-	public void setLetter(Letter letter) {
-		this.letter = letter;
-	}
-
 	@Transient
 	private MultipartFile bookImage;
 
@@ -71,6 +63,14 @@ public class Book {
 	@JoinTable(name = "knjiga_ima_autor", joinColumns = {
 			@JoinColumn(name = "ISBN") }, inverseJoinColumns = @JoinColumn(name = "ID_autora"))
 	private Set<Author> authorList;
+
+	public Letter getLetter() {
+		return letter;
+	}
+	
+	public void setLetter(Letter letter) {
+		this.letter = letter;
+	}
 
 	public MultipartFile getBookImage() {
 		return bookImage;
