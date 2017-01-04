@@ -50,14 +50,6 @@ public class Hello {
 		
 		return "index";
 	}
-
-	@RequestMapping(value = "/books")
-	public String getAllBooks(Model model) {
-		List<Book> bookList = bookManager.getAllBooks();
-		model.addAttribute("books", bookList);
-
-		return "index2";
-	}
 	
 	@RequestMapping(value = "/letters")
 	public String getAllLetters(Model model)
@@ -65,22 +57,6 @@ public class Hello {
 		List<Letter> letterList = letterManager.getAllLetters();
 		model.addAttribute("letters",letterList);
 		return "all_letters";
-	}
-
-	@RequestMapping(value = "/books/{isbn}")
-	public String getBookByISBN(Model model, @PathVariable("isbn") Long isbn) {
-		Book book = bookManager.getBookByISBN(isbn);
-		model.addAttribute("book", book);
-
-		return "index3";
-	}
-
-	@RequestMapping(value="/books/update/{isbn}")
-	public String updateBook(Model model, @PathVariable("isbn") Long isbn){
-		Book book = bookManager.getBookByISBN(isbn);
-		model.addAttribute("book", book);
-		
-		return "update_book";
 	}
 	
 	@RequestMapping(value="/letters/update/{letterID}")
@@ -90,30 +66,14 @@ public class Hello {
 		model.addAttribute("letter", letter);
 		return "update_letter";
 	}
-	
-	@RequestMapping(value = "/books/update/new")
-	public String updateBook(@ModelAttribute("book") Book book)
-	{
-		
-		book.setPublisher(publisherManager.getPublisherByID(1));
-		book.setLetter(letterManager.getLetterByID(1));
-		bookManager.updateBook(book);
-		return "redirect:/books";
-	}
-	    		
+		    		
 	@RequestMapping(value="/letters/update/new")
 	public String updateLetter(@ModelAttribute("letter") Letter letter)
 	{
 		letterManager.updateLetter(letter);
 		return "redirect:/letters";
 	}
-	
-	@RequestMapping(value = "/books/add")
-	public String addBook(Model model) {
-		model.addAttribute("book", new Book());
-		return "add_book";
-	}
-	
+		
 	@RequestMapping(value="/authors/add")
 	public String addAuthor(Model model)
 	{
@@ -128,37 +88,6 @@ public class Hello {
 		return "add_letter";
 	}
 	
-	@RequestMapping(value = "/books/add/new", method = RequestMethod.POST)
-	public String addBook(@ModelAttribute("book") Book book, HttpServletRequest request) {
-		book.setPublisher(publisherManager.getPublisherByID(1));
-		book.setLetter(letterManager.getLetterByID(1));
-		//aha a u pogledu polja za pismo nema prilikom dodavanja
-		//nove knjige 
-		bookManager.addBook(book);
-		MultipartFile bookImage = book.getBookImage();
-		// String rootDirectory =
-		// request.getSession().getServletContext().getRealPath("/");
-		// * TODO Dodaj dinamicki
-		// */
-		String realPathtoUploads = "C:\\dev\\bookstore\\bookstore\\src\\main\\webapp\\WEB-INF\\resources\\images\\"
-				+ book.getPublisher().getName();
-		path_book = Paths.get(realPathtoUploads + "\\" + book.getTitle() + "-" + book.getIsbn() + ".jpg");
-
-		if (!new File(realPathtoUploads).exists()) {
-			new File(realPathtoUploads).mkdir();
-		}
-
-		if (bookImage != null && !bookImage.isEmpty()) {
-			try {
-				System.out.println("usaoooo");
-				bookImage.transferTo(new File(path_book.toString()));
-			} catch (IllegalStateException | IOException e) {
-				throw new RuntimeException("Book image saving failed", e);
-			}
-		}
-		return "redirect:/books";
-	}
-	
 	@RequestMapping(value="/letters/add/new",method = RequestMethod.POST)
 	public String addLetter(@ModelAttribute("letter") Letter letter)
 	{
@@ -166,9 +95,7 @@ public class Hello {
 		letterManager.addLetter(letter);
 		return "redirect:/letters";
  
-	}
-	
-	
+	}	
 	
 	@RequestMapping(value = "/authors/add/new" , method=RequestMethod.POST)
 	public String addAuthor(@ModelAttribute("author") Author author,HttpServletRequest request)
@@ -195,26 +122,6 @@ public class Hello {
 		}
 			
 		return "redirect:/authors/1";
-	}
-
-	@RequestMapping(value = "/books/del/{isbn}")
-	public String deleteBook(@PathVariable("isbn") Long isbn) {
-		Book book = bookManager.getBookByISBN(isbn);
-		bookManager.deleteBook(isbn);
-
-		String realPathtoUploads = "C:\\dev\\bookstore\\bookstore\\src\\main\\webapp\\WEB-INF\\resources\\images\\"
-				+ book.getPublisher().getName();
-		path_book = Paths.get(realPathtoUploads + "\\" + book.getTitle() + "-" + book.getIsbn() + ".jpg");
-
-		if (Files.exists(path_book)) {
-			try {
-				Files.delete(path_book);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-
-		return "redirect:/books";
 	}
 
 	@RequestMapping(value = "/letters/del/{idPisma}")
