@@ -1,9 +1,12 @@
--- MySQL Workbench Forward Engineering
+- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
 -- -----------------------------------------------------
 -- Schema knjizara
 -- -----------------------------------------------------
@@ -138,12 +141,12 @@ DROP TABLE IF EXISTS `knjizara`.`knjiga_ima_zanr` ;
 
 CREATE TABLE IF NOT EXISTS `knjizara`.`knjiga_ima_zanr` (
   `ISBN` BIGINT(13) NOT NULL,
-  `Zanr_ID_zanra` INT(11) NOT NULL,
-  PRIMARY KEY (`ISBN`, `Zanr_ID_zanra`),
-  INDEX `fk_Knjiga_ima_Zanr_Zanr1_idx` (`Zanr_ID_zanra` ASC),
+  `ID_zanra` INT(11) NOT NULL,
+  PRIMARY KEY (`ISBN`, `ID_zanra`),
+  INDEX `fk_Knjiga_ima_Zanr_Zanr1_idx` (`ID_zanra` ASC),
   INDEX `fk_knjiga_ima_zanr_knjiga1_idx` (`ISBN` ASC),
   CONSTRAINT `fk_Knjiga_ima_Zanr_Zanr1`
-    FOREIGN KEY (`Zanr_ID_zanra`)
+    FOREIGN KEY (`ID_zanra`)
     REFERENCES `knjizara`.`zanr` (`ID_zanra`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
@@ -157,11 +160,11 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `knjizara`.`Potpisane_knjige`
+-- Table `knjizara`.`potpisane_knjige`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `knjizara`.`Potpisane_knjige` ;
+DROP TABLE IF EXISTS `knjizara`.`potpisane_knjige` ;
 
-CREATE TABLE IF NOT EXISTS `knjizara`.`Potpisane_knjige` (
+CREATE TABLE IF NOT EXISTS `knjizara`.`potpisane_knjige` (
   `ISBN` BIGINT(13) NOT NULL,
   `Komada` SMALLINT NOT NULL,
   PRIMARY KEY (`ISBN`),
@@ -171,32 +174,6 @@ CREATE TABLE IF NOT EXISTS `knjizara`.`Potpisane_knjige` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `knjizara`.`users`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `knjizara`.`users` ;
-
-CREATE TABLE IF NOT EXISTS `knjizara`.`users`(
-      username varchar(50) not null primary key,
-      password varchar(50) not null,
-      enabled boolean not null
- )ENGINE = InnoDB;
-
-      
--- -----------------------------------------------------
--- Table `knjizara`.`authorities`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `knjizara`.`authorities`;
-
-CREATE TABLE IF NOT EXISTS `knjizara`.`authorities`(
-      username varchar(50) not null,
-      authority varchar(50) not null,
-      constraint fk_authorities_users foreign key(username) references users(username)
-)ENGINE = InnoDB;
-create unique index ix_auth_username on authorities (username,authority);
-
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

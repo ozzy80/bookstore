@@ -19,10 +19,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.beanbook.model.Author;
+import com.beanbook.model.Genre;
 import com.beanbook.model.Letter;
 import com.beanbook.model.Publisher;
 import com.beanbook.service.AuthorManager;
 import com.beanbook.service.BookManager;
+import com.beanbook.service.GenreManager;
 import com.beanbook.service.LetterManager;
 import com.beanbook.service.PublisherManager;
 
@@ -44,6 +46,9 @@ public class Hello {
 	
 	@Autowired 
 	private LetterManager letterManager;
+	
+	@Autowired
+	private GenreManager genreManager;
 
 	@RequestMapping(value = "/")
 	public String home() {
@@ -57,6 +62,14 @@ public class Hello {
 		List<Letter> letterList = letterManager.getAllLetters();
 		model.addAttribute("letters",letterList);
 		return "all_letters";
+	}
+	
+	@RequestMapping(value = "/genres")
+	public String getAllGenres(Model model)
+	{
+		List<Genre> genreList = genreManager.getAllGenres();
+		model.addAttribute("genres", genreList);
+		return "all_genres";
 	}
 	
 	@RequestMapping(value = "/publishers")
@@ -84,6 +97,14 @@ public class Hello {
 		return "update_letter";
 	}
 	
+	@RequestMapping(value = "/genres/update/{genreID}")
+	public String updateGenre(Model model, @PathVariable("genreID") Integer genre_id)
+	{
+		Genre genre = genreManager.getGenreByID(genre_id);
+		model.addAttribute("genre", genre);
+		return "update_genre";
+	}
+	
 	@RequestMapping(value="/publishers/update/new")
 	public String updatePublisher(@ModelAttribute("publisher") Publisher publisher)
 	{
@@ -98,6 +119,13 @@ public class Hello {
 		return "redirect:/letters";
 	}
 		
+	
+	@RequestMapping(value = "/genres/update/new")
+	public String updateGenre(@ModelAttribute("genre") Genre genre)
+	{
+		genreManager.updateGenre(genre);
+		return "redirect:/genres";
+	}
 	@RequestMapping(value="/authors/add")
 	public String addAuthor(Model model)
 	{
@@ -119,12 +147,26 @@ public class Hello {
 		return "add_publisher";
 	}
 	
+	@RequestMapping(value="/genres/add")
+	public String addGenre(Model model)
+	{
+		model.addAttribute("genre", new Genre());
+		return "add_genre";
+	}
+	
 	@RequestMapping(value="/letters/add/new",method = RequestMethod.POST)
 	public String addLetter(@ModelAttribute("letter") Letter letter)
 	{
 		letterManager.addLetter(letter);
 		return "redirect:/letters";
 	}	
+	
+	@RequestMapping(value="/genres/add/new",method = RequestMethod.POST)
+	public String addGenre(@ModelAttribute("genre") Genre genre)
+	{
+		genreManager.addGenre(genre);
+		return "redirect:/genres";
+	}
 	
 	@RequestMapping(value="/publishers/add/new",method = RequestMethod.POST)
 	public String addPublisher(@ModelAttribute("publisher") Publisher publisher)
@@ -166,6 +208,13 @@ public class Hello {
 		letterManager.deleteLetter(id_pisma);
 		return "redirect:/letters";
 
+	}
+	
+	@RequestMapping(value="/genres/del/{idGenre}")
+	public String deleteGenre(@PathVariable("idGenre") Integer id_genre)
+	{
+		genreManager.deleteGenre(id_genre);
+		return "redirect:/genres";
 	}
 	
 	@RequestMapping(value="/publishers/del/{idPublishera}")
@@ -220,6 +269,14 @@ public class Hello {
 		model.addAttribute("letter",letter);
 		return "index5";
 		
+	}
+	
+	@RequestMapping(value = "/genres/{idGenre}")
+	public String getGenreByID(Model model, @PathVariable("idGenre") Integer id_genre)
+	{
+		Genre genre = genreManager.getGenreByID(id_genre);
+		model.addAttribute("genre",genre);
+		return "index7";
 	}
 	
 }

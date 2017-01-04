@@ -64,6 +64,12 @@ public class Book {
 			@JoinColumn(name = "ISBN") }, inverseJoinColumns = @JoinColumn(name = "ID_autora"))
 	private Set<Author> authorList;
 
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "knjiga_ima_zanr", joinColumns = {
+			@JoinColumn(name = "ISBN") }, inverseJoinColumns = @JoinColumn(name = "ID_zanra"))
+	private Set<Genre> genreList;
+	
+	
 	public Letter getLetter() {
 		return letter;
 	}

@@ -70,7 +70,7 @@ INSERT INTO potpisane_knjige (`ISBN`, `Komada`)
 -- -----------------------------------------------------
 -- Table `knjizara`.`knjiga_ima_zanr`
 -- -----------------------------------------------------
-INSERT INTO knjiga_ima_zanr (`ISBN`, `Zanr_ID_zanra`)
+INSERT INTO knjiga_ima_zanr (`ISBN`, `ID_zanra`)
   VALUES (9788661452475, 1),
       (9788652124169, 1),
       (9788652124237, 2),
