@@ -3,16 +3,17 @@
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
      
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html ng-app="myApp">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="<c:url value="../resources/css/bootstrap.min.css" />" >
-<script type="text/javascript" src="<c:url value="../resources/js/lib/bootstrap.min.js" />"></script>
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap.min.css" />" >
+  	<script type="text/javascript" src="<c:url value="/resources/js/lib/angular.min.js" />"></script> 
+  	<script type="text/javascript" src="<c:url value="/resources/js/app.js" />"></script>
 
 <title>Insert title here</title>
 </head>
 <body>
-	<table class="table table-striped table-hover">
+	<table class="table table-striped table-hover" ng-controller="mainController">
 		<thead>
 	        <tr>
 	           <th>ISBN</th>
@@ -25,6 +26,7 @@
 	           <th>popustu</th>
 	           <th>Izdavac</th>
 	           <th>Slika</th>
+	           <th>Opis</th>
 	        </tr>    
 		</thead>
 			<tr>
@@ -38,8 +40,13 @@
 				<td>${book.discount}</td>
 				<td>${book.publisher.name}</td>
 				<td><img alt="slika" src=""></td>
+				<td><a href="#" class="btn btn-warning" ng-click="addToCart('${book.isbn}')">Dodaj</a></td>
 			</tr>
 	</table>
 	<pre>${book.description}</pre>
+
+
+	<script type="text/javascript" src="<c:url value="/resources/js/lib/jquery-3.1.1.min.js" />"></script> 
+  	<script type="text/javascript" src="<c:url value="/resources/js/lib/bootstrap.min.js" />"></script> 	
 </body>
 </html>
