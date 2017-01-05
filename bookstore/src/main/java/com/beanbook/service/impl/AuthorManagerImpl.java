@@ -1,5 +1,7 @@
 package com.beanbook.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,5 +33,17 @@ public class AuthorManagerImpl implements AuthorManager{
 		return authorDao.getAuthorByID(id);
 	}
 	
+	
+	@Override
+	public List<Author> getAllAuthors()
+	{
+		return authorDao.getAllAuthors();
+	}
+	
+	@Override
+	public void updateAuthor(Author author)
+	{
+		authorDao.updateAuthor(author);
+	}
 
 }

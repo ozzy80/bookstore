@@ -78,6 +78,14 @@ public class Hello {
 		return "all_genres";
 	}
 	
+	@RequestMapping(value = "/authors")
+	public String getAllAuthors(Model model)
+	{
+		List<Author> authorList = authorManager.getAllAuthors();
+		model.addAttribute("authors", authorList);
+		return "all_authors";
+	}
+	
 	@RequestMapping(value = "/publishers")
 	public String getAllPublishers(Model model)
 	{
@@ -103,7 +111,25 @@ public class Hello {
 		return "update_publisher";
 	}
 	
+
+	@RequestMapping(value="/authors/update/{authorID}")
+	public String updateAuthor(Model model,@PathVariable("authorID") Integer id)
+	{
+		Author author = authorManager.getAuthorByID(id);
+		model.addAttribute("author",author);
+		return "update_author";
+	}
 	
+	
+
+	@RequestMapping(value = "/authors/update/new")
+	public String updateAuthor(@ModelAttribute("author") Author author)
+	{
+		authorManager.updateAuthor(author);
+		return "redirect:/authors";	
+	}
+
+		
 	@RequestMapping(value="/letters/update/{letterID}")
 	public String updateLetter(Model model, @PathVariable("letterID") Integer letterID)
 	{
@@ -136,10 +162,6 @@ public class Hello {
 		signedBookManager.updateSignedBook(signedBook);
 		return "redirect:/signedbooks";
 	}
-	
-	
-	
-	
 	
 	@RequestMapping(value="/publishers/update/new")
 	public String updatePublisher(@ModelAttribute("publisher") Publisher publisher)
@@ -248,9 +270,8 @@ public class Hello {
 			catch(IllegalStateException | IOException e) {
 				throw new RuntimeException("Author image saving failed",e);
 			}
-		}
-			
-		return "redirect:/authors/1";
+		}	
+		return "redirect:/authors";
 	}
 
 	@RequestMapping(value = "/letters/del/{idPisma}")
@@ -258,7 +279,6 @@ public class Hello {
 	{
 		letterManager.deleteLetter(id_pisma);
 		return "redirect:/letters";
-
 	}
 	
 	@RequestMapping(value="/genres/del/{idGenre}")
@@ -300,7 +320,7 @@ public class Hello {
 				e.printStackTrace();
 			}
 		}
-		return "redirect:/authors/1";
+		return "redirect:/authors";
 	}
 	
 	@RequestMapping(value = "/authors/{idAutora}")

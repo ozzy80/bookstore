@@ -1,5 +1,8 @@
 package com.beanbook.dao.impl;
 
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +45,21 @@ public class AuthorDaoImpl implements AuthorDao{
 		
 	}
 
-
+	@Override
+	public List<Author> getAllAuthors()
+	{
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from Author");
+		List<Author> authorList = query.list();
+		session.flush();
+		return authorList;
+	}
 	
-	
+	@Override 
+	public void updateAuthor(Author author)
+	{
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(author);
+		session.flush();
+	}
 }

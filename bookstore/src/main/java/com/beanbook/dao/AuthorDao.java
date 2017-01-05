@@ -1,5 +1,7 @@
 package com.beanbook.dao;
 
+import java.util.List;
+
 import com.beanbook.model.Author;
 
 public interface AuthorDao {
@@ -9,5 +11,8 @@ public interface AuthorDao {
 	Author getAuthorByID(Integer ID);
 
 	void deleteAuthor(Author author);
+	
+	List<Author> getAllAuthors();
 
+	void updateAuthor(Author author);
 }
