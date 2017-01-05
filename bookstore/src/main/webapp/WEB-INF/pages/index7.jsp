@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -17,22 +16,21 @@
 	<table class="table table-striped table-hover">
 		<tr>
 			<th>
-				ID zanra
+				ISBN
 			</th>
 			<th>
-				Naziv
+				Broj potpisanih knjiga
 			</th>
 		</tr>
 		<tr>
 			<td>
-				${genre.genreID} 
+				${signedBook.isbn} 
 			</td>
 			<td>
-				${genre.genreName}
+				${signedBook.signedBooksNumber}
 			</td>
 		</tr>
 	</table>
-	<a href='<c:out value="add" />' class="btn btn-primary">Add genre</a>
 	
 </body>
 </html>

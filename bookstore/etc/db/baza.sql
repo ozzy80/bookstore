@@ -1,4 +1,4 @@
-- MySQL Workbench Forward Engineering
+-- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
@@ -103,12 +103,12 @@ DROP TABLE IF EXISTS `knjizara`.`knjiga_ima_autor` ;
 
 CREATE TABLE IF NOT EXISTS `knjizara`.`knjiga_ima_autor` (
   `ISBN` BIGINT(13) NOT NULL,
-  `Autor_ID_autora` INT(11) NOT NULL,
-  PRIMARY KEY (`ISBN`, `Autor_ID_autora`),
-  INDEX `fk_Knjiga_ima_Autor_Autor1_idx` (`Autor_ID_autora` ASC),
+  `ID_autora` INT(11) NOT NULL,
+  PRIMARY KEY (`ISBN`, `ID_autora`),
+  INDEX `fk_Knjiga_ima_Autor_Autor1_idx` (`ID_autora` ASC),
   INDEX `fk_knjiga_ima_autor_knjiga1_idx` (`ISBN` ASC),
   CONSTRAINT `fk_Knjiga_ima_Autor_Autor1`
-    FOREIGN KEY (`Autor_ID_autora`)
+    FOREIGN KEY (`ID_autora`)
     REFERENCES `knjizara`.`autor` (`ID_autora`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,

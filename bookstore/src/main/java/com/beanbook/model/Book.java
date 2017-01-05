@@ -67,7 +67,7 @@ public class Book {
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "knjiga_ima_zanr", joinColumns = {
 			@JoinColumn(name = "ISBN") }, inverseJoinColumns = @JoinColumn(name = "ID_zanra"))
-	private Set<Genre> genreList;
+	private Set<Genre> genreLit;
 	
 	
 	public Letter getLetter() {
