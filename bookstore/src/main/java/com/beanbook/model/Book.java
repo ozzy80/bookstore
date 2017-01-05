@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -56,6 +57,26 @@ public class Book {
 	@JoinColumn(name = "pismo_ID_pisma")
 	private Letter letter;
 	
+	@OneToOne
+	@JoinColumn(name = "ISBN")
+	private SignedBook signedBook;
+	
+	public SignedBook getSignedBook() {
+		return signedBook;
+	}
+
+	public void setSignedBook(SignedBook signedBook) {
+		this.signedBook = signedBook;
+	}
+
+	public Set<Genre> getGenreList() {
+		return genreList;
+	}
+
+	public void setGenreList(Set<Genre> genreList) {
+		this.genreList = genreList;
+	}
+
 	@Transient
 	private MultipartFile bookImage;
 
@@ -67,7 +88,7 @@ public class Book {
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "knjiga_ima_zanr", joinColumns = {
 			@JoinColumn(name = "ISBN") }, inverseJoinColumns = @JoinColumn(name = "ID_zanra"))
-	private Set<Genre> genreLit;
+	private Set<Genre> genreList;
 	
 	
 	public Letter getLetter() {

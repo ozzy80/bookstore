@@ -17,6 +17,8 @@
 	        <tr>
 	           <th>ISBN</th>
 	           <th>Naziv</th>
+	           <th>Autori</th>
+	           <th>Zanr</th>
 	           <th>Dostupno</th>
 	           <th>Format</th>
 	           <th>Strana</th>
@@ -24,27 +26,15 @@
 	           <th>Cena</th>
 	           <th>Izdavac</th>
 	           <th>Pismo</th>
+	           <th>Potpisano primeraka </th>
 	           <th>Slika</th>
 	           <th>Info</th>
-	           <th>Autori</th>
 	        </tr>    
 		</thead>
 		<c:forEach items="${books}" var="book">
 			<tr>
 				<td>${book.isbn}</td>
 				<td>${book.title}</td>
-				<td>${book.booksInStock}</td>
-				<td>${book.format}</td>
-				<td>${book.numberOfPages}</td>
-				<td>${book.publicationYear}</td>
-				<td>${book.price}</td>
-				<td>${book.publisher.name}</td>
-				<td>${book.letter.letterType}</td>
-				<td><img alt="slika" src='<c:url value="resources/images/${book.publisher.name}/${book.title}-${book.isbn}.jpg" />'></td>
-				<td>
-					<a href='<c:out value="books/${book.isbn}" />'><span class="glyphicon glyphicon-info-sign"></span></a>
-					<a href='<c:out value="books/del/${book.isbn}" />'><span class="glyphicon glyphicon-remove"></span></a>	
-				</td>
 				<td>
 					<ol>
 						<c:forEach items="${book.authorList}" var="author">
@@ -52,6 +42,27 @@
 						</c:forEach>
 					</ol>
 				</td>
+				<td>
+					<ol>
+						<c:forEach items="${book.genreList}" var="genre">
+							<li>${genre.genreName}</li>
+						</c:forEach>
+					</ol>
+				</td>
+				<td>${book.booksInStock}</td>
+				<td>${book.format}</td>
+				<td>${book.numberOfPages}</td>
+				<td>${book.publicationYear}</td>
+				<td>${book.price}</td>
+				<td>${book.publisher.name}</td>
+				<td>${book.letter.letterType}</td>
+				<td>${book.signedBook.signedBooksNumber }</td>
+				<td><img alt="slika" src='<c:url value="resources/images/${book.publisher.name}/${book.title}-${book.isbn}.jpg" />'></td>
+				<td>
+					<a href='<c:out value="books/${book.isbn}" />'><span class="glyphicon glyphicon-info-sign"></span></a>
+					<a href='<c:out value="books/del/${book.isbn}" />'><span class="glyphicon glyphicon-remove"></span></a>	
+				</td>
+				
 			</tr>
 		</c:forEach>
 	</table>

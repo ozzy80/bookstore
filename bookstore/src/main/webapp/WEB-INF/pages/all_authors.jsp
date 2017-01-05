@@ -24,8 +24,12 @@
 				Prezime
 			</th>
 			<th>
+				Knjige
+			</th>
+			<th>
 				Opis
 			</th>
+			
 		</thead>
 		<c:forEach items="${authors}" var="author">
 			<tr>
@@ -37,6 +41,13 @@
 				</td>
 				<td>
 					${author.lastName}
+				</td>
+				<td>
+					<ol>
+						<c:forEach items="${author.bookList}" var="book">
+							<li>${book.title} </li>
+						</c:forEach>
+					</ol>
 				</td>
 				<td>
 					${author.description}

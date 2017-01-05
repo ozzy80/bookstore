@@ -71,7 +71,7 @@ INSERT INTO potpisane_knjige (`ISBN`, `Komada`)
 -- Table `knjizara`.`knjiga_ima_zanr`
 -- -----------------------------------------------------
 INSERT INTO knjiga_ima_zanr (`ISBN`, `ID_zanra`)
-  VALUES (9788661452475, 1),
+  VALUES (9788661452475, 2),
       (9788652124169, 1),
       (9788652124237, 2),
       (9788652124237, 3),
@@ -92,8 +92,7 @@ INSERT INTO potpisane_knjige (`ISBN`, `Komada`)
 -- Table `knjizara`.`knjiga_ima_autor`
 -- -----------------------------------------------------
 INSERT INTO knjiga_ima_autor (`ISBN`, `ID_autora`)
-  VALUES (9788661452475, 4),
-      (9788652124169, 3),
+      VALUES(9788661452475, 2),
       (9788652124237, 5),
       (9788652124237, 6),
       (9788652123896, 1),
