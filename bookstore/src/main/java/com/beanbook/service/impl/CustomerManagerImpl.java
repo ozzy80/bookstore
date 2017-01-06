@@ -31,6 +31,11 @@ public class CustomerManagerImpl implements CustomerManager{
 		return customerDao.getAllCustomer();
 	}
 
+	@Override
+	public Customer getCustomerByUsername(String username) {
+		return customerDao.getCustomerByUsername(username);
+	}
+
 	
 	
 }

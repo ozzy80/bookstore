@@ -33,17 +33,27 @@
 		<!-- End Navigation -->
 		<div class="cl">&nbsp;</div>
 		<!-- Login-details -->
-		<div id="login-details" ng-controller="mainController">
-			<p>Welcome, <a href="#" id="user">${pageContext.request.userPrincipal.name}</a> .
-			 <c:url var="logoutUrl" value="/j_spring_security_logout"/>
-			<form action="${logoutUrl}" method="post">
-			    <input type="submit" value="Logout"/>
-			    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-			</form>
-			</p><p><a href="#" class="cart" ><img src="resources/css/images/cart-icon.png" alt="" /></a>Shopping Cart (0) <a href="#" class="sum">$0.00</a></p>
-		</div>
+		  <c:choose>
+			 <c:when test="${not empty pageContext.request.userPrincipal}">
+				<div id="login-details" ng-controller="mainController">
+					<p>Welcome, 
+						<a href="#" id="user"><c:out value="${pageContext.request.userPrincipal.name}" /></a> | 
+						<a href="<c:url value="/j_spring_security_logout"/>">Log out</a>
+					</p>
+					<p><a href="<c:url value="/customer/cart" />" class="cart" ><img src="resources/css/images/cart-icon.png" alt="" /></a>Shopping Cart (0) <a href="#" class="sum">$0.00</a></p>
+				</div>			
+			 </c:when>
+			 <c:otherwise>
+				<div id="login-details" ng-controller="mainController">
+					<p><a href="<c:url value="/login" />">Login</a> | 
+					   <a href="<c:url value="/register"/>">Register</a>
+					</p>
+					<p><a href="<c:url value="/customer/cart" />" class="cart" ><img src="resources/css/images/cart-icon.png" alt="" /></a>Shopping Cart (0) <a href="#" class="sum">$0.00</a></p>
+				</div>					 
+			 </c:otherwise>
+		  </c:choose>
 		<!-- End Login-details -->
-	</div>
+		</div>
 	<!-- End Header -->
 	
 

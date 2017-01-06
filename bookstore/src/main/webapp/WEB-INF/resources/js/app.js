@@ -2,7 +2,7 @@ var myApp = angular.module('myApp', []);
 
 myApp.controller('mainController', ['$scope', '$http', '$log', function($scope, $http, $log){
 	
-	$scope.refreshCart = function(cartId) {
+	$scope.refreshCart = function() {
 		$http.get("/bookstore/rest/cart/"+$scope.cartId).then(function(data){
 			$scope.cart = data;
 			console.log($scope.cart.data.cartItems);
@@ -10,7 +10,7 @@ myApp.controller('mainController', ['$scope', '$http', '$log', function($scope, 
 	};
 
 	$scope.clearCart = function(cartId) {
-		$http.delete("/bookstore/rest/cart/" + $scope.cartId).then($scope.refreshCart($scope.cartId));
+		$http.delete("/bookstore/rest/cart/" + $scope.cartId).then($scope.refreshCart());
 	};
 
 	$scope.initCartId = function(cartId) {
@@ -19,18 +19,27 @@ myApp.controller('mainController', ['$scope', '$http', '$log', function($scope, 
 	};
 
 	$scope.addToCart = function(bookId){
-		$http.put("/bookstore/rest/cart/add/"+bookId).then(function(data){
-			$scope.refreshCart($http.get('/bookstore/rest/cart/cartId'));
-			alert("Book successfully added");
+		$http.put("/bookstore/rest/cart/"+bookId).then(function(){
+			alert("Book successfully added to the cart");
 		});
 	};
 
 	$scope.removeFromCart = function(bookId){
 		$http.put("/bookstore/rest/cart/remove/"+bookId).then(function(data){
-			$scope.refreshCart($http.get('/bookstore/rest/cart/cartId'));
+			$scope.refreshCart();
 			alert("Book successfully added");
 		});
 	};
+	
+	$scope.calGrandTotal = function(){
+		var grandTotal = 0;
+		
+		for(var i=0; i<$scope.cart.cartItems.length; i++){
+			grandTotal += scope.cart.cartItems[i].totalPrice;
+		}
+		
+		return grandTotal;
+	}
 
 }]);
 
