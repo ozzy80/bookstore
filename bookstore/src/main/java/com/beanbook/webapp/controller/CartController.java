@@ -46,7 +46,7 @@ public class CartController {
 		cartDao.delete(cartId);
 	}
 
-	@RequestMapping(method = RequestMethod.PUT, value="/add/{isbn}")
+/*	@RequestMapping(method = RequestMethod.PUT, value="/add/{isbn}")
 	@ResponseStatus(value=HttpStatus.NO_CONTENT)
 	public void update(@PathVariable(value="isbn") Long isbn, HttpServletRequest request){
 		String sessionID = request.getSession(true).getId();
@@ -81,7 +81,7 @@ public class CartController {
 		}
 		cart.removeCartItem(new CartItem(book));
 		cartDao.update(sessionID, cart);
-	}
+	}*/
 	
 	@ExceptionHandler(IllegalArgumentException.class)
 	@ResponseStatus(value=HttpStatus.BAD_REQUEST, reason="Ilegal argument")

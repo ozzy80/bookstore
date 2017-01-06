@@ -40,7 +40,7 @@
 					${author.firstName}
 				</td>
 				<td>
-					${author.lastName}
+					${author.lastName} 
 				</td>
 				<td>
 					<ol>
@@ -53,8 +53,8 @@
 					${author.description}
 				</td>
 				<td>
-					<a href='<c:out value="${author.authorId}" />'><span class="glyphicon glyphicon-info-sign"></span></a>
-					<a href='<c:out value="del/${author.authorId}" />'><span class="glyphicon glyphicon-remove"></span></a>
+					<a href='<c:out value="authors/${author.authorId}" />'><span class="glyphicon glyphicon-info-sign"></span></a>
+					<a href='<c:out value="authors/del/${author.authorId}" />'><span class="glyphicon glyphicon-remove"></span></a>
 					<a href='<c:out value="authors/update/${author.authorId}" />'>Izmeni</a>
 	
 				</td>

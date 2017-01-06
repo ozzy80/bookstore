@@ -27,7 +27,7 @@
 				<td>${author.firstName}</td>
 				<td>${author.lastName}</td>
 				<td>${author.description}</td>
-				<td><img alt="slika" src='<c:url value="resources/images/${author.firstName}_${author.lastName}_${author.authorId}.jpg" />'></td>
+				<td><img alt="slika" src='<c:url value="/resources/images/authors/${author.firstName}_${author.lastName}_${author.authorId}.jpg" />'></td>
 				<td>
 					<a href='<c:out value="del/${author.authorId}" />'><span class="glyphicon glyphicon-remove"></span></a>	
 				</td>

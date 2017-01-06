@@ -1,21 +1,56 @@
 package com.beanbook.model;
 
-public class CartItem {
+import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
+
+public class CartItem implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1809292591018285569L;
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Integer cartItemId;
+	
+	@ManyToOne
+	@JoinColumn(name="cartId")
+	@JsonIgnore
+	private Cart cart;
+
+	@ManyToOne
+	@JoinColumn(name="productId")
 	private Book book;
 	
-	private int quantity;
+	private Integer quantity;
 	
-	private double totalPrice;
+	private Double totalPrice;
 
-	public CartItem() {
-		
+	public Integer getCartItemId() {
+		return cartItemId;
 	}
-	
-	public CartItem(Book book) {
-		this.book = book;
-		this.quantity = 1;
-		this.totalPrice = book.getPrice();
+
+	public void setCartItemId(Integer cartItemId) {
+		this.cartItemId = cartItemId;
+	}
+
+	public Cart getCart() {
+		return cart;
+	}
+
+	public void setCart(Cart cart) {
+		this.cart = cart;
 	}
 
 	public Book getBook() {
@@ -26,21 +61,20 @@ public class CartItem {
 		this.book = book;
 	}
 
-	public int getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 
-	public double getTotalPrice() {
+	public Double getTotalPrice() {
 		return totalPrice;
 	}
 
-	public void setTotalPrice(double totalPrice) {
+	public void setTotalPrice(Double totalPrice) {
 		this.totalPrice = totalPrice;
 	}
-
-
+	
 }

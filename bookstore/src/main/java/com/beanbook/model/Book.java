@@ -1,8 +1,11 @@
 package com.beanbook.model;
 
+import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,15 +14,23 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "knjiga")
-public class Book {
+public class Book implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -142792445848152374L;
 
 	@Id
 	@Column(name = "ISBN")
@@ -61,21 +72,6 @@ public class Book {
 	@JoinColumn(name = "ISBN")
 	private SignedBook signedBook;
 	
-	public SignedBook getSignedBook() {
-		return signedBook;
-	}
-
-	public void setSignedBook(SignedBook signedBook) {
-		this.signedBook = signedBook;
-	}
-
-	public Set<Genre> getGenreList() {
-		return genreList;
-	}
-
-	public void setGenreList(Set<Genre> genreList) {
-		this.genreList = genreList;
-	}
 
 	@Transient
 	private MultipartFile bookImage;
@@ -90,6 +86,25 @@ public class Book {
 			@JoinColumn(name = "ISBN") }, inverseJoinColumns = @JoinColumn(name = "ID_zanra"))
 	private Set<Genre> genreList;
 	
+	@OneToMany(mappedBy="book", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JsonIgnore
+	private List<CartItem> cartItemList;
+	
+	public SignedBook getSignedBook() {
+		return signedBook;
+	}
+	
+	public void setSignedBook(SignedBook signedBook) {
+		this.signedBook = signedBook;
+	}
+	
+	public Set<Genre> getGenreList() {
+		return genreList;
+	}
+	
+	public void setGenreList(Set<Genre> genreList) {
+		this.genreList = genreList;
+	}
 	
 	public Letter getLetter() {
 		return letter;
@@ -193,5 +208,15 @@ public class Book {
 
 	public void setPublisher(Publisher publisher) {
 		this.publisher = publisher;
+	}
+
+	public List<CartItem> getCartItemList() {
+		return cartItemList;
+	}
+
+	public void setCartItemList(List<CartItem> cartItemList) {
+		this.cartItemList = cartItemList;
 	}	
+	
+	
 }

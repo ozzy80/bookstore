@@ -1,75 +1,80 @@
 package com.beanbook.model;
 
+import java.io.Serializable;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-public class Cart {
-	
-	private String cartId;
-	
-	private Map<Long, CartItem> cartItems;
-	
-	private double grandTotal;
-	
-	public Cart() {
-		cartItems = new HashMap<>();
-		grandTotal = 0;
-	}
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
-	public Cart(String cartId) {
-		this();
-		this.cartId = cartId;
-	}
+import org.hibernate.annotations.Cascade;
+import org.springframework.beans.factory.config.CustomEditorConfigurer;
 
-	public String getCartId() {
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
+public class Cart implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6743798449419744388L;
+
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Integer cartId;
+	
+	@OneToMany(mappedBy="cart", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	private List<CartItem> cartItems;
+	
+	@OneToOne
+	@JoinColumn(name="customerId")
+	@JsonIgnore
+	private Customer customer;
+	
+	private Double grandTotal;
+
+	public Integer getCartId() {
 		return cartId;
 	}
 
-	public void setCartId(String cartId) {
+	public void setCartId(Integer cartId) {
 		this.cartId = cartId;
 	}
 
-	public Map<Long, CartItem> getCartItems() {
+	public List<CartItem> getCartItems() {
 		return cartItems;
 	}
 
-	public void setCartItems(Map<Long, CartItem> cartItems) {
+	public void setCartItems(List<CartItem> cartItems) {
 		this.cartItems = cartItems;
 	}
 
-	public double getGrandTotal() {
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public Double getGrandTotal() {
 		return grandTotal;
 	}
 
-	public void setGrandTotal(double grandTotal) {
+	public void setGrandTotal(Double grandTotal) {
 		this.grandTotal = grandTotal;
 	}
 	
-	public void addCartItem(CartItem item){
-		Long isbn = item.getBook().getIsbn();
-		
-		if(cartItems.containsKey(isbn)){
-			CartItem existingCartItem = cartItems.get(isbn);
-			existingCartItem.setQuantity(existingCartItem.getQuantity() + item.getQuantity());
-			cartItems.put(isbn, existingCartItem);
-		} else {
-			cartItems.put(isbn, item);
-		}
-		
-		updateGrandTotal();
-	}
 	
-	public void removeCartItem(CartItem item){
-		Long isbn = item.getBook().getIsbn();
-		cartItems.remove(isbn);
-		updateGrandTotal();
-	}
-	
-	public void updateGrandTotal(){
-		grandTotal = 0;
-		for (CartItem item : cartItems.values()) {
-			grandTotal += item.getTotalPrice();
-		}
-	}
 	
 }

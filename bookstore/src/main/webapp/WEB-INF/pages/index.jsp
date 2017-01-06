@@ -1,5 +1,6 @@
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+ <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+ 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr" ng-app="myApp">
 <head>
@@ -24,6 +25,9 @@
 				<li><a href="#">Profile</a></li>
 				<li><a href="#">About Us</a></li>
 				<li><a href="#">Contacts</a></li>
+				<sec:authorize access="hasRole('ROLE_ADMIN')">
+					<li><a href="<c:url value="/admin/" />">Admin</a></li>
+				</sec:authorize>
 			</ul>
 		</div>
 		<!-- End Navigation -->
