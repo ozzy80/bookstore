@@ -5,7 +5,6 @@ myApp.controller('mainController', ['$scope', '$http', '$log', function($scope, 
 	$scope.refreshCart = function() {
 		$http.get("/bookstore/rest/cart/"+$scope.cartId).then(function(data){
 			$scope.cart = data;
-			console.log($scope.cart.data.cartItems);
 		});
 	};
 
@@ -34,8 +33,10 @@ myApp.controller('mainController', ['$scope', '$http', '$log', function($scope, 
 	$scope.calGrandTotal = function(){
 		var grandTotal = 0;
 		
-		for(var i=0; i<$scope.cart.cartItems.length; i++){
-			grandTotal += scope.cart.cartItems[i].totalPrice;
+		console.log($scope);
+		console.log("-------------------------");
+		for(var i=0; i<$scope.cart.data.cartItems.length; i++){
+			grandTotal += $scope.cart.data.cartItems[i].totalPrice;
 		}
 		
 		return grandTotal;

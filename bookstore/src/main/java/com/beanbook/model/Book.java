@@ -22,6 +22,7 @@ import javax.persistence.Transient;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "knjiga")
@@ -72,13 +73,13 @@ public class Book implements Serializable{
 	@JoinColumn(name = "ISBN")
 	private SignedBook signedBook;
 	
-
 	@Transient
 	private MultipartFile bookImage;
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "knjiga_ima_autor", joinColumns = {
 			@JoinColumn(name = "ISBN") }, inverseJoinColumns = @JoinColumn(name = "ID_autora"))
+	@JsonManagedReference		
 	private Set<Author> authorList;
 
 	@ManyToMany(fetch = FetchType.EAGER)

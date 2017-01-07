@@ -44,7 +44,7 @@
 						<th></th>
 						<th></th>
 						<th>Grand total</th>
-						<th>{{cart.data.calGrandTotal()}}</th>
+						<th>{{calGrandTotal()}}</th>
 						<th></th>
 					</tr>
 				</table>
