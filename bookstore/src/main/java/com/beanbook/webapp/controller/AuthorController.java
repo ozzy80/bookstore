@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.beanbook.model.Author;
+import com.beanbook.model.Book;
 import com.beanbook.service.AuthorManager;
 
 @Controller
@@ -27,7 +28,8 @@ public class AuthorController {
 	@Autowired
 	private AuthorManager authorManager;
 
-	private Path path_author;
+	@Autowired
+	FileUploadController file;
 
 	@RequestMapping(value = "/authors")
 	public String getAllAuthors(Model model) {
@@ -45,22 +47,11 @@ public class AuthorController {
 	@RequestMapping(value = "/authors/add", method = RequestMethod.POST)
 	public String addAuthor(@ModelAttribute("author") Author author, HttpServletRequest request) {
 		authorManager.addAuthor(author);
-		MultipartFile authorImage = author.getAuthorImage();
+		
 		String realPathToUpload = "C:\\dev\\bookstore\\bookstore\\src\\main\\webapp\\WEB-INF\\resources\\images\\authors";
-		path_author = Paths.get(realPathToUpload + "\\" + author.getFirstName() + "_" + author.getLastName() + "_"
-				+ author.getAuthorId() + ".jpg");
-		if (!new File(realPathToUpload).exists()) {
-			new File(realPathToUpload).mkdir();
-		}
+		String imageName = author.getFirstName() + "_" + author.getLastName() + "_"	+ author.getAuthorId() + ".jpg";
+		file.uploadPicture(author.getAuthorImage(), imageName, realPathToUpload);
 
-		if (authorImage != null && !authorImage.isEmpty()) {
-			try {
-				System.out.println("usao");
-				authorImage.transferTo(new File(path_author.toString()));
-			} catch (IllegalStateException | IOException e) {
-				throw new RuntimeException("Author image saving failed", e);
-			}
-		}
 		return "redirect:/authors";
 	}
 
@@ -73,7 +64,19 @@ public class AuthorController {
 
 	@RequestMapping(value = "/authors/update", method = RequestMethod.POST)
 	public String updateAuthor(@ModelAttribute("author") Author author) {
+		
+		String realPathToUpload = "C:\\dev\\bookstore\\bookstore\\src\\main\\webapp\\WEB-INF\\resources\\images\\authors";
+
+		if (author.getAuthorImage() != null && !author.getAuthorImage().isEmpty()) {
+			Author oldAuthor = authorManager.getAuthorByID(author.getAuthorId());
+			String imageName = oldAuthor.getFirstName() + "_" + oldAuthor.getLastName() + "_"	+ oldAuthor.getAuthorId() + ".jpg";
+			file.deletePicture(imageName, realPathToUpload);		
+		}
 		authorManager.updateAuthor(author);
+		
+		String imageName = author.getFirstName() + "_" + author.getLastName() + "_"	+ author.getAuthorId() + ".jpg";
+		file.uploadPicture(author.getAuthorImage(), imageName, realPathToUpload);		
+		
 		return "redirect:/authors";
 	}
 
@@ -83,15 +86,9 @@ public class AuthorController {
 		authorManager.deleteAuthor(id_autora);
 
 		String realPathToUpload = "C:\\dev\\bookstore\\bookstore\\src\\main\\webapp\\WEB-INF\\resources\\images\\authors";
-		path_author = Paths.get(realPathToUpload + "\\" + author.getFirstName() + "_" + author.getLastName() + "_"
-				+ author.getAuthorId() + ".jpg");
-		if (Files.exists(path_author)) {
-			try {
-				Files.delete(path_author);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+		String imageName = author.getFirstName() + "_" + author.getLastName() + "_"	+ author.getAuthorId() + ".jpg";
+		file.deletePicture(imageName, realPathToUpload);
+		
 		return "redirect:/authors";
 	}
 

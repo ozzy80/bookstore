@@ -1,6 +1,5 @@
 package com.beanbook.webapp.controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -16,7 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.beanbook.model.Book;
 import com.beanbook.service.BookManager;
@@ -26,7 +25,8 @@ import com.beanbook.service.PublisherManager;
 @Controller
 public class BookController {
 
-	private Path path_book;
+	@Autowired
+	FileUploadController file;
 
 	@Autowired
 	private BookManager bookManager;
@@ -63,30 +63,12 @@ public class BookController {
 	public String addBook(@ModelAttribute("book") Book book, HttpServletRequest request) {
 		book.setPublisher(publisherManager.getPublisherByID(1));
 		book.setLetter(letterManager.getLetterByID(1));
-		// aha a u pogledu polja za pismo nema prilikom dodavanja
-		// nove knjige
 		bookManager.addBook(book);
-		MultipartFile bookImage = book.getBookImage();
-		// String rootDirectory =
-		// request.getSession().getServletContext().getRealPath("/");
-		// * TODO Dodaj dinamicki
-		// */
-		String realPathtoUploads = "C:\\dev\\bookstore\\bookstore\\src\\main\\webapp\\WEB-INF\\resources\\images\\"
-				+ book.getPublisher().getName();
-		path_book = Paths.get(realPathtoUploads + "\\" + book.getTitle() + "-" + book.getIsbn() + ".jpg");
 
-		if (!new File(realPathtoUploads).exists()) {
-			new File(realPathtoUploads).mkdir();
-		}
+		String realPathToUpload = "C:\\dev\\bookstore\\bookstore\\src\\main\\webapp\\WEB-INF\\resources\\images\\" + book.getPublisher().getName();
+		String imageName = book.getTitle() + "-" + book.getIsbn() + ".jpg";
+		file.uploadPicture(book.getBookImage(), imageName, realPathToUpload);
 
-		if (bookImage != null && !bookImage.isEmpty()) {
-			try {
-				System.out.println("usaoooo");
-				bookImage.transferTo(new File(path_book.toString()));
-			} catch (IllegalStateException | IOException e) {
-				throw new RuntimeException("Book image saving failed", e);
-			}
-		}
 		return "redirect:/books";
 	}
 
@@ -99,11 +81,23 @@ public class BookController {
 	}
 
 	@RequestMapping(value = "/books/update", method = RequestMethod.POST)
-	public String updateBook(@ModelAttribute("book") Book book) {
+	public String updateBook(@ModelAttribute("book") Book book, @RequestParam("oldIsbn") Long oldIsbn) {
 
 		book.setPublisher(publisherManager.getPublisherByID(1));
 		book.setLetter(letterManager.getLetterByID(1));
+
+		if (book.getBookImage() != null && !book.getBookImage().isEmpty()) {
+			Book oldBook = bookManager.getBookByISBN(oldIsbn);
+			file.deletePicture(oldBook.getTitle() + "-" + oldBook.getIsbn() + ".jpg",
+					"C:\\dev\\bookstore\\bookstore\\src\\main\\webapp\\WEB-INF\\resources\\images\\"
+							+ oldBook.getPublisher().getName());
+		}
 		bookManager.updateBook(book);
+
+		file.uploadPicture(book.getBookImage(), book.getTitle() + "-" + book.getIsbn() + ".jpg",
+				"C:\\dev\\bookstore\\bookstore\\src\\main\\webapp\\WEB-INF\\resources\\images\\"
+						+ book.getPublisher().getName());
+
 		return "redirect:/books";
 	}
 
@@ -112,17 +106,9 @@ public class BookController {
 		Book book = bookManager.getBookByISBN(isbn);
 		bookManager.deleteBook(isbn);
 
-		String realPathtoUploads = "C:\\dev\\bookstore\\bookstore\\src\\main\\webapp\\WEB-INF\\resources\\images\\"
-				+ book.getPublisher().getName();
-		path_book = Paths.get(realPathtoUploads + "\\" + book.getTitle() + "-" + book.getIsbn() + ".jpg");
-
-		if (Files.exists(path_book)) {
-			try {
-				Files.delete(path_book);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+		String realPathToUpload = "C:\\dev\\bookstore\\bookstore\\src\\main\\webapp\\WEB-INF\\resources\\images\\" + book.getPublisher().getName();
+		String imageName = book.getTitle() + "-" + book.getIsbn() + ".jpg";
+		file.deletePicture(imageName, realPathToUpload);
 
 		return "redirect:/books";
 	}

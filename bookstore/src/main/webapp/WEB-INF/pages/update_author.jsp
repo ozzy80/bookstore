@@ -29,7 +29,6 @@
 			<form:input path="authorImage" id="authorImage" type="file" class="form:input-large"/>
 		</div>
 		<form:input type="hidden" path="authorId" value="${author.authorId}" />
-		
 		<input type="submit" value="submit" class="btn btn-default">
 	</form:form>
 

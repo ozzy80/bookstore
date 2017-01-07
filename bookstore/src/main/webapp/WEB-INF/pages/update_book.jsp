@@ -51,6 +51,7 @@
 			<label class="control-label" for="bookImage">Upload picture</label>
 			<form:input path="bookImage" id="bookImage" type="file" class="form:input-large"/>
 		</div>
+		<input type="hidden" value="${isbn}" name="oldIsbn">
 		<input type="submit" value="submit" class="btn btn-default">
 	</form:form>
 </body>
