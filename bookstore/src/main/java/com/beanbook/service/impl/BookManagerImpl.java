@@ -16,11 +16,6 @@ public class BookManagerImpl implements BookManager {
 	private BookDao bookDao;
 
 	@Override
-	public void addBook(Book book) {
-		bookDao.addBook(book);
-	}
-
-	@Override
 	public List<Book> getAllBooks() {
 		return bookDao.getAllBooks();
 	}
@@ -36,8 +31,8 @@ public class BookManagerImpl implements BookManager {
 	}
 
 	@Override
-	public void updateBook(Book book) {
-		bookDao.updateBook(book);
+	public void saveBook(Book book) {
+		bookDao.saveBook(book);
 	}
 
 }

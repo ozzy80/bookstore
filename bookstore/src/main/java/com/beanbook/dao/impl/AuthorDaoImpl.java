@@ -21,14 +21,6 @@ public class AuthorDaoImpl implements AuthorDao {
 	public SessionFactory sessionFactory;
 
 	@Override
-	public void addAuthor(Author author) {
-		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(author);
-		session.flush();
-
-	}
-
-	@Override
 	public Author getAuthorByID(Integer ID) {
 		Session session = sessionFactory.getCurrentSession();
 		Author author = (Author) session.get(Author.class, ID);
@@ -54,7 +46,7 @@ public class AuthorDaoImpl implements AuthorDao {
 	}
 
 	@Override
-	public void updateAuthor(Author author) {
+	public void saveAuthor(Author author) {
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(author);
 		session.flush();

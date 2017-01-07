@@ -10,10 +10,8 @@ public interface GenreDao {
 
 	List<Genre> getAllGenres();
 
-	void addGenre(Genre genre);
+	void saveGenre(Genre genre);
 
 	void deleteGenre(Genre genre);
-
-	void updateGenre(Genre genre);
 
 }

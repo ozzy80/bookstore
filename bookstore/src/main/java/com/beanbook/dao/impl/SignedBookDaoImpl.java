@@ -29,7 +29,7 @@ public class SignedBookDaoImpl implements SignedBookDao {
 	}
 
 	@Override
-	public void addSignedBook(SignedBook signedBook) {
+	public void saveSignedBook(SignedBook signedBook) {
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(signedBook);
 		session.flush();
@@ -51,10 +51,4 @@ public class SignedBookDaoImpl implements SignedBookDao {
 		session.flush();
 	}
 
-	@Override
-	public void updateSignedBook(SignedBook signedBook) {
-		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(signedBook);
-		session.flush();
-	}
 }

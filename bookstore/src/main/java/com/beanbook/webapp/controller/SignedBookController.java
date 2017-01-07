@@ -36,7 +36,7 @@ public class SignedBookController {
 
 	@RequestMapping(value = "/signedbooks/update", method = RequestMethod.POST)
 	public String updateSignedBook(@ModelAttribute("signedBook") SignedBook signedBook) {
-		signedBookManager.updateSignedBook(signedBook);
+		signedBookManager.saveSignedBook(signedBook);
 		return "redirect:/signedbooks";
 	}
 
@@ -48,7 +48,7 @@ public class SignedBookController {
 
 	@RequestMapping(value = "/signedbooks/add", method = RequestMethod.POST)
 	public String addSignedBook(@ModelAttribute("signedBook") SignedBook signedBook) {
-		signedBookManager.addSignedBook(signedBook);
+		signedBookManager.saveSignedBook(signedBook);
 		return "redirect:/signedbooks";
 	}
 

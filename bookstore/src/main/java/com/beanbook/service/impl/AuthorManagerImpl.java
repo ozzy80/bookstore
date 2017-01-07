@@ -16,11 +16,6 @@ public class AuthorManagerImpl implements AuthorManager {
 	private AuthorDao authorDao;
 
 	@Override
-	public void addAuthor(Author author) {
-		authorDao.addAuthor(author);
-	}
-
-	@Override
 	public void deleteAuthor(Integer id) {
 		authorDao.deleteAuthor(authorDao.getAuthorByID(id));
 	}
@@ -36,8 +31,8 @@ public class AuthorManagerImpl implements AuthorManager {
 	}
 
 	@Override
-	public void updateAuthor(Author author) {
-		authorDao.updateAuthor(author);
+	public void saveAuthor(Author author) {
+		authorDao.saveAuthor(author);
 	}
 
 }

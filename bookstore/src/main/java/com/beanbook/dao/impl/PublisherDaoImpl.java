@@ -39,7 +39,7 @@ public class PublisherDaoImpl implements PublisherDao {
 	}
 
 	@Override
-	public void addPublisher(Publisher publisher) {
+	public void savePublisher(Publisher publisher) {
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(publisher);
 		session.flush();
@@ -49,13 +49,6 @@ public class PublisherDaoImpl implements PublisherDao {
 	public void deletePublisher(Publisher publisher) {
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(publisher);
-		session.flush();
-	}
-
-	@Override
-	public void updatePublisher(Publisher publisher) {
-		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(publisher);
 		session.flush();
 	}
 

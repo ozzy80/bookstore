@@ -1,9 +1,5 @@
 package com.beanbook.webapp.controller;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -63,9 +59,10 @@ public class BookController {
 	public String addBook(@ModelAttribute("book") Book book, HttpServletRequest request) {
 		book.setPublisher(publisherManager.getPublisherByID(1));
 		book.setLetter(letterManager.getLetterByID(1));
-		bookManager.addBook(book);
+		bookManager.saveBook(book);
 
-		String realPathToUpload = "C:\\dev\\bookstore\\bookstore\\src\\main\\webapp\\WEB-INF\\resources\\images\\" + book.getPublisher().getName();
+		String realPathToUpload = "C:\\dev\\bookstore\\bookstore\\src\\main\\webapp\\WEB-INF\\resources\\images\\"
+				+ book.getPublisher().getName();
 		String imageName = book.getTitle() + "-" + book.getIsbn() + ".jpg";
 		file.uploadPicture(book.getBookImage(), imageName, realPathToUpload);
 
@@ -92,7 +89,7 @@ public class BookController {
 					"C:\\dev\\bookstore\\bookstore\\src\\main\\webapp\\WEB-INF\\resources\\images\\"
 							+ oldBook.getPublisher().getName());
 		}
-		bookManager.updateBook(book);
+		bookManager.saveBook(book);
 
 		file.uploadPicture(book.getBookImage(), book.getTitle() + "-" + book.getIsbn() + ".jpg",
 				"C:\\dev\\bookstore\\bookstore\\src\\main\\webapp\\WEB-INF\\resources\\images\\"
@@ -106,7 +103,8 @@ public class BookController {
 		Book book = bookManager.getBookByISBN(isbn);
 		bookManager.deleteBook(isbn);
 
-		String realPathToUpload = "C:\\dev\\bookstore\\bookstore\\src\\main\\webapp\\WEB-INF\\resources\\images\\" + book.getPublisher().getName();
+		String realPathToUpload = "C:\\dev\\bookstore\\bookstore\\src\\main\\webapp\\WEB-INF\\resources\\images\\"
+				+ book.getPublisher().getName();
 		String imageName = book.getTitle() + "-" + book.getIsbn() + ".jpg";
 		file.deletePicture(imageName, realPathToUpload);
 

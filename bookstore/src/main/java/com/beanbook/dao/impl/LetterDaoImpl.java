@@ -20,7 +20,7 @@ public class LetterDaoImpl implements LetterDao {
 	public SessionFactory sessionFactory;
 
 	@Override
-	public void addLetter(Letter letter) {
+	public void saveLetter(Letter letter) {
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(letter);
 		session.flush();
@@ -39,14 +39,6 @@ public class LetterDaoImpl implements LetterDao {
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(letter);
 		session.flush();
-	}
-
-	@Override
-	public void updateLetter(Letter letter) {
-		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(letter);
-		session.flush();
-
 	}
 
 	@Override

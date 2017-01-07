@@ -10,10 +10,8 @@ public interface PublisherDao {
 
 	List<Publisher> getAllPublishers();
 
-	void addPublisher(Publisher publisher);
+	void savePublisher(Publisher publisher);
 
 	void deletePublisher(Publisher publisher);
-
-	void updatePublisher(Publisher publisher);
 
 }

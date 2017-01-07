@@ -10,9 +10,7 @@ public interface PublisherManager {
 
 	List<Publisher> getAllPublishers();
 
-	void addPublisher(Publisher publisher);
+	void savePublisher(Publisher publisher);
 
 	void deletePublisher(Integer id);
-
-	void updatePublisher(Publisher publisher);
 }

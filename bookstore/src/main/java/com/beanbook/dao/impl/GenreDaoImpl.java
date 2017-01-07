@@ -37,13 +37,6 @@ public class GenreDaoImpl implements GenreDao {
 	}
 
 	@Override
-	public void addGenre(Genre genre) {
-		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(genre);
-		session.flush();
-	}
-
-	@Override
 	public void deleteGenre(Genre genre) {
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(genre);
@@ -51,7 +44,7 @@ public class GenreDaoImpl implements GenreDao {
 	}
 
 	@Override
-	public void updateGenre(Genre genre) {
+	public void saveGenre(Genre genre) {
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(genre);
 		session.flush();

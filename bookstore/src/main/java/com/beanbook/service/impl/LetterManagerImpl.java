@@ -16,8 +16,8 @@ public class LetterManagerImpl implements LetterManager {
 	private LetterDao letterDao;
 
 	@Override
-	public void addLetter(Letter letter) {
-		letterDao.addLetter(letter);
+	public void saveLetter(Letter letter) {
+		letterDao.saveLetter(letter);
 	}
 
 	@Override
@@ -33,11 +33,6 @@ public class LetterManagerImpl implements LetterManager {
 	@Override
 	public List<Letter> getAllLetters() {
 		return letterDao.getAllLetters();
-	}
-
-	@Override
-	public void updateLetter(Letter letter) {
-		letterDao.updateLetter(letter);
 	}
 
 }

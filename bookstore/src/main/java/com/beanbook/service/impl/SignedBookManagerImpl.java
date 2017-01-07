@@ -26,8 +26,8 @@ public class SignedBookManagerImpl implements SignedBookManager {
 	}
 
 	@Override
-	public void addSignedBook(SignedBook signedBook) {
-		signedBookDao.addSignedBook(signedBook);
+	public void saveSignedBook(SignedBook signedBook) {
+		signedBookDao.saveSignedBook(signedBook);
 	}
 
 	@Override
@@ -35,8 +35,4 @@ public class SignedBookManagerImpl implements SignedBookManager {
 		signedBookDao.deleteSignedBook(signedBookDao.getSignedBookByISBN(ISBN));
 	}
 
-	@Override
-	public void updateSignedBook(SignedBook signedBook) {
-		signedBookDao.updateSignedBook(signedBook);
-	}
 }

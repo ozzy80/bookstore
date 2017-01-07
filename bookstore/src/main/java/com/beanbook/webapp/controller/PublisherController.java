@@ -35,7 +35,7 @@ public class PublisherController {
 
 	@RequestMapping(value = "/publishers/update", method = RequestMethod.POST)
 	public String updatePublisher(@ModelAttribute("publisher") Publisher publisher) {
-		publisherManager.updatePublisher(publisher);
+		publisherManager.savePublisher(publisher);
 		return "redirect:/publishers";
 	}
 
@@ -47,7 +47,7 @@ public class PublisherController {
 
 	@RequestMapping(value = "/publishers/add", method = RequestMethod.POST)
 	public String addPublisher(@ModelAttribute("publisher") Publisher publisher) {
-		publisherManager.addPublisher(publisher);
+		publisherManager.savePublisher(publisher);
 		return "redirect:/publishers";
 	}
 

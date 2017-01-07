@@ -35,7 +35,7 @@ public class GenreController {
 
 	@RequestMapping(value = "/genres/update", method = RequestMethod.POST)
 	public String updateGenre(@ModelAttribute("genre") Genre genre) {
-		genreManager.updateGenre(genre);
+		genreManager.saveGenre(genre);
 		return "redirect:/genres";
 	}
 
@@ -47,7 +47,7 @@ public class GenreController {
 
 	@RequestMapping(value = "/genres/add", method = RequestMethod.POST)
 	public String addGenre(@ModelAttribute("genre") Genre genre) {
-		genreManager.addGenre(genre);
+		genreManager.saveGenre(genre);
 		return "redirect:/genres";
 	}
 

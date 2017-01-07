@@ -26,18 +26,13 @@ public class PublisherManagerImpl implements PublisherManager {
 	}
 
 	@Override
-	public void addPublisher(Publisher publisher) {
-		publisherDao.addPublisher(publisher);
+	public void savePublisher(Publisher publisher) {
+		publisherDao.savePublisher(publisher);
 	}
 
 	@Override
 	public void deletePublisher(Integer id) {
 		publisherDao.deletePublisher(publisherDao.getPublisherByID(id));
-	}
-
-	@Override
-	public void updatePublisher(Publisher publisher) {
-		publisherDao.updatePublisher(publisher);
 	}
 
 }

@@ -10,9 +10,7 @@ public interface SignedBookManager {
 
 	List<SignedBook> getAllSignedBooks();
 
-	void addSignedBook(SignedBook signedBook);
+	void saveSignedBook(SignedBook signedBook);
 
 	void deleteSignedBook(Long ISBN);
-
-	void updateSignedBook(SignedBook signedBook);
 }

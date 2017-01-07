@@ -26,18 +26,13 @@ public class GenreManagerImpl implements GenreManager {
 	}
 
 	@Override
-	public void addGenre(Genre genre) {
-		genreDao.addGenre(genre);
+	public void saveGenre(Genre genre) {
+		genreDao.saveGenre(genre);
 	}
 
 	@Override
 	public void deleteGenre(Integer id) {
 		genreDao.deleteGenre(genreDao.getGenreByID(id));
-	}
-
-	@Override
-	public void updateGenre(Genre genre) {
-		genreDao.updateGenre(genre);
 	}
 
 }

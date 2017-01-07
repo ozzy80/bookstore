@@ -31,13 +31,6 @@ public class BookDaoImpl implements BookDao {
 	}
 
 	@Override
-	public void addBook(Book book) {
-		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(book);
-		session.flush();
-	}
-
-	@Override
 	public Book getBookByISBN(Long ISBN) {
 		Session session = sessionFactory.getCurrentSession();
 		Book book = (Book) session.get(Book.class, ISBN);
@@ -54,7 +47,7 @@ public class BookDaoImpl implements BookDao {
 	}
 
 	@Override
-	public void updateBook(Book book) {
+	public void saveBook(Book book) {
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(book);
 		session.flush();

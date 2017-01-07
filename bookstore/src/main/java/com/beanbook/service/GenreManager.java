@@ -10,9 +10,8 @@ public interface GenreManager {
 
 	List<Genre> getAllGenres();
 
-	void addGenre(Genre genre);
+	void saveGenre(Genre genre);
 
 	void deleteGenre(Integer id);
 
-	void updateGenre(Genre genre);
 }

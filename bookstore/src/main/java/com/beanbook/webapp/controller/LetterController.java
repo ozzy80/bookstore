@@ -35,7 +35,7 @@ public class LetterController {
 
 	@RequestMapping(value = "/letters/update", method = RequestMethod.POST)
 	public String updateLetter(@ModelAttribute("letter") Letter letter) {
-		letterManager.updateLetter(letter);
+		letterManager.saveLetter(letter);
 		return "redirect:/letters";
 	}
 
@@ -47,7 +47,7 @@ public class LetterController {
 
 	@RequestMapping(value = "/letters/add", method = RequestMethod.POST)
 	public String addLetter(@ModelAttribute("letter") Letter letter) {
-		letterManager.addLetter(letter);
+		letterManager.saveLetter(letter);
 		return "redirect:/letters";
 	}
 

@@ -10,9 +10,7 @@ public interface SignedBookDao {
 
 	List<SignedBook> getAllSignedBooks();
 
-	void addSignedBook(SignedBook signedBook);
+	void saveSignedBook(SignedBook signedBook);
 
 	void deleteSignedBook(SignedBook signedBook);
-
-	void updateSignedBook(SignedBook signedBook);
 }
