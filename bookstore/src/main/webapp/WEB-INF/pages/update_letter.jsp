@@ -11,7 +11,8 @@
 <title>Promena pisma</title>
 </head>
 <body> 
-	<form:form action='new' method="post" commandName="letter">
+	<c:url var="post_url"  value="/letters/update" />
+	<form:form action='${post_url}' method="post" commandName="letter">
 		<div class="form-group">
 			<label for="vrsta_pisma">Vrsta: </label>
 			<form:input path="letterType" id="vrsta_pisma" class="form-Controlor" value="${letter.letterType}"/> 

@@ -1,6 +1,5 @@
 package com.beanbook.model;
 
-
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -39,14 +38,13 @@ public class Author {
 
 	@Transient
 	private MultipartFile authorImage;
-	
+
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "knjiga_ima_autor", joinColumns = {
 			@JoinColumn(name = "ID_autora") }, inverseJoinColumns = @JoinColumn(name = "ISBN"))
 	@JsonBackReference
 	private Set<Book> bookList;
-	
-	
+
 	public Set<Book> getBookList() {
 		return bookList;
 	}

@@ -11,7 +11,7 @@
 <title>Dodavanje pisma</title>
 </head>
 <body>
-	<form:form action="add/new" method="post" commandName="letter" enctype="multipart/form-data">
+	<form:form action="add" method="post" commandName="letter" enctype="multipart/form-data">
 		<div class="form-group">
 			<label for="vrsta_pisma">Vrsta: </label>
 			<form:input path="letterType" id="vrsta_pisma" class="form-Controlor"/>

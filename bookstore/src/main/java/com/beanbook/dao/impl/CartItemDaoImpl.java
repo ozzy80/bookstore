@@ -19,19 +19,19 @@ public class CartItemDaoImpl implements CartItemDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
 	@Override
 	public void addCartItem(CartItem cartItem) {
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(cartItem);
-		session.flush();		
+		session.flush();
 	}
 
 	@Override
 	public void removeCartItem(CartItem cartItem) {
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(cartItem);
-		session.flush();		
+		session.flush();
 	}
 
 	@Override
@@ -47,7 +47,7 @@ public class CartItemDaoImpl implements CartItemDao {
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("from CartItem where isbn = ?");
 		query.setLong("isbn", isbn);
-		
+
 		return (CartItem) query.uniqueResult();
 	}
 

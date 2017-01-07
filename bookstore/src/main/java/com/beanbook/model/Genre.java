@@ -15,7 +15,7 @@ public class Genre {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID_zanra")
 	private Integer genreID;
-	
+
 	@Column(name = "Naziv", length = 100, nullable = false)
 	private String genreName;
 
@@ -34,8 +34,5 @@ public class Genre {
 	public void setGenreName(String genreName) {
 		this.genreName = genreName;
 	}
-	
-	
-	
-	
+
 }

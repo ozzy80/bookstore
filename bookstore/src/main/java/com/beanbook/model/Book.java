@@ -26,7 +26,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "knjiga")
-public class Book implements Serializable{
+public class Book implements Serializable {
 
 	/**
 	 * 
@@ -68,49 +68,49 @@ public class Book implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "pismo_ID_pisma")
 	private Letter letter;
-	
+
 	@OneToOne
 	@JoinColumn(name = "ISBN")
 	private SignedBook signedBook;
-	
+
 	@Transient
 	private MultipartFile bookImage;
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "knjiga_ima_autor", joinColumns = {
 			@JoinColumn(name = "ISBN") }, inverseJoinColumns = @JoinColumn(name = "ID_autora"))
-	@JsonManagedReference		
+	@JsonManagedReference
 	private Set<Author> authorList;
 
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "knjiga_ima_zanr", joinColumns = {
 			@JoinColumn(name = "ISBN") }, inverseJoinColumns = @JoinColumn(name = "ID_zanra"))
 	private Set<Genre> genreList;
-	
-	@OneToMany(mappedBy="book", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+
+	@OneToMany(mappedBy = "book", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JsonIgnore
 	private List<CartItem> cartItemList;
-	
+
 	public SignedBook getSignedBook() {
 		return signedBook;
 	}
-	
+
 	public void setSignedBook(SignedBook signedBook) {
 		this.signedBook = signedBook;
 	}
-	
+
 	public Set<Genre> getGenreList() {
 		return genreList;
 	}
-	
+
 	public void setGenreList(Set<Genre> genreList) {
 		this.genreList = genreList;
 	}
-	
+
 	public Letter getLetter() {
 		return letter;
 	}
-	
+
 	public void setLetter(Letter letter) {
 		this.letter = letter;
 	}
@@ -217,7 +217,6 @@ public class Book implements Serializable{
 
 	public void setCartItemList(List<CartItem> cartItemList) {
 		this.cartItemList = cartItemList;
-	}	
-	
-	
+	}
+
 }

@@ -13,21 +13,19 @@ import org.springframework.stereotype.Repository;
 import com.beanbook.dao.AuthorDao;
 import com.beanbook.model.Author;
 
-
 @Repository
 @Transactional
-public class AuthorDaoImpl implements AuthorDao{
+public class AuthorDaoImpl implements AuthorDao {
 
 	@Autowired
 	public SessionFactory sessionFactory;
-	
-	
+
 	@Override
 	public void addAuthor(Author author) {
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(author);
 		session.flush();
-		
+
 	}
 
 	@Override
@@ -43,22 +41,20 @@ public class AuthorDaoImpl implements AuthorDao{
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(author);
 		session.flush();
-		
+
 	}
 
 	@Override
-	public List<Author> getAllAuthors()
-	{
+	public List<Author> getAllAuthors() {
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("from Author");
 		List<Author> authorList = query.list();
 		session.flush();
 		return authorList;
 	}
-	
-	@Override 
-	public void updateAuthor(Author author)
-	{
+
+	@Override
+	public void updateAuthor(Author author) {
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(author);
 		session.flush();

@@ -14,54 +14,48 @@ import com.beanbook.model.Letter;
 
 @Repository
 @Transactional
-public class LetterDaoImpl implements LetterDao{
+public class LetterDaoImpl implements LetterDao {
 
 	@Autowired
 	public SessionFactory sessionFactory;
-	
+
 	@Override
-	public void addLetter(Letter letter)
-	{
+	public void addLetter(Letter letter) {
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(letter);
 		session.flush();
 	}
-	
-	@Override 
-	public Letter getLetterByID(Integer ID)
-	{
+
+	@Override
+	public Letter getLetterByID(Integer ID) {
 		Session session = sessionFactory.getCurrentSession();
 		Letter letter = (Letter) session.get(Letter.class, ID);
 		session.flush();
 		return letter;
 	}
-	
-	
-	@Override 
-	public void deleteLetter(Letter letter)
-	{
+
+	@Override
+	public void deleteLetter(Letter letter) {
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(letter);
 		session.flush();
 	}
-	
+
 	@Override
-	public void updateLetter(Letter letter)
-	{
+	public void updateLetter(Letter letter) {
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(letter);
 		session.flush();
-		
+
 	}
-	
-	@Override 
-	public List<Letter> getAllLetters()
-	{
+
+	@Override
+	public List<Letter> getAllLetters() {
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("from Letter");
 		List<Letter> letterList = query.list();
 		session.flush();
 		return letterList;
-		
+
 	}
 }

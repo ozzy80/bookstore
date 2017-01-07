@@ -10,7 +10,7 @@
 <title>Dodavanje potpisane knjige</title>
 </head>
 <body>
-	<form:form action="add/new" method="post" commandName="signedbook" enctype="multipart/form-data">
+	<form:form action="add" method="post" commandName="signedbook" enctype="multipart/form-data">
 		<div class="form-group">
 			<label for="isbn">ISBN</label>
 			<form:input path="isbn" id="isbn" class="form-Controlor"/>

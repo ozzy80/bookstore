@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" type="text/css" href="<c:url value="../resources/css/bootstrap.min.css" />" >
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap.min.css" />" >
 <script type="text/javascript" src="<c:url value="resources/js/bootstrap.min.js" />"></script>
 <title>Insert title here</title>
 </head>
@@ -48,9 +48,9 @@
 					${publisher.state}
 				</td>
 				<td>
-					<a href='<c:out value="${publisher.id}" />'><span class="glyphicon glyphicon-info-sign"></span></a>
-					<a href='<c:out value="del/${publisher.id}" />'><span class="glyphicon glyphicon-remove"></span></a>
-					<a href='<c:out value="update/${publisher.id}" />'>Izmeni</a>
+					<a href='<c:out value="publishers/${publisher.id}" />'><span class="glyphicon glyphicon-info-sign"></span></a>
+					<a href='<c:out value="publishers/del/${publisher.id}" />'><span class="glyphicon glyphicon-remove"></span></a>
+					<a href='<c:out value="publishers/update/${publisher.id}" />'>Izmeni</a>
 					
 				</td>
 			</tr>
@@ -59,6 +59,6 @@
 		
 	
 	</table>
-	<a href='<c:out value="add" />' class="btn btn-primary">Add publisher</a>
+	<a href='<c:out value="publishers/add" />' class="btn btn-primary">Add publisher</a>
 </body>
 </html>

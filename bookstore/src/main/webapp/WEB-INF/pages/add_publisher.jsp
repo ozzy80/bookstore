@@ -14,7 +14,7 @@
 <title>Dodavanje izdavaca</title>
 </head>
 <body>
-	<form:form action="add/new" method="post" commandName="publisher" enctype="multipart/form-data">
+	<form:form action="add" method="post" commandName="publisher" enctype="multipart/form-data">
 		<div class="form-group">
 			<label for="name">Naziv: </label>
 			<form:input path="name" id="name" class="form-Controlor"/>

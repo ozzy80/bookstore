@@ -13,6 +13,6 @@ public interface BookDao {
 	Book getBookByISBN(Long ISBN);
 
 	void deleteBook(Book book);
-	
+
 	void updateBook(Book book);
 }

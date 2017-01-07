@@ -6,14 +6,14 @@ import javax.persistence.Id;
 import javax.persistence.Column;
 
 @Entity
-@Table(name="potpisane_knjige")
+@Table(name = "potpisane_knjige")
 public class SignedBook {
-	
+
 	@Id
-	@Column(name="ISBN")
+	@Column(name = "ISBN")
 	private Long isbn;
-	
-	@Column(name="Komada",nullable=false)
+
+	@Column(name = "Komada", nullable = false)
 	private Integer signedBooksNumber;
 
 	public Long getIsbn() {
@@ -31,8 +31,5 @@ public class SignedBook {
 	public void setSignedBooksNumber(Integer signedBooksNumber) {
 		this.signedBooksNumber = signedBooksNumber;
 	}
-	
-	
-	
-	
+
 }

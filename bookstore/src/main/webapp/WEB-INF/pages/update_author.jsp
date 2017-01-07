@@ -10,18 +10,19 @@
 </head>
 
 <body>
-	<form:form action="new" method="post" commandName="author" enctype="multipart/form-data">
+	<c:url var="post_url"  value="/authors/update" />
+	<form:form action="${post_url}" method="post" commandName="author" enctype="multipart/form-data">
 		<div class="form-group">
 			<label for="firstName">Ime</label>
 			<form:input path="firstName" id="firstName" class="form-Controlor"/>
 		</div>
 		<div class="form-group">
 			<label for="lastName">Prezime</label>
-			<form:textarea path="lastName" id="lastName" class="form-Controlor"/>
+			<form:input path="lastName" id="lastName" class="form-Controlor"/>
 		</div>
 		<div class="form-group">
 			<label for="description">Opis</label>
-			<form:input path="description" id="description" class="form-Controlor"/>
+			<form:textarea path="description" id="description" class="form-Controlor"/>
 		</div>
 		<div class="form-group">
 			<label class="control-label" for="authorImage">Upload picture</label>

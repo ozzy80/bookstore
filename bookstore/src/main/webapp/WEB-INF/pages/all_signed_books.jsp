@@ -35,9 +35,9 @@
 					${signedbook.signedBooksNumber}
 				</td>
 				<td>
-					<a href='<c:out value="${signedbook.isbn}" />'><span class="glyphicon glyphicon-info-sign"></span></a>
-					<a href='<c:out value="del/${signedbook.isbn}" />'><span class="glyphicon glyphicon-remove"></span></a>
-					<a href='<c:out value="update/${signedbook.isbn}" />'>Izmeni</a>
+					<a href='<c:out value="signedbooks/${signedbook.isbn}" />'><span class="glyphicon glyphicon-info-sign"></span></a>
+					<a href='<c:out value="signedbooks/del/${signedbook.isbn}" />'><span class="glyphicon glyphicon-remove"></span></a>
+					<a href='<c:out value="signedbooks/update/${signedbook.isbn}" />'>Izmeni</a>
 					
 				</td>
 			</tr>
@@ -45,7 +45,7 @@
 		</c:forEach>
 	
 	</table>
-	<a href='<c:out value="add" />' class="btn btn-primary">Add signed book</a>
+	<a href='<c:out value="signedbooks/add" />' class="btn btn-primary">Add signed book</a>
 	
 </body>
 </html>

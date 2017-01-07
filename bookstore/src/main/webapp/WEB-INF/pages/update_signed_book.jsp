@@ -9,7 +9,8 @@
 <title>Promena knjige</title>
 </head>
 <body>
-	<form:form action="new" method="post" commandName="signedbook" enctype="multipart/form-data">
+	<c:url var="post_url"  value="/signedbooks/update" />
+	<form:form action="${post_url}" method="post" commandName="signedbook" enctype="multipart/form-data">
 		<div class="form-group">
 			<label for="isbn">ISBN</label>
 			<form:input path="isbn" id="isbn" class="form-Controlor"/>

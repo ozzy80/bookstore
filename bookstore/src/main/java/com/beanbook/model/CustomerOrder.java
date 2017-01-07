@@ -10,7 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
-public class CustomerOrder implements Serializable{
+public class CustomerOrder implements Serializable {
 
 	/**
 	 * 
@@ -18,23 +18,23 @@ public class CustomerOrder implements Serializable{
 	private static final long serialVersionUID = 3699521128541497967L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer customerOrderId;
-	
+
 	@OneToOne
-	@JoinColumn(name="cartId")
+	@JoinColumn(name = "cartId")
 	private Cart cart;
-	
+
 	@OneToOne
-	@JoinColumn(name="customerId")
+	@JoinColumn(name = "customerId")
 	private Customer customer;
 
 	@OneToOne
-	@JoinColumn(name="billingAddressId")
+	@JoinColumn(name = "billingAddressId")
 	private BillingAddress billingAddress;
-	
+
 	@OneToOne
-	@JoinColumn(name="shippingAddressId")
+	@JoinColumn(name = "shippingAddressId")
 	private ShippingAddress shippingAddress;
 
 	public Integer getCustomerOrderId() {

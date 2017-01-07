@@ -9,7 +9,7 @@
 <title>Dodavanje autora</title>
 </head>
 <body>
-	<form:form action="add/new" method="post" commandName="author" enctype="multipart/form-data">
+	<form:form action="add" method="post" commandName="author" enctype="multipart/form-data">
 		<div class="form-group">
 			<label for="ime_autora">Ime: </label>
 			<form:input path="firstName" id="ime_autora" class="form-Controlor"/>

@@ -7,15 +7,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="authorities")
+@Table(name = "authorities")
 public class Authority {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer authorityId;
-	
+
 	private String username;
-	
+
 	private String authority;
 
 	public Integer getAuthorityId() {
@@ -41,6 +41,5 @@ public class Authority {
 	public void setAuthority(String authority) {
 		this.authority = authority;
 	}
-	
-	
+
 }

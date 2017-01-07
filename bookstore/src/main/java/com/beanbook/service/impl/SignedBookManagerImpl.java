@@ -10,40 +10,33 @@ import com.beanbook.model.SignedBook;
 import com.beanbook.service.SignedBookManager;
 
 @Service
-public class SignedBookManagerImpl implements SignedBookManager{
+public class SignedBookManagerImpl implements SignedBookManager {
 
 	@Autowired
 	private SignedBookDao signedBookDao;
-	
-	@Override 
-	public SignedBook getSignedBookByISBN(Long ISBN)
-	{
+
+	@Override
+	public SignedBook getSignedBookByISBN(Long ISBN) {
 		return signedBookDao.getSignedBookByISBN(ISBN);
 	}
-	
+
 	@Override
-	public List<SignedBook> getAllSignedBooks()
-	{
+	public List<SignedBook> getAllSignedBooks() {
 		return signedBookDao.getAllSignedBooks();
 	}
 
 	@Override
-	public void addSignedBook(SignedBook signedBook)
-	{
+	public void addSignedBook(SignedBook signedBook) {
 		signedBookDao.addSignedBook(signedBook);
 	}
-	
-	
-	@Override 
-	public void deleteSignedBook(Long ISBN)
-	{
+
+	@Override
+	public void deleteSignedBook(Long ISBN) {
 		signedBookDao.deleteSignedBook(signedBookDao.getSignedBookByISBN(ISBN));
 	}
-	
-	
+
 	@Override
-	public void updateSignedBook(SignedBook signedBook)
-	{
+	public void updateSignedBook(SignedBook signedBook) {
 		signedBookDao.updateSignedBook(signedBook);
 	}
 }

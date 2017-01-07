@@ -12,7 +12,8 @@
 </head>
 
 <body>
-	<form:form action='new' method="post" commandName="genre">
+	<c:url var="post_url"  value="/genres/update" />
+	<form:form action='${post_url}' method="post" commandName="genre">
 		<div class="form-group">
 			<label for="naziv">Naziv: </label>
 			<form:input path="genreName" id="naziv" class="form-Controlor" value="${genre.genreName}"/> 

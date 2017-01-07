@@ -14,22 +14,22 @@ import com.beanbook.service.CustomerManager;
 @Controller
 @RequestMapping("/customer/cart")
 public class CartController {
-	
+
 	@Autowired
 	private CustomerManager customerManager;
-	
+
 	@RequestMapping
-	public String getCart(@AuthenticationPrincipal User activeUsers){
+	public String getCart(@AuthenticationPrincipal User activeUsers) {
 		Customer customer = customerManager.getCustomerByUsername(activeUsers.getUsername());
 		Integer cartId = customer.getCart().getCartId();
-		
-		return "redirect:/customer/cart/"+cartId;
+
+		return "redirect:/customer/cart/" + cartId;
 	}
-	
-	@RequestMapping(value="/{cartId}")
-	public String getCartRedirect(@PathVariable("cartId") Integer cartId, Model model){
+
+	@RequestMapping(value = "/{cartId}")
+	public String getCartRedirect(@PathVariable("cartId") Integer cartId, Model model) {
 		model.addAttribute("cartId", cartId);
-		
+
 		return "cart";
-	}	
+	}
 }

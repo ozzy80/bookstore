@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class ShippingAddress implements Serializable{
+public class ShippingAddress implements Serializable {
 
 	/**
 	 * 
@@ -17,21 +17,21 @@ public class ShippingAddress implements Serializable{
 	private static final long serialVersionUID = -7226252619135100365L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer shippingAddressId;
-	
+
 	private String streetName;
-	
+
 	private String apartmentNumber;
-	
+
 	private String city;
-	
+
 	private String state;
-	
+
 	private String country;
-	
+
 	private String postalCode;
-	
+
 	@OneToOne
 	private Customer customer;
 
@@ -105,6 +105,5 @@ public class ShippingAddress implements Serializable{
 				+ ", apartmentNumber=" + apartmentNumber + ", city=" + city + ", state=" + state + ", country="
 				+ country + ", postalCode=" + postalCode + "]";
 	}
-	
-	
+
 }

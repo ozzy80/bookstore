@@ -14,53 +14,47 @@ import com.beanbook.model.Genre;
 
 @Repository
 @Transactional
-public class GenreDaoImpl implements GenreDao{
-	
+public class GenreDaoImpl implements GenreDao {
+
 	@Autowired
 	public SessionFactory sessionFactory;
-	
+
 	@Override
-	public Genre getGenreByID(Integer ID)
-	{
+	public Genre getGenreByID(Integer ID) {
 		Session session = sessionFactory.getCurrentSession();
 		Genre genre = (Genre) session.get(Genre.class, ID);
 		session.flush();
 		return genre;
 	}
-	
+
 	@Override
-	public List<Genre> getAllGenres()
-	{
+	public List<Genre> getAllGenres() {
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("from Genre");
 		List<Genre> genreList = query.list();
 		session.flush();
 		return genreList;
 	}
-	
+
 	@Override
-	public void addGenre(Genre genre)
-	{
+	public void addGenre(Genre genre) {
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(genre);
 		session.flush();
 	}
-	
-	@Override 
-	public void deleteGenre(Genre genre)
-	{
+
+	@Override
+	public void deleteGenre(Genre genre) {
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(genre);
 		session.flush();
 	}
-	
-	@Override 
-	public void updateGenre(Genre genre)
-	{
+
+	@Override
+	public void updateGenre(Genre genre) {
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(genre);
 		session.flush();
 	}
-	
-	
+
 }

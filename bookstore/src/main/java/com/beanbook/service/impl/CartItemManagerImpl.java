@@ -9,11 +9,11 @@ import com.beanbook.model.CartItem;
 import com.beanbook.service.CartItemManager;
 
 @Service
-public class CartItemManagerImpl implements CartItemManager{
+public class CartItemManagerImpl implements CartItemManager {
 
 	@Autowired
-	private CartItemDao cartItemDao; 
-	
+	private CartItemDao cartItemDao;
+
 	@Override
 	public void addCartItem(CartItem cartItem) {
 		cartItemDao.addCartItem(cartItem);

@@ -27,17 +27,16 @@ import com.beanbook.service.PublisherManager;
 public class BookController {
 
 	private Path path_book;
-	
+
 	@Autowired
 	private BookManager bookManager;
 
 	@Autowired
 	private PublisherManager publisherManager;
-		
-	@Autowired 
+
+	@Autowired
 	private LetterManager letterManager;
 
-	
 	@RequestMapping(value = "/books")
 	public String getAllBooks(Model model) {
 		List<Book> bookList = bookManager.getAllBooks();
@@ -54,36 +53,18 @@ public class BookController {
 		return "index3";
 	}
 
-	@RequestMapping(value="/books/update/{isbn}")
-	public String updateBook(Model model, @PathVariable("isbn") Long isbn){
-		Book book = bookManager.getBookByISBN(isbn);
-		model.addAttribute("book", book);
-		
-		return "update_book";
-	}
-
-	@RequestMapping(value = "/books/update/new")
-	public String updateBook(@ModelAttribute("book") Book book)
-	{
-		
-		book.setPublisher(publisherManager.getPublisherByID(1));
-		book.setLetter(letterManager.getLetterByID(1));
-		bookManager.updateBook(book);
-		return "redirect:/books";
-	}
-	
 	@RequestMapping(value = "/books/add")
 	public String addBook(Model model) {
 		model.addAttribute("book", new Book());
 		return "add_book";
 	}
 
-	@RequestMapping(value = "/books/add/new", method = RequestMethod.POST)
+	@RequestMapping(value = "/books/add", method = RequestMethod.POST)
 	public String addBook(@ModelAttribute("book") Book book, HttpServletRequest request) {
 		book.setPublisher(publisherManager.getPublisherByID(1));
 		book.setLetter(letterManager.getLetterByID(1));
-		//aha a u pogledu polja za pismo nema prilikom dodavanja
-		//nove knjige 
+		// aha a u pogledu polja za pismo nema prilikom dodavanja
+		// nove knjige
 		bookManager.addBook(book);
 		MultipartFile bookImage = book.getBookImage();
 		// String rootDirectory =
@@ -108,7 +89,23 @@ public class BookController {
 		}
 		return "redirect:/books";
 	}
-	
+
+	@RequestMapping(value = "/books/update/{isbn}")
+	public String updateBook(Model model, @PathVariable("isbn") Long isbn) {
+		Book book = bookManager.getBookByISBN(isbn);
+		model.addAttribute("book", book);
+
+		return "update_book";
+	}
+
+	@RequestMapping(value = "/books/update", method = RequestMethod.POST)
+	public String updateBook(@ModelAttribute("book") Book book) {
+
+		book.setPublisher(publisherManager.getPublisherByID(1));
+		book.setLetter(letterManager.getLetterByID(1));
+		bookManager.updateBook(book);
+		return "redirect:/books";
+	}
 
 	@RequestMapping(value = "/books/del/{isbn}")
 	public String deleteBook(@PathVariable("isbn") Long isbn) {
@@ -129,7 +126,5 @@ public class BookController {
 
 		return "redirect:/books";
 	}
-	
-	
-	
+
 }

@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AdminHome {
 
 	@RequestMapping
-	public String home(){
+	public String home() {
 		return "admin_home";
 	}
-	
+
 	@RequestMapping("/customer")
-	public String customerManager(){
-		
+	public String customerManager() {
+
 		return "customer_manager";
 	}
 }

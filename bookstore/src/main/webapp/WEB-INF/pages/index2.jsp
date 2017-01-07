@@ -67,7 +67,7 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<a href='<c:out value="add" />' class="btn btn-primary">Add book</a>
+	<a href='<c:out value="books/add" />' class="btn btn-primary">Add author</a>
 	<a href='<c:url value="/cart" />' class="btn btn-primary">View cart</a>
 
 	<script type="text/javascript" src="<c:url value="/resources/js/lib/jquery-3.1.1.min.js" />"></script> 

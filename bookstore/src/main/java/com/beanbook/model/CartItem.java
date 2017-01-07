@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 
-public class CartItem implements Serializable{
+public class CartItem implements Serializable {
 
 	/**
 	 * 
@@ -21,20 +21,20 @@ public class CartItem implements Serializable{
 	private static final long serialVersionUID = 1809292591018285569L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer cartItemId;
-	
+
 	@ManyToOne
-	@JoinColumn(name="cartId")
+	@JoinColumn(name = "cartId")
 	@JsonIgnore
 	private Cart cart;
 
 	@ManyToOne
-	@JoinColumn(name="productId")
+	@JoinColumn(name = "productId")
 	private Book book;
-	
+
 	private Integer quantity;
-	
+
 	private Double totalPrice;
 
 	public Integer getCartItemId() {
@@ -76,5 +76,5 @@ public class CartItem implements Serializable{
 	public void setTotalPrice(Double totalPrice) {
 		this.totalPrice = totalPrice;
 	}
-	
+
 }

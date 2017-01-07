@@ -10,39 +10,34 @@ import com.beanbook.model.Genre;
 import com.beanbook.service.GenreManager;
 
 @Service
-public class GenreManagerImpl implements GenreManager{
-	
+public class GenreManagerImpl implements GenreManager {
+
 	@Autowired
 	private GenreDao genreDao;
-	
-	@Override 
-	public Genre getGenreByID(Integer id)
-	{
+
+	@Override
+	public Genre getGenreByID(Integer id) {
 		return genreDao.getGenreByID(id);
 	}
-	
+
 	@Override
-	public List<Genre> getAllGenres()
-	{
+	public List<Genre> getAllGenres() {
 		return genreDao.getAllGenres();
 	}
 
 	@Override
-	public void addGenre(Genre genre)
-	{
+	public void addGenre(Genre genre) {
 		genreDao.addGenre(genre);
 	}
-	
-	@Override 
-	public void deleteGenre(Integer id)
-	{
+
+	@Override
+	public void deleteGenre(Integer id) {
 		genreDao.deleteGenre(genreDao.getGenreByID(id));
 	}
-	
+
 	@Override
-	public void updateGenre(Genre genre)
-	{
+	public void updateGenre(Genre genre) {
 		genreDao.updateGenre(genre);
 	}
-	
+
 }

@@ -12,7 +12,7 @@
 <title>Dodavanje zanra</title>
 </head>
 <body>
-	<form:form action="add/new" method="post" commandName="genre" enctype="multipart/form-data">
+	<form:form action="add" method="post" commandName="genre" enctype="multipart/form-data">
 		<div class="form-group">
 			<label for="naziv">Naziv: </label>
 			<form:input path="genreName" id="naziv" class="form-Controlor"/>

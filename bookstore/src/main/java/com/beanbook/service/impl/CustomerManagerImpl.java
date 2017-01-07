@@ -10,15 +10,14 @@ import com.beanbook.model.Customer;
 import com.beanbook.service.CustomerManager;
 
 @Service
-public class CustomerManagerImpl implements CustomerManager{
+public class CustomerManagerImpl implements CustomerManager {
 
 	@Autowired
 	private CustomerDao customerDao;
-	
+
 	@Override
 	public void addCustomer(Customer customer) {
 		customerDao.addCustomer(customer);
-		
 	}
 
 	@Override
@@ -36,6 +35,4 @@ public class CustomerManagerImpl implements CustomerManager{
 		return customerDao.getCustomerByUsername(username);
 	}
 
-	
-	
 }

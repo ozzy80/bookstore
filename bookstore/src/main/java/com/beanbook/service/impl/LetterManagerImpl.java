@@ -11,39 +11,33 @@ import com.beanbook.service.LetterManager;
 
 @Service
 public class LetterManagerImpl implements LetterManager {
-	
+
 	@Autowired
 	private LetterDao letterDao;
-	
-	@Override 
-	public void addLetter(Letter letter)
-	{
+
+	@Override
+	public void addLetter(Letter letter) {
 		letterDao.addLetter(letter);
 	}
-	
-	@Override 
-	public void deleteLetter(Integer id)
-	{
+
+	@Override
+	public void deleteLetter(Integer id) {
 		letterDao.deleteLetter(letterDao.getLetterByID(id));
 	}
-	
-	@Override 
-	public Letter getLetterByID(Integer id )
-	{
+
+	@Override
+	public Letter getLetterByID(Integer id) {
 		return letterDao.getLetterByID(id);
 	}
 
-	
 	@Override
-	public List<Letter> getAllLetters()
-	{
+	public List<Letter> getAllLetters() {
 		return letterDao.getAllLetters();
 	}
-	
-	@Override 
-	public void updateLetter(Letter letter)
-	{
+
+	@Override
+	public void updateLetter(Letter letter) {
 		letterDao.updateLetter(letter);
 	}
-	
+
 }

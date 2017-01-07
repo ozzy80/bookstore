@@ -12,7 +12,8 @@
 <title>Promena pisma</title>
 </head>
 <body>
-	<form:form action='new' method="post" commandName="publisher">
+	<c:url var="post_url"  value="/publishers/update" />
+	<form:form action='${post_url}' method="post" commandName="publisher">
 		<div class="form-group">
 			<label for="name">Naziv: </label>
 			<form:input path="name" id="name" class="form-Controlor" value="${publisher.name}"/> 

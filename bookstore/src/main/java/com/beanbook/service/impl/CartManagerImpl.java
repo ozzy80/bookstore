@@ -8,11 +8,11 @@ import com.beanbook.model.Cart;
 import com.beanbook.service.CartManager;
 
 @Service
-public class CartManagerImpl implements CartManager{
+public class CartManagerImpl implements CartManager {
 
 	@Autowired
 	private CartDao cartDao;
-	
+
 	@Override
 	public Cart getCartById(Integer cartId) {
 		return cartDao.getCartById(cartId);

@@ -19,29 +19,25 @@ public class PublisherManagerImpl implements PublisherManager {
 	public Publisher getPublisherByID(Integer id) {
 		return publisherDao.getPublisherByID(id);
 	}
-	
-	@Override 
-	public List<Publisher> getAllPublishers()
-	{
+
+	@Override
+	public List<Publisher> getAllPublishers() {
 		return publisherDao.getAllPublishers();
 	}
-	
-	@Override 
-	public void addPublisher(Publisher publisher)
-	{
+
+	@Override
+	public void addPublisher(Publisher publisher) {
 		publisherDao.addPublisher(publisher);
 	}
-	
-	@Override 
-	public void deletePublisher(Integer id)
-	{
+
+	@Override
+	public void deletePublisher(Integer id) {
 		publisherDao.deletePublisher(publisherDao.getPublisherByID(id));
 	}
 
-	@Override 
-	public void updatePublisher(Publisher publisher)
-	{
+	@Override
+	public void updatePublisher(Publisher publisher) {
 		publisherDao.updatePublisher(publisher);
 	}
-	
+
 }

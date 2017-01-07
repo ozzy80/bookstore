@@ -34,12 +34,10 @@ public class BookManagerImpl implements BookManager {
 	public void deleteBook(Long ISBN) {
 		bookDao.deleteBook(bookDao.getBookByISBN(ISBN));
 	}
-	
-	@Override 
-	public void updateBook(Book book)
-	{
+
+	@Override
+	public void updateBook(Book book) {
 		bookDao.updateBook(book);
 	}
-	
 
 }

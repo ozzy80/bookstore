@@ -15,7 +15,7 @@ public class Letter {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID_pisma")
 	private Integer letterID;
-	
+
 	@Column(name = "Vrsta", length = 20, nullable = false)
 	private String letterType;
 
@@ -34,5 +34,5 @@ public class Letter {
 	public void setLetterType(String letterType) {
 		this.letterType = letterType;
 	}
-	
+
 }

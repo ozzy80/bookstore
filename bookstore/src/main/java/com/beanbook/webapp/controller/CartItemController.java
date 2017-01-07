@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/cart")
 public class CartItemController {
-	
+
 	@RequestMapping
-	public String get(HttpServletRequest request){
+	public String get(HttpServletRequest request) {
 		return "redirect:/cart/" + request.getSession(true).getId();
 	}
-	
+
 	@RequestMapping("/{id}")
-	public String getCart(@PathVariable(value="id") String cartId, Model model){
+	public String getCart(@PathVariable(value = "id") String cartId, Model model) {
 		model.addAttribute("cartId", cartId);
-		
+
 		return "cart";
 	}
-	
+
 }

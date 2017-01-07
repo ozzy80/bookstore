@@ -10,39 +10,33 @@ import com.beanbook.model.Author;
 import com.beanbook.service.AuthorManager;
 
 @Service
-public class AuthorManagerImpl implements AuthorManager{
+public class AuthorManagerImpl implements AuthorManager {
 
 	@Autowired
 	private AuthorDao authorDao;
-	
-	@Override 
-	public void addAuthor(Author author)
-	{
+
+	@Override
+	public void addAuthor(Author author) {
 		authorDao.addAuthor(author);
 	}
-	
-	@Override 
-	public void deleteAuthor(Integer id)
-	{
+
+	@Override
+	public void deleteAuthor(Integer id) {
 		authorDao.deleteAuthor(authorDao.getAuthorByID(id));
 	}
-	
-	@Override 
-	public Author getAuthorByID(Integer id)
-	{
+
+	@Override
+	public Author getAuthorByID(Integer id) {
 		return authorDao.getAuthorByID(id);
 	}
-	
-	
+
 	@Override
-	public List<Author> getAllAuthors()
-	{
+	public List<Author> getAllAuthors() {
 		return authorDao.getAllAuthors();
 	}
-	
+
 	@Override
-	public void updateAuthor(Author author)
-	{
+	public void updateAuthor(Author author) {
 		authorDao.updateAuthor(author);
 	}
 

@@ -28,41 +28,35 @@ public class PublisherDaoImpl implements PublisherDao {
 		return publisher;
 	}
 
-	
 	@Override
-	public List<Publisher> getAllPublishers()
-	{
+	public List<Publisher> getAllPublishers() {
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("from Publisher");
 		List<Publisher> publisherList = query.list();
 		session.flush();
-		
+
 		return publisherList;
 	}
-	
-	@Override 
-	public void addPublisher(Publisher publisher)
-	{
+
+	@Override
+	public void addPublisher(Publisher publisher) {
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(publisher);
 		session.flush();
 	}
-	
-	@Override 
-	public void deletePublisher(Publisher publisher)
-	{
+
+	@Override
+	public void deletePublisher(Publisher publisher) {
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(publisher);
 		session.flush();
 	}
-	
-	
-	@Override 
-	public void updatePublisher(Publisher publisher)
-	{
+
+	@Override
+	public void updatePublisher(Publisher publisher) {
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(publisher);
 		session.flush();
 	}
-	
+
 }

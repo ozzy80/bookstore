@@ -14,50 +14,45 @@ import com.beanbook.model.SignedBook;
 
 @Repository
 @Transactional
-public class SignedBookDaoImpl implements SignedBookDao{
-	
+public class SignedBookDaoImpl implements SignedBookDao {
+
 	@Autowired
 	public SessionFactory sessionFactory;
-	
+
 	@Override
-	public SignedBook getSignedBookByISBN(Long ISBN)
-	{
+	public SignedBook getSignedBookByISBN(Long ISBN) {
 		Session session = sessionFactory.getCurrentSession();
 		SignedBook signedBook = (SignedBook) session.get(SignedBook.class, ISBN);
 		session.flush();
-		
+
 		return signedBook;
 	}
-	
+
 	@Override
-	public void addSignedBook(SignedBook signedBook)
-	{
+	public void addSignedBook(SignedBook signedBook) {
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(signedBook);
 		session.flush();
 	}
-	
-	@Override 
-	public List<SignedBook> getAllSignedBooks()
-	{
+
+	@Override
+	public List<SignedBook> getAllSignedBooks() {
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("from SignedBook");
 		List<SignedBook> signedBookList = query.list();
 		session.flush();
 		return signedBookList;
 	}
-	
+
 	@Override
-	public void deleteSignedBook(SignedBook signedBook)
-	{
+	public void deleteSignedBook(SignedBook signedBook) {
 		Session session = sessionFactory.getCurrentSession();
 		session.delete(signedBook);
 		session.flush();
 	}
-	
+
 	@Override
-	public void updateSignedBook(SignedBook signedBook)
-	{
+	public void updateSignedBook(SignedBook signedBook) {
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(signedBook);
 		session.flush();

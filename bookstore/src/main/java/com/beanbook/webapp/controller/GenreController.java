@@ -20,62 +20,48 @@ public class GenreController {
 	private GenreManager genreManager;
 
 	@RequestMapping(value = "/genres")
-	public String getAllGenres(Model model)
-	{
+	public String getAllGenres(Model model) {
 		List<Genre> genreList = genreManager.getAllGenres();
 		model.addAttribute("genres", genreList);
 		return "all_genres";
 	}
 
-	
 	@RequestMapping(value = "/genres/update/{genreID}")
-	public String updateGenre(Model model, @PathVariable("genreID") Integer genre_id)
-	{
+	public String updateGenre(Model model, @PathVariable("genreID") Integer genre_id) {
 		Genre genre = genreManager.getGenreByID(genre_id);
 		model.addAttribute("genre", genre);
 		return "update_genre";
 	}
-	
-	
-	@RequestMapping(value = "/genres/update/new")
-	public String updateGenre(@ModelAttribute("genre") Genre genre)
-	{
+
+	@RequestMapping(value = "/genres/update", method = RequestMethod.POST)
+	public String updateGenre(@ModelAttribute("genre") Genre genre) {
 		genreManager.updateGenre(genre);
 		return "redirect:/genres";
 	}
-	
-	
-	@RequestMapping(value="/genres/add/new",method = RequestMethod.POST)
-	public String addGenre(@ModelAttribute("genre") Genre genre)
-	{
-		genreManager.addGenre(genre);
-		return "redirect:/genres";
-	}
-	
-	
-	@RequestMapping(value="/genres/del/{idGenre}")
-	public String deleteGenre(@PathVariable("idGenre") Integer id_genre)
-	{
-		genreManager.deleteGenre(id_genre);
-		return "redirect:/genres";
-	}
-	
-	
-	@RequestMapping(value = "/genres/{idGenre}")
-	public String getGenreByID(Model model, @PathVariable("idGenre") Integer id_genre)
-	{
-		Genre genre = genreManager.getGenreByID(id_genre);
-		model.addAttribute("genre",genre);
-		return "index7";
-	}
 
-	
-	@RequestMapping(value="/genres/add")
-	public String addGenre(Model model)
-	{
+	@RequestMapping(value = "/genres/add")
+	public String addGenre(Model model) {
 		model.addAttribute("genre", new Genre());
 		return "add_genre";
 	}
-	
-}
 
+	@RequestMapping(value = "/genres/add", method = RequestMethod.POST)
+	public String addGenre(@ModelAttribute("genre") Genre genre) {
+		genreManager.addGenre(genre);
+		return "redirect:/genres";
+	}
+
+	@RequestMapping(value = "/genres/del/{idGenre}")
+	public String deleteGenre(@PathVariable("idGenre") Integer id_genre) {
+		genreManager.deleteGenre(id_genre);
+		return "redirect:/genres";
+	}
+
+	@RequestMapping(value = "/genres/{idGenre}")
+	public String getGenreByID(Model model, @PathVariable("idGenre") Integer id_genre) {
+		Genre genre = genreManager.getGenreByID(id_genre);
+		model.addAttribute("genre", genre);
+		return "index7";
+	}
+
+}

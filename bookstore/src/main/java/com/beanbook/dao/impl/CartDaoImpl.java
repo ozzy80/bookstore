@@ -16,7 +16,7 @@ public class CartDaoImpl implements CartDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
 	@Override
 	public Cart getCartById(Integer cartId) {
 		Session session = sessionFactory.getCurrentSession();
@@ -28,7 +28,7 @@ public class CartDaoImpl implements CartDao {
 	@Override
 	public void update(Cart cart) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

@@ -8,21 +8,20 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class User {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer userId;
-	
-	@Column(name="username", length = 50, nullable = false)
+
+	@Column(name = "username", length = 50, nullable = false)
 	private String username;
-	
-	
+
 	private String password;
-	
+
 	private Boolean enabled;
-	
+
 	private Integer customerId;
 
 	public Integer getUserId() {
@@ -64,6 +63,5 @@ public class User {
 	public void setCustomerId(Integer customerId) {
 		this.customerId = customerId;
 	}
-	
-	
+
 }
