@@ -8,7 +8,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap.min.css" />" >
   	<script type="text/javascript" src="<c:url value="/resources/js/lib/angular.min.js" />"></script> 
+  	<script type="text/javascript" src="<c:url value="/resources/js/lib/angular-resource.min.js" />"></script> 
   	<script type="text/javascript" src="<c:url value="/resources/js/app.js" />"></script>
+  	<script type="text/javascript" src="<c:url value="/resources/js/controller/cartController.js" />"></script>
+  	<script type="text/javascript" src="<c:url value="/resources/js/service.js" />"></script>
 </head>
 <body>
 	<div class="container-wrapper">
@@ -20,7 +23,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="container" ng-app="myApp">
+			<section class="container" ng-app="bookApp">
 				<div ng-controller="mainController" ng-init="initCartId('${cartId}')">
 					<a class="btn btn-danger" ng-click="clearCart()">
 						<span class="glyphicon glyphicon-remove-sign">Clear cart</span>
@@ -33,7 +36,7 @@
 						<th>Price</th>
 						<th>Action</th>
 					</tr>
-					<tr ng-repeat="item in cart.data.cartItems">
+					<tr ng-repeat="item in cart.cartItems">
 						<td>{{item.book.title}}</td>
 						<td>{{item.book.price}}</td>
 						<td>{{item.quantity}}</td>
