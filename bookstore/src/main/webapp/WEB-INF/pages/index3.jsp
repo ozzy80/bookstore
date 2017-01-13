@@ -43,32 +43,32 @@
 	<div class="container shell" style="height:380px;spacing:5px;">
 		<div class="row">
 			<div class="col-xs-2" >
-				<div class="customDiv1 item" > 
-					<!-- <img alt="slika" src='<c:url value="/resources/images/authors/${author.firstName}_${author.lastName}_${author.authorId}.jpg" />'>	-->
-					<img id="slika" alt="slika" src='<c:url value="/resources/css/images/cvetic.jpg"  />'  >
+				<div class="item" > 
+					<img id="slika" alt="slika" src='<c:url value="/resources/images/${book.publisher.name}/${book.title}-${book.isbn}.jpg"  />'  >
 					
 				</div>
 			</div>
 			<div class="col-xs-6" >
-				<div class="customDiv2" >
+				<div class="detaljiKnjige" >
 					<div class="row-xs-3" ">
-						<div class="customDiv4" >	
-							<span style="font-size:22px;text-style:italic;font-weight:bold;text-transform:uppercase;text-align:left;font-size:20px;color:#0182b5;">${book.title}</span>
+						<div class="podaciOKnjizi" >	
+							<span class="naslovKnjige">${book.title}</span>
 							<br/><br/>
 							
 							<c:forEach items="${book.authorList}" var="author">
-								<span style="font-size:19px;padding-bottom:1cm">${author.firstName} ${author.lastName}  </span>
+								<span class="autorKnjige">${author.firstName} ${author.lastName}  </span>
 							</c:forEach>
-							<hr/>
-							<div style="font-size:14px;">
-								<span style="display:inline-block;padding-bottom:3px;"><b>Izdavac: </b>${book.publisher.name}</span><br/>
-								<span style="display:inline-block;padding-bottom:3px;"><b>ISBN: </b> ${book.isbn}</span><br/>
-								<span style="display:inline-block;padding-bottom:3px;"><b>Broj strana: </b> ${book.numberOfPages}</span><br/>
-								<span style="display:inline-block;padding-bottom:3px;"><b>Pismo: </b> ${book.letter.letterType}</span><br/>
-								<span style="display:inline-block;padding-bottom:3px;"><b>Format: </b> ${book.format }</span> <br/>
-								<span style="display:inline-block;padding-bottom:3px;"><b>Datum izdanja: </b>${book.publicationYear}</span><br/>
+							<div class="linija"></div>
+							<div class="detaljiKnjigeRazmaci">
+								<span class="knjigaPojedinacniDetalji"><b>Izdavac: </b>${book.publisher.name}</span><br/>
+								<span class="knjigaPojedinacniDetalji"><b>ISBN: </b> ${book.isbn}</span><br/>
+								<span class="knjigaPojedinacniDetalji"><b>Broj strana: </b> ${book.numberOfPages}</span><br/>
+								<span class="knjigaPojedinacniDetalji"><b>Pismo: </b> ${book.letter.letterType}</span><br/>
+								<span class="knjigaPojedinacniDetalji"><b>Format: </b> ${book.format }</span> <br/>
+								<span class=""><b>Datum izdanja: </b>${book.publicationYear}</span><br/>
 								<div class="row">
-								<hr/>
+								<div class="linija2"></div>
+								
 								<div class="col-sm-4"><b>Zanrovi: </b><br/></div><br/>
 									
 									<c:forEach items="${book.genreList}" var="genre">
@@ -84,14 +84,14 @@
 			</div>
 			
 			<div class="col-xs-4" >
-				<div class="customDiv3" style="padding-top:30px;text-align:center;border: rgba(20, 10, 12, 0.69);background-color:rgba(192,192,192,0.2);-moz-box-shadow: 12px 10px 23px #000000;-webkit-box-shadow: 12px 10px 23px #c0c0c0;box-shadow: 12px 10px 23px #c0c0c0;">
+				<div class="knjigaDeoSaKorpom" style="padding-top:30px;text-align:center;border: rgba(20, 10, 12, 0.69);background-color:rgba(192,192,192,0.2);-moz-box-shadow: 12px 10px 23px #000000;-webkit-box-shadow: 12px 10px 23px #c0c0c0;box-shadow: 12px 10px 23px #c0c0c0;">
 					
-					<span style="text-decoration:line-through;font-size:20px;text-style:">Cena: 1220din</span><br/><br/>
+					<span class="knjigaCena">Cena: 1220din</span><br/><br/>
 					<span style="font-size:22px;color:#0182b5;">${book.price} din.</span><br/><br/><br/>
 					<button type="button" class="btn btn-warning">Dodaj u korpu</button>
-					<input style="margin-left:-2px;width:30px;" type="number" name="quantity" value="1" min="1" max="5">komada
+					<input class="brojKomadaKnjige" type="number" name="quantity" value="1" min="1" max="9">komada
 					<hr/>
-					<span style="display:inline-block;padding:10px;" >
+					<span class="ostvarivanjePopusta" >
 						Kupovinom tri ili više artikala ostvarujete i količinski popust od 10%. Za porudžbine iz Srbije čija vrednost je veća od 2000 dinara dostava je besplatna. Za knjige na akciji ne važe dodatni popusti.
 					</span>
 					
@@ -100,12 +100,12 @@
 		</div>		
 		
 	</div>	
-		
+			
 			<div class="container shell" style="height:400px;">
-				<div class="opisDiv">
-					<span style="display:inline-block;"><b>Opis</b></span><br/>
-					<hr/>
-					${book.description}
+				<div class="opisKnjige">
+					<span style="display:inline-block;margin-left:-595px;"><b>Opis</b></span><br/>
+					<div class="linija3"></div>
+					<span class="opisStilTeksta">${book.description}</span>
 				
 				</div>
 			</div>
