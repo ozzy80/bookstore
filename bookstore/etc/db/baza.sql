@@ -22,12 +22,13 @@ USE `knjizara` ;
 DROP TABLE IF EXISTS `knjizara`.`users` ;
 
 CREATE TABLE IF NOT EXISTS `knjizara`.`users` (
-  `username` VARCHAR(50) NOT NULL UNIQUE,
+  `username` VARCHAR(50) NOT NULL,
   `password` VARCHAR(50) NOT NULL,
   `enabled` TINYINT(1) NOT NULL,
   `userId` INT(11) NOT NULL AUTO_INCREMENT,
   `customerId` INT(11) NULL DEFAULT NULL,
-  PRIMARY KEY (`userId`))
+  PRIMARY KEY (`userId`),
+  UNIQUE INDEX `username` (`username` ASC))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
@@ -42,6 +43,7 @@ CREATE TABLE IF NOT EXISTS `knjizara`.`authorities` (
   `authority` VARCHAR(50) NOT NULL,
   `authorityId` INT(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`authorityId`),
+  INDEX `fk_authorities_users` (`username` ASC),
   CONSTRAINT `fk_authorities_users`
     FOREIGN KEY (`username`)
     REFERENCES `knjizara`.`users` (`username`))
@@ -61,7 +63,6 @@ CREATE TABLE IF NOT EXISTS `knjizara`.`autor` (
   `Opis` TEXT NULL DEFAULT NULL,
   PRIMARY KEY (`ID_autora`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 16
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -85,6 +86,7 @@ CREATE TABLE IF NOT EXISTS `knjizara`.`shippingaddress` (
     FOREIGN KEY (`customer_customerId`)
     REFERENCES `knjizara`.`customer` (`customerId`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -189,7 +191,6 @@ CREATE TABLE IF NOT EXISTS `knjizara`.`izdavac` (
   `Drzava` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`ID_izdavaca`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 5
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -377,10 +378,32 @@ DROP TABLE IF EXISTS `knjizara`.`potpisane_knjige` ;
 
 CREATE TABLE IF NOT EXISTS `knjizara`.`potpisane_knjige` (
   `ISBN` BIGINT(13) NOT NULL,
-  `Komada` SMALLINT NOT NULL,
+  `Komada` SMALLINT(6) NOT NULL,
   PRIMARY KEY (`ISBN`),
   CONSTRAINT `fk_Potpisane_knjige_knjiga1`
     FOREIGN KEY (`ISBN`)
+    REFERENCES `knjizara`.`knjiga` (`ISBN`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `knjizara`.`top_knjige`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `knjizara`.`top_knjige` ;
+
+CREATE TABLE IF NOT EXISTS `knjizara`.`top_knjige` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `knjiga_ISBN` BIGINT(13) NOT NULL,
+  `pocetak_vazenja` DATE NOT NULL,
+  `kraj_vazenja` DATE NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE (`knjiga_ISBN`, `pocetak_vazenja`),
+  INDEX `fk_top_knjige_knjiga1_idx` (`knjiga_ISBN` ASC),
+  CONSTRAINT `fk_top_knjige_knjiga1`
+    FOREIGN KEY (`knjiga_ISBN`)
     REFERENCES `knjizara`.`knjiga` (`ISBN`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)

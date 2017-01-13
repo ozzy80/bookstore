@@ -45,7 +45,7 @@ public class CartItemDaoImpl implements CartItemDao {
 	@Override
 	public CartItem getCartItemByISBN(Long isbn) {
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("from CartItem where isbn = ?");
+		Query query = session.createQuery("from CartItem where book.isbn = :isbn");
 		query.setLong("isbn", isbn);
 
 		return (CartItem) query.uniqueResult();

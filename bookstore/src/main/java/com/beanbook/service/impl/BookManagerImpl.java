@@ -35,4 +35,16 @@ public class BookManagerImpl implements BookManager {
 		bookDao.saveBook(book);
 	}
 
+	@Override
+	public List<Book> getBooks(String sort, int start, int limit) {
+		return bookDao.getBooks(sort, start, limit);
+	}
+
+	@Override
+	public List<Book> autocomplete(String query) {
+		//Remove whitespaces from begin
+		String q = query.replaceAll("^\\s+", "");
+		return bookDao.autocomplete(query);
+	}
+
 }

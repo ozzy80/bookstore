@@ -44,7 +44,7 @@ public class CartResources {
 		return cartManager.getCartById(cartId);
 	}
 
-	@RequestMapping(value = "/{isbn}", method = RequestMethod.PUT)
+	@RequestMapping(value = "/{isbn}", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	public @ResponseBody void addItem(@PathVariable("isbn") Long isbn, @AuthenticationPrincipal User activeUser) {
 
@@ -72,7 +72,7 @@ public class CartResources {
 		cartItemManager.addCartItem(cartItem);
 	}
 
-	@RequestMapping(value = "/remove//{isbn}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/remove/{isbn}", method = RequestMethod.DELETE)
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	public void removeItem(@PathVariable("isbn") Long isbn) {
 		CartItem cartItem = cartItemManager.getCartItemByISBN(isbn);

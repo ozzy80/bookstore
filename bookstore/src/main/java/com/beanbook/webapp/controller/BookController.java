@@ -103,12 +103,26 @@ public class BookController {
 		Book book = bookManager.getBookByISBN(isbn);
 		bookManager.deleteBook(isbn);
 
-		String realPathToUpload = "C:\\dev\\bookstore\\bookstore\\src\\main\\webapp\\WEB-INF\\resources\\images\\"
+		String realPathToUpload = "C:\\dev\\bookstore\\src\\main\\webapp\\WEB-INF\\resources\\images\\"
 				+ book.getPublisher().getName();
 		String imageName = book.getTitle() + "-" + book.getIsbn() + ".jpg";
 		file.deletePicture(imageName, realPathToUpload);
 
 		return "redirect:/books";
 	}
-	
+
+	@RequestMapping(value = "/books/new", method = RequestMethod.GET)
+	public @ResponseBody List<Book> getBooks(
+			@RequestParam(value = "sort", required = false, defaultValue = "desc") String sort,
+			@RequestParam(value = "start", required = false, defaultValue = "0") int start,
+			@RequestParam(value = "limit", required = false, defaultValue = "14") int limit) {
+		
+		return bookManager.getBooks(sort, start, limit);
+	}
+
+	@RequestMapping(value = "/books/autocomplete", method = RequestMethod.GET)
+	public @ResponseBody List<Book> autocomplete(@RequestParam(value = "q") String query){
+		
+		return bookManager.autocomplete(query);
+	}
 }

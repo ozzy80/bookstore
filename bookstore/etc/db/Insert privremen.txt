@@ -133,3 +133,15 @@ INSERT INTO users (`username`, `password`, `enabled`, `userId`)
 -- -----------------------------------------------------
 INSERT INTO authorities (`username`, `authority`)
   VALUES ("admin", "ROLE_ADMIN");			   
+  
+-- -----------------------------------------------------
+-- Table `knjizara`.`top_knjige`
+-- -----------------------------------------------------
+INSERT INTO top_knjige (`knjiga_ISBN`, `pocetak_vazenja`)
+  VALUES (9788661452475, CURDATE()),
+		 (9788652124169, CURDATE()),
+		 (9788652124237, CURDATE()),
+		 (9788652123896, CURDATE()),
+		 (9788652113972, CURDATE());		   
+  		   
+  

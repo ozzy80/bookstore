@@ -13,4 +13,8 @@ public interface BookDao {
 	Book getBookByISBN(Long ISBN);
 
 	void deleteBook(Book book);
+	
+	List<Book> getBooks(String sort,int start,int limit);
+	
+	List<Book> autocomplete(String query);
 }

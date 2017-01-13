@@ -1,8 +1,13 @@
 <li class="top-ten-book row">
-	<h3 class="col-lg-2">1</h3>
-	<a href="#"><img src="resources/css/images/image01.jpg" alt=""  class="col-lg-6  "/></a>
-	<div class="col-lg-4">
-		<a href="#" class="book-name">NASLOV</a><br />
-		<a href="#" class="author">AUTOR</a>
+	<h3 class="col-xs-2">{{rank}}</h3>
+	<a href="/bookstore/books/{{bookObject.isbn}}">
+      <img src="resources/images/{{bookObject.publisher.name}}/{{bookObject.title}}-{{bookObject.isbn}}.jpg" 
+         alt="slika knjige"  class="col-xs-5  "/>
+   </a>
+	<div class="col-xs-5">
+		<a href="/bookstore/books/{{bookObject.isbn}}" class="book-name">{{bookObject.title}}</a><br />
+      <ul ng-repeat="author in bookObject.authorList">
+		    <li><a href="/bookstore/authors/{{author.authorId}}" class="author">{{author.firstName}} {{author.lastName}}</a></li>
+      </ul>
 	</div>
 </li>

@@ -13,4 +13,8 @@ public interface BookManager {
 	Book getBookByISBN(Long ISBN);
 
 	void deleteBook(Long ISBN);
+	
+	List<Book> getBooks(String sort,int start,int limit);
+	
+	List<Book> autocomplete(String query);
 }

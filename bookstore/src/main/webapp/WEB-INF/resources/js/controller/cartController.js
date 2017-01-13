@@ -1,16 +1,15 @@
-bookApp.controller('mainController', ['$scope', '$http', '$log', 'cartService', function($scope, $http, $log, cartService){
+bookApp.controller('mainController', ['$scope','$log', 'cartService', function($scope, $log, cartService){
 	
 	var Cart = cartService;
 
 	$scope.refreshCart = function() {
-		console.log("USAO1");
 		var data = Cart.get({id : $scope.cartId}, function(){
 			$scope.cart = data;
 		});
 	};
 
 	$scope.clearCart = function(cartId) {
-		Cart.$delete({id : $scope.cartId}, function(){
+		Cart.remove({id : $scope.cartId}, function(){
 			$scope.refreshCart();
 		});
 	};
@@ -21,13 +20,13 @@ bookApp.controller('mainController', ['$scope', '$http', '$log', 'cartService', 
 	};
 
 	$scope.addToCart = function(bookId){
-		$http.put("/bookstore/rest/cart/"+bookId).then(function(){
+		Cart.save({id : bookId}, function(){
 			alert("Book successfully added to the cart");
 		});
 	};
 
 	$scope.removeFromCart = function(bookId){
-		$http.delete("/bookstore/rest/cart/remove/"+bookId).then(function(data){
+		Cart.removeBook({isbn : bookId}, function(){
 			$scope.refreshCart();
 			alert("Book successfully remove");
 		});
@@ -35,12 +34,12 @@ bookApp.controller('mainController', ['$scope', '$http', '$log', 'cartService', 
 	
 	$scope.calGrandTotal = function(){
 		var grandTotal = 0;
-
-		/*for(var i=0; i<$scope.cart.data.cartItems.length; i++){
-			grandTotal += $scope.cart.data.cartItems[i].totalPrice;
+		if($scope.cart){
+			for(var i=0; i<$scope.cart.cartItems.length; i++){
+				grandTotal += $scope.cart.cartItems[i].totalPrice;
+			}
+			return grandTotal;
 		}
-		*/
-		return 15;
 	};
 
 }]);

@@ -1,0 +1,14 @@
+<div class="product new-title info">
+   <a href="/bookstore/books/{{bookObject.isbn}}">
+      <span class="holder">
+         <img src="resources/images/{{bookObject.publisher.name}}/{{bookObject.title}}-{{bookObject.isbn}}.jpg" alt="" />
+         <span class="book-name">{{bookObject.title}}</span>
+         <span class="author" ng-repeat="author in bookObject.authorList">
+            <span>{{author.firstName}} {{author.lastName}}</span>
+            <span ng-show="!$last">, </span>
+         </span>
+         <span ng-class="bookObject.discount == null ? '' : 'underline-text'">Cena: {{bookObject.price}}</span><br/>
+         <span ng-if="bookObject.discount != null">150</span>
+      </span>
+   </a>
+</div>
