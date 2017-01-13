@@ -61,7 +61,7 @@ public class GenreController {
 	public String getGenreByID(Model model, @PathVariable("idGenre") Integer id_genre) {
 		Genre genre = genreManager.getGenreByID(id_genre);
 		model.addAttribute("genre", genre);
-		return "index7";
+		return "index8";
 	}
 
 }

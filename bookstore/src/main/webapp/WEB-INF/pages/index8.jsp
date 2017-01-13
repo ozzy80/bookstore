@@ -10,27 +10,27 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="../resources/css/bootstrap.min.css" />" >
 <script type="text/javascript" src="<c:url value="../resources/js/lib/bootstrap.min.js" />"></script>
 
-<title>Detalji o potpisanoj knjizi</title>
+<title>Detalji o zanru</title>
 </head>
 <body>
 	<table class="table table-striped table-hover">
 		<tr>
 			<th>
-				ISBN
+				ID 
 			</th>
 			<th>
-				Broj potpisanih knjiga
+				Naziv zanra
 			</th>
 		</tr>
 		<tr>
 			<td>
-				${signedBook.isbn} 
+				${genre.genreID} 
 			</td>
 			<td>
-				${signedBook.signedBooksNumber}
+				${genre.genreName}
 			</td>
 		</tr>
 	</table>
-	
+
 </body>
 </html>

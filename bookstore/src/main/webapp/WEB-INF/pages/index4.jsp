@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="<c:url value="../resources/css/bootstrap.min.css" />" >
 <script type="text/javascript" src="<c:url value="../resources/js/lib/bootstrap.min.js" />"></script>
 
-<title>Insert title here</title>
+<title>Detalji o autoru</title>
 </head>
 <body>
 	<table class="table table-striped table-hover">
@@ -27,7 +27,7 @@
 				<td>${author.firstName}</td>
 				<td>${author.lastName}</td>
 				<td>${author.description}</td>
-				<td><img alt="slika" src='<c:url value="/resources/images/authors/${author.firstName}_${author.lastName}_${author.authorId}.jpg" />'></td>
+				<td><img alt="slika" src='<c:url value="/resources/images/authors/${author.firstName}_${author.lastName}_${author.authorId}.jpg" />'> </td>
 				<td>
 					<a href='<c:out value="del/${author.authorId}" />'><span class="glyphicon glyphicon-remove"></span></a>	
 				</td>

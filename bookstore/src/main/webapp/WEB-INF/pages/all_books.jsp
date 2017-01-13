@@ -10,7 +10,7 @@
 <script type="text/javascript" src="<c:url value="/resources/js/lib/angular.min.js" />"></script> 
 <script type="text/javascript" src="<c:url value="/resources/js/app.js" />"></script>
 
-<title>Insert title here</title>
+<title>Sve knjige</title>
 </head>
 <body ng-controller="mainController">
 	<table class="table table-striped table-hover">

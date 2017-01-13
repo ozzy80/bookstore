@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bootstrap.min.css" />" >
 <script type="text/javascript" src="<c:url value="resources/js/bootstrap.min.js" />"></script>
-<title>Insert title here</title>
+<title>Svi autori</title>
 </head>
 <body>
 	<table class = "table table-striped table-hover">

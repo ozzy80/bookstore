@@ -9,8 +9,8 @@
 	<link rel="shortcut icon" href="<c:url value="css/images/favicon.ico" />" />
 	<link rel="stylesheet" href="<c:url value="resources/css/bootstrap.min.css" />" type="text/css" />	
 	<link rel="stylesheet" href="<c:url value="resources/css/style.css" />" type="text/css" media="all" />	
-  	<script type="text/javascript" src="<c:url value="resources/js/lib/angular-resource.min.js" />"></script> 
   	<script type="text/javascript" src="<c:url value="resources/js/lib/angular.min.js" />"></script>
+  	<script type="text/javascript" src="<c:url value="resources/js/lib/angular-resource.min.js" />"></script>
   	<script type="text/javascript" src="<c:url value="resources/js/app.js" />"></script>
 </head>
 <body>

@@ -186,3 +186,77 @@ textarea { overflow: auto; }
 #newsletter .form-buttons { float: right; display: inline; text-align: right; padding-right: 2px; }
 #newsletter .submit-btn { margin-top: 4px; display: inline-block; font-size: 10px; line-height: 16px; height: 24px; background: url(images/submit-btn.png); padding: 0 8px 0 10px; border: 0; color: #fff; text-transform: uppercase; cursor: pointer; }
 #newsletter .submit-btn:hover { color: #015faa; }
+
+
+#slika{
+	margin-left:-10px;	
+	display: block;
+	max-width: 155px;
+	max-height: 190px;
+	width: auto;
+	height: auto;
+}
+
+.customDiv2 
+{
+	min-height:380px;
+	text-align:center;
+	font-size:large;
+	margin:0px;
+	color: rgba(20, 10, 12, 0.72)	
+}
+
+.customDiv3
+{
+	min-height:380px;
+	width:270px;	
+	backgroud-color: yellow;
+	color: rgba(20, 10, 12, 0.75);
+	
+}
+
+.item img {
+  max-width: 100%;
+  
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.item:hover img {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+
+
+.customDiv4
+{
+	min-height:190px;
+	text-align:left;
+	margin-top:10px;
+	padding-left: 10px;	
+}
+
+.customDiv5
+{
+	min-height:190px;
+}
+
+.opisDiv
+{
+	-webkit-box-shadow: 400px 300px 20px undefinedpx rgba(192,192,192,0.2);
+	box-shadow: 400px 300px 20px undefinedpx rgba(192,192,192,0.2);
+	font-size:15px;
+	margin-top:20px;
+	color: rgba(20, 10, 12, 0.69);
+	
+	text-shadow:1px 1px 3px rgba(20,10,12,0.3);
+	font-weight:normal;
+	letter-spacing:1pt;
+	word-spacing:2pt;
+	text-align:left;
+	font-family:arial, helvetica, sans-serif;
+	line-height:1;
+
+}

@@ -39,14 +39,13 @@ public class BookController {
 		List<Book> bookList = bookManager.getAllBooks();
 		model.addAttribute("books", bookList);
 
-		return "index2";
+		return "all_books";
 	}
 
 	@RequestMapping(value = "/books/{isbn}")
 	public String getBookByISBN(Model model, @PathVariable("isbn") Long isbn) {
 		Book book = bookManager.getBookByISBN(isbn);
 		model.addAttribute("book", book);
-
 		return "index3";
 	}
 
