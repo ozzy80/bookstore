@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.beanbook.model.Genre;
 import com.beanbook.service.GenreManager;
@@ -19,11 +20,11 @@ public class GenreController {
 	@Autowired
 	private GenreManager genreManager;
 
-	@RequestMapping(value = "/genres")
-	public String getAllGenres(Model model) {
-		List<Genre> genreList = genreManager.getAllGenres();
-		model.addAttribute("genres", genreList);
-		return "all_genres";
+	@RequestMapping(value = "/genres", method = RequestMethod.GET)
+	public @ResponseBody List<Genre> getAllGenres(Model model) {
+		return genreManager.getAllGenres();
+		//model.addAttribute("genres", genreList);
+		//return "all_genres";
 	}
 
 	@RequestMapping(value = "/genres/update/{genreID}")

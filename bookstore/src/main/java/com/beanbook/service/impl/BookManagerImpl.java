@@ -47,4 +47,9 @@ public class BookManagerImpl implements BookManager {
 		return bookDao.autocomplete(query);
 	}
 
+	@Override
+	public List<Book> getBooksByGenre(String genre) {
+		return bookDao.getBooksByGenre(genre);
+	}
+
 }

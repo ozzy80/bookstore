@@ -57,10 +57,10 @@ public class BookDaoImpl implements BookDao {
 	@Override
 	public List<Book> getBooks(String sort, int start, int limit) {
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("select isbn as isbn, title as title, price as price, discount as discount "
-				+ "from Book order by publicationYear " + (sort.equals("desc")?"desc" : "asc"));
+		Query query = session.createQuery("from Book order by publicationYear " 
+				+ (sort.equals("desc")?"desc" : "asc"));
 		
-		query.setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+		//query.setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
 		query.setFirstResult(start);
 		query.setMaxResults(limit);
 		List<Book> bookList = query.list();
@@ -80,6 +80,19 @@ public class BookDaoImpl implements BookDao {
 		q.setParameter("query1", "% "+query+"%");
 		q.setParameter("query2",  query+"%");
 		q.setMaxResults(7);
+		List<Book> bookList = q.list();
+		session.flush();
+
+		return bookList;
+	}
+
+	@Override
+	public List<Book> getBooksByGenre(String genre) {
+		Session session = sessionFactory.getCurrentSession();
+		Query q = session.createQuery("select b from Book b join b.genreList g where g.genreName = :genre "
+				+ "order by b.publicationYear");
+
+		q.setParameter("genre", genre);
 		List<Book> bookList = q.list();
 		session.flush();
 

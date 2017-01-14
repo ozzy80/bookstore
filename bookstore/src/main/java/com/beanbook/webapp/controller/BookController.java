@@ -42,6 +42,13 @@ public class BookController {
 		return "all_books";
 	}
 
+	@RequestMapping(value = "/booklist")
+	public String getBooksGenre(){
+		return "books";
+	}
+	
+	
+	
 	@RequestMapping(value = "/books/{isbn}")
 	public String getBookByISBN(Model model, @PathVariable("isbn") Long isbn) {
 		Book book = bookManager.getBookByISBN(isbn);
@@ -124,5 +131,15 @@ public class BookController {
 	public @ResponseBody List<Book> autocomplete(@RequestParam(value = "q") String query){
 		
 		return bookManager.autocomplete(query);
+	}
+	
+	@RequestMapping(value = "/books/genre", method = RequestMethod.GET)
+	public @ResponseBody List<Book> getBooksByGenre(@RequestParam(value = "genre") String genre,
+			@RequestParam(value = "start", required = false, defaultValue = "0") int start,
+			@RequestParam(value = "limit", required = false, defaultValue = "14") int limit){
+		if(genre.isEmpty()){
+			return bookManager.getBooks("desc", start, limit);
+		}
+		return bookManager.getBooksByGenre(genre);
 	}
 }
