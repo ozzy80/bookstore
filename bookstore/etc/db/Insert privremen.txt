@@ -3,6 +3,17 @@
 -- -----------------------------------------------------
 ALTER TABLE autor AUTO_INCREMENT = 1;
 
+INSERT INTO autor(`Ime`, `Prezime`, `Opis`)
+VALUES ( "Danjan" , "Čen" , "Danjan Čen je jedna od najpoznatijih i najpopularnijih kineska književnica današnjice. Većina njenih knjiga ima status bestselera, a nekoliko je prevedeno na više svetskih jezika. Šangajska princeza je njena prva knjiga prevedena na srpski jezik. Rođena je u Pekingu, kao dete se sa roditeljima preselila u Šangaj, gde i sada živi i smatra se jednim od živih kulturnih simbola tog grada.
+
+Diplomirala je kinesku književnost na Univerzitetu u Istočnoj Kini, radila kao reporter u magazinu za decu, a počela je kao dečji pisac. Njena knjiga Smrt učenice uvrštena je u 100 najboljih dečjih knjiga sveta. Na posebno veliki odziv čitalaca naišle su njene knjige na temu politike jednog deteta u Kini, o kojoj je pre nje vrlo malo pisano. Za autobiografski roman Devet života , o iskustvima dece u vreme Kulturne revolucije u Kini, dobila je Uneskovu nagradu za mir, bila nominovana za nemačku književnu nagradu za mlade pisce 1996. godine i bila dobitnik još nekoliko ne manje važnih međunarodnih priznanja.
+
+Najpoznatija je po takozvanoj Šangajskoj trilogiji koju čine publicističke knjige Šangajska memorabilija, Šangajska princeza i Šangajska lepotica. 
+
+Od 2014. godine Danjan Čen je u tri maha boravila u Srbiji, posle čega je objavila više dužih i kratkih tekstova i dva kratka autorska filma o Srbiji i njenoj istoriji. Teme filmova su kult kneza Lazara i Hazarski rečnik Milorada Pavića, koji je bio njena velika književna inspiracija. Ona je pomogla promociji u Kini našeg nobelovca Ive Andrića, a jedna od ličnosti kojoj se divi je i Gavrilo Princip. Njena poslednja knjiga Zemlja uhvaćenih snova govori baš o Srbiji, a na Sajmu knjiga u Šangaju u avgustu 2016. bila je jedna od najzapaženijih knjiga.
+"
+);
+
 INSERT INTO autor (`Ime`, `Prezime`, `Opis`)
 		VALUES ("Bil", "Brajson", "Bil Brajson rođen je 1951. godine u De Moinu u Ajovi. Na svom prvom putovanju po Evropi, s rancem na leđima 1973, dospeo je i u Englesku, gde je upoznao ženu koja će mu postati supruga i rešio da se skrasi. Piše putopisne članke za Tajms i Indipendent. Do 1995. živeo je sa ženom i četvoro dece u Severnom Jorkširu, a potom odlučio da se vrati u Sjedinjene Države i preselio se s porodicom u Hanover u Nju Hempširu. Osam godina kasnije rešio se na još jedan povratak, i Brajsonovi od 2003. ponovo žive u Engleskoj.
 
@@ -12,13 +23,51 @@ INSERT INTO autor (`Ime`, `Prezime`, `Opis`)
 				"
 				);
 
-INSERT INTO autor (`Ime`, `Prezime`)
-		VALUES ("Simonida", "Milojković"),
-			   ("Danjan", "Čen"),
-			   ("Bob", "Dilan"),
-			   ("Dejan", "Stojiljković"),
-			   ("Vladimir", "Kecmanović");
-			   
+INSERT INTO autor (`Ime`, `Prezime`,`Opis`)
+		VALUES ("Simonida", "Milojković", "Simonida Milojković je jedan od najčitanijih savremenih srpskih pisaca. Član je Udruženja književnika Srbije.
+
+Književnošću se bavi od 2007. godine kada je izašla njena prva knjiga Grabljivica, najprodavaniji roman na Balkanu u poslednje tri decenije, čiji je tiraž dosegao neverovatnih 210.000 primeraka. Britanska izdavačka kuća Pegasus, jedna od pet najvećih na svetu, proglasila je Grabljivicu vrhunskim delom savremene svetske književnosti i objavljuje ga za celo englesko govorno područje kao The Lady Predator. 
+
+Roman Ljubav u doba kokaina odmah po objavljivanju postaje bestseler i dospeva do vrha liste najprodavanijih knjiga u regionu. 
+
+Simonida Milojković u saradnji sa produkcijom Prizor postavlja na pozorišnu scenu dramu Ljubav u doba kokaina, a širom regiona počinje da drži predavanja i organizuje tribine u cilju prevencije narkomanije kod mladih. 
+
+Od 1. decembra 2016. u prodaji je novi roman Žena, istinita ljubavna priča o jednoj neobičnoj ženi koja je mnogo propatila samo zato što je drugačija. 
+
+Simonida Milojković je šesnaest godina bila novinar u dnevnom listu Blic.");				
+		
+INSERT INTO autor (`Ime`, `Prezime`,`Opis`)
+		VALUES ("Vladimir", "Kecmanović","Vladimir Kecmanović (Sarajevo, 1972) do sada je objavio romane: Poslednja šansa (1999), Sadržaj Šupljine (2001), Feliks (2007), Top je bio vreo (2008), Sibir (2011), Kainov ožiljak (u četiri ruke sa Dejanom Stojiljkovićem, 2014), Osama (2015) i zbirku pripovedaka Zidovi koji se ruše (2012). Sa istoričarem Predragom Markovićem autor je knjige Tito, pogovor (2012). Objavio i esejističko-biografsku knjigu Das ist Princip! (2014). Dobitnik je stipendije fondacije Borislav Pekić i nagrada Ivo Andrić, Branko Ćopić, Meša Selimović, Hit libris, Vitez srpske književnosti, Pečat vremena i Velike Andrićeve nagrade instituta u Andrićgradu. Kecmanovićeva proza prevođena je na engleski, francuski, nemački, ukrajinski i rumunski jezik.
+
+Njegova dela doživela su filmske, televizijske i dramske adaptacije. Prevod romana Top je bio vreo (The Cannon was Red Hot) 2014. je nominovan za nagradu IMPAC Dublin, koja se u istoimenom gradu dodeljuje za najbolji roman objavljen na engleskom jeziku.
+
+Živi i radi u Beogradu. Vlasnik je i urednik izdavačke kuće VIA. Kolumnista je lista Politika. Povremeno piše za više medija u zemlji i okruženju. Član je grupe P 70 i Srpskog književnog društva.");
+
+INSERT INTO autor (`Ime`, `Prezime`,`Opis`)
+VALUES  ("Dejan", "Stojiljković","Dejan Stojiljković (1976), prozaista, dramski pisac i strip scenarista. Objavio prozne zbirke Leva strana druma (2007) i Low Life (2008) kao i romane Konstantinovo raskršće (2009, nagrade Miloš Crnjanski, Zlatni hit-liber RTS-a i Svetosavski pečat, najuži izbor za Ninovu nagradu i nagradu Isidora Sekulić, najčitanija knjiga u javnim biliotekama Srbiji za 2010. godinu, nominacije za međunarodne nagrade Impak Dablin i Balkanika) i Duge noći i crne zastave (2012, nagrada Zlatni Hit-liber RTS-a). 
+
+Autor je nekoliko strip-scenarija kao i knjige ogleda o stripu Kiselo&Slatko (2011). Prvi je laureat nagrade za strip teoriju Nikola Mitrović Kokan. 
+
+U ediciji Srbija i komentari Službenog glasnika koju uređuje akademik Goran Petrović 2012. objavljena mu je knjiga Živi pokojnik (zajedno sa etnologom Vesnom Marjanović). 
+
+Autor je istorijske drame Konstantin u režiji Juga Radivojevića (koprodukcija Narodnog pozorišta iz Beograda i Narodnog pozorišta iz Niša, sezona 2012/2013). 
+
+Od 2012. je ekskluzivni autor izdavačke kuće Blooming Twig Books iz Nju Jorka. 
+
+Proza mu je prevođena na engleski, ruski, makedonski i grčki.
+
+Član je Srpskog književnog društva i književne grupe P-70.");
+
+
+INSERT INTO autor (`Ime`, `Prezime`, `Opis`)
+VALUE ("Bob", "Dilan", "Robert Alen Cimerman (rođen 24. maj 1941), poznatiji kao Bob Dilan , američki je pevač, kompozitor i pesnik.
+Bob Dilan je kultna ličnost generacije 1960-ih godina i jedan od najvećih kantautora 20. veka.
+Mnoge Dilanove pesme obradilo je veliki broj izvođača. Često je kroz pesmu izražavao bunt protiv politike i društvenih dogmi njegovog vremena.
+Njegove najpoznatije pesme su The Times They are Achanging, Blowing in The Wind, Like a Rolling Stone...
+Svira gitaru, usnu harmoniku i klavir.
+Godine 2016. Dilan je dobio Nobelovu nagradu za književnost, za stvaranje novih poetskih izražaja unutar velike američke tradicije pesama.")
+
+
 -- -----------------------------------------------------
 -- Table `knjizara`.`izdavac`
 -- -----------------------------------------------------
@@ -65,20 +114,87 @@ INSERT INTO knjiga (`ISBN`, `Naziv`, `Dostupno_komada`, `Format`, `Broj_strana`,
 			   (9788652124237, "Nemanjići – Dva orla", 51, "19x19 cm", 72, "2016-10-19", 599, 1, 1),
 			   (9788652123896, "Putovanje u Mali Dribling", 11, "13x20 cm", 448, "2016-09-10", 719.28, 1, 1),
 			   (9788652113972, "Tamo dole", 0, "13x20 cm", 429, "2014-01-31", 999, 1, 1);
-		
-		
+
+
+INSERT INTO knjiga(`ISBN`, `Naziv`,`Opis`, `Dostupno_komada`, `Format`, `Broj_strana`, `Godina_izdanja`, `Cena`, `Izdavac_ID_izdavaca`, `pismo_ID_pisma`)
+VALUES (9788652147852,"Sibir","Balkanski ljubavni triler satkan od baruta, prevare i krvi.
+
+Kći kontroverznog srpskog biznismena jedne noći susreće oca za kojim je raspisana poternica. Taj susret okrenuće njen život naglavačke. Otac, za koga svi misle da je van zemlje, upoznaje je sa Mikijem, žestokim momkom koji će je odvesti na sigurno mesto i biti njen čuvar. U kući, na devojci nepoznatoj lokaciji, oboje ubrzo shvataju da su prevareni: Miki biva optužen da ju je oteo! Uslediće novi zapleti i rasplet kakav nije mogao da očekuje niko.
+
+Sibir je priča o tranziciji, kriminalu, ljubavi, iluzijama, izneverenim nadama, pokušajima grešnih ljudi da se izvuku iz balkanskog blata i, po uzoru na likove Dostojevskog, nastave novi život u svom Sibiru.
+
+Priča u romanu Sibir pleni upečatljivošću, iskrenošću i znalački gradiranim ritmom, a roman u celini nudi i dosta povoda za polemiku koja će prevazići okvire striktno književnog. Sasvim dovoljno za novi knjižarski hit, a možda i fina odstupnica pred pokušaj na polju ako ne tradicionalnije, a ono bar stilski oprečnije literature. (Zoran Janković)
+
+Beograd: žurke bez prestanka, seks i droge. To je svet u kojem se kreće naratorka ovog ljubavnog trilera, kćer jednog uticajnog mafijaškog bosa. Vladimir Kecmanović iznosi napetu priču o njoj i o prevejanom gangsteru Mikiju, iskidanom, surovom prozom kojoj nema premca i koja se odlikuje retkom literarnom beskompromisnošću.( Andreas Recer, Katalog Franfurtskog sajma 2015)
+
+Silovita i samosvesna, suptilna, proza za 21. vek. (Vesna Trijić) ",20,"13x20",264,
+"2015-05-12",834.0,1,1);
+			   
+
+UPDATE knjiga
+set Opis = 'Rođena u Australiji u porodici industrijalaca kineskog porekla, Dejzi Kvok se seli u Šangaj gde u prvim decenijama 20. veka živi lagodnim životom princeze jedne od najbogatijih porodica tog velikog kineskog grada.
+
+Sa Kulturnom revolucijom pod vođstvom Mao Cedunga, Dejzi postaje jedna od žrtava te strašne čistke u kineskom komunističkom društvu. Naporni rad u logorima za prevaspitavanje kapitalista, svakodnevno maltretiranje, iscrpljivanje do krajnjih granica, život u siromaštvu, glad, beda obeležavaju njen život čitave dve decenije. Uprkos tome, fizički slaba ali duhovno neverovatno snažna, Dejzi uspeva da preživi i opstane, ponosna i dostojanstvena.
+
+Danjan Čen, jedna od najpoznatijih književnica današnje Kine, spisateljica poznatih kineskih bestselera (Šangajska princeza prodata je u milion primeraka) kroz sudbinu svoje junakinje govori i o istoriji Šangaja, jednog od najdinamičnijih gradova sveta, ekonomskog i kulturnog centra NR Kine, kineskog prozora u svet kroz vekove.
+
+Šangajska princeza je jedna od retkih autentičnih biografija, koja govori o strahotama Kulturne revolucije.'
+WHERE ISBN = 9788652124169;
+
+UPDATE knjiga
+set Opis = 'Autor bestselera Kratka istorija bezmalo svačega i Beleške s malog ostrva.
+
+Bilo je to kao da sam privatno otkrio život na nekoj drugoj planeti, ili u paralelnom univerzumu gde je život momentalno prepoznatljiv, ali opet potpuno drugačiji. Ne mogu ni da vam opišem koliko je to bilo uzbudljivo. Ukoliko sam u prethodnim godinama uopšte i stekao nekakva očekivanja od Australije, ona mi je ličila na neku alternativnu južnu Kaliforniju, mesto gde stalno sija sunce i ljudi veselo i isprazno provode život po plažama, ali sa donekle britanskim šmekom – kao neki Čuvari plaže s kriketom, kako sam tada mislio...
+
+Naravno, Bil Brajson nije video ništa nalik tome. Australija je zemlja koja obitava u ogromnim razmerama. Ona je šesta najveća država na svetu i ujedno njegovo najveće ostrvo. To je jedino ostrvo koje je istovremeno i kontinent, i jedini kontinent koji je istovremeno i država. To je najsuvlji, najvreliji, najbezvodniji, najjaloviji i klimatski najagresivniji od svih nastanjenih kontinenata, a opet vrvi životom – pri čemu su tamošnja živa bića uglavnom vrlo smrtonosna.
+
+Bil Brajson nije obraćao pažnju na sve te opasnosti – premda je opet bio neobično opsednut njima – kada je otputovao u Australiju i smesta se zaljubio u tu zemlju. A kako i ne bi? Ljudi su veseli, otvoreni, duhoviti i neizostavno uslužni; gradovi su im bezbedni, čisti i gotovo uvek podignuti pored vode; hrana je odlična; pivo je hladno, a sunce sija gotovo stalno. A šta čovek više da traži od života? Uživajte i vi u ovom urnebesno zabavnom i nesvakidašnjem putopisu.'
+WHERE ISBN = 9788652113972;
+
+UPDATE knjiga
+set Opis = 'Nove beleške s malog ostrva.
+
+Urnebesni nastavak omiljenog putopisa i klasika Beleške s malog ostrva, ljubavno pismo Bila Brajsona zemlji koja ga je usvojila.
+
+Godine 1995. Bil Brajson je seo u auto i započeo oproštajno putovanje po Engleskoj, koje je trajalo nedeljama, pre nego što se sa porodicom vratio u Sjedinjene Američke Države. Knjiga o tom putovanju – Beleške s malog ostrva – beskrajno je srdačan prikaz Engleske i jedan od najdovitljivijih ikad. 
+
+Dve decenije kasnije odlučio je da ponovo otkrije tu zemlju, a rezultat je Putovanje u Mali Dribling. Krećući se trasom od Bognora na jugu do Kejp Rata na severu, Brajson nam otkriva čudesno lepu, ekscentričnu, dražesnu i jedinstvenu zemlju. Sa svojim nenadmašnim smislom za humor i nepogrešivim okom za neobično i neočekivano, on nudi pronicljiv uvid u današnju Britaniju – ono najbolje i ono najgore u njoj.
+
+Pripremite se za potpuno uživanje i nekontrolisani smeh. Ništa ne može biti zabavnije od Bila Brajsona na putovanju. 
+
+Najbolje od svega je to što je Brajsonu zaista stalo i što je izuzetno radoznao… Kad čitate njegove knjige, to vam je kao da ste krenuli na odmor sa Pajtonovcima. (Mashable)
+
+U nekim trenucima bih se zacenio od smeha čitajući ovu knjigu… On baš ume da bude neverovatno blesav. (The Times)
+
+Milioni čitalaca Brajsonovih putopisa sigurno će i u ovom podjednako uživati. (Observer)
+
+Teško da možete naći boljeg vodiča u Velikoj Britaniji od Bila Brajsona. (Miami Herald)'
+WHERE isbn = 9788652123896;
+
+UPDATE knjiga
+set Opis = 'Priča o dečaku koji je postao ratnik, ratniku koji je postao državnik i državniku koji je postao svetac.
+
+Vladar Raške države, veliki župan Stefan Nemanja je nakon dugog i iscrpljujućeg rata sa Vizantijom morao da se preda i pao je u zatočeništvo. U Konstantinopolju će otkriti novu mudrost, novu veru i novu nadu. Nakon što sklopi sporazum sa carem Manojlom, vratiće se svojoj porodici i državi, ali će ga tamo sačekati još veća iskušenja. Njegova neobuzdana braća Miroslav i Stracimir tvrdoglavo srljaju u neuspešne ratne pohode. Braneći granice i osvajajući nove teritorije, manirom veštog i iskusnog državnika, Nemanja uspeva u naumu da stvori veću i jaču državu. Ali nakon prevrata na carskom dvoru i dolaskom novih vladara u Vizantiji, slika sveta će početi da se menja: sa zapada dolaze krstaši predvođeni carem Fridrihom Barbarosom, a sa istoka oštre sablje Turaka Seldžuka. U Rasu, dok lagano shvata da mu je sin miljenik Rastko neobično i nadareno dete, Stefan Nemanja se priprema za presudne događaje...
+
+Druga knjiga trilogije o Stefanu Nemanji i seriji knjiga o najpoznatijoj srpskoj vladarskoj dinastiji koja dolazi iz pera autora bestselera Kainov ožiljak.  '
+where isbn= 9788652124237;
+
+
 -- -----------------------------------------------------
 -- Table `knjizara`.`knjiga_ima_autor`
 -- -----------------------------------------------------
 ALTER TABLE knjiga_ima_autor AUTO_INCREMENT = 1;
 
 INSERT INTO knjiga_ima_autor (`ISBN`, `ID_autora`)
-		VALUES (9788661452475, 4),
-			   (9788652124169, 3),
-			   (9788652124237, 5),
-			   (9788652124237, 6),
-			   (9788652123896, 1),
-			   (9788652113972, 1);
+		VALUES (9788652113972,25),
+			   (9788652123896,25),
+			   (9788652124169,33),
+			   (9788652124237,35),
+			   (9788661452475,37),
+			   (9788652147852,35),
+			   (9788652124687,34);
+
+
 		
 -- -----------------------------------------------------
 -- Table `knjizara`.`zanr`
@@ -94,6 +210,7 @@ INSERT INTO zanr (`Naziv`)
 			   ("Komedije"),
 			   ("Nagrađeni naslovi");
 			   
+
 			   
 -- -----------------------------------------------------
 -- Table `knjizara`.`knjiga_ima_zanr`
@@ -109,10 +226,16 @@ INSERT INTO knjiga_ima_zanr (`ISBN`, `ID_zanra`)
 			   (9788652123896, 5),
 			   (9788652123896, 6),
 			   (9788652113972, 5),
-			   (9788652113972, 6);
+			   (9788652113972, 6),
+			   (9788652147852, 2),
+			   (9788652124687 , 4),			   
+			   (9788652113972, 6),
 			   (9788652113972, 7),
 			   (9788652123896, 7);
 			   
+UPDATE knjiga
+set Izdavac_ID_izdavaca = 1
+where isbn = 9788652124687;
 
 -- -----------------------------------------------------
 -- Table `knjizara`.`potpisane_knjige`
