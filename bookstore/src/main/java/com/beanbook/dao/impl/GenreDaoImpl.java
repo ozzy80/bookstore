@@ -50,4 +50,16 @@ public class GenreDaoImpl implements GenreDao {
 		session.flush();
 	}
 
+	@Override
+	public long getBooksByGenreNumber(String genre) {
+		Session session = sessionFactory.getCurrentSession();
+		Query q = session.createQuery("select count(b) from Book b join b.genreList g where g.genreName = :genre");
+
+		// q.setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
+		q.setParameter("genre", genre);
+		long count = (long) q.uniqueResult();
+		session.flush();
+		return count;
+	}
+
 }

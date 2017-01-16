@@ -20,7 +20,7 @@
       <!-- Content -->
       <div id="content" class="col-lg-6">
          <!-- Books -->
-         <div class="products" ng-init="getBooksByGenre(undefined,0, 12)">
+         <div class="products" ng-init="getBooksByGenre('Drama',0, 12)">
             <h3>Novi naslovi</h3>
             <ul class="row">
                <li class="col-sm-4" ng-repeat="book in BooksByGenreList">
@@ -32,25 +32,29 @@
          <div class="c2">&nbsp;</div>
 
 
-         
-         <nav aria-label="Navigacija">
-           <ul class="pagination">
-             <li class="page-item" ng-click="paginationMove()">
-                 <span aria-hidden="true">&laquo;</span>
-             </li>
+           <div class="container col-lg-12">
+                <div class="text-center">
+                    <!-- pager -->
+                    <ul ng-if="pager.pages.length" class="pagination">
+                        <li ng-class="{disabled:pager.currentPage === 1}">
+                            <a ng-click="setPage(1)">First</a>
+                        </li>
+                        <li ng-class="{disabled:pager.currentPage === 1}">
+                            <a ng-click="setPage(pager.currentPage - 1)">Previous</a>
+                        </li>
+                        <li ng-repeat="page in pager.pages" ng-class="{active:pager.currentPage === page}">
+                            <a ng-click="setPage(page)">{{page}}</a>
+                        </li>                
+                        <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+                            <a ng-click="setPage(pager.currentPage + 1)">Next</a>
+                        </li>
+                        <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+                            <a ng-click="setPage(pager.totalPages)">Last</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
-
-             <li class="page-item"><span>1</span></li>
-             <li class="page-item"><span>2</span></li>
-             <li class="page-item"><span>3</span></li>
-             <li class="page-item"><span>4</span></li>
-             <li class="page-item"><span>5</span></li>
-
-             <li class="page-item" ng-click="paginationMove()">
-                 <span aria-hidden="true">&raquo;</span>
-             </li>
-           </ul>
-         </nav>    
       </div>
       <!-- End Content -->
       <div class="cl">&nbsp;</div>

@@ -1,6 +1,8 @@
 package com.beanbook.webapp.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.beanbook.model.Genre;
@@ -23,8 +26,8 @@ public class GenreController {
 	@RequestMapping(value = "/genres", method = RequestMethod.GET)
 	public @ResponseBody List<Genre> getAllGenres(Model model) {
 		return genreManager.getAllGenres();
-		//model.addAttribute("genres", genreList);
-		//return "all_genres";
+		// model.addAttribute("genres", genreList);
+		// return "all_genres";
 	}
 
 	@RequestMapping(value = "/genres/update/{genreID}")
@@ -63,6 +66,20 @@ public class GenreController {
 		Genre genre = genreManager.getGenreByID(id_genre);
 		model.addAttribute("genre", genre);
 		return "index8";
+	}
+
+	@RequestMapping(value = "genres/booknumber", method = RequestMethod.GET)
+	public @ResponseBody Map<String, Long> getBooksByGenreNumber(@RequestParam(value = "genre") String genre) {
+		Map<String, Long> m = new HashMap<>();
+
+		if (genre.isEmpty()) {
+			m.put("number", 0l);
+		} else {
+			m.put("number", genreManager.getBooksByGenreNumber(genre));
+		}
+
+		return m;
+		// return genreManager.getBooksByGenreNumber(genre);
 	}
 
 }

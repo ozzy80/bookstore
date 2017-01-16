@@ -12,7 +12,9 @@
 	<script type="text/javascript" src="<c:url value="resources/js/lib/jquery-3.1.1.min.js" />"></script> 	
   	<script type="text/javascript" src="<c:url value="resources/js/lib/angular.min.js" />"></script>
   	<script type="text/javascript" src="<c:url value="resources/js/lib/angular-resource.min.js" />"></script> 
-  	<script type="text/javascript" src="<c:url value="resources/js/lib/angular-route.min.js" />"></script> 
+
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  	
   	<script type="text/javascript" src="<c:url value="resources/js/app.js" />"></script>
   	<script type="text/javascript" src="<c:url value="resources/js/service.js" />"></script>
   	<script type="text/javascript" src="<c:url value="resources/js/controller/cartController.js" />"></script>

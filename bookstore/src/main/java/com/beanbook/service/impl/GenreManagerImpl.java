@@ -35,4 +35,9 @@ public class GenreManagerImpl implements GenreManager {
 		genreDao.deleteGenre(genreDao.getGenreByID(id));
 	}
 
+	@Override
+	public long getBooksByGenreNumber(String genre) {
+		return genreDao.getBooksByGenreNumber(genre);
+	}
+
 }

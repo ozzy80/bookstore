@@ -360,12 +360,6 @@ textarea { overflow: auto; }
 	margin-right:1px;
 }
 
-.opisJedneKnjigeAutora
-{
-	text-align:left;
-	margin-top:5px;
-}
-
 .imeAutora
 {
 	display:inline-block;
@@ -377,7 +371,13 @@ textarea { overflow: auto; }
 	font-size:20px;
 	color:#0182b5;
 	margin-bottom: 25px;
-	
+}
+
+.opisJedneKnjigeAutora
+{
+	text-align:left;
+	margin-top:5px;
+	margin-bottom:5px;
 }
 
 .knjigaPojedinacniDetalji

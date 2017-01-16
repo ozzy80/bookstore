@@ -14,4 +14,5 @@ public interface GenreDao {
 
 	void deleteGenre(Genre genre);
 
+	long getBooksByGenreNumber(String genre);
 }

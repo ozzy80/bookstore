@@ -137,9 +137,10 @@ public class BookController {
 	public @ResponseBody List<Book> getBooksByGenre(@RequestParam(value = "genre") String genre,
 			@RequestParam(value = "start", required = false, defaultValue = "0") int start,
 			@RequestParam(value = "limit", required = false, defaultValue = "14") int limit){
-		if(genre.isEmpty()){
-			return bookManager.getBooks("desc", start, limit);
+		if(start<0 || limit<0){
+			return null;
 		}
-		return bookManager.getBooksByGenre(genre);
+		return bookManager.getBooksByGenre(genre, start, limit);
 	}
+	
 }

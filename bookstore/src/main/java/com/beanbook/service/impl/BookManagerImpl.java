@@ -42,14 +42,14 @@ public class BookManagerImpl implements BookManager {
 
 	@Override
 	public List<Book> autocomplete(String query) {
-		//Remove whitespaces from begin
+		// Remove whitespaces from begin
 		String q = query.replaceAll("^\\s+", "");
-		return bookDao.autocomplete(query);
+		return bookDao.autocomplete(q);
 	}
 
 	@Override
-	public List<Book> getBooksByGenre(String genre) {
-		return bookDao.getBooksByGenre(genre);
+	public List<Book> getBooksByGenre(String genre, int start, int limit) {
+		return bookDao.getBooksByGenre(genre, start, limit);
 	}
 
 }

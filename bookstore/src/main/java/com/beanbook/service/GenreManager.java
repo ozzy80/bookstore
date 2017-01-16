@@ -14,4 +14,5 @@ public interface GenreManager {
 
 	void deleteGenre(Integer id);
 
+	long getBooksByGenreNumber(String genre);
 }
