@@ -48,8 +48,8 @@ public class BookManagerImpl implements BookManager {
 	}
 
 	@Override
-	public List<Book> getBooksByGenre(String genre, int start, int limit) {
-		return bookDao.getBooksByGenre(genre, start, limit);
+	public List<Book> getBooksByGenre(String genre, int start, int limit, String sortBy) {
+		return bookDao.getBooksByGenre(genre, start, limit, sortBy);
 	}
 
 }

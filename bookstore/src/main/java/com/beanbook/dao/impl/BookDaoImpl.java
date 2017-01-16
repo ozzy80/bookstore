@@ -4,9 +4,12 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -86,18 +89,26 @@ public class BookDaoImpl implements BookDao {
 	}
 
 	@Override
-	public List<Book> getBooksByGenre(String genre, int start, int limit) {
+	public List<Book> getBooksByGenre(String genre, int start, int limit, String sortBy) {
 		Session session = sessionFactory.getCurrentSession();
-		Query q = session.createQuery(
-				"select b from Book b join b.genreList g where g.genreName = :genre " + "order by b.publicationYear");
+		Criteria c = session.createCriteria(Book.class);
+		c.createAlias("genreList", "genreAlias");
+		c.add(Restrictions.eq("genreAlias.genreName", genre));
+		c.setFirstResult(start);
+		c.setMaxResults(limit + start);
 
-		q.setParameter("genre", genre);
-		q.setFirstResult(start);
-		q.setMaxResults(start + limit);
-		List<Book> bookList = q.list();
+		if (sortBy.contains("title desc")) {
+			c.addOrder(Order.desc("title"));
+		} else if (sortBy.contains("title asc")) {
+			c.addOrder(Order.asc("title"));
+		} else if (sortBy.contains("price desc")) {
+			c.addOrder(Order.desc("price"));
+		} else if (sortBy.contains("price asc")) {
+			c.addOrder(Order.asc("price"));
+		}
 		session.flush();
 
-		return bookList;
+		return c.list();
 	}
 
 }

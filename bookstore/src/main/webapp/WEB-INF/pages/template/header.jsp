@@ -6,21 +6,23 @@
 <head>
 	<title>CSS Free Templates with jQuery Slider</title>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="<c:url value="css/images/favicon.ico" />" />
-	<link rel="stylesheet" href="<c:url value="resources/css/bootstrap.min.css" />" type="text/css" />	
-	<link rel="stylesheet" href="<c:url value="resources/css/style.css" />" type="text/css" media="all" />
-	<script type="text/javascript" src="<c:url value="resources/js/lib/jquery-3.1.1.min.js" />"></script> 	
-  	<script type="text/javascript" src="<c:url value="resources/js/lib/angular.min.js" />"></script>
-  	<script type="text/javascript" src="<c:url value="resources/js/lib/angular-resource.min.js" />"></script> 
+	<link rel="shortcut icon" href="<c:url value="/css/images/favicon.ico" />" />
+	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />" type="text/css" />	
+	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap-select.min.css" />" type="text/css" />		
+	<link rel="stylesheet" href="<c:url value="/resources/css/style.css" />" type="text/css" media="all" />
+	<script type="text/javascript" src="<c:url value="/resources/js/lib/jquery-3.1.1.min.js" />"></script> 	
+  	<script type="text/javascript" src="<c:url value="/resources/js/lib/angular.min.js" />"></script>
+  	<script type="text/javascript" src="<c:url value="/resources/js/lib/angular-resource.min.js" />"></script> 
 
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
   	
-  	<script type="text/javascript" src="<c:url value="resources/js/app.js" />"></script>
-  	<script type="text/javascript" src="<c:url value="resources/js/service.js" />"></script>
-  	<script type="text/javascript" src="<c:url value="resources/js/controller/cartController.js" />"></script>
-  	<script type="text/javascript" src="<c:url value="resources/js/controller/topBookController.js" />"></script>
-  	<script type="text/javascript" src="<c:url value="resources/js/controller/bookController.js" />"></script>
-  	<script type="text/javascript" src="<c:url value="resources/js/controller/genreController.js" />"></script>
+  	<script type="text/javascript" src="<c:url value="/resources/js/app.js" />"></script>
+  	<script type="text/javascript" src="<c:url value="/resources/js/service.js" />"></script>
+  	<script type="text/javascript" src="<c:url value="/resources/js/controller/cartController.js" />"></script>
+  	<script type="text/javascript" src="<c:url value="/resources/js/controller/topBookController.js" />"></script>
+  	<script type="text/javascript" src="<c:url value="/resources/js/controller/bookController.js" />"></script>
+  	<script type="text/javascript" src="<c:url value="/resources/js/controller/genreController.js" />"></script>
+  	<script type="text/javascript" src="<c:url value="/resources/js/controller/optionsController.js" />"></script>
 </head>
 <body>
 	<!-- Header -->

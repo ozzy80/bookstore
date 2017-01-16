@@ -38,5 +38,6 @@
 	<!-- End Footer -->
 	
   	<script type="text/javascript" src="<c:url value="resources/js/lib/bootstrap.min.js" />"></script> 
+  	<script type="text/javascript" src="<c:url value="resources/js/lib/bootstrap-select.js" />"></script> 
 </body>
 </html>

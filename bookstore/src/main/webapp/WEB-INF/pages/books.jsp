@@ -19,16 +19,24 @@
 
       <!-- Content -->
       <div id="content" class="col-lg-6">
-         <!-- Books -->
-         <div class="products" ng-init="getBooksByGenre('Drama',0, 12)">
-            <h3>Novi naslovi</h3>
-            <ul class="row">
-               <li class="col-sm-4" ng-repeat="book in BooksByGenreList">
-                  <book book-object = "book"></book>
-               </li>
-            </ul>
-         <!-- End Books -->
-         </div>  
+             <!-- Books -->
+             <div class="products" ng-init="getBooksByGenre('Drama',0, 12)">
+                <h3>Novi naslovi</h3>
+              <ul class="row" ng-controller="optionsController">
+                  <div class="col-lg-12" style="padding-bottom: 5px;"> 
+                      <select class="selectpicker pull-right" ng-model="options.value" ng-init="options.value='title asc'">
+                				<option data-icon="glyphicon glyphicon-chevron-up" value="title asc">Naziv</option>
+                				<option data-icon="glyphicon glyphicon-chevron-down" value="title desc">Naziv</option>
+                				<option data-icon="glyphicon glyphicon-chevron-up" value="price asc">Cena</option>
+                				<option data-icon="glyphicon glyphicon-chevron-down" value="price desc">Cena</option>
+                			</select>
+            			</div>
+                 <li class="col-sm-4" ng-repeat="book in BooksByGenreList">
+                    <book book-object = "book"></book>
+                 </li>
+              </ul>
+             <!-- End Books -->
+             </div>  
          <div class="c2">&nbsp;</div>
 
 

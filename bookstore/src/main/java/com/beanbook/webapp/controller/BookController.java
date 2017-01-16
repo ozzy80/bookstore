@@ -136,11 +136,16 @@ public class BookController {
 	@RequestMapping(value = "/books/genre", method = RequestMethod.GET)
 	public @ResponseBody List<Book> getBooksByGenre(@RequestParam(value = "genre") String genre,
 			@RequestParam(value = "start", required = false, defaultValue = "0") int start,
-			@RequestParam(value = "limit", required = false, defaultValue = "14") int limit){
+			@RequestParam(value = "limit", required = false, defaultValue = "14") int limit,
+			@RequestParam(value = "sortBy", required = false, defaultValue = "14") String sortBy){
+		
 		if(start<0 || limit<0){
 			return null;
 		}
-		return bookManager.getBooksByGenre(genre, start, limit);
+		if(sortBy.isEmpty()){
+			sortBy = "title desc";
+		}
+		return bookManager.getBooksByGenre(genre, start, limit, sortBy);
 	}
 	
 }

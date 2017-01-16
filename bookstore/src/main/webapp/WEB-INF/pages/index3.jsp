@@ -1,43 +1,4 @@
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
- <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
- 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr" >
-<head>
-	<title>CSS Free Templates with jQuery Slider</title>
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="<c:url value="/css/images/favicon.ico" />" />
-	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />" type="text/css" />	
-	<link rel="stylesheet" href="<c:url value="/resources/css/style.css" />" type="text/css" media="all" />	
-  	<script type="text/javascript" src="<c:url value="/resources/js/lib/angular.min.js" />"></script>
-  	<script type="text/javascript" src="<c:url value="/resources/js/lib/angular-resource.min.js" />"></script>
-  	<script type="text/javascript" src="<c:url value="/resources/js/app.js" />"></script>
-  	<script type="text/javascript" src="<c:url value="/resources/js/controller/cartController.js" />"></script>
-</head>
-<body>
-	<!-- Header -->
-	<div id="header" class="shell"  style="height:150px;">
-		<div id="logo"><h1><a href="#">BestSeller</a></h1></div>
-		<!-- Navigation -->
-		<div id="navigation">
-			<ul>
-				<li><a href="#" class="active">Home</a></li>
-				<li><a href="#">Products</a></li>
-				<li><a href="#">Promotions</a></li>
-				<li><a href="#">Profile</a></li>
-				<li><a href="#">About Us</a></li>
-				<li><a href="#">Contacts</a></li>
-				<sec:authorize access="hasRole('ROLE_ADMIN')">
-					<li><a href="<c:url value="/admin/" />">Admin</a></li>
-				</sec:authorize>
-			</ul>
-		</div>
-		
-		
-		
-		<!-- End Navigation -->
-	</div>
-	<!-- End Header -->
+<%@include file="/WEB-INF/pages/template/header.jsp" %>
 		
 		
 	<div class="container shell" style="height:380px;spacing:5px;">
@@ -83,12 +44,12 @@
 				</div>
 			</div>
 			
-			<div class="col-xs-4" >
+			<div class="col-xs-4" ng-controller="mainController">
 				<div class="knjigaDeoSaKorpom" style="padding-top:30px;text-align:center;border: rgba(20, 10, 12, 0.69);background-color:rgba(192,192,192,0.2);-moz-box-shadow: 12px 10px 23px #000000;-webkit-box-shadow: 12px 10px 23px #c0c0c0;box-shadow: 12px 10px 23px #c0c0c0;">
 					
 					<span class="knjigaCena">Cena: 1220din</span><br/><br/>
 					<span style="font-size:22px;color:#0182b5;">${book.price} din.</span><br/><br/><br/>
-					<button type="button" class="btn btn-warning">Dodaj u korpu</button>
+					<a class="btn btn-warning" ng-click="addToCart(${book.isbn})">Dodaj u korpu</a>
 					<input class="brojKomadaKnjige" type="number" name="quantity" value="1" min="1" max="9">komada
 					<hr/>
 					<span class="ostvarivanjePopusta" >

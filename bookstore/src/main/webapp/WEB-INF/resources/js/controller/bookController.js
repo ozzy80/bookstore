@@ -34,25 +34,22 @@ bookApp.controller('bookController', ['$scope', 'bookService', '$location', '$ro
         }
    });
 
-   $scope.getBooksByGenre = function(genre, start, limit){
+   $scope.getBooksByGenre = function(genre, start, limit, sortBy){
       if(genre === undefined){
-         genre = decodeURIComponent($location.url().substr(1));
+         genre = decodeURIComponent($location.url().substr(1)) || "Drama";
       }
-      pagination(genre, start, limit);
+      pagination(genre, start, limit, sortBy);
    };
 
-   function pagination(genre, start, limit){
+   function pagination(genre, start, limit, sortBy){
         $scope.pager = {};
-        $scope.setPage = setPage;
-        
-        
+        $scope.setPage = setPage;       
         initController();
 
         function initController() {
             // initialize to page 1
             genreService.getNumberOfBooksByGenre({genre: genre}, function(data){
                $scope.numberOfPages = data.number;
-               console.log(data.number);
                setPage(1);
             });
         }
@@ -61,9 +58,9 @@ bookApp.controller('bookController', ['$scope', 'bookService', '$location', '$ro
             if (page < 1 || page > $scope.pager.totalPages) {
                 return;
             }
-            
-            $scope.pager = pagerService.GetPager($scope.numberOfPages, page, limit);
-            bookService.getBookByGenre({genre: genre, start: $scope.pager.startIndex, limit: limit}, function(data){
+            console.log(sortBy)
+;            $scope.pager = pagerService.GetPager($scope.numberOfPages, page, 1);
+            bookService.getBookByGenre({genre: genre, start: $scope.pager.startIndex, limit: 1, sortBy: sortBy}, function(data){
                $scope.BooksByGenreList = data;
             });
 

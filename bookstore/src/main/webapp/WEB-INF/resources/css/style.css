@@ -159,13 +159,14 @@ textarea { overflow: auto; }
 #content h3 { padding: 0 0 7px 3px; border-bottom: solid 4px #eaeaea; margin-bottom: 12px; }
 
 .product {
-	height: 300px;
+	height: 330px;
+	padding-bottom: 5px;
 }
 .products ul { list-style: none; }
 .products ul li div.info { display: block; padding: 7px;}
 .products ul li div.info:hover { border: solid 2px #dcdcdc; text-decoration: none; }
 .products ul li div.info .holder { padding: 14px 9px; border: solid 1px #dcdcdc; display: block; }
-.products ul li div.info .holder img {display: block; max-width: 250px; max-height:200px; width: auto; height: auto; }
+.products ul li div.info .holder img {display: block; max-width: 250px; max-height:180px; width: auto; height: auto; }
 .products img { padding: 0 7px 4px;}
 .product .buy-btn { position: absolute; left: 7px; background: url(images/buy-btn.png) repeat-x 0 0; width: 126px; height: 31px; color: #fff; font-size: 12px; line-height: 31px; text-transform: uppercase; font-weight: bold; z-index: 10; padding-left: 10px; white-space: nowrap;}
 .product .buy-btn:hover { text-decoration: none; }
