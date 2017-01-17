@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.beanbook.dao.CartDao;
 import com.beanbook.model.Cart;
+import com.beanbook.model.User;
 import com.beanbook.service.CartManager;
 
 @Service
@@ -21,6 +22,11 @@ public class CartManagerImpl implements CartManager {
 	@Override
 	public void update(Cart cart) {
 		cartDao.update(cart);
+	}
+
+	@Override
+	public Cart getActiveUserCart(User user) {
+		return cartDao.getActiveUserCart(user);
 	}
 
 }

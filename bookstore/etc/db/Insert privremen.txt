@@ -217,20 +217,7 @@ ALTER TABLE potpisane_knjige AUTO_INCREMENT = 1;
 INSERT INTO potpisane_knjige (`ISBN`, `Komada`)
 		VALUES (9788661452475, 2),
 			   (9788652124237, 3);
-			   
--- -----------------------------------------------------
--- Table `knjizara`.`users`
--- -----------------------------------------------------
-INSERT INTO users (`username`, `password`, `enabled`, `userId`)
-  VALUES ("admin", "admin", 1, 1);
-      
-      
--- -----------------------------------------------------
--- Table `knjizara`.`zanr`
--- -----------------------------------------------------
-INSERT INTO authorities (`username`, `authority`)
-  VALUES ("admin", "ROLE_ADMIN");			   
-  
+	
 -- -----------------------------------------------------
 -- Table `knjizara`.`top_knjige`
 -- -----------------------------------------------------
@@ -239,6 +226,20 @@ INSERT INTO top_knjige (`knjiga_ISBN`, `pocetak_vazenja`)
 		 (9788652124169, CURDATE()),
 		 (9788652124237, CURDATE()),
 		 (9788652123896, CURDATE()),
-		 (9788652113972, CURDATE());		   
+		 (9788652113972, CURDATE());
+	
+-- -----------------------------------------------------
+-- Table `knjizara`.`users`		!!!!!NEEE RADIIII
+-- -----------------------------------------------------
+INSERT INTO users (`username`, `password`, `enabled`, `userId`)
+  VALUES ("admin", "admin", 1, 1);
+      
+      
+-- -----------------------------------------------------
+-- Table `knjizara`.`authorities`
+-- -----------------------------------------------------
+INSERT INTO authorities (`username`, `authority`)
+  VALUES ("admin", "ROLE_ADMIN");			   
+  		   
   		   
   

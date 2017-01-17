@@ -1,5 +1,8 @@
 package com.beanbook.webapp.controller;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +17,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import com.beanbook.dao.impl.CartDaoImpl;
 import com.beanbook.model.Book;
 import com.beanbook.model.Cart;
 import com.beanbook.model.CartItem;
-import com.beanbook.model.Customer;
+import com.beanbook.model.Status;
 import com.beanbook.service.BookManager;
 import com.beanbook.service.CartItemManager;
 import com.beanbook.service.CartManager;
-import com.beanbook.service.CustomerManager;
+import com.beanbook.service.UserManager;
 
 @Controller
 @RequestMapping("/rest/cart")
@@ -31,7 +35,7 @@ public class CartResources {
 	private CartManager cartManager;
 
 	@Autowired
-	private CustomerManager customerManager;
+	private UserManager userManager;
 
 	@Autowired
 	private BookManager bookManager;
@@ -48,26 +52,41 @@ public class CartResources {
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	public @ResponseBody void addItem(@PathVariable("isbn") Long isbn, @AuthenticationPrincipal User activeUser) {
 
-		Customer customer = customerManager.getCustomerByUsername(activeUser.getUsername());
-		Cart cart = customer.getCart();
+		com.beanbook.model.User user = userManager.getUserByUsername(activeUser.getUsername());
+		
 		Book book = bookManager.getBookByISBN(isbn);
-		List<CartItem> cartItems = cart.getCartItems();
 
-		for (int i = 0; i < cartItems.size(); i++) {
-			if (book.getIsbn().equals(cartItems.get(i).getBook().getIsbn())) {
-				CartItem cartItem = cartItems.get(i);
-				cartItem.setQuantity(cartItem.getQuantity() + 1);
-				cartItem.setTotalPrice(cartItem.getTotalPrice() + book.getPrice());
-				cartItemManager.addCartItem(cartItem);
-
-				return;
+		Cart cart = cartManager.getActiveUserCart(user);
+		
+		if(cart == null){
+			cart = new Cart();
+			cart.setStatus(Status.STARTED);
+			cart.setUser(user);
+			cart.setOrderDate(Date.valueOf(LocalDate.now()));
+			/*CartItem cartItem = new CartItem();
+			cartItem.setBook(book);
+			cartItem.setQuantity(1);
+			cartItem.setPrice(book.getPrice());
+			cartItem.setCart(cart);
+			cartItemManager.addCartItem(cartItem);*/
+		} 
+		else {
+			List<CartItem> cartItems = cart.getCartItems();
+	
+			for (int i = 0; i < cartItems.size(); i++) {
+				if (book.getIsbn().equals(cartItems.get(i).getBook().getIsbn())) {
+					CartItem cartItem = cartItems.get(i);
+					cartItem.setQuantity(cartItem.getQuantity() + 1);
+					cartItemManager.addCartItem(cartItem);
+					
+					return;
+				}
 			}
 		}
-
 		CartItem cartItem = new CartItem();
 		cartItem.setBook(book);
 		cartItem.setQuantity(1);
-		cartItem.setTotalPrice(book.getPrice());
+		cartItem.setPrice(book.getPrice());
 		cartItem.setCart(cart);
 		cartItemManager.addCartItem(cartItem);
 	}

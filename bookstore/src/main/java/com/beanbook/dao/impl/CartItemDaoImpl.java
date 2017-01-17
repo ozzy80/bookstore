@@ -23,8 +23,11 @@ public class CartItemDaoImpl implements CartItemDao {
 	@Override
 	public void addCartItem(CartItem cartItem) {
 		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(cartItem.getCart());
+		cartItem.setCart(cartItem.getCart());
 		session.saveOrUpdate(cartItem);
 		session.flush();
+
 	}
 
 	@Override

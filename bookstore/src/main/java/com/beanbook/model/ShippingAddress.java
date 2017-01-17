@@ -2,13 +2,16 @@ package com.beanbook.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Adresa_isporuke")
 public class ShippingAddress implements Serializable {
 
 	/**
@@ -18,22 +21,26 @@ public class ShippingAddress implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "Id")
 	private Integer shippingAddressId;
 
+	@Column(name = "Ulica", length = 255, nullable = false)
 	private String streetName;
 
+	@Column(name = "Broj_kuce", length = 255, nullable = false)
 	private String apartmentNumber;
 
+	@Column(name = "Grad", length = 255, nullable = false)
 	private String city;
 
+	@Column(name = "Provincija", length = 255, nullable = false)
 	private String state;
 
+	@Column(name = "Drzava", length = 255, nullable = false)
 	private String country;
 
+	@Column(name = "Postanski_broj", length = 255, nullable = false)
 	private String postalCode;
-
-	@OneToOne
-	private Customer customer;
 
 	public Integer getShippingAddressId() {
 		return shippingAddressId;
@@ -89,21 +96,6 @@ public class ShippingAddress implements Serializable {
 
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
-	}
-
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-
-	@Override
-	public String toString() {
-		return "ShippingAddress [shippingAddressId=" + shippingAddressId + ", streetName=" + streetName
-				+ ", apartmentNumber=" + apartmentNumber + ", city=" + city + ", state=" + state + ", country="
-				+ country + ", postalCode=" + postalCode + "]";
 	}
 
 }

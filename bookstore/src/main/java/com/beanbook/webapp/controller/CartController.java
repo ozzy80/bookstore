@@ -8,22 +8,33 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.beanbook.model.Customer;
-import com.beanbook.service.CustomerManager;
+import com.beanbook.model.Cart;
+import com.beanbook.service.CartManager;
+import com.beanbook.service.UserManager;
+
+
 
 @Controller
 @RequestMapping("/customer/cart")
 public class CartController {
 
 	@Autowired
-	private CustomerManager customerManager;
+	private UserManager userManager;
 
+	@Autowired
+	private CartManager cartManager;
+	
 	@RequestMapping
 	public String getCart(@AuthenticationPrincipal User activeUsers) {
-		Customer customer = customerManager.getCustomerByUsername(activeUsers.getUsername());
-		Integer cartId = customer.getCart().getCartId();
+		com.beanbook.model.User user = userManager.getUserByUsername(activeUsers.getUsername());
+		
+		//check if exists open cart
+		Cart cart = cartManager.getActiveUserCart(user);
+		if(cart != null){
+			return "redirect:/customer/cart/"+cart.getCartId();
+		}
 
-		return "redirect:/customer/cart/" + cartId;
+		return "redirect:/";
 	}
 
 	@RequestMapping(value = "/{cartId}")

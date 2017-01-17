@@ -2,13 +2,17 @@ package com.beanbook.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
 
 @Entity
+@Table(name = "Adresa_kartice")
 public class BillingAddress implements Serializable {
 
 	/**
@@ -18,22 +22,26 @@ public class BillingAddress implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "Id")
 	private Integer billingAddressId;
 
+	@Column(name = "Ulica", length = 255, nullable = false)
 	private String streetName;
 
+	@Column(name = "Broj_kuce", length = 255, nullable = false)
 	private String apartmentNumber;
 
+	@Column(name = "Grad", length = 255, nullable = false)
 	private String city;
 
+	@Column(name = "Provincija", length = 255, nullable = false)
 	private String state;
 
+	@Column(name = "Drzava", length = 255, nullable = false)
 	private String country;
 
+	@Column(name = "Postanski_broj", length = 255, nullable = false)
 	private String postalCode;
-
-	@OneToOne
-	private Customer customer;
 
 	public Integer getBillingAddressId() {
 		return billingAddressId;
@@ -89,14 +97,6 @@ public class BillingAddress implements Serializable {
 
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
-	}
-
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
 	}
 
 	@Override

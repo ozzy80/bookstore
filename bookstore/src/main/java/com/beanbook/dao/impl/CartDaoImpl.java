@@ -2,6 +2,7 @@ package com.beanbook.dao.impl;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Repository;
 
 import com.beanbook.dao.CartDao;
 import com.beanbook.model.Cart;
+import com.beanbook.model.Status;
+import com.beanbook.model.User;
 
 @Repository
 @Transactional
@@ -29,6 +32,17 @@ public class CartDaoImpl implements CartDao {
 	public void update(Cart cart) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public Cart getActiveUserCart(User user) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from Cart where user = ? and status = ?");
+		query.setParameter(0, user);
+		query.setParameter(1, Status.STARTED);
+		Cart cart = (Cart) query.uniqueResult();
+		session.flush();
+		return cart;
 	}
 
 }

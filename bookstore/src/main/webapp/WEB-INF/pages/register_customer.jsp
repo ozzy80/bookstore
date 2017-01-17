@@ -14,12 +14,16 @@
 		
 		<div class="form-group">
 			<label for="name">Ime</label>
-			<form:input path="customerName" id="name" class="form-Controlor"/>
+			<form:input path="firstName" id="name" class="form-Controlor"/>
 		</div>
-
+		
+		<div class="form-group">
+			<label for="name">Prezime</label>
+			<form:input path="lastName" id="name" class="form-Controlor"/>
+		</div>
 		<div class="form-group">
 			<label for="email">Email</label>
-			<form:input path="customerEmail" id="email" class="form-Controlor"/>
+			<form:input path="email" id="email" class="form-Controlor"/>
 		</div>
 		
 		<div class="form-group">

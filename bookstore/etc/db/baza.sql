@@ -4,7 +4,6 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-
 -- -----------------------------------------------------
 -- Schema knjizara
 -- -----------------------------------------------------
@@ -17,19 +16,75 @@ CREATE SCHEMA IF NOT EXISTS `knjizara` DEFAULT CHARACTER SET utf8 ;
 USE `knjizara` ;
 
 -- -----------------------------------------------------
+-- Table `knjizara`.`Adresa_isporuke`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `knjizara`.`Adresa_isporuke` ;
+
+CREATE TABLE IF NOT EXISTS `knjizara`.`Adresa_isporuke` (
+  `Id` INT(11) NOT NULL AUTO_INCREMENT,
+  `Broj_kuce` VARCHAR(255) NOT NULL,
+  `Grad` VARCHAR(255) NOT NULL,
+  `Drzava` VARCHAR(255) NOT NULL,
+  `Postanski_broj` VARCHAR(255) NOT NULL,
+  `Provincija` VARCHAR(255) NOT NULL,
+  `Ulica` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`Id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `knjizara`.`Adresa_kartice`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `knjizara`.`Adresa_kartice` ;
+
+CREATE TABLE IF NOT EXISTS `knjizara`.`Adresa_kartice` (
+  `Id` INT(11) NOT NULL AUTO_INCREMENT,
+  `Broj_kuce` VARCHAR(255) NOT NULL,
+  `Grad` VARCHAR(255) NOT NULL,
+  `Drzava` VARCHAR(255) NOT NULL,
+  `postanski_broj` VARCHAR(255) NOT NULL,
+  `Provincija` VARCHAR(255) NOT NULL,
+  `Ulica` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`Id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 2
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
 -- Table `knjizara`.`users`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `knjizara`.`users` ;
 
 CREATE TABLE IF NOT EXISTS `knjizara`.`users` (
   `username` VARCHAR(50) NOT NULL,
-  `password` VARCHAR(50) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
   `enabled` TINYINT(1) NOT NULL,
   `userId` INT(11) NOT NULL AUTO_INCREMENT,
-  `customerId` INT(11) NULL DEFAULT NULL,
+  `ime` VARCHAR(45) NOT NULL,
+  `prezime` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(255) NOT NULL,
+  `telefon` VARCHAR(45) NULL,
+  `Adresa_isporukeId` INT(11) NOT NULL,
+  `Adresa_karticeId` INT(11) NOT NULL,
   PRIMARY KEY (`userId`),
-  UNIQUE INDEX `username` (`username` ASC))
+  UNIQUE INDEX `username` (`username` ASC),
+  INDEX `fk_users_shippingaddress1_idx` (`Adresa_isporukeId` ASC),
+  INDEX `fk_users_billingaddress1_idx` (`Adresa_karticeId` ASC),
+  CONSTRAINT `fk_users_shippingaddress1`
+    FOREIGN KEY (`Adresa_isporukeId`)
+    REFERENCES `knjizara`.`Adresa_isporuke` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_users_billingaddress1`
+    FOREIGN KEY (`Adresa_karticeId`)
+    REFERENCES `knjizara`.`Adresa_kartice` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -48,6 +103,7 @@ CREATE TABLE IF NOT EXISTS `knjizara`.`authorities` (
     FOREIGN KEY (`username`)
     REFERENCES `knjizara`.`users` (`username`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -63,104 +119,44 @@ CREATE TABLE IF NOT EXISTS `knjizara`.`autor` (
   `Opis` TEXT NULL DEFAULT NULL,
   PRIMARY KEY (`ID_autora`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 7
 DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `knjizara`.`shippingaddress`
+-- Table `knjizara`.`narudzbenica`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `knjizara`.`shippingaddress` ;
+DROP TABLE IF EXISTS `knjizara`.`narudzbenica` ;
 
-CREATE TABLE IF NOT EXISTS `knjizara`.`shippingaddress` (
-  `shippingAddressId` INT(11) NOT NULL AUTO_INCREMENT,
-  `apartmentNumber` VARCHAR(255) NULL DEFAULT NULL,
-  `city` VARCHAR(255) NULL DEFAULT NULL,
-  `country` VARCHAR(255) NULL DEFAULT NULL,
-  `postalCode` VARCHAR(255) NULL DEFAULT NULL,
-  `state` VARCHAR(255) NULL DEFAULT NULL,
-  `streetName` VARCHAR(255) NULL DEFAULT NULL,
-  `customer_customerId` INT(11) NULL DEFAULT NULL,
-  PRIMARY KEY (`shippingAddressId`),
-  INDEX `FK_kp5axwmlh26rmgtx8hasjw32a` (`customer_customerId` ASC),
-  CONSTRAINT `FK_kp5axwmlh26rmgtx8hasjw32a`
-    FOREIGN KEY (`customer_customerId`)
-    REFERENCES `knjizara`.`customer` (`customerId`))
+CREATE TABLE IF NOT EXISTS `knjizara`.`narudzbenica` (
+  `Id` INT(11) NOT NULL AUTO_INCREMENT,
+  `datum_pravljenja` DATE NOT NULL,
+  `datum_isporuke` DATE NULL,
+  `status` VARCHAR(45) NOT NULL,
+  `korisnikId` INT(11) NOT NULL,
+  `adresa_karticeId` INT(11) NULL,
+  `adresa_isporukeId` INT(11) NULL,
+  PRIMARY KEY (`Id`),
+  INDEX `fk_cart_users1_idx` (`korisnikId` ASC),
+  INDEX `fk_cart_billingaddress1_idx` (`adresa_karticeId` ASC),
+  INDEX `fk_cart_shippingaddress1_idx` (`adresa_isporukeId` ASC),
+  CONSTRAINT `fk_cart_users1`
+    FOREIGN KEY (`korisnikId`)
+    REFERENCES `knjizara`.`users` (`userId`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_cart_billingaddress1`
+    FOREIGN KEY (`adresa_karticeId`)
+    REFERENCES `knjizara`.`Adresa_kartice` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_cart_shippingaddress1`
+    FOREIGN KEY (`adresa_isporukeId`)
+    REFERENCES `knjizara`.`Adresa_isporuke` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 AUTO_INCREMENT = 2
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `knjizara`.`cart`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `knjizara`.`cart` ;
-
-CREATE TABLE IF NOT EXISTS `knjizara`.`cart` (
-  `cartId` INT(11) NOT NULL AUTO_INCREMENT,
-  `grandTotal` DOUBLE NULL DEFAULT NULL,
-  `customerId` INT(11) NULL DEFAULT NULL,
-  PRIMARY KEY (`cartId`),
-  INDEX `FK_phw8s97kjckd9ejjxoa6t1v97` (`customerId` ASC),
-  CONSTRAINT `FK_phw8s97kjckd9ejjxoa6t1v97`
-    FOREIGN KEY (`customerId`)
-    REFERENCES `knjizara`.`customer` (`customerId`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `knjizara`.`customer`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `knjizara`.`customer` ;
-
-CREATE TABLE IF NOT EXISTS `knjizara`.`customer` (
-  `customerId` INT(11) NOT NULL AUTO_INCREMENT,
-  `customerEmail` VARCHAR(255) NULL DEFAULT NULL,
-  `customerName` VARCHAR(255) NULL DEFAULT NULL,
-  `enabled` BIT(1) NULL DEFAULT NULL,
-  `password` VARCHAR(255) NULL DEFAULT NULL,
-  `phone` VARCHAR(255) NULL DEFAULT NULL,
-  `username` VARCHAR(255) NULL DEFAULT NULL,
-  `billingAddressId` INT(11) NULL DEFAULT NULL,
-  `cartId` INT(11) NULL DEFAULT NULL,
-  `shippingAddressId` INT(11) NULL DEFAULT NULL,
-  PRIMARY KEY (`customerId`),
-  INDEX `FK_mtw9l8vwffxp289ya2xc76ga3` (`billingAddressId` ASC),
-  INDEX `FK_ib3d22903soyarhf3s9hatrgs` (`cartId` ASC),
-  INDEX `FK_bmse5m5dyprp601k0dhsm0j4r` (`shippingAddressId` ASC),
-  CONSTRAINT `FK_bmse5m5dyprp601k0dhsm0j4r`
-    FOREIGN KEY (`shippingAddressId`)
-    REFERENCES `knjizara`.`shippingaddress` (`shippingAddressId`),
-  CONSTRAINT `FK_ib3d22903soyarhf3s9hatrgs`
-    FOREIGN KEY (`cartId`)
-    REFERENCES `knjizara`.`cart` (`cartId`),
-  CONSTRAINT `FK_mtw9l8vwffxp289ya2xc76ga3`
-    FOREIGN KEY (`billingAddressId`)
-    REFERENCES `knjizara`.`billingaddress` (`billingAddressId`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `knjizara`.`billingaddress`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `knjizara`.`billingaddress` ;
-
-CREATE TABLE IF NOT EXISTS `knjizara`.`billingaddress` (
-  `billingAddressId` INT(11) NOT NULL AUTO_INCREMENT,
-  `apartmentNumber` VARCHAR(255) NULL DEFAULT NULL,
-  `city` VARCHAR(255) NULL DEFAULT NULL,
-  `country` VARCHAR(255) NULL DEFAULT NULL,
-  `postalCode` VARCHAR(255) NULL DEFAULT NULL,
-  `state` VARCHAR(255) NULL DEFAULT NULL,
-  `streetName` VARCHAR(255) NULL DEFAULT NULL,
-  `customer_customerId` INT(11) NULL DEFAULT NULL,
-  PRIMARY KEY (`billingAddressId`),
-  INDEX `FK_i2cdj3dyr8ndgddd2bvgt9sj2` (`customer_customerId` ASC),
-  CONSTRAINT `FK_i2cdj3dyr8ndgddd2bvgt9sj2`
-    FOREIGN KEY (`customer_customerId`)
-    REFERENCES `knjizara`.`customer` (`customerId`))
-ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -191,6 +187,7 @@ CREATE TABLE IF NOT EXISTS `knjizara`.`izdavac` (
   `Drzava` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`ID_izdavaca`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 3
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -227,58 +224,31 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `knjizara`.`cartitem`
+-- Table `knjizara`.`narudzbina`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `knjizara`.`cartitem` ;
+DROP TABLE IF EXISTS `knjizara`.`narudzbina` ;
 
-CREATE TABLE IF NOT EXISTS `knjizara`.`cartitem` (
-  `cartItemId` INT(11) NOT NULL AUTO_INCREMENT,
-  `quantity` INT(11) NULL DEFAULT NULL,
-  `totalPrice` DOUBLE NULL DEFAULT NULL,
-  `productId` BIGINT(20) NULL DEFAULT NULL,
-  `cartId` INT(11) NULL DEFAULT NULL,
-  PRIMARY KEY (`cartItemId`),
-  INDEX `FK_dmdb6wgmc7brt4xq7q77fy9m7` (`productId` ASC),
-  INDEX `FK_lnihf1ejcjeelthi5b80fjsjo` (`cartId` ASC),
-  CONSTRAINT `FK_dmdb6wgmc7brt4xq7q77fy9m7`
-    FOREIGN KEY (`productId`)
-    REFERENCES `knjizara`.`knjiga` (`ISBN`),
-  CONSTRAINT `FK_lnihf1ejcjeelthi5b80fjsjo`
-    FOREIGN KEY (`cartId`)
-    REFERENCES `knjizara`.`cart` (`cartId`))
+CREATE TABLE IF NOT EXISTS `knjizara`.`narudzbina` (
+  `Id` INT(11) NOT NULL AUTO_INCREMENT,
+  `kolicina` INT(11) NOT NULL,
+  `cena` DOUBLE NOT NULL,
+  `ISBN` BIGINT(13) NOT NULL,
+  `narudzbenicaId` INT(11) NOT NULL,
+  PRIMARY KEY (`Id`),
+  INDEX `fk_cartitem_knjiga1_idx` (`ISBN` ASC),
+  INDEX `fk_cartitem_cart1_idx` (`narudzbenicaId` ASC),
+  CONSTRAINT `fk_cartitem_knjiga1`
+    FOREIGN KEY (`ISBN`)
+    REFERENCES `knjizara`.`knjiga` (`ISBN`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_cartitem_cart1`
+    FOREIGN KEY (`narudzbenicaId`)
+    REFERENCES `knjizara`.`narudzbenica` (`Id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `knjizara`.`customerorder`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `knjizara`.`customerorder` ;
-
-CREATE TABLE IF NOT EXISTS `knjizara`.`customerorder` (
-  `customerOrderId` INT(11) NOT NULL AUTO_INCREMENT,
-  `billingAddressId` INT(11) NULL DEFAULT NULL,
-  `cartId` INT(11) NULL DEFAULT NULL,
-  `customerId` INT(11) NULL DEFAULT NULL,
-  `shippingAddressId` INT(11) NULL DEFAULT NULL,
-  PRIMARY KEY (`customerOrderId`),
-  INDEX `FK_sr8agpevh46lsyyt71letasue` (`billingAddressId` ASC),
-  INDEX `FK_kpgns6o3ay2s2njamgh4y5gb7` (`cartId` ASC),
-  INDEX `FK_ixdsuv40qjm4j4jr93x2udlh0` (`customerId` ASC),
-  INDEX `FK_2q0bs35vec7xgxtvheqmoorkc` (`shippingAddressId` ASC),
-  CONSTRAINT `FK_2q0bs35vec7xgxtvheqmoorkc`
-    FOREIGN KEY (`shippingAddressId`)
-    REFERENCES `knjizara`.`shippingaddress` (`shippingAddressId`),
-  CONSTRAINT `FK_ixdsuv40qjm4j4jr93x2udlh0`
-    FOREIGN KEY (`customerId`)
-    REFERENCES `knjizara`.`customer` (`customerId`),
-  CONSTRAINT `FK_kpgns6o3ay2s2njamgh4y5gb7`
-    FOREIGN KEY (`cartId`)
-    REFERENCES `knjizara`.`cart` (`cartId`),
-  CONSTRAINT `FK_sr8agpevh46lsyyt71letasue`
-    FOREIGN KEY (`billingAddressId`)
-    REFERENCES `knjizara`.`billingaddress` (`billingAddressId`))
-ENGINE = InnoDB
+AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -342,7 +312,7 @@ CREATE TABLE IF NOT EXISTS `knjizara`.`zanr` (
   `Naziv` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`ID_zanra`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 7
+AUTO_INCREMENT = 8
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -395,19 +365,21 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `knjizara`.`top_knjige` ;
 
 CREATE TABLE IF NOT EXISTS `knjizara`.`top_knjige` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `knjiga_ISBN` BIGINT(13) NOT NULL,
   `pocetak_vazenja` DATE NOT NULL,
-  `kraj_vazenja` DATE NULL,
+  `kraj_vazenja` DATE NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE (`knjiga_ISBN`, `pocetak_vazenja`),
+  UNIQUE INDEX `knjiga_ISBN` (`knjiga_ISBN` ASC, `pocetak_vazenja` ASC),
   INDEX `fk_top_knjige_knjiga1_idx` (`knjiga_ISBN` ASC),
   CONSTRAINT `fk_top_knjige_knjiga1`
     FOREIGN KEY (`knjiga_ISBN`)
     REFERENCES `knjizara`.`knjiga` (`ISBN`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = InnoDB
+AUTO_INCREMENT = 6
+DEFAULT CHARACTER SET = utf8;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

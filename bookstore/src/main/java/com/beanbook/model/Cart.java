@@ -1,21 +1,28 @@
 package com.beanbook.model;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
+@Table(name = "narudzbenica")
 public class Cart implements Serializable {
 
 	/**
@@ -25,17 +32,34 @@ public class Cart implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "Id")
 	private Integer cartId;
 
+	@Column(name = "datum_pravljenja", nullable = false)
+	private Date orderDate;
+	
+	@Column(name = "datum_isporuke")
+	private Date shippingDate;
+	
+	@Column(name = "status", nullable = false)
+	@Enumerated(EnumType.STRING)
+	private Status status;
+	
 	@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<CartItem> cartItems;
 
-	@OneToOne
-	@JoinColumn(name = "customerId")
+	@ManyToOne
+	@JoinColumn(name = "korisnikId")
 	@JsonIgnore
-	private Customer customer;
+	private User user;
 
-	private Double grandTotal;
+	@OneToOne
+	@JoinColumn(name = "adresa_karticeId")
+	private BillingAddress billingAddress;
+	
+	@OneToOne
+	@JoinColumn(name = "adresa_isporukeId")
+	private ShippingAddress shippingAddress;
 
 	public Integer getCartId() {
 		return cartId;
@@ -43,6 +67,30 @@ public class Cart implements Serializable {
 
 	public void setCartId(Integer cartId) {
 		this.cartId = cartId;
+	}
+
+	public Date getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(Date orderDate) {
+		this.orderDate = orderDate;
+	}
+
+	public Date getShippingDate() {
+		return shippingDate;
+	}
+
+	public void setShippingDate(Date shippingDate) {
+		this.shippingDate = shippingDate;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 
 	public List<CartItem> getCartItems() {
@@ -53,20 +101,29 @@ public class Cart implements Serializable {
 		this.cartItems = cartItems;
 	}
 
-	public Customer getCustomer() {
-		return customer;
+	public User getUser() {
+		return user;
 	}
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
-	public Double getGrandTotal() {
-		return grandTotal;
+	public BillingAddress getBillingAddress() {
+		return billingAddress;
 	}
 
-	public void setGrandTotal(Double grandTotal) {
-		this.grandTotal = grandTotal;
+	public void setBillingAddress(BillingAddress billingAddress) {
+		this.billingAddress = billingAddress;
 	}
+
+	public ShippingAddress getShippingAddress() {
+		return shippingAddress;
+	}
+
+	public void setShippingAddress(ShippingAddress shippingAddress) {
+		this.shippingAddress = shippingAddress;
+	}
+	
 
 }
