@@ -8,8 +8,7 @@ bookApp.controller('bookController', ['$scope', 'bookService', '$location', '$ro
       });
    };
 
-
-
+   
    //autocomplete for search books
    $scope.autocomplete = function(query){
       var data = bookService.getAutocomplete({q: query}, function(){

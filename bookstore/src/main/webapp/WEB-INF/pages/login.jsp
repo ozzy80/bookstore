@@ -19,28 +19,31 @@
 	<br/><br/>
 	<div class="container-wrapper">
 		<div class="container">
-			<div id="login-box">
-				<a href="#" class="loginlinkpocetna" >Vrati se na početnu</a>   <a class="loginlinkpomoc" href="#">Pomoć</a>
+			<div >
+				<div class="loginlinkovi">
+					<a href="#" class="loginlinkpocetna">Vrati se na početnu</a>
+					<a href="#" class="loginlinkpomoc">Pomoć</a>
+				</div>
 				<div id="loginlogo"><h1><a href="<c:url value="/" />">BeanBook</a></h1></div>
-				<br/><br/><br/><br/><br/>
+				<br/><br/><br/><br/>
 				<h3>Prijava</h3>
 				<div class="loginlinija"></div>
-				<c:if test="${not empty msg}">
-					<div class="msg">${msg}</div>
-				</c:if>
+				
 								
-				<form name="loginForm" action='<c:url value="/j_spring_security_check" />' method="post">
+				<form class="loginforma" name="loginForm" action='<c:url value="/j_spring_security_check" />' method="post">
 					<c:if test="${not empty error}">
-						<div class="error">${error}</div>
+						 <div class="alert alert-danger neispravniloginpodaci">
+                			<a class="close " data-dismiss="alert" href="#"></a>Neispravno korisničko ime ili lozinka!
+            			</div>
 					</c:if>
 					<div class="form-group">
-						<label style="width:100px;float:left;" for="username">Korisničko ime:</label>
-						<input style="float:left;width:300px;" type="text" id="username" name="username" class="form-control" />
+						<label class="labelloginkorisnickoime" for="username">Korisničko ime:</label>
+						<input type="text" id="username" name="username" class="form-control inputloginkorisnickoime" />
 					</div>
 					<br/><br/><br/>
 					<div class="form-group">
-						<label style="width:100px;float:left;" for="password">Lozinka:</label>
-						<input style="float:left;width:300px;" type="password" id="password" name="password" class="form-control" />
+						<label class="labelloginlozinka" for="password">Lozinka:</label>
+						<input  type="password" id="password" name="password" class="form-control inputloginlozinka" />
 					</div>
 					<br/><br/>
 					

@@ -13,7 +13,7 @@ a:hover { text-decoration: underline; }
 a img { border: 0; }
 
 h2 { font-family: 'Georgia', Arial, serif; font-style: italic; font-size: 65px; line-height: 70px; color: #fff; }
-h3 { font-family: 'Georgia', Arial, serif; font-style: italic; font-size: 22px; line-height: 24px; color: #0182b5; }
+h3 { font-family: 'Georgia', Arial, serif; font-style: italic; font-size: 22px; line-height: 24px; color: #0182b5; margin-bottom:0px;}
 h4 { font-family: 'Georgia', Arial, serif; font-style: italic; font-size: 16px; line-height: 17px; color: #0871b3; font-weight: normal; }
 
 input, textarea, select { font-size: 10px; font-family: arial, sans-serif; }
@@ -36,7 +36,7 @@ textarea { overflow: auto; }
 
 
 
-#loginlogo {width: 238px; height: 41px; float: left; display: inline; margin-left: 0px; margin-top:30px; position: relative;margin-bottom:30px; }
+#loginlogo {width: 238px; height: 41px; float: left; display: inline; margin-left: 0px; margin-top:0px; position: relative;margin-bottom:20px; }
 #loginlogo span { position: absolute; bottom: -17px; right: -1px; font-size: 11px; line-height: 20px; }
 #loginlogo span a { color: #44acd5; }
 #loginlogo h1 a { display: block; height: 41px; background: url(images/AAAlogo.png); text-indent: -4000px; font-size: 0; line-height: 0; }
@@ -533,7 +533,7 @@ textarea { overflow: auto; }
 
 .container-wrapper
 {
-	width:600px;
+	width:480px;
 	margin: 0 auto;
 	height:400px;
 	background-color:white;
@@ -544,26 +544,39 @@ textarea { overflow: auto; }
 .loginlinkpocetna
 {
 	float:right;
-	margin-right:568px;
-	margin-top:5px;
+	position: relative;
+	left:-100px;
 }
 
 .loginlinkpomoc
 {
-	margin-top:5px;
-	margin-right:10px;
 	float:right;
+	position:relative;
+	left: 52px;
 }
 
+.loginlinkovi
+{
+	font-size: 12px;
+	height:25px;
+	width:500px;
+}
 
 .loginlinija
 {
 	border-bottom:3px solid #eaeaea;
-	margin-right:575px;
-	margin-bottom:30px;
-	margin-top:25px;
+	position:absolute;
+	top:140px;
+	color:red;
+	width: 445px;
+	margin-bottom:5px;
+	
 }
 
+.loginforma
+{
+	margin-top:40px;
+}
 
 .loginpoljekorisnickoime
 {
@@ -593,3 +606,35 @@ textarea { overflow: auto; }
 	width:300px;
 }
 
+.labelloginkorisnickoime
+{
+	width:100px;
+	float:left;
+}
+
+.inputloginkorisnickoime
+{
+	float:left;
+	width:300px;
+}
+
+.labelloginlozinka
+{
+	width:100px;
+	float:left;
+}
+
+.inputloginlozinka
+{
+	float:left;
+	width:300px;
+}
+
+
+.neispravniloginpodaci
+{
+	margin-top:-30px;
+	width:445px;
+	height:50px;
+
+}
