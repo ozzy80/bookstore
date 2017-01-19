@@ -1,11 +1,13 @@
 package com.beanbook.webapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.beanbook.model.BillingAddress;
 import com.beanbook.model.ShippingAddress;
@@ -32,11 +34,12 @@ public class RegisterController {
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerCustomer(@ModelAttribute("user") User user, Model model) {
+	@ResponseStatus(value = HttpStatus.NO_CONTENT)
+	public void registerCustomer(@RequestBody User user) {
 
 		user.setEnabled(true);
 		userManager.addUser(user);
 
-		return "register_customer_success";
+		
 	}
 }

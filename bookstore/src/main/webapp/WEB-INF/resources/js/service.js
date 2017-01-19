@@ -98,3 +98,11 @@ bookApp.service('genreService', ['$resource', function($resource){
       }
    });
 }]);
+
+
+
+bookApp.service('registerService', ['$resource', function($resource){
+   return $resource("/bookstore/register/");
+}]);
+
+

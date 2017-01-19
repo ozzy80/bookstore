@@ -312,8 +312,14 @@ textarea { overflow: auto; }
 	width:270px;	
 	backgroud-color: yellow;
 	color: rgba(20, 10, 12, 0.75);
-	text-align:
 	
+	padding-top:40px;
+	text-align:center;
+	border: rgba(20, 10, 12, 0.69);
+	background-color:rgba(192,192,192,0.2);
+	-moz-box-shadow: 12px 10px 23px #000000;
+	-webkit-box-shadow: 12px 10px 23px #c0c0c0;
+	box-shadow: 12px 10px 23px #c0c0c0;"
 }
 
 .item img {
@@ -541,6 +547,23 @@ textarea { overflow: auto; }
 	border-radius: 10px 10px 10px 10px;
 }
 
+.registracijadugme
+{
+	position:absolute;
+	margin-left:170px;
+}
+
+.container-wrapper2
+{
+	width:500px;
+	margin: 0 auto;
+	height:1800px;
+	background-color:white;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border-radius: 10px 10px 10px 10px;
+	padding-left: 15px;
+}
+
 .loginlinkpocetna
 {
 	float:right;
@@ -562,14 +585,48 @@ textarea { overflow: auto; }
 	width:500px;
 }
 
+
+.registerlinkpocetna
+{
+	float:right;
+	position: relative;
+	left:-105px;
+}
+
+.registerlinkpomoc
+{
+	float:right;
+	position:relative;
+	left: 48px;
+}
+
+.registerlinkovi
+{
+	font-size: 12px;
+	height:25px;
+	width:500px;
+}
+
+
+
 .loginlinija
 {
 	border-bottom:3px solid #eaeaea;
 	position:absolute;
 	top:140px;
-	color:red;
 	width: 445px;
 	margin-bottom:5px;
+	
+}
+
+.registerlinija
+{
+	border-bottom:3px solid #eaeaea;
+	position:absolute;
+	top:140px;
+	width: 445px;
+	margin-bottom:5px;
+	margin-bottom:40px;
 	
 }
 
@@ -624,6 +681,24 @@ textarea { overflow: auto; }
 	float:left;
 }
 
+.registerlabel
+{
+	width:100px;
+	float:left;
+	font-size:11px;
+}
+
+.inputregister
+{
+	width:300px;
+	float:left;
+}
+
+.registellabel
+{
+	width:100px;
+	float:left;	
+}
 .inputloginlozinka
 {
 	float:left;
@@ -637,4 +712,29 @@ textarea { overflow: auto; }
 	width:445px;
 	height:50px;
 
+}
+
+.zanrKnjige
+{
+	padding-left:1cm;
+}
+
+.knjigaCena2
+{
+	font-size:22px;
+	color:#0182b5;
+}
+
+.opisKnjige2
+{
+	 display:inline-block;
+	 margin-left:-595px;
+}
+
+.registracijagreska
+{
+	display:inline-block;
+	margin-left:100px; 
+	bottom:-1px;
+	color:#CC0000;
 }

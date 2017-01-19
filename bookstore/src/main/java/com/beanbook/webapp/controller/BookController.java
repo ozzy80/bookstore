@@ -53,7 +53,7 @@ public class BookController {
 	public String getBookByISBN(Model model, @PathVariable("isbn") Long isbn) {
 		Book book = bookManager.getBookByISBN(isbn);
 		model.addAttribute("book", book);
-		return "book";
+		return "book_description";
 	}
 
 	@RequestMapping(value = "/books/add")

@@ -1,7 +1,7 @@
 <%@include file="/WEB-INF/pages/template/header.jsp" %>
 		
 		
-	<div class="container shell" style="height:380px;spacing:5px;">
+	<div class="container shell" style="height:380px;">
 		<div class="row">
 			<div class="col-xs-2" >
 				<div class="item" > 
@@ -16,8 +16,9 @@
 							<span class="naslovKnjige">${book.title}</span>
 							<br/><br/>
 							
+							
 							<c:forEach items="${book.authorList}" var="author">
-								<span class="autorKnjige">${author.firstName} ${author.lastName}  </span>
+								<span class="autorKnjige"><a class="autorKnjige" href="/bookstore/authors/${author.authorId}">${author.firstName} ${author.lastName} </a> </span>
 							</c:forEach>
 							<div class="linija"></div>
 							<div class="detaljiKnjigeRazmaci">
@@ -33,7 +34,7 @@
 								<div class="col-sm-4"><b>Zanrovi: </b><br/></div><br/>
 									
 									<c:forEach items="${book.genreList}" var="genre">
-										<span style="padding-left:1cm" class="col-sm-8">${genre.genreName}</span><br/>
+										<span class="zanrKnjige" class="col-sm-8">${genre.genreName}</span><br/>
 									</c:forEach>
 								</div>
 								
@@ -45,10 +46,10 @@
 			</div>
 			
 			<div class="col-xs-4" ng-controller="mainController">
-				<div class="knjigaDeoSaKorpom" style="padding-top:30px;text-align:center;border: rgba(20, 10, 12, 0.69);background-color:rgba(192,192,192,0.2);-moz-box-shadow: 12px 10px 23px #000000;-webkit-box-shadow: 12px 10px 23px #c0c0c0;box-shadow: 12px 10px 23px #c0c0c0;">
+				<div class="knjigaDeoSaKorpom" >
 					
 					<span class="knjigaCena">Cena: 1220din</span><br/><br/>
-					<span style="font-size:22px;color:#0182b5;">${book.price} din.</span><br/><br/><br/>
+					<span class="knjigaCena2">${book.price} din.</span><br/><br/><br/>
 					<a class="btn btn-warning" ng-click="addToCart(${book.isbn})">Dodaj u korpu</a>
 					<input class="brojKomadaKnjige" type="number" name="quantity" value="1" min="1" max="9">komada
 					<hr/>
@@ -64,7 +65,7 @@
 			
 			<div class="container shell" style="height:400px;">
 				<div class="opisKnjige">
-					<span style="display:inline-block;margin-left:-595px;"><b>Opis</b></span><br/>
+					<span class="opisKnjige2"><b>Opis</b></span><br/>
 					<div class="linija3"></div>
 					<span class="opisStilTeksta">${book.description}</span>
 				

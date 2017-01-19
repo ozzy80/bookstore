@@ -40,7 +40,7 @@ public class User {
 	@Column(name = "email", length = 255, nullable = false)
 	private String email;
 	
-	@Column(name = "telefon", length = 45, nullable = false)
+	@Column(name = "telefon", length = 45)
 	private String phone;
 	
 	@OneToOne

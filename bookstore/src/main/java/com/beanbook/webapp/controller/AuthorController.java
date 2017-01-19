@@ -90,7 +90,7 @@ public class AuthorController {
 	public String getAuthorByID(Model model, @PathVariable("idAutora") Integer id_autora) {
 		Author author = authorManager.getAuthorByID(id_autora);
 		model.addAttribute("author", author);
-		return "index4";
+		return "author_description";
 
 	}
 
