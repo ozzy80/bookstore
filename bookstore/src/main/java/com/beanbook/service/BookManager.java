@@ -19,4 +19,6 @@ public interface BookManager {
 	List<Book> autocomplete(String query);
 	
 	List<Book> getBooksByGenre(String genre, int start, int limit, String sortBy);
+	
+	List<Book> getBooksByAuthor(Integer id);
 }

@@ -27,7 +27,7 @@ bookApp.directive('topTenBook', function(){
 
 bookApp.directive('book', function(){
    return {
-      templateUrl: 'resources/directives/book.html',
+      templateUrl: '/bookstore/resources/directives/book.html',
       replace: true,
       scope: {
          bookObject: "="

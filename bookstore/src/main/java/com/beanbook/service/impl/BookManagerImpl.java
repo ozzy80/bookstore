@@ -52,4 +52,9 @@ public class BookManagerImpl implements BookManager {
 		return bookDao.getBooksByGenre(genre, start, limit, sortBy);
 	}
 
+	@Override
+	public List<Book> getBooksByAuthor(Integer id)
+	{
+		return bookDao.getBooksByAuthor(id);
+	}
 }

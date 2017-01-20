@@ -23,6 +23,8 @@
   	<script type="text/javascript" src="<c:url value="/resources/js/controller/bookController.js" />"></script>
   	<script type="text/javascript" src="<c:url value="/resources/js/controller/genreController.js" />"></script>
   	<script type="text/javascript" src="<c:url value="/resources/js/controller/optionsController.js" />"></script>
+  	<script type="text/javascript" src="<c:url value="/resources/js/controller/authorController.js" />"></script>
+  	
 </head>
 <body>
 	<!-- Header -->

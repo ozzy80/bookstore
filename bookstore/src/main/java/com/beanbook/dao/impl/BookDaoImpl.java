@@ -111,4 +111,14 @@ public class BookDaoImpl implements BookDao {
 		return c.list();
 	}
 
+	@Override
+	public List<Book> getBooksByAuthor(Integer id)
+	{
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("select a.bookList from Author a where a.authorId = :id");
+		query.setParameter("id", id);
+		session.flush();
+		return query.list();
+	}
+	
 }

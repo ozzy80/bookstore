@@ -11,15 +11,22 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.beanbook.model.Author;
+import com.beanbook.model.Book;
 import com.beanbook.service.AuthorManager;
+import com.beanbook.service.BookManager;
 
 @Controller
 public class AuthorController {
 
 	@Autowired
 	private AuthorManager authorManager;
+	
+	@Autowired
+	private BookManager bookManager;
 
 	@Autowired
 	FileUploadController file;
@@ -94,4 +101,17 @@ public class AuthorController {
 
 	}
 
+	//sa response body springu kazemo da vrati json
+	@RequestMapping(value="/authors/books", method=RequestMethod.GET)
+	public @ResponseBody List<Book> getAuthorBooks(@RequestParam(value="id",required = true) Integer id)
+	{
+		
+		return bookManager.getBooksByAuthor(id);
+	}
+			
+			
+	
+	
+		
+	
 }

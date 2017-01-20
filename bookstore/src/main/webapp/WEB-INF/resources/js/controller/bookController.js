@@ -39,7 +39,8 @@ bookApp.controller('bookController', ['$scope', 'bookService', '$location', '$ro
       }
       pagination(genre, start, limit, sortBy);
    };
-
+   
+  
    function pagination(genre, start, limit, sortBy){
         $scope.pager = {};
         $scope.setPage = setPage;       

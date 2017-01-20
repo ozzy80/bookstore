@@ -25,7 +25,7 @@
 	</div>	
 	
 	
-	<div class="container shell" style="height:300px;">
+	<!--  <div class="container shell" style="height:300px;">
 		<div class="naslovKnjigeAutora">Knjige</div>
 		<div class="row">
 			<div class="col-xs-4">
@@ -128,5 +128,18 @@
 		</div>
 	
 	</div>
-
+	-->
+	<div style="border:3px solid purple;" id="main" class="shell row" ng-controller="authorController">
+		<!-- Knjige autora -->
+			<div class="products" ng-init="getBooksByAuthor(${author.authorId})">
+				<h3>Knjige autora</h3>
+				<ul class="row">
+					<li class="col-sm-4" ng-repeat="book in bookList">
+						<book book-object = "book"></book>
+					</li>
+				</ul>
+			<!-- Knjige autora -->
+			</div>
+		<div class="cl">&nbsp;</div>
+	</div>
 <%@include file="/WEB-INF/pages/template/footer.jsp" %>  

@@ -99,6 +99,15 @@ bookApp.service('genreService', ['$resource', function($resource){
    });
 }]);
 
+bookApp.service('authorService', ['$resource', function($resource){
+	   return $resource("/bookstore/authors/:id", {id: "@id"}, {
+	      getBooksByAuthor: {
+	        method: 'GET',
+	         url: '/bookstore/authors/books',
+	         isArray: true
+	      }
+	   });
+	}]);
 
 
 bookApp.service('registerService', ['$resource', function($resource){
