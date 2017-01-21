@@ -362,7 +362,7 @@ textarea { overflow: auto; }
 	margin-left: 3px;
 	margin-right: -10px;
 	width:158px;
-	height:248px;
+	height:90px;
 	float:left;
 	margin-right:1px;
 }
@@ -502,7 +502,7 @@ textarea { overflow: auto; }
 {
 	border-bottom: solid 4px #eaeaea;
 	margin-top: 50px;
-	margin-bottom: 0px;
+	margin-bottom: -80px;
 	margin-left: -5px;
 }
 
@@ -526,8 +526,8 @@ textarea { overflow: auto; }
 	border-bottom:solid 4px #eaeaea;
 	margin-left:0px;
 	margin-right:13px;
-	margin-bottom:15px;
-	margin-top:15px;
+	margin-bottom:25px;
+	margin-top:25px;
 	text-align: justify;
 }
 
@@ -535,6 +535,9 @@ textarea { overflow: auto; }
 {
 	display:inline-block;
 	text-align:justify;
+	height:300px;
+	font-size:16px;
+	
 }
 
 .container-wrapper
@@ -542,6 +545,16 @@ textarea { overflow: auto; }
 	width:480px;
 	margin: 0 auto;
 	height:400px;
+	background-color:white;
+	-webkit-border-radius: 10px 10px 10px 10px;
+	border-radius: 10px 10px 10px 10px;
+}
+
+.container-wrapper3
+{
+	width:700px;
+	margin: 0 auto;
+	height:1000px;
 	background-color:white;
 	-webkit-border-radius: 10px 10px 10px 10px;
 	border-radius: 10px 10px 10px 10px;
@@ -570,6 +583,14 @@ textarea { overflow: auto; }
 	position: relative;
 	left:-100px;
 }
+
+.pomoclinkpocetna
+{
+	float:right;
+	position: relative;
+	left:170px;
+}
+
 
 .loginlinkpomoc
 {
@@ -729,6 +750,8 @@ textarea { overflow: auto; }
 {
 	 display:inline-block;
 	 margin-left:-595px;
+	 padding-top:40px;
+	 font-size:19px;
 }
 
 .registracijagreska
@@ -737,4 +760,19 @@ textarea { overflow: auto; }
 	margin-left:100px; 
 	bottom:-1px;
 	color:#CC0000;
+}
+
+.margineKnjigeAutora
+{
+	margin-top:0px;
+	margin-bottom:0px;
+	height:290px;
+}
+
+
+.pretraziKnjiguAutora
+{
+	margin-top:10px;
+	margin-bottom:10px;
+	border:2px solid purple;
 }

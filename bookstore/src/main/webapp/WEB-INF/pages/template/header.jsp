@@ -75,7 +75,7 @@
 				<div class="row">
 					<div class="col-md-12">
 			            <div class="input-group" id="adv-search">
-			                <input type="text" class="form-control" placeholder="Pretrazi knjige" ng-model="bookSearch"
+			                <input type="text" class="form-control pretragaKnjigeAutora" placeholder="Pretrazi knjige" ng-model="bookSearch"
 			                	ng-keyup="autocomplete(bookSearch)"/>
 	  		 	          		<ul class="list-group" ng-model="hidethis" ng-hide="hidethis">  
 		                        <li class="list-group-item"  
@@ -97,7 +97,7 @@
 			                                        <option value="4">Most commented</option>
 			                                    </select>
 			                                  </div>
-			                                  <div class="form-group">
+			                                  <div class="form-group pretraziKnjiguAutora">
 			                                  		<label for="filter">Pretrazi:</label>
 			                                  	    <div class="col-sm-2">
 															      <div class="checkbox">

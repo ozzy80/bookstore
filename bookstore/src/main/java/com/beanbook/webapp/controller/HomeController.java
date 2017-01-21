@@ -11,4 +11,15 @@ public class HomeController {
 		return "index";
 	}
 
+	@RequestMapping(value = "/pomoc")
+	public String pomoc()
+	{
+		return "pomoc";
+	}
+	
+	@RequestMapping(value ="/o_nama")
+	public String onama()
+	{
+		return "o_nama";
+	}
 }
