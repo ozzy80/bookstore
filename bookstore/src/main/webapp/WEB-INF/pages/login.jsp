@@ -21,8 +21,8 @@
 		<div class="container">
 			<div >
 				<div class="loginlinkovi">
-					<a href="#" class="loginlinkpocetna">Vrati se na početnu</a>
-					<a href="#" class="loginlinkpomoc">Pomoć</a>
+					<a href="/bookstore" class="loginlinkpocetna">Vrati se na početnu</a>
+					<a href="/bookstore/pomoc" class="loginlinkpomoc">Pomoć</a>
 				</div>
 				<div id="loginlogo"><h1><a href="<c:url value="/" />">BeanBook</a></h1></div>
 				<br/><br/><br/><br/>
@@ -50,7 +50,7 @@
 					<input class="loginprijavadugme btn btn-warning" type="submit" value="Prijava" class="btn btn-warning">
 					<br/><br/>
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-					<a href="#" class="loginlinkzaregistraciju">Registracija</a>
+					<a href="/bookstore/register" class="loginlinkzaregistraciju">Registracija</a>
 				</form>
 				
 			</div>

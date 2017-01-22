@@ -22,4 +22,10 @@ public class HomeController {
 	{
 		return "o_nama";
 	}
+	
+	@RequestMapping(value = "kontakt")
+	public String kontakt()
+	{
+		return "kontakt";
+	}
 }

@@ -4,8 +4,14 @@
 			<div class="cnt">
 				<div class="row">
 					<div class="col-sm-5">
-						<h4>About BestSellers</h4>
-						<p>Nulla porttitor pretium mattis. Mauris lorem massa, ultricies non mattis bibendum, semper ut erat. Morbi vulputate placerat ligula. Fusce <br />convallis, nisl a pellentesque viverra, ipsum leo sodales sapien, vitae egestas dolor nisl eu tortor. Etiam ut elit vitae nisl tempor tincidunt. Nunc sed elementum est. Phasellus sodales viverra mauris nec dictum. Fusce a leo libero. Cras accumsan enim nec massa semper eu hendrerit nisl faucibus. Sed lectus ligula, consequat eget bibendum eu, consequat nec nisl. In sed consequat elit. Praesent nec iaculis sapien. <br />Curabitur gravida pretium tincidunt.  </p>
+						<h4>O knjižari</h4>
+						<p>Knjižara BookBean osnovana je aprila 1998. godine. Od skromnih početaka sa nekoliko objavljenih naslova za godinu dana došli smo do produkcije od preko tri stotine objavljenih naslova godišnje te sa pravom možemo reći da smo jedna od najvećih izdavačkih kuća ne samo u zemlji, već i u čitavom regionu.
+
+				Za petnaest godina objavili smo veliki broj značajnih i uticajnih stranih i domaćih pisaca.
+
+				<br/><br/>
+ 
+				Standardi koje smo postavili na početku i od kojih nećemo odustajati jesu da naši čitaoci zaslužuju samo najbolje – kako u pogledu književnog kvaliteta, tako i kada je reč o opremi knjige. 
 					</div>
 					<div class="store col-sm-3">
 						<h4>Store</h4>
@@ -30,7 +36,7 @@
 				</div>
 				<div class="cl">&nbsp;</div>
 				<div class="copy">
-					<p>&copy; <a href="#">BestSeller.com</a>. Design by <a href="http://css-free-templates.com/">CSS-FREE-TEMPLATES.COM</a></p>
+					<p>&copy; <a href="#">BeanBook.com</a>. Design by <a href="#">Ozren and Ana</a></p>
 				</div>
 			</div>
 		</div>

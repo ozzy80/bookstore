@@ -35,6 +35,7 @@ public class Book implements Serializable {
 	 */
 	private static final long serialVersionUID = -142792445848152374L;
 
+	
 	@Id
 	@Column(name = "ISBN")
 	private Long isbn;
@@ -62,7 +63,7 @@ public class Book implements Serializable {
 
 	@Column(name = "Na_popustu")
 	private Integer discount;
-
+	
 	@ManyToOne
 	@JoinColumn(name = "Izdavac_ID_izdavaca")
 	private Publisher publisher;
@@ -220,5 +221,7 @@ public class Book implements Serializable {
 	public void setCartItemList(List<CartItem> cartItemList) {
 		this.cartItemList = cartItemList;
 	}
-
+	
+	
+	
 }

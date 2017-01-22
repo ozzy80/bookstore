@@ -17,23 +17,22 @@
 </head>
 <body>
 	<br/><br/>
-	<div class="container-wrapper3">
+	<div class="container-wrapper5">
 		<div class="container">
 			<div >
 				<div class="loginlinkovi">
-					<a href="#" class="pomoclinkpocetna">Vrati se na početnu</a>
+					<a href="/bookstore" class="pomoclinkpocetna">Vrati se na početnu</a>
 				</div>
 				<div id="loginlogo"><h1><a href="<c:url value="/" />">BeanBook</a></h1></div>
-				
-				<h2>Pomoć</h2>
+				<h2>Pomoc</h2>
 				
 				<h3>Registracija</h3><br/>
-				<div style="width:670px;height:170px;">
-				<b>Da li je neophodna?</b><br/>
+				<div style="width:670px;height:170px;font-size:13px;">
+				<b>Da li je neophodna?</b><br/><br/>
 
 				Ne morate da se registrujete da bi kupovali na našim stranicama. Ali, to je potrebno ako želite da dodajete artikle na Vašu listu želja. Pored toga, sam proces kupovine je brži za registrovane korisnike. <br/><br/>
 
-				<b>Kako se registruje?</b><br/>
+				<b>Kako se registruje?</b><br/><br/>
 
 				Proces registracije je jednostavan:
 				Kliknite na "Registracija" u gornjem desnom uglu stranice.
@@ -46,10 +45,10 @@
 
 				Logujete se pritiskom na "Prijava" - poterebno je samo da unesete svoj članski broj i lozinku koji ste prilikom registracije dobili na mejl. 
 				
-				</div>
+				</div><br/><br/>
 				
 				<h3>Kupovina</h3>
-				<div style="width:670px;height:600px;"><br/>
+				<div style="width:670px;height:600px;font-size:13px;"><br/>
 				<b>Kako kupujem?</b><br/><br/>
 				Odaberite artikle koje želite da kupite. Pored svakog artikla nalazi se dugme "Dodaj u korpu" – kliknite na njega i artikal će automatski biti dodat u Vašu korpu.
 				Artikle u korpi možete na isti način dodati i sa svoje liste želja. U svakom trenutku pogledom na korpu u gornjem desnom uglu ekrana možete da vidite koliko artikala imate u korpi i koja je njihova ukupna cena.
@@ -62,9 +61,9 @@
 				Delfi knjižare vrše predugovorno obaveštavanje svojih kupaca na način da prikazuju specifikaciju celokupne porudžbine kao i prikaz svih uslova kupovine neposredno pre ulaska kupca u proces poručiuvanja tj. plaćanja.
 				<br/><br/><br/>
 				<b>Načini plaćanja</b> <br/><br/>
-Pouzećem:<br/> Naručene artikle dobijate na kućnu adresu, a troškove narudžbine plaćate kuriru. <br/><br/>
-Uplatom na račun:<br/>Novac nam uplaćujete na naš tekući račun. Nakon što evidentiramo uplatu, u roku od 24 sata knjige će vam biti poslate a isporučene u skladu sa rokom za dostavu. Rok za uplatu je sedam dana.<br/><br/>
-Platnim karticama:<br/> Ako izaberete plaćanje platnim karticama, tokom procesa naručivanja bićete automatski preusmereni na sajt Banca Intesa Beograd. Banka Intesa Beograd vrši procesuiranje kartica na internetu. Na sajtu Banca Intesa Beograd unosite broj svoje kartice i ostale potrebne podatke. Banka vrši proveru vaše kartice i raspoloživost sredstava na računu, i ako imate uslove za plaćanje, rezerviše sredstva na vašem tekućem računu u vrednosti iznosa porudžbine. U slučaju uspešne rezervacije automatski vam se prosleđuje email sa svim detaljima vaše narudžbenice i detaljima transakcije. Nakon završetka plaćanja sa sajta Banca Intesa Beograd bićete ponovo prosleđeni na delfi.rs gde se kupovina završava. Podaci sa platne kartice od vašeg računara do sajta banke se prenose u zaštićenoj formi upotrebom SSL protokola, kao trenutno najsavremenije tehnologije. Sigurnost podataka prilikom plaćanja garantuje Banca Intesa Beograd i podaci o platnoj kartici niti u jednom trenutku nisu dostupni delfi.rs prodajnom mestu. Ceo sistem je organizovan u cilju maksimalne zaštite vaših poverljivih podataka i predstavalja standard za plaćanje preko interneta širom sveta.				
+<i>Pouzećem:</i><br/> Naručene artikle dobijate na kućnu adresu, a troškove narudžbine plaćate kuriru. <br/><br/>
+<i>Uplatom na račun:</i><br/>Novac nam uplaćujete na naš tekući račun. Nakon što evidentiramo uplatu, u roku od 24 sata knjige će vam biti poslate a isporučene u skladu sa rokom za dostavu. Rok za uplatu je sedam dana.<br/><br/>
+<i>Platnim karticama:</i><br/> Ako izaberete plaćanje platnim karticama, tokom procesa naručivanja bićete automatski preusmereni na sajt Banca Intesa Beograd. Banka Intesa Beograd vrši procesuiranje kartica na internetu. Na sajtu Banca Intesa Beograd unosite broj svoje kartice i ostale potrebne podatke. Banka vrši proveru vaše kartice i raspoloživost sredstava na računu, i ako imate uslove za plaćanje, rezerviše sredstva na vašem tekućem računu u vrednosti iznosa porudžbine. U slučaju uspešne rezervacije automatski vam se prosleđuje email sa svim detaljima vaše narudžbenice i detaljima transakcije. Nakon završetka plaćanja sa sajta Banca Intesa Beograd bićete ponovo prosleđeni na delfi.rs gde se kupovina završava. Podaci sa platne kartice od vašeg računara do sajta banke se prenose u zaštićenoj formi upotrebom SSL protokola, kao trenutno najsavremenije tehnologije. Sigurnost podataka prilikom plaćanja garantuje Banca Intesa Beograd i podaci o platnoj kartici niti u jednom trenutku nisu dostupni delfi.rs prodajnom mestu. Ceo sistem je organizovan u cilju maksimalne zaštite vaših poverljivih podataka i predstavalja standard za plaćanje preko interneta širom sveta.				
 				</div>
 			</div>
 		</div>		

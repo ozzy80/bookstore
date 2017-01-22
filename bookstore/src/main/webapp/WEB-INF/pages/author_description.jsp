@@ -27,9 +27,9 @@
 	<div class="shell row margineKnjigeAutora" ng-controller="authorController">
 		<!-- Knjige autora -->
 			<div class="products" ng-init="getBooksByAuthor(${author.authorId})">
-				<h3 style="margin-top:0px;display:inline-block;margin-bottom:20px;">Knjige autora</h3>
+				<h3 style="margin-top:0px;display:inline-block;margin-bottom:20px;font-size:25px;">Knjige autora</h3>
 				<ul class="row">
-					<li style="margin-right:20px;" class="pojedinacnaKnjigaAutora prvaKnjigaAutora col-sm-4" ng-repeat="book in bookList">
+					<li style="margin-right:30px;" class="pojedinacnaKnjigaAutora prvaKnjigaAutora col-sm-4" ng-repeat="book in bookList">
 						<book book-object = "book"></book>
 					</li>
 				</ul>

@@ -55,6 +55,13 @@ public class BookController {
 	public String getBookByISBN(Model model, @PathVariable("isbn") Long isbn) {
 		Book book = bookManager.getBookByISBN(isbn);
 		model.addAttribute("book", book);
+		if(book.getDiscount() > 0) {
+			Double number = book.getPrice() - book.getPrice() / 100 * book.getDiscount();
+		    model.addAttribute("izracunataVrednostSaPopustom", number);
+				
+			}
+		
+		
 		return "book_description";
 	}
 

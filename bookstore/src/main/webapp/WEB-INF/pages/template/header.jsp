@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr" ng-app="bookApp">
 <head>
-	<title>CSS Free Templates with jQuery Slider</title>
+	<title>BeanBook</title>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<link rel="shortcut icon" href="<c:url value="/css/images/favicon.ico" />" />
 	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />" type="text/css" />	
@@ -36,10 +36,9 @@
 			<ul>
 				<li><a href="<c:url value="/" />" class="active">Naslovna</a></li>
 				<li><a href="<c:url value="/booklist" />">Knjige</a></li>
-				<li><a href="#">Promotions</a></li>
-				<li><a href="#">Profile</a></li>
-				<li><a href="#">About Us</a></li>
-				<li><a href="#">Contacts</a></li>
+				<li><a href="<c:url value="/o_nama" />">O nama</a></li>
+				<li><a href="<c:url value="/kontakt" />">Kontakt</a></li>
+				<li><a href="<c:url value="/pomoc" />">Pomoć</a></li>
 				<sec:authorize access="hasRole('ROLE_ADMIN')">
 					<li><a href="<c:url value="/admin/" />">Admin</a></li>
 				</sec:authorize>
@@ -55,15 +54,15 @@
 						<a href="#" id="user"><c:out value="${pageContext.request.userPrincipal.name}" /></a> | 
 						<a href="<c:url value="/j_spring_security_logout"/>">Log out</a>
 					</p>
-					<p><a href="<c:url value="/customer/cart" />" class="cart" ><img src="resources/css/images/cart-icon.png" alt="" /></a>Shopping Cart (0) <a href="#" class="sum">$0.00</a></p>
+					<p><a href="<c:url value="/customer/cart" />" class="cart" ><img src="/resources/css/images/cart-icon.png" alt="bla" /></a>Shopping Cart (0) <a href="#" class="sum">$0.00</a></p>
 				</div>			
 			 </c:when>
 			 <c:otherwise>
 				<div id="login-details" ng-controller="mainController">
-					<p><a href="<c:url value="/login" />">Login</a> | 
-					   <a href="<c:url value="/register"/>">Register</a>
+					<p><a href="<c:url value="/login" />">Logovanje</a> | 
+					   <a href="<c:url value="/register"/>">Registracija</a>
 					</p>
-					<p><a href="<c:url value="/customer/cart" />" class="cart" ><img src="resources/css/images/cart-icon.png" alt="" /></a>Shopping Cart (0) <a href="#" class="sum">$0.00</a></p>
+					<p><a href="<c:url value="/customer/cart" />" class="cart" ><img src="/bookstore/resources/css/images/cart-icon.png" alt="" /></a>Shopping Cart (0) <a href="#" class="sum">$0.00</a></p>
 				</div>					 
 			 </c:otherwise>
 		  </c:choose>

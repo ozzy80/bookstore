@@ -24,8 +24,8 @@
 	<div class="container-wrapper2" ng-controller="registerValidationController">
 		<div class="container">
 			<div class="registerlinkovi">
-					<a href="#" class="registerlinkpocetna">Vrati se na početnu</a>
-					<a href="#" class="registerlinkpomoc">Pomoć</a>
+					<a href="/bookstore" class="registerlinkpocetna">Vrati se na početnu</a>
+					<a href="/bookstore/pomoc" class="registerlinkpomoc">Pomoć</a>
 				</div>
 				<div id="loginlogo"><h1><a href="<c:url value="/" />">BeanBook</a></h1></div>
 				<br/><br/><br/><br/>
@@ -236,13 +236,13 @@
 					</div>
 					<label for="postalCode2" class="registerlabel">Poštanski kod:</label>
 					<input type="text" name="postalCodeba" ng-model="user.shippingAddress.postalCode" id="postalCode2" class="form-control inputregister" ng-disabled="sameAddress" required/>
+					<br/><br/><input class="registracijadugme btn btn-warning" type="submit" value="Zapamti" >
 					
 				</div>
 				<br/><br/>
-				<div >		
-				<input class="registracijadugme btn btn-warning" type="submit" value="Zapamti" >
 				
-				</div>
+				
+				
 			</form>
 		</div>
 	</div>

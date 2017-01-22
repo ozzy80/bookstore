@@ -1,14 +1,14 @@
 <%@include file="/WEB-INF/pages/template/header.jsp" %>
 
    <!-- Main -->
-   <div id="main" class="shell row" ng-controller="bookController">
+   <div id="main" class="shell row" ng-controller="bookController" >
       <!-- Sidebar -->
       <div id="sidebar" class="col-md-3">
          <ul class="categories">
             <li ng-controller="genreController" ng-init="getGenres()">
-               <h4>Kategorije</h4>
+               <h3>Kategorije</h3>
                <ul ng-repeat="genre in genreList">
-               <li><a href="#<c:out value="{{genre.genreName}}"/>">{{genre.genreName}}</a></li>
+               <li><a style="font-size:13px;" href="#<c:out value="{{genre.genreName}}"/>">{{genre.genreName}}</a></li>
                </ul>
             </li>
          </ul>
@@ -45,19 +45,19 @@
                     <!-- pager -->
                     <ul ng-if="pager.pages.length" class="pagination">
                         <li ng-class="{disabled:pager.currentPage === 1}">
-                            <a ng-click="setPage(1)">First</a>
+                            <a ng-click="setPage(1)">Prva</a>
                         </li>
                         <li ng-class="{disabled:pager.currentPage === 1}">
-                            <a ng-click="setPage(pager.currentPage - 1)">Previous</a>
+                            <a ng-click="setPage(pager.currentPage - 1)">Prethodna</a>
                         </li>
                         <li ng-repeat="page in pager.pages" ng-class="{active:pager.currentPage === page}">
                             <a ng-click="setPage(page)">{{page}}</a>
                         </li>                
                         <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
-                            <a ng-click="setPage(pager.currentPage + 1)">Next</a>
+                            <a ng-click="setPage(pager.currentPage + 1)">Sledeća</a>
                         </li>
                         <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
-                            <a ng-click="setPage(pager.totalPages)">Last</a>
+                            <a ng-click="setPage(pager.totalPages)">Poslednja</a>
                         </li>
                     </ul>
                 </div>

@@ -48,8 +48,19 @@
 			<div class="col-xs-4" ng-controller="mainController">
 				<div class="knjigaDeoSaKorpom" >
 					
-					<span class="knjigaCena">Cena: 1220din</span><br/><br/>
-					<span class="knjigaCena2">${book.price} din.</span><br/><br/>
+					
+					<c:if test="${book.discount > 0 }">
+						
+						<span class="knjigaCena">Cena: ${book.price} din.</span><br/><br/>
+						<span class="knjigaCena2">${izracunataVrednostSaPopustom} din.</span><br/><br/>
+						
+					</c:if>
+					
+					<c:if test="${book.discount == 0}">
+						<span class="knjigaCena3">Cena: ${book.price} din.</span><br/><br/>
+					</c:if>
+					
+					
 					<a class="btn btn-warning" ng-click="addToCart(${book.isbn})">Dodaj u korpu</a>
 					<input class="brojKomadaKnjige" type="number" name="quantity" value="1" min="1" max="9">komada
 					<hr/>
@@ -63,9 +74,9 @@
 		
 	</div>	
 			
-			<div class="container shell" style="height:450px;">
-				<div class="opisKnjige"><br/><br/>
-					<span class="opisKnjige2"><b>Opis</b></span><br/>
+			<div class="container shell" style="height:550px;">
+				<div class="opisKnjige"><br/><br/><br/><br/>
+					<span class="opisKnjige2" style="font-size:17px;"><b>Opis</b></span><br/>
 					<div class="linija3"></div>
 					<span class="opisStilTeksta">${book.description}</span>
 				
