@@ -9,6 +9,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,7 +82,6 @@ public class BookDaoImpl implements BookDao {
 		q.setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);
 		q.setParameter("query1", "% " + query + "%");
 		q.setParameter("query2", query + "%");
-		q.setMaxResults(7);
 		List<Book> bookList = q.list();
 		session.flush();
 
@@ -119,6 +119,15 @@ public class BookDaoImpl implements BookDao {
 		query.setParameter("id", id);
 		session.flush();
 		return query.list();
+	}
+
+	@Override
+	public Long getAviableBookNumber() {
+		Session session = sessionFactory.getCurrentSession();
+		Criteria criteria = session.createCriteria(Book.class);
+		criteria.add(Restrictions.ge("booksInStock", 1));
+		criteria.setProjection(Projections.rowCount());
+		return (Long) criteria.uniqueResult();
 	}
 	
 }

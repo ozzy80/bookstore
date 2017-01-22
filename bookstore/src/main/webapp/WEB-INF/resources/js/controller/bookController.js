@@ -1,5 +1,5 @@
-bookApp.controller('bookController', ['$scope', 'bookService', '$location', '$rootScope', 'pagerService', 'genreService',
-      function($scope, bookService, $location, $rootScope, pagerService, genreService){
+bookApp.controller('bookController', ['$scope', 'bookService', '$location', '$rootScope', 'pagerService', 'genreService', '$window',
+      function($scope, bookService, $location, $rootScope, pagerService, genreService, $window){
   
   //get books by year of publication
    $scope.getNewBooks = function(sort, start, limit){
@@ -17,11 +17,15 @@ bookApp.controller('bookController', ['$scope', 'bookService', '$location', '$ro
       });
    };
 
-   $scope.fillTextbox = function(string){  
+   $scope.fillTextbox = function(string, isbn){  
         $scope.bookSearch = string;  
         $scope.hidethis = true;  
+        $scope.isbn = isbn;
    }; 
 
+   $scope.goToBook = function(isbn){
+      $window.location.href = '/bookstore/books/'+$scope.isbn;
+   };
 
 
    //search by genre on chagne hash value
@@ -58,9 +62,8 @@ bookApp.controller('bookController', ['$scope', 'bookService', '$location', '$ro
             if (page < 1 || page > $scope.pager.totalPages) {
                 return;
             }
-            console.log(sortBy)
-;            $scope.pager = pagerService.GetPager($scope.numberOfPages, page, 1);
-            bookService.getBookByGenre({genre: genre, start: $scope.pager.startIndex, limit: 1, sortBy: sortBy}, function(data){
+            $scope.pager = pagerService.GetPager($scope.numberOfPages, page, limit);
+            bookService.getBookByGenre({genre: genre, start: $scope.pager.startIndex, limit: limit, sortBy: sortBy}, function(data){
                $scope.BooksByGenreList = data;
             });
 

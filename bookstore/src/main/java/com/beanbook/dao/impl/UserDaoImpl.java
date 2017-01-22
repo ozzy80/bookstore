@@ -31,11 +31,6 @@ public class UserDaoImpl implements UserDao {
 		session.saveOrUpdate(user.getShippingAddress());
 		session.saveOrUpdate(user);
 
-		Authority authority = new Authority();
-		authority.setAuthority("ROLE_USER");
-		authority.setUsername(user.getUsername());
-		session.saveOrUpdate(authority);
-
 		session.flush();
 	}
 

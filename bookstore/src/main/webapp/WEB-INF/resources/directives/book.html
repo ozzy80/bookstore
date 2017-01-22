@@ -2,7 +2,7 @@
 <div class="new-title info">
    <a href="/bookstore/books/{{bookObject.isbn}}">
       <span class="holder">
-         <img src="resources/images/{{bookObject.publisher.name}}/{{bookObject.title}}-{{bookObject.isbn}}.jpg" alt="" />
+         <img src="/bookstore/resources/images/{{bookObject.publisher.name}}/{{bookObject.title}}-{{bookObject.isbn}}.jpg" alt="" />
          <span class="book-name">{{bookObject.title}}</span>
          <span class="author" ng-repeat="author in bookObject.authorList">
             <span>{{author.firstName}} {{author.lastName}}</span>

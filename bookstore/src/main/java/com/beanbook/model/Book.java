@@ -21,8 +21,10 @@ import javax.persistence.Transient;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name = "knjiga")
@@ -79,7 +81,7 @@ public class Book implements Serializable {
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "knjiga_ima_autor", joinColumns = {
 			@JoinColumn(name = "ISBN") }, inverseJoinColumns = @JoinColumn(name = "ID_autora"))
-	@JsonManagedReference
+	@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="authorId" , scope = Book.class)
 	private Set<Author> authorList;
 
 	@ManyToMany(fetch = FetchType.EAGER)

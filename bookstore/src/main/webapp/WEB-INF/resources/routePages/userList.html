@@ -1,0 +1,61 @@
+   <div class="page-header">
+      <h1>Korisnici</h1>
+  </div>
+
+  <div class="form-group">
+    <label>Search</label>
+    <input type="text" ng-model="search" class="fomr-control" placeholder="Search">  
+  </div>
+  <div class="panel panel-default" ng-init="getUsers()">
+     <table class="table table-striped table-hover" >
+        <thead>
+           <tr>
+              <th ng-click="sort('username')">Korisnicko ime
+                <span class="glyphicon sort-icon" ng-show="sortKey=='username'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+              <th ng-click="sort('firstName')">Ime
+                <span class="glyphicon sort-icon" ng-show="sortKey=='firstName'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+              <th ng-click="sort('lastName')">Prezime
+                <span class="glyphicon sort-icon" ng-show="sortKey=='lastName'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+              <th ng-click="sort('enabled')">Banovani
+              <span class="glyphicon sort-icon" ng-show="sortKey=='enabled'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+           </tr>
+        </thead>
+        <tbody>
+           <tr dir-paginate="user in userData|itemsPerPage: 10|orderBy:sortKey:reverse|filter:search">
+             <td ng-mouseenter="options=true; checkRole(user)" ng-mouseleave="options=false">
+                <span class="glyphicon glyphicon-tower" ng-click="addRole(user)" ng-show="options && !admin"></span>
+                <span class="glyphicon glyphicon-user" ng-click="removeRole(user)" ng-show="options && admin"></span>
+                {{user.username}}
+             </td>
+             <td>{{user.firstName}}</td>
+             <td>{{user.lastName}}</td>
+             <td>
+                <span ng-click="banUser(user, !user.enabled)">
+                  <switch id="banValue" name="banValue" ng-model="!user.enabled" on="On" off="Off" class="red"></switch>
+                </span>
+                <br>
+             </td>
+           </tr>
+        </tbody>
+     </table>
+  </div>
+    <dir-pagination-controls
+       max-size="5"
+       direction-links="true"
+       boundary-links="true" >
+    </dir-pagination-controls>
+
+ <script type="text/javascript">
+   $('.adminRole').on('mouseover', function(event){
+    $(this).find('span').fadeIn();
+   });
+
+   $('.adminRole').on('mouseout', function(event){
+       $(this).find('span').stop().fadeOut();
+   });
+
+</script> 

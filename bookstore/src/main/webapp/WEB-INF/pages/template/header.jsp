@@ -15,6 +15,7 @@
   	<script type="text/javascript" src="<c:url value="/resources/js/lib/angular-resource.min.js" />"></script> 
 
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  	<script type="text/javascript" src="<c:url value="/resources/js/lib/dirPagination.js" />"></script> 
   	
   	<script type="text/javascript" src="<c:url value="/resources/js/app.js" />"></script>
   	<script type="text/javascript" src="<c:url value="/resources/js/service.js" />"></script>
@@ -79,50 +80,17 @@
 			                	ng-keyup="autocomplete(bookSearch)"/>
 	  		 	          		<ul class="list-group" ng-model="hidethis" ng-hide="hidethis">  
 		                        <li class="list-group-item"  
-		                        ng-repeat="book in ACBooks" ng-click="fillTextbox(book.title)">{{book.title}}</li>  
+										dir-paginate="book in ACBooks|itemsPerPage: 10"
+		                        ng-click="fillTextbox(book.title, book.isbn)">{{book.title}}</li>
+		                        <dir-pagination-controls
+									       max-size="5"
+									       direction-links="true"
+									       boundary-links="true" >
+									    </dir-pagination-controls>  
 	 				            </ul>  
 			                <div class="input-group-btn">
 			                    <div class="btn-group" role="group">
-			                        <div class="dropdown dropdown-lg">
-			                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
-			                            <div class="dropdown-menu dropdown-menu-right" role="menu">
-			                                <form class="form-horizontal" role="form">
-			                                  <div class="form-group">
-			                                    <label for="filter">Filter by</label>
-			                                    <select class="form-control">
-			                                        <option value="0" selected>All Snippets</option>
-			                                        <option value="1">Featured</option>
-			                                        <option value="2">Most popular</option>
-			                                        <option value="3">Top rated</option>
-			                                        <option value="4">Most commented</option>
-			                                    </select>
-			                                  </div>
-			                                  <div class="form-group pretraziKnjiguAutora">
-			                                  		<label for="filter">Pretrazi:</label>
-			                                  	    <div class="col-sm-2">
-															      <div class="checkbox">
-															        <label>
-															          <input type="checkbox"> Knjiga
-															        </label>
-															      </div>
-															    </div>
-															    <div class="col-sm-2">
-															      <div class="checkbox">
-															        <label>
-															          <input type="checkbox"> Autor
-															        </label>
-															      </div>
-															    </div>
-			                                  </div>
-			                                  <div class="form-group">
-			                                    <label for="contain">Contains the words</label>
-			                                    <input class="form-control" type="text" />
-			                                  </div>
-			                                  <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-			                                </form>
-			                            </div>
-			                        </div>
-			                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+			                        <button type="button" class="btn btn-primary" ng-click="goToBook()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 			                    </div>
 			                </div>
 			            </div>

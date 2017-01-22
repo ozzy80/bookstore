@@ -21,4 +21,6 @@ public interface BookDao {
 	List<Book> getBooksByGenre(String genre, int start, int limit, String sortBy);
 	
 	List<Book> getBooksByAuthor(Integer id); 
+	
+	Long getAviableBookNumber();
 }

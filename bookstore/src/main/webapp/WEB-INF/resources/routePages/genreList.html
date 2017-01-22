@@ -1,0 +1,36 @@
+   <div class="page-header">
+      <h1>Izdavači <a href="#zanrovi/dodaj" class="btn btn-lg btn-success pull-right"><span class="glyphicon glyphicon-plus"></span> Dodaj žanr</a></h1>
+  </div>
+
+
+  <div class="form-group">
+    <label>Search</label>
+    <input type="text" ng-model="search" class="fomr-control" placeholder="Search">  
+  </div>
+  <div class="panel panel-default" ng-init="getGenres()">
+     <table class="table table-striped table-hover" >
+        <thead>
+           <tr>
+              <th ng-click="sort('genreName')">Naziv
+                <span class="glyphicon sort-icon" ng-show="sortKey=='genreName'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+              <th>Akcija</th>
+           </tr>
+        </thead>
+        <tbody>
+           <tr dir-paginate="genre in genreData|itemsPerPage: 10|orderBy:sortKey:reverse|filter:search">
+             <td>{{genre.genreName}}</td>
+             <td>
+               <a href="#/zanrovi/izmeni/{{genre.genreID}}" type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span> Izmeni</a>
+               <button type="button" class="btn btn-danger btn-xs" ng-click="deleteGenre(genre)"><i class="fa fa-trash"></i> Obriši</button>
+             </td>
+           </tr>
+        </tbody>
+     </table>
+
+  </div>
+    <dir-pagination-controls
+       max-size="5"
+       direction-links="true"
+       boundary-links="true" >
+    </dir-pagination-controls>

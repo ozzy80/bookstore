@@ -105,7 +105,7 @@ textarea { overflow: auto; }
     }
 }
 .list-group{
-  z-index: 9999; position: absolute; padding-top: 33px;
+  z-index: 9999; position: absolute; margin-top: 33px;
 }
 
 
@@ -221,12 +221,6 @@ textarea { overflow: auto; }
   cursor: default;
 }
 
-
-
-
-
-
-
 #slika{
 	margin-left:-10px;	
 	display: block;
@@ -334,8 +328,6 @@ textarea { overflow: auto; }
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
-
-
 
 .podaciOKnjizi
 {
@@ -610,8 +602,8 @@ textarea { overflow: auto; }
 .registerlinkpocetna
 {
 	float:right;
-	position: relative;
-	left:-105px;
+	position:relative;
+	left: 52px;
 }
 
 .registerlinkpomoc
@@ -637,7 +629,6 @@ textarea { overflow: auto; }
 	top:140px;
 	width: 445px;
 	margin-bottom:5px;
-	
 }
 
 .registerlinija

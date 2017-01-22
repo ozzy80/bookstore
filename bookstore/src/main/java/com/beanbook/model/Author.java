@@ -17,6 +17,9 @@ import javax.persistence.Transient;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name = "autor")
@@ -42,7 +45,7 @@ public class Author {
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "knjiga_ima_autor", joinColumns = {
 			@JoinColumn(name = "ID_autora") }, inverseJoinColumns = @JoinColumn(name = "ISBN"))
-	@JsonBackReference
+	@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="isbn", scope = Author.class)
 	private Set<Book> bookList;
 
 	public Set<Book> getBookList() {

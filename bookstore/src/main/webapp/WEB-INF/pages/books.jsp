@@ -39,7 +39,7 @@
              </div>  
          <div class="c2">&nbsp;</div>
 
-
+            <!-- Pagination -->
            <div class="container col-lg-12">
                 <div class="text-center">
                     <!-- pager -->
@@ -62,7 +62,7 @@
                     </ul>
                 </div>
             </div>
-
+            <!-- End Pagination -->
       </div>
       <!-- End Content -->
       <div class="cl">&nbsp;</div>

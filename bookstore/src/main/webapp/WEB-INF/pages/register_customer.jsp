@@ -14,6 +14,7 @@
   	<script type="text/javascript" src="<c:url value="/resources/js/app.js" />"></script>
   	<script type="text/javascript" src="<c:url value="/resources/js/controller/registerValidationController.js" />"></script>
   	<script type="text/javascript" src="<c:url value="/resources/js/service.js" />"></script>
+  	<script type="text/javascript" src="<c:url value="/resources/js/lib/dirPagination.js" />"></script> 
   	
   	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
   	

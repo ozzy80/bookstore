@@ -1,0 +1,70 @@
+ <div class="page-header">
+    <h1>Autor</h1>
+</div>
+
+<div>
+<div class="col-xs-12 col-sm-12">
+    <form name="authorForm" ng-submit="addAuthor()">
+    <div class="form-group">
+        <div class="col-xs-2 text-left">
+          <label for="ime">Ime</label>
+        </div>
+        <div class="col-xs-10">
+            <input type="text" class="form-control" placeholder="Ime autora" id="ime" ng-model="author.firstName" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-2 text-left">
+          <label for="prezime">Prezime</label>
+        </div>
+        <div class="col-xs-10">
+            <input type="text" class="form-control" placeholder="Prezime autora" id="prezime" ng-model="author.lastName"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-xs-2 text-left">
+          <label for="opis">Opis: </label>
+        </div>
+        <div class="col-xs-10">
+            <textarea class="form-control" rows="3" placeholder="Opis autora" id="cpDesc" ng-model="author.description"></textarea>
+        </div>
+    <div>
+    <div class="form-group">
+        <div class="col-xs-2 text-left">
+          <label for="opis">Knjige: </label>
+        </div>
+        <div class="col-xs-10">
+            <ul>
+              <li>
+                
+                
+              </li>
+
+            </ul>
+        </div>
+    <div>
+    <div class="form-group">
+      <div class="col-xs-2 text-left">
+          <label for="opis">Slika: </label>
+      </div>
+      <div class="col-xs-10">
+         <input type="file" ngf-select ng-model="picFile" name="file"    
+                accept="image/*" ngf-max-size="2MB" 
+                ngf-model-invalid="errorFile">
+         <i ng-show="myForm.file.$error.maxSize">File too large 
+             {{errorFile.size / 1000000|number:1}}MB: max 2M</i>
+         <img ng-show="myForm.file.$valid" ngf-thumbnail="picFile" class="thumb"> <button ng-click="picFile = null" ng-show="picFile">Remove</button>
+         <!-- <br>
+         <button ng-disabled="!myForm.$valid" 
+                 ng-click="uploadPic(picFile)">Dodaj sliku</button>
+         <span class="progress" ng-show="picFile.progress >= 0">
+           <div style="width:{{picFile.progress}}%" 
+               ng-bind="picFile.progress + '%'"></div>
+         </span> -->
+         <span ng-show="picFile.result">Slika uspesno dodana</span>
+      </div>
+      <input type="submit" value="submit" class="btn btn-default">
+    </div>
+    </form>
+</div>
+</div>

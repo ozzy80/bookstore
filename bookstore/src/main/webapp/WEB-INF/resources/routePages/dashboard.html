@@ -1,0 +1,75 @@
+   <div class="page-header">
+      <h1>Prečice</h1>
+    </div>
+
+<div class="row">
+   <div class="col-md-4">
+      <div class="panel panel-yellow">
+          <div class="panel-heading" ng-init="getOrdersNumber()">
+              <div class="row">
+                  <div class="col-xs-3">
+                      <i class="fa fa-shopping-cart fa-5x"></i>
+                  </div>
+                  <div class="col-xs-9 text-right">
+                      <div class="huge">{{cartData.length || 0}}</div>
+                      <div>Nove Narudžbine</div>
+                  </div>
+              </div>
+          </div>
+          <a href="#">
+              <div class="panel-footer">
+                  <span class="pull-left">Pogledaj detaljnije</span>
+                  <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                  <div class="clearfix"></div>
+              </div>
+          </a>
+      </div>
+  </div>
+   <div class="col-md-4">
+      <div class="panel panel-green">
+          <div class="panel-heading" ng-init="getBooksNumber()">
+              <div class="row">
+                  <div class="col-xs-3">
+                      <i class="fa fa-tasks fa-5x"></i>
+                  </div>
+                  <div class="col-xs-9 text-right">
+                      <div class="huge">{{bookNumber.number || 0}}</div>
+                      <div>Dostupnih Knjiga</div>
+                  </div>
+              </div>
+          </div>
+          <a href="#/knjige">
+              <div class="panel-footer">
+                  <span class="pull-left">Pogledaj listu svih knjiga</span>
+                  <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                  <div class="clearfix"></div>
+              </div>
+          </a>
+      </div>
+  </div>
+   <div class="col-md-4">
+      <div class="panel panel-primary">
+          <div class="panel-heading">
+              <div class="row">
+                  <div class="col-xs-3">
+                      <i class="fa fa-file-text-o fa-5x"></i>
+                  </div>
+                  <div class="col-xs-9 text-right">
+                      <div class="huge">26</div>
+                      <div>Dodaj Vest</div>
+                  </div>
+              </div>
+          </div>
+          <a href="#">
+              <div class="panel-footer">
+                  <span class="pull-left">Pogledaj detaljnije</span>
+                  <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                  <div class="clearfix"></div>
+              </div>
+          </a>
+      </div>
+  </div>                 
+</div>

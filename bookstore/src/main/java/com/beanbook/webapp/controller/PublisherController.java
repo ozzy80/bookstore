@@ -3,12 +3,16 @@ package com.beanbook.webapp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.beanbook.model.Publisher;
 import com.beanbook.service.PublisherManager;
@@ -19,49 +23,39 @@ public class PublisherController {
 	@Autowired
 	private PublisherManager publisherManager;
 
-	@RequestMapping(value = "/publishers")
-	public String getAllPublishers(Model model) {
+	@RequestMapping(value = "/admin/publishers", method=RequestMethod.GET)
+	public @ResponseBody List<Publisher> getAllPublishers() {
 		List<Publisher> publisherList = publisherManager.getAllPublishers();
-		model.addAttribute("publishers", publisherList);
-		return "all_publishers";
+		return publisherList;
 	}
 
-	@RequestMapping(value = "/publishers/update/{publisherID}")
-	public String updatePublisher(Model model, @PathVariable("publisherID") Integer publisherID) {
-		Publisher publisher = publisherManager.getPublisherByID(publisherID);
-		model.addAttribute("publisher", publisher);
-		return "update_publisher";
-	}
-
-	@RequestMapping(value = "/publishers/update", method = RequestMethod.POST)
-	public String updatePublisher(@ModelAttribute("publisher") Publisher publisher) {
+	@RequestMapping(value = "/admin/publishers", method=RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.NO_CONTENT)
+	public void addPublisher(@RequestBody Publisher publisher) {
 		publisherManager.savePublisher(publisher);
-		return "redirect:/publishers";
 	}
-
-	@RequestMapping(value = "/publishers/add")
-	public String addPublisher(Model model) {
-		model.addAttribute("publisher", new Publisher());
-		return "add_publisher";
-	}
-
-	@RequestMapping(value = "/publishers/add", method = RequestMethod.POST)
-	public String addPublisher(@ModelAttribute("publisher") Publisher publisher) {
+	
+	@RequestMapping(value = "/admin/publishers/{id}", method=RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.NO_CONTENT)
+	public void updatePublisher(@RequestBody Publisher publisher) {
 		publisherManager.savePublisher(publisher);
-		return "redirect:/publishers";
+	}
+	
+	@RequestMapping(value = "/admin/publishers/{id}", method=RequestMethod.GET)
+	public @ResponseBody Publisher getPublisher(@PathVariable("id") Integer id) {
+		return publisherManager.getPublisherByID(id);
 	}
 
-	@RequestMapping(value = "/publishers/del/{idPublishera}")
-	public String deletePublisher(@PathVariable("idPublishera") Integer id_publishera) {
-		publisherManager.deletePublisher(id_publishera);
-		return "redirect:/publishers";
+	@RequestMapping(value = "/admin/publishers/{id}", method = RequestMethod.DELETE)
+	@ResponseStatus(value = HttpStatus.NO_CONTENT)
+	public void deletePublisher(@PathVariable("id") Integer id) {
+		publisherManager.deletePublisher(id);
 	}
 
-	@RequestMapping(value = "/publishers/{idPublishera}")
-	public String getPublisherByID(Model model, @PathVariable("idPublishera") Integer id_publishera) {
-		Publisher publisher = publisherManager.getPublisherByID(id_publishera);
-		model.addAttribute("publisher", publisher);
-		return "index6";
+	@RequestMapping(value = "/publishers/{id}", method = RequestMethod.GET)
+	public @ResponseBody Publisher getPublisherByID(@PathVariable("id") Integer id) {
+		Publisher publisher = publisherManager.getPublisherByID(id);
+		return publisher;
 	}
 
 }

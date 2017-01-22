@@ -1,0 +1,48 @@
+   <div class="page-header">
+      <h1>Izdavači <a href="#izdavaci/dodaj" class="btn btn-lg btn-success pull-right"><span class="glyphicon glyphicon-plus"></span> Dodaj izdavača</a></h1>
+  </div>
+
+
+  <div class="form-group">
+    <label>Search</label>
+    <input type="text" ng-model="search" class="fomr-control" placeholder="Search">  
+  </div>
+  <div class="panel panel-default" ng-init="getPublishers()">
+     <table class="table table-striped table-hover" >
+        <thead>
+           <tr>
+              <th ng-click="sort('name')">Ime
+                <span class="glyphicon sort-icon" ng-show="sortKey=='name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+              <th ng-click="sort('adress')">Prezime
+                <span class="glyphicon sort-icon" ng-show="sortKey=='adress'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+              <th ng-click="sort('city')">Grad
+                <span class="glyphicon sort-icon" ng-show="sortKey=='city'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+              <th ng-click="sort('state')">Drzava
+                <span class="glyphicon sort-icon" ng-show="sortKey=='state'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+              <th>Akcija</th>
+           </tr>
+        </thead>
+        <tbody>
+           <tr dir-paginate="publisher in publisherData|itemsPerPage: 10|orderBy:sortKey:reverse|filter:search">
+             <td>{{publisher.name}}</td>
+             <td>{{publisher.adress}}</td>
+             <td>{{publisher.city}}</td>
+             <td>{{publisher.state}}</td>
+             <td>
+               <a href="#/izdavaci/izmeni/{{publisher.id}}" type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span> Izmeni</a>
+               <button type="button" class="btn btn-danger btn-xs" ng-click="deletePublisher(publisher)"><i class="fa fa-trash"></i> Obriši</button>
+             </td>
+           </tr>
+        </tbody>
+     </table>
+
+  </div>
+    <dir-pagination-controls
+       max-size="5"
+       direction-links="true"
+       boundary-links="true" >
+    </dir-pagination-controls>

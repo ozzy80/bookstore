@@ -34,5 +34,4 @@ public class UserManagerImpl implements UserManager {
 	public User getUserByUsername(String username) {
 		return userDao.getUserByUsername(username);
 	}
-
 }

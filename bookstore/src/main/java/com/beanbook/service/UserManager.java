@@ -13,5 +13,4 @@ public interface UserManager {
 	List<User> getAllUser();
 
 	User getUserByUsername(String username);
-
 }

@@ -1,4 +1,4 @@
-var bookApp = angular.module('bookApp', ['ngResource']);
+var bookApp = angular.module('bookApp', ['ngResource', 'angularUtils.directives.dirPagination']);
 
 //Filteri
 bookApp.filter('joinBy', function () {

@@ -3,12 +3,16 @@ package com.beanbook.webapp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.beanbook.model.Letter;
 import com.beanbook.service.LetterManager;
@@ -19,49 +23,26 @@ public class LetterController {
 	@Autowired
 	private LetterManager letterManager;
 
-	@RequestMapping(value = "/letters")
-	public String getAllLetters(Model model) {
-		List<Letter> letterList = letterManager.getAllLetters();
-		model.addAttribute("letters", letterList);
-		return "all_letters";
+	@RequestMapping(value = "/admin/letters", method = RequestMethod.GET)
+	public @ResponseBody List<Letter> getAllLetters() {
+		return letterManager.getAllLetters();
 	}
 
-	@RequestMapping(value = "/letters/update/{letterID}")
-	public String updateLetter(Model model, @PathVariable("letterID") Integer letterID) {
-		Letter letter = letterManager.getLetterByID(letterID);
-		model.addAttribute("letter", letter);
-		return "update_letter";
-	}
-
-	@RequestMapping(value = "/letters/update", method = RequestMethod.POST)
-	public String updateLetter(@ModelAttribute("letter") Letter letter) {
+	@RequestMapping(value = "/admin/letters", method=RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.NO_CONTENT)
+	public void addLetter(@RequestBody Letter letter) {
 		letterManager.saveLetter(letter);
-		return "redirect:/letters";
 	}
 
-	@RequestMapping(value = "/letters/add")
-	public String addLetter(Model model) {
-		model.addAttribute("letter", new Letter());
-		return "add_letter";
+	@RequestMapping(value = "/admin/letters/{id}", method = RequestMethod.GET)
+	public @ResponseBody Letter getLetter(@PathVariable("id") Integer id) {
+		return letterManager.getLetterByID(id);
 	}
 
-	@RequestMapping(value = "/letters/add", method = RequestMethod.POST)
-	public String addLetter(@ModelAttribute("letter") Letter letter) {
-		letterManager.saveLetter(letter);
-		return "redirect:/letters";
-	}
-
-	@RequestMapping(value = "/letters/del/{idPisma}")
-	public String deleteLetter(@PathVariable("idPisma") Integer id_pisma) {
-		letterManager.deleteLetter(id_pisma);
-		return "redirect:/letters";
-	}
-
-	@RequestMapping(value = "/letters/{idPisma}")
-	public String getLetterByID(Model model, @PathVariable("idPisma") Integer id_letter) {
-		Letter letter = letterManager.getLetterByID(id_letter);
-		model.addAttribute("letter", letter);
-		return "index5";
+	@RequestMapping(value = "/admin/letters/{id}", method = RequestMethod.DELETE)
+	@ResponseStatus(value = HttpStatus.NO_CONTENT)
+	public void deleteLetter(@PathVariable("id") Integer id) {
+		letterManager.deleteLetter(id);
 	}
 
 }

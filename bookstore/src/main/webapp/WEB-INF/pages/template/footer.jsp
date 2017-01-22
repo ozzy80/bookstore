@@ -37,7 +37,15 @@
 	</div>
 	<!-- End Footer -->
 	
-  	<script type="text/javascript" src="<c:url value="resources/js/lib/bootstrap.min.js" />"></script> 
-  	<script type="text/javascript" src="<c:url value="resources/js/lib/bootstrap-select.js" />"></script> 
+  	<script type="text/javascript" src="<c:url value="/resources/js/lib/bootstrap.min.js" />"></script> 
+  	<script type="text/javascript" src="<c:url value="/resources/js/lib/bootstrap-select.js" />"></script> 
+  	<script type="text/javascript">
+  		$(document).ready(function() {
+  			$('#navigation a').removeClass('active');
+			// get current URL path and assign 'active' class
+			var pathname = window.location.pathname;
+			$('#navigation > ul > li > a[href="'+pathname+'"]').addClass('active');
+		})
+  	</script>
 </body>
 </html>

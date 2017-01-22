@@ -5,7 +5,7 @@
          alt="slika knjige"  class="col-xs-5  "/>
    </a>
 	<div class="col-xs-5">
-		<a href="/bookstore/books/{{bookObject.isbn}}" class="book-name">{{bookObject.title}}</a><br />
+		<a href="/bookstore/books/{{bookObject.isbn}}" class="book-name">{{bookObject.title}}</a>
       <ul ng-repeat="author in bookObject.authorList">
 		    <li><a href="/bookstore/authors/{{author.authorId}}" class="author">{{author.firstName}} {{author.lastName}}</a></li>
       </ul>

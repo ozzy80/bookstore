@@ -57,4 +57,9 @@ public class BookManagerImpl implements BookManager {
 	{
 		return bookDao.getBooksByAuthor(id);
 	}
+
+	@Override
+	public Long getAviableBookNumber() {
+		return bookDao.getAviableBookNumber();
+	}
 }

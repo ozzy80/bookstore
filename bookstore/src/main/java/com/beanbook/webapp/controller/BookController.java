@@ -1,6 +1,8 @@
 package com.beanbook.webapp.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -148,4 +150,10 @@ public class BookController {
 		return bookManager.getBooksByGenre(genre, start, limit, sortBy);
 	}
 	
+	@RequestMapping(value = "admin/books/booknumber", method = RequestMethod.GET)
+	public @ResponseBody Map<String, Long> getAviableBookNumber(){
+		Map<String, Long> number = new HashMap<>();
+		number.put("number", bookManager.getAviableBookNumber());
+		return number;
+	}
 }

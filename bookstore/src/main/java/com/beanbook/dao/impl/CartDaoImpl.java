@@ -1,5 +1,7 @@
 package com.beanbook.dao.impl;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.hibernate.Query;
@@ -42,6 +44,17 @@ public class CartDaoImpl implements CartDao {
 		query.setParameter(1, Status.STARTED);
 		Cart cart = (Cart) query.uniqueResult();
 		session.flush();
+		return cart;
+	}
+
+	@Override
+	public List<Cart> getAllActiveCarts() {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from Cart where status = :status");
+		query.setParameter("status", Status.STARTED);
+		List<Cart> cart = query.list();
+		session.flush();
+		
 		return cart;
 	}
 

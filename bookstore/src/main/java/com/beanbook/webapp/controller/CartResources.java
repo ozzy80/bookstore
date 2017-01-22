@@ -3,7 +3,9 @@ package com.beanbook.webapp.controller;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,7 +30,6 @@ import com.beanbook.service.CartManager;
 import com.beanbook.service.UserManager;
 
 @Controller
-@RequestMapping("/rest/cart")
 public class CartResources {
 
 	@Autowired
@@ -43,12 +44,12 @@ public class CartResources {
 	@Autowired
 	private CartItemManager cartItemManager;
 
-	@RequestMapping(value = "/{cartId}", method = RequestMethod.GET)
+	@RequestMapping(value = "/rest/cart/{cartId}", method = RequestMethod.GET)
 	public @ResponseBody Cart getCartById(@PathVariable("cartId") Integer cartId) {
 		return cartManager.getCartById(cartId);
 	}
 
-	@RequestMapping(value = "/{isbn}", method = RequestMethod.POST)
+	@RequestMapping(value = "/rest/cart/{isbn}", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	public @ResponseBody void addItem(@PathVariable("isbn") Long isbn, @AuthenticationPrincipal User activeUser) {
 
@@ -91,21 +92,28 @@ public class CartResources {
 		cartItemManager.addCartItem(cartItem);
 	}
 
-	@RequestMapping(value = "/remove/{isbn}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/rest/cart/remove/{isbn}", method = RequestMethod.DELETE)
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	public void removeItem(@PathVariable("isbn") Long isbn) {
 		CartItem cartItem = cartItemManager.getCartItemByISBN(isbn);
 		cartItemManager.removeCartItem(cartItem);
 	}
 
-	@RequestMapping(value = "/{cartId}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/rest/cart/{cartId}", method = RequestMethod.DELETE)
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	public void clearCart(@PathVariable("cartId") Integer cartId) {
 		Cart cart = cartManager.getCartById(cartId);
 		cartItemManager.removeAllCartItem(cart);
 	}
 
-	@ExceptionHandler(IllegalArgumentException.class)
+	//ADMIN
+	@RequestMapping(value = "admin/cartnumber", method = RequestMethod.GET)
+	public @ResponseBody List<Cart> getAllActiveCarts() {
+		return cartManager.getAllActiveCarts();
+	}
+	
+	
+/*	@ExceptionHandler(IllegalArgumentException.class)
 	@ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "Ilegal request, please verify your payload")
 	public void handleClientError(Exception e) {
 	}
@@ -113,5 +121,5 @@ public class CartResources {
 	@ExceptionHandler(Exception.class)
 	@ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR, reason = "Internal Server error")
 	public void handleServerError(Exception e) {
-	}
+	}*/
 }

@@ -1,5 +1,7 @@
 package com.beanbook.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +29,11 @@ public class CartManagerImpl implements CartManager {
 	@Override
 	public Cart getActiveUserCart(User user) {
 		return cartDao.getActiveUserCart(user);
+	}
+
+	@Override
+	public List<Cart> getAllActiveCarts() {
+		return cartDao.getAllActiveCarts();
 	}
 
 }
