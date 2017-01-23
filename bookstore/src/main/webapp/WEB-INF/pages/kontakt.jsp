@@ -1,28 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ page pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@include file="/WEB-INF/pages/template/header.jsp" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />" type="text/css" />	
-	<link rel="stylesheet" href="<c:url value="/resources/css/style.css" />" type="text/css" media="all" />	
-  	<script type="text/javascript" src="<c:url value="/resources/js/lib/angular.min.js" />"></script>
-  	<script type="text/javascript" src="<c:url value="/resources/js/lib/angular-resource.min.js" />"></script>
-  	<script type="text/javascript" src="<c:url value="/resources/js/app.js" />"></script>
-  	<script type="text/javascript" src="<c:url value="/resources/js/controller/cartController.js" />"></script>
-<title>Kontakt</title>
-</head>
-<body>
-	<br/><br/>
+<div id="main" class="shell row">
 	<div class="container-wrapper3">
 		<div class="container">
 			<div >
-				<div class="loginlinkovi">
-					<a href="/bookstore" class="pomoclinkpocetna" style="font-size:13px;">Vrati se na početnu</a>
-				</div>
 				<div id="loginlogo"><h1><a href="<c:url value="/" />">BeanBook</a></h1></div>
 				<br/><br/><br/><br/>
 				<h3>Kontakt</h3>
@@ -38,7 +19,7 @@
 				11000 Beograd<br/>
 				Tel: 011/71-55-055<br/>
 				Fax: 011/71-55-085<br/>
-				e-mail: info@laguna.rs<br/>
+				e-mail: info@beanbook.rs<br/>
 				radno vreme: radnim danima 9-17h<br/>
 				
 				</div>
@@ -59,7 +40,7 @@
 					
 				<b>Klub čitalaca</b> <br/><br/>
 				Tel: 011/3341-711 <br/>
-				e-mail: klub@laguna.rs <br/>
+				e-mail: klub@beanbook.rs <br/>
 				radno vreme: radnim danima 9-20h, subotom 9-15h <br/>
 				
 				</div>
@@ -73,8 +54,8 @@
 					Poreski broj: 102016688<br/>
 					Adresa: Bulevar Kralja Aleksandra 62<br/>
 					Kontakt telefon: 011/71-55-055<br/>
-					Kontakt e-mail: info@laguna.rs<br/>
-					Web adresa: http://www.laguna.rs<br/>
+					Kontakt e-mail: info@beanbook.rs<br/>
+					Web adresa: http://www.beanbook.rs<br/>
 					
 				
 				</div>
@@ -82,6 +63,6 @@
 			</div>
 		</div>		
 	</div>
+</div>
 
-
-</body>
+<%@include file="/WEB-INF/pages/template/footer.jsp" %>	

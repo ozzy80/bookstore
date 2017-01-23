@@ -1,28 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ page pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@include file="/WEB-INF/pages/template/header.jsp" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />" type="text/css" />	
-	<link rel="stylesheet" href="<c:url value="/resources/css/style.css" />" type="text/css" media="all" />	
-  	<script type="text/javascript" src="<c:url value="/resources/js/lib/angular.min.js" />"></script>
-  	<script type="text/javascript" src="<c:url value="/resources/js/lib/angular-resource.min.js" />"></script>
-  	<script type="text/javascript" src="<c:url value="/resources/js/app.js" />"></script>
-  	<script type="text/javascript" src="<c:url value="/resources/js/controller/cartController.js" />"></script>
-<title>Pomoć</title>
-</head>
-<body>
-	<br/><br/>
+<div id="main" class="shell row">
 	<div class="container-wrapper5">
 		<div class="container">
 			<div >
-				<div class="loginlinkovi">
-					<a href="/bookstore" class="pomoclinkpocetna">Vrati se na početnu</a>
-				</div>
 				<div id="loginlogo"><h1><a href="<c:url value="/" />">BeanBook</a></h1></div>
 				<h2>Pomoc</h2>
 				
@@ -68,6 +49,6 @@
 			</div>
 		</div>		
 	</div>
+</div>
 
-
-</body>
+<%@include file="/WEB-INF/pages/template/footer.jsp" %>	

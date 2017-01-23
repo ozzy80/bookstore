@@ -79,12 +79,12 @@
 							Korisničko ime mora sadržati bar 3 karaktera!
 						</p>
 						<p  ng-show="registerForm.username.$error.maxlength" class="registracijagreska help-block">
-							Korisničko ime može sadržati najviše 8 karaktera!
+							Korisničko ime može sadržati najviše 15 karaktera!
 						</p>
 					
 					</div>
 					<label for="username" class="registerlabel">Korisničko ime:</label>
-					<input type="text" name="username" ng-model="user.username" id="username" class="form-control inputregister" ng-minlength="3" ng-maxlength="8"/>
+					<input type="text" name="username" ng-model="user.username" id="username" class="form-control inputregister" ng-minlength="3" ng-maxlength="15"/>
 					
 				</div>
 				<br/><br/>

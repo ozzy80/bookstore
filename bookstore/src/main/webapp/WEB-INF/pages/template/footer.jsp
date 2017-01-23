@@ -16,19 +16,18 @@
 					<div class="store col-sm-3">
 						<h4>Store</h4>
 						<ul>
-							<li><a href="#">Home</a></li>
-							<li><a href="#">Special Offers</a></li>
-							<li><a href="#">Log In</a></li>
+							<li><a href="#">Naslovna</a></li>
+							<li><a href="<c:url value="/login" />">Logovanje</a></li>
 							<li><a href="#">Account</a></li>
-							<li><a href="#">Basket</a></li>
-							<li><a href="#">Checkout</a></li>
+							<li><a href="<c:url value="/customer/cart" />">Korpa</a></li>
+							<li><a href="<c:url value="/j_spring_security_logout"/>">Checkout</a></li>
 						</ul>
 					</div>
 					<div class="col-sm-4" id="newsletter">
-						<h4>Newsletter</h4>
-						<p>Lorem ipsum dolor sit amet  consectetur. </p>
+						<h4>Novosti</h4>
+						<p>Prijavite se ukoliko zelite da dobijate novosti. </p>
 						<form action="" method="post">
-							<input type="text" class="field" value="Your Name" title="Your Name" />
+							<input type="text" class="field" value="Ime" title="Your Name" />
 							<input type="text" class="field" value="Email" title="Email" />
 							<div class="form-buttons"><input type="submit" value="Submit" class="submit-btn" /></div>
 						</form>

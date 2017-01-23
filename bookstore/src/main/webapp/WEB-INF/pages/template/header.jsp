@@ -9,15 +9,14 @@
 	<link rel="shortcut icon" href="<c:url value="/resources/css/images/favicon.ico" />" />
 	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />" type="text/css" />	
 	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap-select.min.css" />" type="text/css" />
-	<link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />" type="text/css" />		
+	<link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />" type="text/css" />
 	<link rel="stylesheet" href="<c:url value="/resources/css/style.css" />" type="text/css" media="all" />
+
 	<script type="text/javascript" src="<c:url value="/resources/js/lib/jquery-3.1.1.min.js" />"></script> 	
   	<script type="text/javascript" src="<c:url value="/resources/js/lib/angular.min.js" />"></script>
   	<script type="text/javascript" src="<c:url value="/resources/js/lib/angular-resource.min.js" />"></script> 
-
-  	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  	<script type="text/javascript" src="<c:url value="/resources/js/lib/underscore-min.js" />"></script>
   	<script type="text/javascript" src="<c:url value="/resources/js/lib/dirPagination.js" />"></script> 
-  	
   	<script type="text/javascript" src="<c:url value="/resources/js/app.js" />"></script>
   	<script type="text/javascript" src="<c:url value="/resources/js/service.js" />"></script>
   	<script type="text/javascript" src="<c:url value="/resources/js/controller/cartController.js" />"></script>
@@ -55,7 +54,7 @@
 						<a href="#" id="user"><c:out value="${pageContext.request.userPrincipal.name}" /></a> | 
 						<a href="<c:url value="/j_spring_security_logout"/>">Log out</a>
 					</p>
-					<p><a href="<c:url value="/customer/cart" />" class="cart" ><img src="/bookstore/resources/css/images/cart-icon.png" alt="" /></a>Shopping Cart (0) <a href="#" class="sum">$0.00</a></p>
+					<p><a href="<c:url value="/customer/cart" />" class="cart" ><img src="/bookstore/resources/css/images/cart-icon.png" alt="" /></a>Shopping Cart (0)</p>
 				</div>			
 			 </c:when>
 			 <c:otherwise>
@@ -63,7 +62,7 @@
 					<p><a href="<c:url value="/login" />">Logovanje</a> | 
 					   <a href="<c:url value="/register"/>">Registracija</a>
 					</p>
-					<p><a href="<c:url value="/customer/cart" />" class="cart" ><img src="/bookstore/resources/css/images/cart-icon.png" alt="" /></a>Shopping Cart (0) <a href="#" class="sum">$0.00</a></p>
+					<p><a href="<c:url value="/customer/cart" />" class="cart" ><img src="/bookstore/resources/css/images/cart-icon.png" alt="" /></a>Shopping Cart (0)</p>
 				</div>					 
 			 </c:otherwise>
 		  </c:choose>

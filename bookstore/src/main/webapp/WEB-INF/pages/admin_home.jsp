@@ -24,11 +24,10 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/angular-ui-switch.min.css" />" type="text/css" />
     <link rel="stylesheet" href="<c:url value="/resources/css/admin-style.css" />" type="text/css" />
 
-   <script type="text/javascript" src="<c:url value="https://code.angularjs.org/1.3.0-rc.1/angular.min.js" />"></script> 
-   <script type="text/javascript" src="<c:url value="https://code.angularjs.org/1.3.0-rc.1/angular-route.min.js" />"></script>
-   <script type="text/javascript" src="<c:url value="https://code.angularjs.org/1.3.0-rc.1/angular-resource.min.js" />"></script> 
-
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+   <script type="text/javascript" src="<c:url value="/resources/js/lib/old/angular.min.js" />"></script> 
+   <script type="text/javascript" src="<c:url value="/resources/js/lib/old/angular-route.min.js" />"></script>
+   <script type="text/javascript" src="<c:url value="/resources/js/lib/old/angular-resource.min.js" />"></script> 
+   <script type="text/javascript" src="<c:url value="/resources/js/lib/underscore-min.js" />"></script>
 
    <script type="text/javascript" src="<c:url value="/resources/js/adminApp.js" />"></script>
    <script type="text/javascript" src="<c:url value="/resources/js/adminService.js" />"></script>
@@ -209,7 +208,7 @@
 
 <script type="text/javascript" src="<c:url value="/resources/js/lib/angular-ui-switch.min.js" />"></script> 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/lib/old/highlight.min.js" />"></script>
 
 </body>
 </html>
