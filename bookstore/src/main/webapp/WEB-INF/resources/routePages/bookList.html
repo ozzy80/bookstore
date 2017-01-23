@@ -1,63 +1,47 @@
-            <div class="panel panel-default">
-               <table class="table table-striped table-hover">
-                  <thead>
-                     <tr>
-                        <th>ISBN</th>
-                        <th>Naziv</th>
-                        <th>Autori</th>
-                        <th>Dostupno</th>
-                        <th>Akce</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr>
-                       <td>1.1.2014</td>
-                       <td>První aktualita na světě</td>
-                       <td>
-                         <button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span> Izmeni</button>
-                         <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Obriši</button>
-                       </td>
-                     </tr>
-                        <tr>
-                       <td>1.1.2014</td>
-                       <td>Duis nec consectetur mi</td>
-                       <td>
-                         <button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span> Izmeni</button>
-                         <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Obriši</button>
-                       </td>
-                     </tr>
-                                 <tr>
-                       <td>1.1.2014</td>
-                       <td>Quisque id mi sit amet dui convallis</td>
-                       <td>
-                         <button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span> Izmeni</button>
-                         <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Obriši</button>
-                       </td>
-                     </tr>
-                                 <tr>
-                       <td>1.1.2014</td>
-                       <td>Praesent in nulla vitae mi cursus iaculis</td>
-                       <td>
-                         <button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span> Izmeni</button>
-                         <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Obriši</button>
-                       </td>
-                     </tr>
-                                 <tr>
-                       <td>1.1.2014</td>
-                       <td>Duis cursus, orci ut tristique faucibus</td>
-                       <td>
-                         <button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span> Izmeni</button>
-                         <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Obriši</button>
-                       </td>
-                     </tr>
-                     <tr>
-                       <td>1.1.2014</td>
-                       <td>Morbi ut hendrerit leo</td>
-                       <td>
-                         <button type="button" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span> Izmeni</button>
-                         <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Obriši</button>
-                       </td>
-                     </tr>
-                  </tbody>
-               </table>
-            </div>
+   <div class="page-header">
+      <h1>Knjige <a href="#/knjige/dodaj/" class="btn btn-lg btn-success pull-right"><span class="glyphicon glyphicon-plus"></span> Dodaj knjigu</a></h1>
+  </div>            
+
+   <div class="form-group">
+    <label>Search</label>
+    <input type="text" ng-model="search" class="fomr-control" placeholder="Search">  
+  </div>
+  <div class="panel panel-default" ng-init="getBooks()">
+     <table class="table table-striped table-hover">
+        <thead>
+           <tr>
+              <th>ISBN</th>
+              <th>Naziv</th>
+              <th>Autori</th>
+              <th>Zanr</th>
+              <th>Dostupno</th>
+              <th>Cena</th>
+              <th>Na popustu</th>
+              <th>Izdavac</th>
+              <th>Akcija</th>
+           </tr>
+        </thead>
+        <tbody>
+          <tr dir-paginate="book in booksData|itemsPerPage: 10|orderBy:sortKey:reverse|filter:search">
+             <td>{{book.isbn}}</td>
+             <td>{{book.title}}</td>
+             <td>
+               <ol ng-repeat="author in book.authorList">
+                  <li>{{author.firstName}} {{author.lastName}}</li>
+                </ol>
+             </td>
+             <td>
+                <ol ng-repeat="genre in book.genreList">
+                  <li>{{genre.genreName}}</li>
+                </ol>
+             </td>
+             <td>{{book.booksInStock}}</td>
+             <td>{{book.price}}</td>
+             <td>{{book.discount || 0}}%</td>
+             <td>{{book.publisher.name}}</td>
+             <td>
+               <a href="#/knjige/izmeni/{{book.isbn}}" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-edit"></span> Izmeni</a>
+            </td>
+        </tbody>
+     </table>
+  </div>

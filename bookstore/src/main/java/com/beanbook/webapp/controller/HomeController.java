@@ -26,10 +26,5 @@ public class HomeController {
 	{
 		return "kontakt";
 	}
-	
-	@RequestMapping(value = "kontakt")
-	public String kontakt()
-	{
-		return "kontakt";
-	}
+
 }

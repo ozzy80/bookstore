@@ -13,4 +13,6 @@ public interface CartDao {
 	Cart getActiveUserCart(User user);
 
 	List<Cart> getAllActiveCarts();
+	
+	List<Cart> getAllWaitedCarts();
 }

@@ -59,4 +59,15 @@ public class CartDaoImpl implements CartDao {
 		return cart;
 	}
 
+	@Override
+	public List<Cart> getAllWaitedCarts() {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from Cart where status = :status");
+		query.setParameter("status", Status.WAIT);
+		List<Cart> cart = query.list();
+		session.flush();
+
+		return cart;
+	}
+
 }

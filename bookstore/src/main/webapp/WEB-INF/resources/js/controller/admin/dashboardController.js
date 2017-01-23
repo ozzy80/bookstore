@@ -13,7 +13,23 @@ adminApp.controller('dashboardController', ['$scope', 'cartService', 'bookServic
       });
    };
 
+   $scope.storn = function(cart){
+      cart.status = 'DENIDED';
+      cartService.changeCartStatus(cart, function(){
+        alert("Karica " + cart.cartId + " je uspesno stornirana");
+        var index=$scope.cartData.indexOf(cart);
+        $scope.cartData.splice(index,1);  
+      });
+   };
 
+   $scope.approved = function(cart){
+      cart.status = 'APPROVED';
+      cartService.changeCartStatus(cart, function(){
+        alert("Karica " + cart.cartId + " je uspesno odobrena");
+         var index=$scope.cartData.indexOf(cart);
+        $scope.cartData.splice(index,1);
+      });
+   };
 
 
    $scope.sort = function(keyname){

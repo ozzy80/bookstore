@@ -11,7 +11,12 @@ adminApp.config(function ($routeProvider) {
     
     .when('/knjige', {
         templateUrl: '/bookstore/resources/routePages/bookList.html',
-        controller: 'secondController'
+        controller: 'bookController'
+    })
+
+    .when('/knjige/dodaj/', {
+        templateUrl: '/bookstore/resources/routePages/bookAdd.html',
+        controller: 'bookController'
     })
 
     .when('/autori', {
@@ -80,13 +85,6 @@ adminApp.config(function ($routeProvider) {
     })
 
 });
-
-
-adminApp.controller('secondController', ['$scope', '$log', function($scope, $log) {
-    
-    $scope.name = 'Second';
-    
-}]);
 
 
 adminApp.controller('MyCtrl', ['$scope', 'Upload', '$timeout', function ($scope, Upload, $timeout) {

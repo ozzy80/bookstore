@@ -36,4 +36,8 @@ public class CartManagerImpl implements CartManager {
 		return cartDao.getAllActiveCarts();
 	}
 
+	@Override
+	public List<Cart> getAllWaitedCarts() {
+		return cartDao.getAllWaitedCarts();
+	}
 }

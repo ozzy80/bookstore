@@ -10,6 +10,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -129,9 +130,22 @@ public class CartResources {
 	// ADMIN
 	@RequestMapping(value = "admin/cartnumber", method = RequestMethod.GET)
 	public @ResponseBody List<Cart> getAllActiveCarts() {
-		return cartManager.getAllActiveCarts();
+		return cartManager.getAllWaitedCarts();
 	}
 
+	@RequestMapping(value = "admin/cart/status", method = RequestMethod.POST)
+	@ResponseStatus(value = HttpStatus.NO_CONTENT)
+	public void changeCartStatus(@RequestBody Cart cart) {
+		Cart c = cartManager.getCartById(cart.getCartId());
+		if(cart.getStatus() == Status.DENIDED)
+			c.setStatus(Status.DENIDED);
+		else{
+			c.setStatus(Status.APPROVED);
+			c.setOrderDate(Date.valueOf(LocalDate.now()));
+		}
+		cartManager.update(c);;
+	}
+	
 	/*
 	 * @ExceptionHandler(IllegalArgumentException.class)
 	 * 

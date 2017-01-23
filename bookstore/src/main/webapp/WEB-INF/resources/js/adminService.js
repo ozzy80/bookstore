@@ -9,7 +9,8 @@ adminApp.service('authorService', ['$resource', function($resource){
 }]);
 
 adminApp.service('publisherService', ['$resource', function($resource){
-   return $resource("/bookstore/admin/publishers/:id", {id: "@id"});
+   return $resource("/bookstore/admin/publishers/:id", {id: "@id"}, {
+   });
 }]);
 
 adminApp.service('genreService', ['$resource', function($resource){
@@ -47,12 +48,16 @@ adminApp.service('cartService', ['$resource', function($resource){
          url: '/bookstore/admin/cartnumber',
          method: 'GET',
          isArray: true
+      },
+      changeCartStatus: {
+         url: '/bookstore/admin/cart/status',
+         method: 'POST',
       }
    });
 }]);
 
 adminApp.service('bookService', ['$resource', function($resource){
-   return $resource("/bookstore/admin/letters/:id", {id: "@id"}, {
+   return $resource("/bookstore/admin/books/:id", {id: "@id"}, {
       getBooksNumber: {
          url: '/bookstore/admin/books/booknumber',
          method: 'GET'

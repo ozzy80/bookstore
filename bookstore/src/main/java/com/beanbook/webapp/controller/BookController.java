@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.beanbook.model.Book;
 import com.beanbook.service.BookManager;
@@ -36,12 +39,9 @@ public class BookController {
 	@Autowired
 	private LetterManager letterManager;
 
-	@RequestMapping(value = "/books")
-	public String getAllBooks(Model model) {
-		List<Book> bookList = bookManager.getAllBooks();
-		model.addAttribute("books", bookList);
-
-		return "all_books";
+	@RequestMapping(value = "admin/books")
+	public @ResponseBody List<Book> getAllBooks() {
+		return bookManager.getAllBooks();
 	}
 
 	@RequestMapping(value = "/booklist")
@@ -69,6 +69,16 @@ public class BookController {
 		return "add_book";
 	}
 
+	@ResponseStatus(value = HttpStatus.OK)
+	@RequestMapping(value = "admin/book/upload")
+	public void uploadPicture(@RequestParam("file") MultipartFile imgFile, @RequestParam("imageName") String imageName,
+			@RequestParam("publisherName") String publisher) {
+
+		String realPathToUpload = "C:\\dev\\bookstore\\bookstore\\src\\main\\webapp\\WEB-INF\\resources\\images\\" + publisher;
+		file.uploadPicture(imgFile, imageName, realPathToUpload);
+	}
+	
+	
 	@RequestMapping(value = "/books/add", method = RequestMethod.POST)
 	public String addBook(@ModelAttribute("book") Book book, HttpServletRequest request) {
 		book.setPublisher(publisherManager.getPublisherByID(1));

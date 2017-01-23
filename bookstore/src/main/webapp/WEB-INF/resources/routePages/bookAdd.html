@@ -1,0 +1,152 @@
+ <div class="page-header">
+    <h1>Autor</h1>
+</div>
+
+<div>
+<div class="col-xs-12 col-sm-12">
+    <form name="userForm" ng-submit="addBook()">
+    <div class="form-group col-xs-12">
+        <div class="col-xs-2 text-left">
+          <label for="isbn">ISBN</label>
+        </div>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" placeholder="ISBN" id="isbn" ng-model="book.isbn" />
+        </div>
+    </div>
+    <div class="form-group col-xs-12">
+        <div class="col-xs-2 text-left">
+          <label for="title">Naziv</label>
+        </div>
+        <div class="col-xs-10">
+            <input type="text" class="form-control" placeholder="Nazi knjige" id="title" ng-model="book.title"/>
+        </div>
+    </div>
+    <div class="form-group col-xs-12">
+        <div class="col-xs-2 text-left">
+          <label for="opis">Opis</label>
+        </div>
+        <div class="col-xs-10">
+            <textarea class="form-control" rows="3" placeholder="Opis knjige" id="cpDesc" ng-model="book.description"></textarea>
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <div class="col-xs-6 text-left">
+          <label for="stock">Dostupno komada</label>
+        </div>
+        <div class="col-xs-6">
+            <input type="text" class="form-control" placeholder="Dostupno" id="stock" ng-model="book.booksInStock"/>
+        </div>
+    </div>
+    <div class="form-group col-sm-6"">
+        <div class="col-xs-4 text-left">
+          <label for="opis">Format</label>
+        </div>
+        <div class="col-xs-8">
+            <input type="text" class="form-control" placeholder="Dostupno" id="stock" ng-model="book.format" />
+        </div>
+    </div>
+     <div class="form-group col-sm-6">
+        <div class="col-xs-6 text-left">
+          <label for="opis">Broj strana</label>
+        </div>
+        <div class="col-xs-6">
+            <input type="text" class="form-control" placeholder="Dostupno" id="stock" ng-model="book.numberOfPages" />
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <div class="col-xs-4 text-left">
+          <label for="opis">Godina izdanja</label>
+        </div>
+        <div class="col-xs-8">
+            <input type="text" class="form-control" placeholder="Dostupno" id="stock" ng-model="book.publicationYear" />
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <div class="col-xs-6 text-left">
+          <label for="opis">Cena</label>
+        </div>
+        <div class="col-xs-6">
+            <input type="text" class="form-control" placeholder="Dostupno" id="stock" ng-model="book.price" />
+        </div>
+    </div>
+    <div class="form-group col-sm-6">
+        <div class="col-xs-4 text-left">
+          <label for="opis">Popust</label>
+        </div>
+        <div class="col-xs-8">
+            <input type="text" class="form-control" placeholder="Dostupno" id="stock" ng-model="book.discount" />
+        </div>
+    </div>
+    <div class="form-group col-xs-12">
+        <div class="col-xs-2 text-left">
+          <label for="opis">Izdavac</label>
+        </div>
+        <div class="col-xs-10">
+            <div class="input-group" id="adv-search">
+                <input type="text" class="form-control" placeholder="Izdavac" ng-model="publisher.name"
+                  ng-keyup="autocompletePublisher(publisher.name)"/>
+                  <ul class="list-group" ng-model="hidethis" ng-hide="hidethis">  
+                      <li class="list-group-item"  
+                      dir-paginate="publisher in publisherList|itemsPerPage: 10"
+                      ng-click="fillPublisherTextbox(publisher)">{{publisher.name}}</li>
+                      <dir-pagination-controls
+                         max-size="5"
+                         direction-links="true"
+                         boundary-links="true" >
+                      </dir-pagination-controls>  
+                </ul>  
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-xs-12">
+        <div class="col-xs-2 text-left">
+          <label for="opis">Pismo</label>
+        </div>
+        <div class="col-xs-10">
+            <input type="text" class="form-control" placeholder="Dostupno" id="stock" ng-model="book.letter" />
+        </div>
+    </div>
+    <div class="form-group col-xs-12">
+        <div class="col-xs-3 text-left">
+          <label for="opis">Potpisano primeraka</label>
+        </div>
+        <div class="col-xs-4">
+            <input type="text" class="form-control" placeholder="Dostupno" id="stock" ng-model="book.signedBook" />
+        </div>
+    </div>
+    <div class="form-group col-xs-12">
+        <div class="col-xs-2 text-left">
+          <label for="opis">Autori</label>
+        </div>
+        <div class="col-xs-10">
+            <input type="text" class="form-control" placeholder="Dostupno" id="stock" ng-model="book.signedBook" />
+        </div>
+    </div>
+    <div class="form-group col-xs-12">
+        <div class="col-xs-2 text-left">
+          <label for="opis">Zanrovi</label>
+        </div>
+        <div class="col-xs-10">
+            <input type="text" class="form-control" placeholder="Dostupno" id="stock" ng-model="book.signedBook" />
+        </div>
+    </div>
+
+
+    <div class="form-group">
+      <div class="col-xs-2 text-left">
+          <label for="opis">Slika: </label>
+      </div>
+      <div class="col-xs-10">
+         <input type="file" ngf-select ng-model="picFile" name="file"    
+                accept="image/*" ngf-max-size="2MB" 
+                ngf-model-invalid="errorFile">
+         <i ng-show="myForm.file.$error.maxSize">File too large 
+             {{errorFile.size / 1000000|number:1}}MB: max 2M</i>
+         <img ng-show="myForm.file.$valid" ngf-thumbnail="picFile" class="thumb"> <button ng-click="picFile = null" ng-show="picFile">Remove</button>
+         <span ng-show="picFile.result">Slika uspesno dodana</span>
+      </div>
+      <input type="submit" value="submit" class="btn btn-default">
+    </div>
+    </form>
+</div>
+</div>

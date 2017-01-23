@@ -6,9 +6,10 @@
 <head>
 	<title>BeanBook</title>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-	<link rel="shortcut icon" href="<c:url value="/css/images/favicon.ico" />" />
+	<link rel="shortcut icon" href="<c:url value="/resources/css/images/favicon.ico" />" />
 	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.min.css" />" type="text/css" />	
-	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap-select.min.css" />" type="text/css" />		
+	<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap-select.min.css" />" type="text/css" />
+	<link rel="stylesheet" href="<c:url value="/resources/css/font-awesome.min.css" />" type="text/css" />		
 	<link rel="stylesheet" href="<c:url value="/resources/css/style.css" />" type="text/css" media="all" />
 	<script type="text/javascript" src="<c:url value="/resources/js/lib/jquery-3.1.1.min.js" />"></script> 	
   	<script type="text/javascript" src="<c:url value="/resources/js/lib/angular.min.js" />"></script>
@@ -54,7 +55,7 @@
 						<a href="#" id="user"><c:out value="${pageContext.request.userPrincipal.name}" /></a> | 
 						<a href="<c:url value="/j_spring_security_logout"/>">Log out</a>
 					</p>
-					<p><a href="<c:url value="/customer/cart" />" class="cart" ><img src="/resources/css/images/cart-icon.png" alt="bla" /></a>Shopping Cart (0) <a href="#" class="sum">$0.00</a></p>
+					<p><a href="<c:url value="/customer/cart" />" class="cart" ><img src="/bookstore/resources/css/images/cart-icon.png" alt="" /></a>Shopping Cart (0) <a href="#" class="sum">$0.00</a></p>
 				</div>			
 			 </c:when>
 			 <c:otherwise>

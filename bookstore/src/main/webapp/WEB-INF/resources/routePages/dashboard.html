@@ -16,8 +16,8 @@
                   </div>
               </div>
           </div>
-          <a href="#">
-              <div class="panel-footer">
+          <a>
+              <div class="panel-footer" ng-click="checkStatus = 1">
                   <span class="pull-left">Pogledaj detaljnije</span>
                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
@@ -71,5 +71,8 @@
               </div>
           </a>
       </div>
-  </div>                 
+  </div>  
+
+  <div ng-if="checkStatus == 1" ng-include="'/bookstore/resources/routePages/cartAdminInfo.html'"></div>
+
 </div>

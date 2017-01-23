@@ -37,7 +37,6 @@ adminApp.controller('publisherController', ['$scope', 'publisherService', '$rout
       }
     };
 
-
     if($routeParams.id){
       $scope.editPublisherInit();
     } 

@@ -1,0 +1,67 @@
+
+   <div class="row" dir-paginate="cart in cartData |itemsPerPage: 5" style="margin: 0 15px 0 15px;">
+      <div class="col-xs-8">
+         <div class="panel panel-info">
+            <div class="panel-heading">
+               <div class="panel-title">
+                  <div class="row">
+                     <div class="col-xs-4">
+                        <h5><span class="glyphicon glyphicon-shopping-cart"></span> {{cart.cartId}} </h5>
+                     </div>
+                     <div class="col-xs-6">
+                        <h4>Ime i prezime: {{cart.user.user}} {{cart.user.lastName}}</h4>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-xs-4">
+                        <h5><i class="fa fa-truck"></i></h5>
+                     </div>
+                     <div class="col-xs-6">
+                        <h4>Adresa: {{cart.shippingAddress.streetName}} {{cart.shippingAddress.apartmentNumber}}, {{cart.shippingAddress.city}}, {{cart.shippingAddress.country}}, {{cart.shippingAddress.postalCode}}</h4>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="panel-body">
+               <div class="row">
+                  <div class="col-xs-4">
+                     <h4>Ime knjige</h4>
+                  </div>
+                  <div class="col-xs-4">
+                     <h4>Cena</h4>
+                  </div>
+                  <div class="col-xs-4">
+                     <h4>Kolicina</h4>
+                  </div>
+               </div>   
+               <div class="row" ng-repeat="item in cart.cartItems">
+                  <div class="col-xs-4">
+                     <a href="/bookstore/books/{{item.book.isbn}}">{{item.book.title}}</a>
+                  </div>
+                  <div class="col-xs-4">
+                     <span>{{item.price}}</span>
+                  </div>
+                  <div class="col-xs-4">
+                     <span>{{item.quantity}}</span>
+                  </div>
+               </div>
+            </div>
+            <hr>
+            <div class="panel-footer">
+               <div class="row text-center">
+                  <div class="col-xs-6">
+                     <h4 class="text-right btn btn-danger" ng-click="storn(cart)">Storniraj narudzbenicu <i class="fa fa-times"></i></h4>
+                  </div>
+                  <div class="col-xs-6">
+                     <h4 class="text-left btn btn-success" ng-click="approved(cart)">Odobri narudzbenicu <i class="fa fa-paper-plane-o"></i></h4>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+<dir-pagination-controls
+       max-size="5"
+       direction-links="true"
+       boundary-links="true" >
+    </dir-pagination-controls>
