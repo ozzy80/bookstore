@@ -1,5 +1,7 @@
 package com.beanbook.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,7 +10,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "authorities")
-public class Authority {
+public class Authority implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7075135461029248170L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

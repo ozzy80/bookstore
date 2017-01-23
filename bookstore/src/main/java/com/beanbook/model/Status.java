@@ -1,5 +1,5 @@
 package com.beanbook.model;
 
 public enum Status {
-    STARTED, WAIT, APPROVED, DENIDED
+	STARTED, WAIT, APPROVED, DENIDED
 }

@@ -11,9 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.beanbook.dao.UserDao;
-import com.beanbook.model.Authority;
-import com.beanbook.model.Cart;
-import com.beanbook.model.Genre;
 import com.beanbook.model.User;
 
 @Repository

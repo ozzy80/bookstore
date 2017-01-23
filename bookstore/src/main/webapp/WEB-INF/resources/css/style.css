@@ -108,8 +108,13 @@ textarea { overflow: auto; }
   z-index: 9999; position: absolute; margin-top: 33px;
 }
 
+.bookOnDiscount .oldPrice{
+	text-decoration: line-through;
+}
 
-
+.bookOnDiscount .discountPrice{
+	font-weight: bold;
+}
 
 
 #top-ten-book-list{
@@ -792,4 +797,76 @@ textarea { overflow: auto; }
 	margin-top:10px;
 	margin-bottom:10px;
 	border:2px solid purple;
+}
+
+.ssl-container {float:right;}
+.ssl {display:block;float:right;font-size:24px;background: #EFEFEF;padding: 14px;border-radius: 35px;}
+.ssl-text {display:block;float:right;padding:10px 10px 0 10px;color:#555;text-align:center;}
+.step {background:#eee;font-size:1em;color:#ccc;padding:15px;font-size:1.25em;}
+.step.active {color:#3C763D;}
+.step .caret {position:absolute;margin:0;color:#eee;opacity:1.0;}
+.step .caret.right {right:1px;top:0px;border-top:27px solid transparent;border-bottom:28px solid transparent;border-left:30px solid;}
+.step .caret.bottom {bottom:-15px;left:35%;border-top:15px solid;border-right:50px solid transparent;border-left:50px solid transparent;}
+@media(max-width:991px) {
+  .step {text-align:center;margin-top:20px;height:80px;}
+  .step .caret.right {top:20px;border-top:40px solid transparent;border-bottom:40px solid transparent;}
+}
+@media(max-width:767px) {
+  .step {height:auto;}
+  .ssl-container {float:none;margin:0 auto;width:220px;}
+}
+@media(min-width:768px) {
+  .step {margin-right:20px;}
+}
+.cart-navigation{
+	margin-bottom: 20px;
+}
+.icon-flipped {
+transform: scaleX(-1);
+-moz-transform: scaleX(-1);
+-webkit-transform: scaleX(-1);
+-ms-transform: scaleX(-1);
+}
+.input-xlarge{
+	min-width: 300px;
+}
+.adress-spacing{
+	margin-bottom: 20px;
+}
+.center-text{
+	style="text-align: center;"
+}
+/*Bootstrap button outline override*/
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    transition: all .5s;
+}
+
+.btn-primary.btn-outline {
+    color: #428bca;
+}
+
+.btn-success.btn-outline {
+    color: #5cb85c;
+}
+
+.btn-info.btn-outline {
+    color: #5bc0de;
+}
+
+.btn-warning.btn-outline {
+    color: #f0ad4e;
+}
+
+.btn-danger.btn-outline {
+    color: #d9534f;
+}
+
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover {
+    color: #fff;
 }

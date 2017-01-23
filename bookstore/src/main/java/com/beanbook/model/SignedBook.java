@@ -3,11 +3,19 @@ package com.beanbook.model;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
+
+import java.io.Serializable;
+
 import javax.persistence.Column;
 
 @Entity
 @Table(name = "potpisane_knjige")
-public class SignedBook {
+public class SignedBook implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3527172443764838941L;
 
 	@Id
 	@Column(name = "ISBN")

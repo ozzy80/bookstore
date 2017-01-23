@@ -53,8 +53,7 @@ public class BookManagerImpl implements BookManager {
 	}
 
 	@Override
-	public List<Book> getBooksByAuthor(Integer id)
-	{
+	public List<Book> getBooksByAuthor(Integer id) {
 		return bookDao.getBooksByAuthor(id);
 	}
 

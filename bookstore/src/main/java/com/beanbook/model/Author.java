@@ -1,5 +1,6 @@
 package com.beanbook.model;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -16,14 +17,17 @@ import javax.persistence.Transient;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name = "autor")
-public class Author {
+public class Author implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7550966489901776354L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -45,7 +49,6 @@ public class Author {
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "knjiga_ima_autor", joinColumns = {
 			@JoinColumn(name = "ID_autora") }, inverseJoinColumns = @JoinColumn(name = "ISBN"))
-	@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="isbn", scope = Author.class)
 	private Set<Book> bookList;
 
 	public Set<Book> getBookList() {

@@ -45,17 +45,15 @@ public class BookController {
 	}
 
 	@RequestMapping(value = "/booklist")
-	public String getBooksGenre(){
+	public String getBooksGenre() {
 		return "books";
 	}
-	
-	
-	
+
 	@RequestMapping(value = "/books/{isbn}")
 	public String getBookByISBN(Model model, @PathVariable("isbn") Long isbn) {
 		Book book = bookManager.getBookByISBN(isbn);
 		model.addAttribute("book", book);
-		if(book.getDiscount() > 0) {
+		if(book.getDiscount() != null && book.getDiscount() > 0) {
 			Double number = book.getPrice() - book.getPrice() / 100 * book.getDiscount();
 		    model.addAttribute("izracunataVrednostSaPopustom", number);
 				
@@ -132,33 +130,33 @@ public class BookController {
 			@RequestParam(value = "sort", required = false, defaultValue = "desc") String sort,
 			@RequestParam(value = "start", required = false, defaultValue = "0") int start,
 			@RequestParam(value = "limit", required = false, defaultValue = "14") int limit) {
-		
+
 		return bookManager.getBooks(sort, start, limit);
 	}
 
 	@RequestMapping(value = "/books/autocomplete", method = RequestMethod.GET)
-	public @ResponseBody List<Book> autocomplete(@RequestParam(value = "q") String query){
-		
+	public @ResponseBody List<Book> autocomplete(@RequestParam(value = "q") String query) {
+
 		return bookManager.autocomplete(query);
 	}
-	
+
 	@RequestMapping(value = "/books/genre", method = RequestMethod.GET)
 	public @ResponseBody List<Book> getBooksByGenre(@RequestParam(value = "genre") String genre,
 			@RequestParam(value = "start", required = false, defaultValue = "0") int start,
 			@RequestParam(value = "limit", required = false, defaultValue = "14") int limit,
-			@RequestParam(value = "sortBy", required = false, defaultValue = "14") String sortBy){
-		
-		if(start<0 || limit<0){
+			@RequestParam(value = "sortBy", required = false, defaultValue = "14") String sortBy) {
+
+		if (start < 0 || limit < 0) {
 			return null;
 		}
-		if(sortBy.isEmpty()){
+		if (sortBy.isEmpty()) {
 			sortBy = "title desc";
 		}
 		return bookManager.getBooksByGenre(genre, start, limit, sortBy);
 	}
-	
+
 	@RequestMapping(value = "admin/books/booknumber", method = RequestMethod.GET)
-	public @ResponseBody Map<String, Long> getAviableBookNumber(){
+	public @ResponseBody Map<String, Long> getAviableBookNumber() {
 		Map<String, Long> number = new HashMap<>();
 		number.put("number", bookManager.getAviableBookNumber());
 		return number;

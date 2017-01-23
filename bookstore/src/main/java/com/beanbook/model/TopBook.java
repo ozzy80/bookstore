@@ -1,5 +1,6 @@
 package com.beanbook.model;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.Column;
@@ -15,7 +16,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "top_knjige")
-public class TopBook {
+public class TopBook implements Serializable{
+
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3885446601660152408L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

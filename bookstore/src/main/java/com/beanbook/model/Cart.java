@@ -19,7 +19,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name = "narudzbenica")
@@ -37,26 +38,25 @@ public class Cart implements Serializable {
 
 	@Column(name = "datum_pravljenja", nullable = false)
 	private Date orderDate;
-	
+
 	@Column(name = "datum_isporuke")
 	private Date shippingDate;
-	
+
 	@Column(name = "status", nullable = false)
 	@Enumerated(EnumType.STRING)
 	private Status status;
-	
+
 	@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<CartItem> cartItems;
 
 	@ManyToOne
 	@JoinColumn(name = "korisnikId")
-	@JsonIgnore
 	private User user;
 
 	@OneToOne
 	@JoinColumn(name = "adresa_karticeId")
 	private BillingAddress billingAddress;
-	
+
 	@OneToOne
 	@JoinColumn(name = "adresa_isporukeId")
 	private ShippingAddress shippingAddress;
@@ -124,6 +124,5 @@ public class Cart implements Serializable {
 	public void setShippingAddress(ShippingAddress shippingAddress) {
 		this.shippingAddress = shippingAddress;
 	}
-	
 
 }

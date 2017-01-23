@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.beanbook.dao.CartItemDao;
+import com.beanbook.model.Book;
 import com.beanbook.model.Cart;
 import com.beanbook.model.CartItem;
 
@@ -46,12 +47,12 @@ public class CartItemDaoImpl implements CartItemDao {
 	}
 
 	@Override
-	public CartItem getCartItemByISBN(Long isbn) {
+	public CartItem getCartItemById(Integer id) {
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("from CartItem where book.isbn = :isbn");
-		query.setLong("isbn", isbn);
-
-		return (CartItem) query.uniqueResult();
+		CartItem cartItem = (CartItem) session.get(CartItem.class, id);
+		session.flush();
+		session.flush();
+		return cartItem;
 	}
 
 }

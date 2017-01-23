@@ -11,10 +11,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class FileUploadController {
-	
+
 	private Path bookPath;
-	
-	public void uploadPicture(MultipartFile bookImage, String imageName, String imagePath){
+
+	public void uploadPicture(MultipartFile bookImage, String imageName, String imagePath) {
 		bookPath = Paths.get(imagePath + "\\" + imageName);
 
 		if (!new File(imagePath).exists()) {
@@ -29,10 +29,10 @@ public class FileUploadController {
 			}
 		}
 	}
-	
-	public void deletePicture(String imageName, String imagePath){
+
+	public void deletePicture(String imageName, String imagePath) {
 		bookPath = Paths.get(imagePath + "\\" + imageName);
-		
+
 		if (Files.exists(bookPath)) {
 			try {
 				Files.delete(bookPath);
@@ -40,7 +40,7 @@ public class FileUploadController {
 				e.printStackTrace();
 			}
 		}
-		
+
 	}
-	
+
 }

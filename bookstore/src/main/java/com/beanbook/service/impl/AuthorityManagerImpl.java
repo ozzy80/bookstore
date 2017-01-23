@@ -12,7 +12,7 @@ public class AuthorityManagerImpl implements AuthorityManager {
 
 	@Autowired
 	private AuthorityDao authorityDao;
-	
+
 	@Override
 	public void updateUserRole(Authority authority) {
 		authorityDao.updateUserRole(authority);

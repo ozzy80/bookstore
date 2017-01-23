@@ -49,20 +49,18 @@
 				<div class="knjigaDeoSaKorpom" >
 					
 					
-					<c:if test="${book.discount > 0 }">
-						
+					<c:if test="${book.discount != null && book.discount > 0 }">
 						<span class="knjigaCena">Cena: ${book.price} din.</span><br/><br/>
 						<span class="knjigaCena2">${izracunataVrednostSaPopustom} din.</span><br/><br/>
-						
 					</c:if>
 					
-					<c:if test="${book.discount == 0}">
+					<c:if test="${book.discount == null || book.discount == 0}">
 						<span class="knjigaCena3">Cena: ${book.price} din.</span><br/><br/>
 					</c:if>
 					
 					
 					<a class="btn btn-warning" ng-click="addToCart(${book.isbn})">Dodaj u korpu</a>
-					<input class="brojKomadaKnjige" type="number" name="quantity" value="1" min="1" max="9">komada
+					<input class="brojKomadaKnjige" type="number" name="quantity" value="1" min="1" max="9" ng-model="number">komada
 					<hr/>
 					<span class="ostvarivanjePopusta" >
 						Kupovinom tri ili više artikala ostvarujete i količinski popust od 10%. Za porudžbine iz Srbije čija vrednost je veća od 2000 dinara dostava je besplatna. Za knjige na akciji ne važe dodatni popusti.

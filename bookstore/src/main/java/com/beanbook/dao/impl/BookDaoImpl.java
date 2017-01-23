@@ -112,8 +112,7 @@ public class BookDaoImpl implements BookDao {
 	}
 
 	@Override
-	public List<Book> getBooksByAuthor(Integer id)
-	{
+	public List<Book> getBooksByAuthor(Integer id) {
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("select a.bookList from Author a where a.authorId = :id");
 		query.setParameter("id", id);
@@ -129,5 +128,5 @@ public class BookDaoImpl implements BookDao {
 		criteria.setProjection(Projections.rowCount());
 		return (Long) criteria.uniqueResult();
 	}
-	
+
 }

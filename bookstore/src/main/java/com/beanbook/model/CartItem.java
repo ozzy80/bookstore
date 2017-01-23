@@ -11,7 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @Entity
 @Table(name = "narudzbina")
@@ -29,10 +31,10 @@ public class CartItem implements Serializable {
 
 	@Column(name = "kolicina", nullable = false)
 	private Integer quantity;
-	
+
 	@Column(name = "Cena", nullable = false)
 	private Double price;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "ISBN")
 	private Book book;

@@ -30,7 +30,7 @@ bookApp.directive('book', function(){
       templateUrl: '/bookstore/resources/directives/book.html',
       replace: true,
       scope: {
-         bookObject: "="
+         bookObject: '='
       },
       link: function($scope, iElm, iAttrs, controller) {
          iElm.bind('error', function() {

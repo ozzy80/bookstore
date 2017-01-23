@@ -1,0 +1,34 @@
+<div>
+               <a class="btn btn-danger" ng-click="clearCart()">
+                  <span class="glyphicon glyphicon-remove-sign"></span> Ukloni sve
+               </a>
+            <table class="table table-hover">
+               <tr>
+                  <th>Knjiga</th>
+                  <th>Cena</th>
+                  <th>Kolicina</th>
+                  <th>Ukupna cena</th>
+                  <th>Action</th>
+               </tr>
+               <tr ng-repeat="item in cart.cartItems">
+                  <td>
+                     <a href="/bookstore/books/{{item.book.isbn}}">{{item.book.title}}</a>
+                  </td>
+                  <td>{{item.price}}</td>
+                  <td>{{item.quantity}}</td>
+                  <td>{{item.price*item.quantity}}</td>
+                  <td>
+                     <a class="label label-danger" ng-click="removeFromCart(cart.cartId, item.cartItemId)"><span class="glyphicon glyphicon-remove"> Ukloni</span></a>
+                  </td>
+               </tr>
+               <tr>
+                  <th></th>
+                  <th></th>
+                  <th>Ukupno</th>
+                  <th>{{calGrandTotal()}}</th>
+                  <th></th>
+               </tr>
+            </table>
+            <a href="/bookstore/" class="btn btn-default"><span class="glyphicon glyphicon-shopping-cart icon-flipped"></span> Nastavi kupovinu</a>
+            <a><span class="btn btn-warning" ng-click="changeStatus(2)">Zakljuci kupovinu <span class="glyphicon glyphicon-play"></span></a>
+</div>

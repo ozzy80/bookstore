@@ -20,8 +20,8 @@ public class CartItemManagerImpl implements CartItemManager {
 	}
 
 	@Override
-	public void removeCartItem(CartItem cartItem) {
-		cartItemDao.removeCartItem(cartItem);
+	public void removeCartItem(Integer id) {
+		cartItemDao.removeCartItem(cartItemDao.getCartItemById(id));
 	}
 
 	@Override
@@ -30,8 +30,8 @@ public class CartItemManagerImpl implements CartItemManager {
 	}
 
 	@Override
-	public CartItem getCartItemByISBN(Long isbn) {
-		return cartItemDao.getCartItemByISBN(isbn);
+	public CartItem getCartItemById(Integer id) {
+		return cartItemDao.getCartItemById(id);
 	}
 
 }

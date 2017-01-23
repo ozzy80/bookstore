@@ -51,8 +51,3 @@ public class LetterDaoImpl implements LetterDao {
 
 	}
 }
-
-
-
-
-

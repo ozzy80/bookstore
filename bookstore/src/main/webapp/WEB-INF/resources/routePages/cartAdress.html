@@ -1,0 +1,61 @@
+<div>
+          <form class="form-horizontal">
+               <fieldset>
+                   <!-- Address form -->   
+                   <h3 class="adress-spacing">Adresa</h3>
+                   <a class="adress-spacing btn btn-info" ng-click="cleanShippingAdress()">Koristi adresu sa naloga</a>
+
+                   <div class="form-group row">
+                    <label for="first-name" class="col-sm-2 col-form-label">Ime</label>
+                    <div class="col-sm-6">
+                      <input class="form-control" type="text" id="first-name" ng-model="cart.user.firstName">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="last-name" class="col-sm-2 col-form-label">Prezime</label>
+                    <div class="col-sm-6">
+                      <input class="form-control" type="search" ng-model="cart.user.lastName" id="last-name">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="street-name" class="col-sm-2 col-form-label">Ime ulice</label>
+                    <div class="col-sm-6">
+                      <input class="form-control" type="text" id="street-name" ng-model="cart.shippingAddress.streetName">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="apartment-number" class="col-sm-2 col-form-label">Broj kuce</label>
+                    <div class="col-sm-2">
+                      <input class="form-control" type="search" id="apartment-number" ng-model="cart.shippingAddress.apartmentNumber">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="city" class="col-sm-2 col-form-label">Grad</label>
+                    <div class="col-sm-6">
+                      <input class="form-control" type="text" id="city" ng-model="cart.shippingAddress.city">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="state" class="col-sm-2 col-form-label">Region</label>
+                    <div class="col-sm-6">
+                      <input class="form-control" type="search" id="state" ng-model="cart.shippingAddress.state">
+                    </div>
+                  </div>               
+                  <div class="form-group row">
+                    <label for="postal-code" class="col-sm-2 col-form-label">Postanski broj</label>
+                    <div class="col-sm-2">
+                      <input class="form-control" type="text" id="postal-code" ng-model="cart.shippingAddress.postalCode">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="country" class="col-sm-2 col-form-label">Drzava</label>
+                    <div class="col-sm-6">
+                      <input class="form-control" type="search" id="country" ng-model="cart.shippingAddress.country">
+                    </div>
+                  </div>  
+               </fieldset>
+           </form>
+
+            <a class="btn btn-default" ng-click="changeStatus(1)"><span class="glyphicon glyphicon-chevron-left"></span> Vrati se nazad</a>
+            <a><span class="btn btn-warning" ng-click="changeStatus(3)">Nastavi dalje <span class="glyphicon glyphicon-chevron-right"></span></a>
+</div>

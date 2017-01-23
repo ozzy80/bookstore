@@ -9,8 +9,8 @@ public interface CartDao {
 	Cart getCartById(Integer cartId);
 
 	void update(Cart cart);
-	
+
 	Cart getActiveUserCart(User user);
-	
+
 	List<Cart> getAllActiveCarts();
 }

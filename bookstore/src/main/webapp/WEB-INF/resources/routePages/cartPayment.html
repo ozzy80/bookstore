@@ -1,0 +1,42 @@
+<div>
+      <form class="form-horizontal">
+        <fieldset>
+
+          <h3 class="adress-spacing">Placanje</h3>
+          <div class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label">Ime vlasnika kartice</label>
+            <div class="col-sm-6">
+              <input class="form-control" type="text" id="name" autocomplete="off">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="cart-number" class="col-sm-2 col-form-label">Broj kartice</label>
+            <div class="col-sm-2">
+              <input class="form-control center-text" type="text" id="cart-number" autocomplete="off" maxlength="4" pattern="\d{4}">
+            </div>
+            <div class="col-sm-2">
+              <input class="form-control center-text" type="text" id="cart-number" autocomplete="off" maxlength="4" pattern="\d{4}">
+            </div>
+            <div class="col-sm-2">
+              <input class="form-control center-text" type="text" id="cart-number" autocomplete="off" maxlength="4" pattern="\d{4}">
+            </div>
+            <div class="col-sm-2">
+              <input class="form-control center-text" type="text" id="cart-number" autocomplete="off" maxlength="4" pattern="\d{4}">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="cardExpiry" class="col-sm-2 col-form-label"><span class="hidden-xs">Datum isteka kartice</span><span class="visible-xs-inline">EXP</span></label>
+            <div class="col-sm-2">
+              <input type="tel" class="form-control" name="cardExpiry" placeholder="MM / YY" autocomplete="cc-exp" required />
+            </div>
+            <label for="cv-code" class="col-sm-2 col-form-label"><span class="hidden-xs">CVV kod kartice</label>
+            <div class="col-sm-2">
+              <input type="tel" class="form-control" name="cardCVC" placeholder="CVC" autocomplete="cc-csc" required />
+            </div>
+          </div>         
+        </fieldset>
+      </form>
+
+      <a class="btn btn-default" ng-click="changeStatus(2)"><span class="glyphicon glyphicon-chevron-left"></span> Vrati se nazad</a>
+      <a><span class="btn btn-warning" ng-click="changeStatus(4)">Nastavi dalje <span class="glyphicon glyphicon-chevron-right"></span></a>
+</div>

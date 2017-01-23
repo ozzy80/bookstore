@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.beanbook.model.Genre;
-import com.beanbook.model.Publisher;
 import com.beanbook.service.GenreManager;
 
 @Controller
@@ -32,13 +30,13 @@ public class GenreController {
 		return genreManager.getAllGenres();
 	}
 
-	@RequestMapping(value = "/admin/genres", method=RequestMethod.POST)
+	@RequestMapping(value = "/admin/genres", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	public void addGenre(@RequestBody Genre genre) {
 		genreManager.saveGenre(genre);
 	}
 
-	@RequestMapping(value = "/admin/genres/{id}", method=RequestMethod.GET)
+	@RequestMapping(value = "/admin/genres/{id}", method = RequestMethod.GET)
 	public @ResponseBody Genre getGenre(@PathVariable("id") Integer id) {
 		return genreManager.getGenreByID(id);
 	}
@@ -48,7 +46,7 @@ public class GenreController {
 	public void deleteGenre(@PathVariable("id") Integer id) {
 		genreManager.deleteGenre(id);
 	}
-	
+
 	@RequestMapping(value = "genres/booknumber", method = RequestMethod.GET)
 	public @ResponseBody Map<String, Long> getBooksByGenreNumber(@RequestParam(value = "genre") String genre) {
 		Map<String, Long> m = new HashMap<>();

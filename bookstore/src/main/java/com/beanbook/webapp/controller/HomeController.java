@@ -12,15 +12,19 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/pomoc")
-	public String pomoc()
-	{
+	public String pomoc() {
 		return "pomoc";
 	}
-	
-	@RequestMapping(value ="/o_nama")
-	public String onama()
-	{
+
+	@RequestMapping(value = "/o_nama")
+	public String onama() {
 		return "o_nama";
+	}
+	
+	@RequestMapping(value = "kontakt")
+	public String kontakt()
+	{
+		return "kontakt";
 	}
 	
 	@RequestMapping(value = "kontakt")

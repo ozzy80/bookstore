@@ -8,8 +8,10 @@
             <span>{{author.firstName}} {{author.lastName}}</span>
             <span ng-show="!$last">, </span>
          </span>
-         <span ng-class="bookObject.discount == null ? '' : 'underline-text'">Cena: {{bookObject.price}}</span><br/>
-         <span ng-if="bookObject.discount != null">150</span>
+         <span ng-class="{'bookOnDiscount': bookObject.discount != null}">
+             <span class="oldPrice">Cena: {{bookObject.price}}</span><br/>
+             <span class="discountPrice" ng-if="bookObject.discount != null">{{(bookObject.price - (bookObject.price/100*bookObject.discount)).toFixed(2)}}</span>     
+         </span>
       </span>
    </a>
 </div>

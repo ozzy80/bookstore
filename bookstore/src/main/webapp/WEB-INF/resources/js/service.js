@@ -61,11 +61,19 @@ bookApp.factory('pagerService', function(){
 
 
 bookApp.service('cartService', ['$resource', function($resource){
-	return $resource('/bookstore/rest/cart/:id', {id: "@id"}, {
+	return $resource('/bookstore/customer/:id', {id: "@id"}, {
       removeBook: {
-         url: '/bookstore/rest/cart/remove/:isbn',
+         url: '/bookstore/customer/remove/:cartId/:cartItemid',
          method: 'DELETE',
          isArray:false
+      },
+      saveCart: {
+         url: '/bookstore/customer/waitstatus',
+         method: 'POST'
+      },
+      saveBook: {
+         url: '/bookstore/customer/',
+         method: 'GET'
       }
    });
 }]);
@@ -113,5 +121,4 @@ bookApp.service('authorService', ['$resource', function($resource){
 bookApp.service('registerService', ['$resource', function($resource){
    return $resource("/bookstore/register/");
 }]);
-
 

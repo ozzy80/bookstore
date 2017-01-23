@@ -32,8 +32,8 @@ public class TopBookDaoImpl implements TopBookDao {
 	@Override
 	public List<TopBook> getAllActiveTopBooks() {
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("select b.book "
-				+ "from TopBook b where b.endDate is null order by b.startDate desc");
+		Query query = session
+				.createQuery("select b.book " + "from TopBook b where b.endDate is null order by b.startDate desc");
 		query.setMaxResults(10);
 		List<TopBook> topBookList = query.list();
 		session.flush();

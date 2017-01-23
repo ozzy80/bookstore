@@ -1,5 +1,6 @@
 package com.beanbook.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -16,7 +17,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3951432171067604125L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,26 +39,26 @@ public class User {
 
 	@Column(name = "ime", length = 45, nullable = false)
 	private String firstName;
-	
+
 	@Column(name = "prezime", length = 45, nullable = false)
 	private String lastName;
-	
+
 	@Column(name = "email", length = 255, nullable = false)
 	private String email;
-	
+
 	@Column(name = "telefon", length = 45)
 	private String phone;
-	
+
 	@OneToOne
-	@JoinColumn(name="Adresa_karticeId")
+	@JoinColumn(name = "Adresa_karticeId")
 	private BillingAddress billingAddress;
-	
+
 	@OneToOne
-	@JoinColumn(name="Adresa_isporukeId")
+	@JoinColumn(name = "Adresa_isporukeId")
 	private ShippingAddress shippingAddress;
-	
+
 	@OneToMany
-	@JoinColumn(name="cartId")
+	@JoinColumn(name = "cartId")
 	@JsonIgnore
 	private List<Cart> cartList;
 

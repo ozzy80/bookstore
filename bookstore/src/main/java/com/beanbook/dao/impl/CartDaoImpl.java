@@ -32,8 +32,9 @@ public class CartDaoImpl implements CartDao {
 
 	@Override
 	public void update(Cart cart) {
-		// TODO Auto-generated method stub
-
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(cart);
+		session.flush();
 	}
 
 	@Override
@@ -54,7 +55,7 @@ public class CartDaoImpl implements CartDao {
 		query.setParameter("status", Status.STARTED);
 		List<Cart> cart = query.list();
 		session.flush();
-		
+
 		return cart;
 	}
 

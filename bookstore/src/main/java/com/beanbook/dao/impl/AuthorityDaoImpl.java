@@ -8,23 +8,21 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.beanbook.dao.AuthorDao;
 import com.beanbook.dao.AuthorityDao;
 import com.beanbook.model.Authority;
-import com.beanbook.model.Book;
 
 @Repository
 @Transactional
-public class AuthorityDaoImpl implements AuthorityDao{
+public class AuthorityDaoImpl implements AuthorityDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
 	@Override
 	public void updateUserRole(Authority authority) {
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(authority);
-		session.flush();		
+		session.flush();
 	}
 
 	@Override

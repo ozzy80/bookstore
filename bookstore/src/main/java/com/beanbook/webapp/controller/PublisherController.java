@@ -5,8 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,25 +21,25 @@ public class PublisherController {
 	@Autowired
 	private PublisherManager publisherManager;
 
-	@RequestMapping(value = "/admin/publishers", method=RequestMethod.GET)
+	@RequestMapping(value = "/admin/publishers", method = RequestMethod.GET)
 	public @ResponseBody List<Publisher> getAllPublishers() {
 		List<Publisher> publisherList = publisherManager.getAllPublishers();
 		return publisherList;
 	}
 
-	@RequestMapping(value = "/admin/publishers", method=RequestMethod.POST)
+	@RequestMapping(value = "/admin/publishers", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	public void addPublisher(@RequestBody Publisher publisher) {
 		publisherManager.savePublisher(publisher);
 	}
-	
-	@RequestMapping(value = "/admin/publishers/{id}", method=RequestMethod.POST)
+
+	@RequestMapping(value = "/admin/publishers/{id}", method = RequestMethod.POST)
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	public void updatePublisher(@RequestBody Publisher publisher) {
 		publisherManager.savePublisher(publisher);
 	}
-	
-	@RequestMapping(value = "/admin/publishers/{id}", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/admin/publishers/{id}", method = RequestMethod.GET)
 	public @ResponseBody Publisher getPublisher(@PathVariable("id") Integer id) {
 		return publisherManager.getPublisherByID(id);
 	}

@@ -1,5 +1,7 @@
 package com.beanbook.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +11,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "zanr")
-public class Genre {
+public class Genre implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5104794987207900986L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

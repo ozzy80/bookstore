@@ -7,9 +7,9 @@ public interface CartItemManager {
 
 	void addCartItem(CartItem cartItem);
 
-	void removeCartItem(CartItem cartItem);
+	void removeCartItem(Integer id);
 
 	void removeAllCartItem(Cart cart);
-
-	CartItem getCartItemByISBN(Long isbn);
+	
+	CartItem getCartItemById(Integer id);
 }

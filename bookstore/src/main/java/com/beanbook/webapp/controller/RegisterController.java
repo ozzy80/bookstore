@@ -21,7 +21,7 @@ public class RegisterController {
 
 	@Autowired
 	private UserManager userManager;
-	
+
 	@Autowired
 	private AuthorityManager authorityManager;
 
@@ -44,7 +44,7 @@ public class RegisterController {
 
 		user.setEnabled(true);
 		userManager.addUser(user);
-		
+
 		Authority authority = new Authority();
 		authority.setAuthority("ROLE_USER");
 		authority.setUsername(user.getUsername());

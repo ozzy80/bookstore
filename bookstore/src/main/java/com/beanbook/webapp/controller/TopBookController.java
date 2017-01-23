@@ -16,10 +16,10 @@ public class TopBookController {
 
 	@Autowired
 	private TopBookManager topBookManager;
-	
+
 	@RequestMapping(value = "/topbooks", method = RequestMethod.GET)
 	private @ResponseBody List<TopBook> getActiveTopBooks() {
 		return topBookManager.getAllActiveTopBooks();
 	}
-	
+
 }

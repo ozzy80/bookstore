@@ -1,6 +1,8 @@
 bookApp.controller('mainController', ['$scope','$log', 'cartService', function($scope, $log, cartService){
 	
 	var Cart = cartService;
+	$scope.checkStatus = 1;
+	$scope.number = 1;
 
 	$scope.refreshCart = function() {
 		var data = Cart.get({id : $scope.cartId}, function(){
@@ -20,15 +22,15 @@ bookApp.controller('mainController', ['$scope','$log', 'cartService', function($
 	};
 
 	$scope.addToCart = function(bookId){
-		Cart.save({id : bookId}, function(){
-			alert("Book successfully added to the cart");
+		Cart.saveBook({isbn : bookId, num: $scope.number}, function(){
+			alert($scope.number + " knjiga je uspesno dodana na karticu");
 		});
 	};
 
-	$scope.removeFromCart = function(bookId){
-		Cart.removeBook({isbn : bookId}, function(){
+	$scope.removeFromCart = function(cartId, cartItemId){
+		Cart.removeBook({cartId: cartId, cartItemid : cartItemId}, function(){
 			$scope.refreshCart();
-			alert("Book successfully remove");
+			alert("Knjiga je uspesno sklonjena");
 		});
 	};
 	
@@ -36,10 +38,32 @@ bookApp.controller('mainController', ['$scope','$log', 'cartService', function($
 		var grandTotal = 0;
 		if($scope.cart){
 			for(var i=0; i<$scope.cart.cartItems.length; i++){
-				grandTotal += $scope.cart.cartItems[i].totalPrice;
+				grandTotal += $scope.cart.cartItems[i].price * $scope.cart.cartItems[i].quantity;
 			}
-			return grandTotal;
+			return grandTotal.toFixed(2);
 		}
+	};
+
+	$scope.changeStatus = function(value){
+		if ($scope.cart.cartItems.length < 1) {
+			alert('Nemozete da idete dalje sa praznom korpom');
+			window.location.href = "/bookstore";
+		}
+		$scope.checkStatus = value;
+		console.log($scope.checkStatus);
+	};
+
+	$scope.cleanShippingAdress = function(){
+		$scope.cart.shippingAddress = null;
+		$scope.cart.user.firstName = null;
+		$scope.cart.user.lastName = null;
+	};
+
+	$scope.saveCart = function(){
+		Cart.saveCart($scope.cart, function(){
+			alert("Kartica je uspesno snimljena");
+			window.location.href = "/bookstore";
+		});
 	};
 
 }]);

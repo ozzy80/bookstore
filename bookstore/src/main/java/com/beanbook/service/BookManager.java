@@ -13,14 +13,14 @@ public interface BookManager {
 	Book getBookByISBN(Long ISBN);
 
 	void deleteBook(Long ISBN);
-	
-	List<Book> getBooks(String sort,int start,int limit);
-	
+
+	List<Book> getBooks(String sort, int start, int limit);
+
 	List<Book> autocomplete(String query);
-	
+
 	List<Book> getBooksByGenre(String genre, int start, int limit, String sortBy);
-	
+
 	List<Book> getBooksByAuthor(Integer id);
-	
+
 	Long getAviableBookNumber();
 }
